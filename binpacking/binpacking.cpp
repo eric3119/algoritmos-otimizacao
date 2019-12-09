@@ -2,7 +2,7 @@
  * api-usage.cpp
  *
  * Driver class with a simple example of how to instantiate and use the BRKGA API.
- * See SampleDecoder.h for details on the decoder's implementation.
+ * See BPDecoder.h for details on the decoder's implementation.
  *
  * Created on : Nov 17, 2011 by rtoso
  * Authors    : Rodrigo Franco Toso <rtoso@cs.rutgers.edu>
@@ -38,7 +38,7 @@
 #include <algorithm>
 #include "brkgaAPI/BRKGA.h"
 #include "brkgaAPI/MTRand.h"
-#include "SampleDecoder.h"
+#include "BPDecoder.h"
 
 int main()
 {
@@ -53,13 +53,13 @@ int main()
     const unsigned K = 3;     // number of independent populations
     const unsigned MAXT = 1;  // number of threads for parallel decoding
 
-    SampleDecoder decoder; // initialize the decoder
+    BPDecoder decoder; // initialize the decoder
 
     const long unsigned rngSeed = 0; // seed to the random number generator
     MTRand rng(rngSeed);             // initialize the random number generator
 
     // initialize the BRKGA-based heuristic
-    BRKGA<SampleDecoder, MTRand> algorithm(n, p, pe, pm, rhoe, decoder, rng, K, MAXT);
+    BRKGA<BPDecoder, MTRand> algorithm(n, p, pe, pm, rhoe, decoder, rng, K, MAXT);
 
     unsigned generation = 0;        // current generation
     const unsigned X_INTVL = 100;   // exchange best individuals at every 100 generations

@@ -15,19 +15,19 @@ CFLAGS= -O3 -fopenmp -Wextra -Wall -Weffc++ -ansi -pedantic -Woverloaded-virtual
 #CFLAGS= -DRANGECHECK -Wextra -Wall -Weffc++ -ansi -pedantic -Woverloaded-virtual -Wcast-align -Wpointer-arith
 
 # Objects:
-OBJECTS= Population.o SampleDecoder.o binpacking.o
+OBJECTS= Population.o BPDecoder.o binpacking.o
 
 # Targets:
 all: binpacking
 
 binpacking: $(OBJECTS)
-	$(CPP) $(CFLAGS) $(OBJECTS) -o binpacking
+	$(CPP) $(CFLAGS) $(OBJECTS) -o binpacking.run
 
 binpacking.o:
 	$(CPP) $(CFLAGS) -c binpacking.cpp
 
-SampleDecoder.o:
-	$(CPP) $(CFLAGS) -c SampleDecoder.cpp
+BPDecoder.o:
+	$(CPP) $(CFLAGS) -c BPDecoder.cpp
 
 Population.o:
 	$(CPP) $(CFLAGS) -c brkgaAPI/Population.cpp
