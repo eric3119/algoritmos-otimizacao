@@ -13,7 +13,7 @@ public:
 
 	// Decode a chromosome, returning its fitness as a double-precision floating point:
 	double decode(const std::vector<double> &chromosome) const;
-
+	double DFTRC(const std::list<unsigned> &permutation) const;
 private:
 };
 

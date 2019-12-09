@@ -33,4 +33,4 @@ Population.o:
 	$(CPP) $(CFLAGS) -c brkgaAPI/Population.cpp
 
 clean:
-	rm -f binpacking $(OBJECTS)
+	rm -f binpacking.run $(OBJECTS)

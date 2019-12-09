@@ -1,8 +1,22 @@
 #include "BPDecoder.h"
 
+int boxes[5][2] = {
+	{2, 2},
+	{2, 2},
+	{2, 2},
+	{2, 2},
+	{2, 2}
+};
+
 BPDecoder::BPDecoder() {}
 
 BPDecoder::~BPDecoder() {}
+
+double BPDecoder::DFTRC(const std::list<unsigned> &permutation) const{
+
+	//PriorityQueue
+
+}
 
 // Runs in O(n \log n):
 double BPDecoder::decode(const std::vector<double> &chromosome) const
@@ -27,6 +41,8 @@ double BPDecoder::decode(const std::vector<double> &chromosome) const
 	{
 		permutation.push_back(i->second);
 	}
+	
+	// myFitness = DFTRC(permutation);
 
 	// Return the fitness:
 	return myFitness;

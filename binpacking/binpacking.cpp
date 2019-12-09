@@ -1,49 +1,20 @@
-/**
- * api-usage.cpp
- *
- * Driver class with a simple example of how to instantiate and use the BRKGA API.
- * See BPDecoder.h for details on the decoder's implementation.
- *
- * Created on : Nov 17, 2011 by rtoso
- * Authors    : Rodrigo Franco Toso <rtoso@cs.rutgers.edu>
- *              Mauricio G.C. Resende <mgcr@research.att.com>
- *
- * The MIT License (MIT)
- *
- * Copyright (c) 2018
- * Rodrigo Franco Toso (rfrancotoso@gmail.com) and
- * Mauricio G.C. Resende
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
- * of the Software, and to permit persons to whom the Software is furnished to do
- * so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
- */
-
 #include <iostream>
+#include <vector>
 #include <algorithm>
 #include "brkgaAPI/BRKGA.h"
 #include "brkgaAPI/MTRand.h"
 #include "BPDecoder.h"
 
+using namespace std;
+
+typedef pair<int, int> ii;
+typedef vector<int> vi;
+typedef vector<ii> vii;
+
 int main()
 {
-    std::cout << "Welcome to the BRKGA API sample driver.\nFinding a (heuristic) minimizer for "
-              << " f(x) = sum_i (x_i * i) where x \\in [0,1)^n." << std::endl;
+    cout << "Welcome to the BRKGA API sample driver.\nFinding a (heuristic) minimizer for "
+              << " f(x) = sum_i (x_i * i) where x \\in [0,1)^n." << endl;
 
     const unsigned n = 10;    // size of chromosomes
     const unsigned p = 100;   // size of population
