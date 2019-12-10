@@ -11,11 +11,31 @@ typedef pair<int, int> ii;
 typedef vector<int> vi;
 typedef vector<ii> vii;
 
+std::list<unsigned> getPackingOrder(const std::vector<double> &chromosome){
+    typedef std::pair<double, unsigned> ValueKeyPair;
+	std::vector<ValueKeyPair> rank(chromosome.size());
+
+	for (unsigned i = 0; i < chromosome.size(); ++i)
+	{
+		rank[i] = ValueKeyPair(chromosome[i], i);
+	}
+
+	// Here we sort 'permutation', which will then produce a permutation of [n]
+	// stored in ValueKeyPair::second:
+	std::sort(rank.begin(), rank.end());
+
+	// permutation[i].second is in {0, ..., n - 1}; a permutation can be obtained as follows
+	std::list<unsigned> permutation;
+	for (std::vector<ValueKeyPair>::const_iterator i = rank.begin(); i != rank.end(); ++i)
+	{
+		permutation.push_back(i->second);
+	}
+
+    return permutation;
+}
+
 int main()
 {
-    cout << "Welcome to the BRKGA API sample driver.\nFinding a (heuristic) minimizer for "
-              << " f(x) = sum_i (x_i * i) where x \\in [0,1)^n." << endl;
-
     const unsigned n = 10;    // size of chromosomes
     const unsigned p = 100;   // size of population
     const double pe = 0.10;   // fraction of population to be the elite-set
@@ -62,6 +82,16 @@ int main()
 
     std::cout << "Best solution found has objective value = "
               << algorithm.getBestFitness() << std::endl;
+    
+    std::cout << "Best chromosome ";
+
+    std::list<unsigned> packing_order = getPackingOrder(algorithm.getBestChromosome());
+
+    for (std::list<unsigned>::iterator it=packing_order.begin(); it != packing_order.end(); ++it){
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+    
 
     return 0;
 }

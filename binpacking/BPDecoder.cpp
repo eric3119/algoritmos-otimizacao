@@ -50,22 +50,15 @@ double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 			bin_capacity.push_back(bin_w * bin_h - box_w * box_h);
 		}
 
-		double least_load = std::numeric_limits<double>::max();
-		for (int i = 0; i < NB; i++){
-			if(bin_capacity[i] < least_load){
-				least_load = bin_capacity[i];
-			}
-		}
 
-		return NB + least_load / (bin_w * bin_h);
 	}
-
-
-	
-	std::cout << std::endl;
-	
-
-	return 0;
+	double least_load = std::numeric_limits<double>::max();
+	for (int i = 0; i < NB; i++){
+		if(bin_capacity[i] < least_load){
+			least_load = bin_capacity[i];
+		}
+	}
+	return NB + least_load / (bin_w * bin_h);
 }
 
 // Runs in O(n \log n):
