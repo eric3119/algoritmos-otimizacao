@@ -9,12 +9,12 @@
 #include <limits>
 
 typedef struct Space{
-    int size;
-    int width;
-    int height;
-	int bin_number;
+    unsigned size;
+    unsigned width;
+    unsigned height;
+	unsigned bin_number;
 
-    Space(int w, int h, int bin_number) : size(w * h), width(w), height(h), bin_number(bin_number){}
+    Space(unsigned w, unsigned h, unsigned bin_number) : size(w * h), width(w), height(h), bin_number(bin_number){}
 
     bool operator<(const struct Space& other) const {
         return size < other.size;
@@ -24,6 +24,10 @@ typedef struct Space{
 class BPDecoder
 {
 public:
+    unsigned bin_w, bin_h;
+	
+    std::vector< std::pair<unsigned, unsigned> > boxes;
+
 	BPDecoder();  // Constructor
 	~BPDecoder(); // Destructor
 

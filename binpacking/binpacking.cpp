@@ -7,10 +7,6 @@
 
 using namespace std;
 
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-
 std::list<unsigned> getPackingOrder(const std::vector<double> &chromosome){
     typedef std::pair<double, unsigned> ValueKeyPair;
 	std::vector<ValueKeyPair> rank(chromosome.size());
@@ -36,7 +32,7 @@ std::list<unsigned> getPackingOrder(const std::vector<double> &chromosome){
 
 int main()
 {
-    const unsigned n = 10;    // size of chromosomes
+    /*const*/ unsigned n = 10;    // size of chromosomes
     const unsigned p = 100;   // size of population
     const double pe = 0.10;   // fraction of population to be the elite-set
     const double pm = 0.10;   // fraction of population to be replaced by mutants
@@ -45,6 +41,20 @@ int main()
     const unsigned MAXT = 1;  // number of threads for parallel decoding
 
     BPDecoder decoder; // initialize the decoder
+
+    unsigned box_w, box_h;
+
+    cin >> decoder.bin_w >> decoder.bin_h >> n;
+
+    for (unsigned i = 0; i < n; ++i){
+        cin >> box_w >> box_h;
+        decoder.boxes.push_back(std::make_pair(box_w, box_h));
+    }
+//2 5 4 0 6 7 8 9 3 1
+    for (unsigned i = 0; i < n; ++i){
+        std::cout << decoder.boxes[i].first << " " << decoder.boxes[i].second << std::endl;
+    }
+    
 
     const long unsigned rngSeed = 0; // seed to the random number generator
     MTRand rng(rngSeed);             // initialize the random number generator
