@@ -4,36 +4,56 @@ BPDecoder::BPDecoder() {}
 
 BPDecoder::~BPDecoder() {}
 
+std::list < Space > BPDecoder::eliminationProcess(
+	std::list < Space > &emptySpaces, Box box)
+	const{
+
+	std::list<Space> new_spaces;
+
+	for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
+		
+		new_spaces.push_back(Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number));
+		new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
+		new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).y, (*sp).bin_number));
+		new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).y, (*sp).bin_number));
+
+	}
+
+	// new_spaces.sort();
+
+	return new_spaces;
+}
+
 double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 
-	std::priority_queue < Space > pq;
+	std::list < Space > emptySpaces;
 	unsigned NB = 1;
 
-	pq.push(Space(bin_w, bin_h, NB));
+	emptySpaces.push_back(Space(0, 0, bin_w, bin_h, NB));
 	
 	std::vector<unsigned> bin_capacity;
 	bin_capacity.push_back(bin_w * bin_h);
 
 	for (std::list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
-		Space ems = pq.top();
-		pq.pop();
-
+		
 		unsigned box_w = boxes[*it].first, 
 				box_h = boxes[*it].second;
 
-		if(ems.width >= box_w && ems.height >= box_h){
-			pq.push(Space(ems.width - box_w, ems.height, ems.bin_number));
-			pq.push(Space(ems.width, ems.height - box_h, ems.bin_number));
+		
+		for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
+			Space ems = *sp;
 
-			bin_capacity[ems.bin_number - 1] -= box_w * box_h;
-			std::cout << "bin capacity " << bin_capacity[ems.bin_number - 1] << std::endl;
+			if(ems.X - ems.x >= box_w && ems.Y - ems.y >= box_h){
+				Box box(ems.x,ems.y,box_w,box_h);
+				
+				bin_capacity[ems.bin_number - 1] -= box_w * box_h;
+				// std::cout << "bin capacity " << bin_capacity[ems.bin_number - 1] << std::endl;
 
-		} else {
-			pq.push(Space(bin_w - box_w, bin_h, ++NB));
-			pq.push(Space(bin_w, bin_h - box_h, NB));
-
-			bin_capacity.push_back(bin_w * bin_h - box_w * box_h);
+				emptySpaces = eliminationProcess(emptySpaces, box);
+				break;
+			}
 		}
+		
 	}
 	double least_load = std::numeric_limits<double>::max();
 	for (unsigned i = 0; i < NB; i++){
@@ -44,7 +64,6 @@ double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 	return NB + least_load / (bin_w * bin_h);
 }
 
-// Runs in O(n \log n):
 double BPDecoder::decode(const std::vector<double> &chromosome) const
 {
 	typedef std::pair<double, unsigned> ValueKeyPair;
