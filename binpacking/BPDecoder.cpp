@@ -21,6 +21,10 @@ void BPDecoder::eliminationProcess(
 	}
 }
 
+bool compare(const Space &s1, const Space &s2){
+	return s1.size > s2.size;
+}
+
 std::list < Space > BPDecoder::differenceProcess(
 	std::list < Space > &emptySpaces, Box box)
 	const{
@@ -51,6 +55,7 @@ std::list < Space > BPDecoder::differenceProcess(
 	}
 	
 	eliminationProcess(new_spaces);
+	new_spaces.sort(compare);
 
 	for (std::list<Space>::iterator sp=new_spaces.begin(); sp != new_spaces.end(); ++sp){
 		std::cout << (*sp).x << ", " << (*sp).y << " " << (*sp).X << ", " << (*sp).Y << "; ";
@@ -78,22 +83,30 @@ double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 		unsigned box_w = boxes[*it].first, 
 				box_h = boxes[*it].second;
 
+		unsigned distance = 0;
+		Space spaceMax;
 		
 		for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
 			Space ems = *sp;
 
 			if((ems.X - ems.x) >= box_w && (ems.Y - ems.y) >= box_h){
-				Box box(ems.x,ems.y,box_w,box_h);
 
-				std::cout << "Box: " << box.x << ", " << box.y << " " << box.X << ", " << box.Y << std::endl;
-				
-				bin_capacity[ems.bin_number - 1] -= box_w * box_h;
-				// std::cout << "bin capacity " << bin_capacity[ems.bin_number - 1] << std::endl;
-
-				emptySpaces = differenceProcess(emptySpaces, box);
-				break;
+				unsigned d = std::pow(ems.X - box_w, 2) + std::pow(ems.Y - box_h, 2);
+				if (d >= distance){
+					distance = d;
+					spaceMax = (*sp);
+				}
 			}
 		}
+		Box box(spaceMax.x,spaceMax.y,box_w,box_h);
+
+		std::cout << "Box: " << box.x << ", " << box.y << " " << box.X << ", " << box.Y << std::endl;
+		
+		bin_capacity[spaceMax.bin_number - 1] -= box_w * box_h;
+		// std::cout << "bin capacity " << bin_capacity[ems.bin_number - 1] << std::endl;
+
+		emptySpaces = differenceProcess(emptySpaces, box);
+		break;
 		
 	}
 	for (std::list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
