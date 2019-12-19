@@ -14,7 +14,7 @@ typedef struct Space{
 	unsigned bin_number;
 
     Space(unsigned x, unsigned y, unsigned X, unsigned Y, unsigned bin_number) 
-        : x(x), y(y), X(X), Y(Y), size(X-x * Y-y), bin_number(bin_number){}
+        : x(x), y(y), X(X), Y(Y), size((X-x) * (Y-y)), bin_number(bin_number){}
 
     bool operator>(const struct Space& other) const {
         return size > other.size;

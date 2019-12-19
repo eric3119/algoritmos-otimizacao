@@ -10,14 +10,35 @@ std::list < Space > BPDecoder::eliminationProcess(
 
 	std::list<Space> new_spaces;
 
+
+	
 	for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
+
+		Space space = Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number);
 		
-		new_spaces.push_back(Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number));
-		new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
-		new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).y, (*sp).bin_number));
-		new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).y, (*sp).bin_number));
+		if(space.size && space.x < space.X && space.y < space.Y)
+			new_spaces.push_back(space);
+		
+		space = Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number);
+		if(space.size && space.x < space.X && space.y < space.Y)
+			new_spaces.push_back(space);
+		
+		space = Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number);
+		if(space.size && space.x < space.X && space.y < space.Y)
+			new_spaces.push_back(space);
+		
+		space = Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number);
+		if(space.size && space.x < space.X && space.y < space.Y)
+			new_spaces.push_back(space);
 
 	}
+
+/*	for (std::list<Space>::iterator sp=new_spaces.begin(); sp != new_spaces.end(); ++sp){
+		std::cout << (*sp).x << ", " << (*sp).y << " " << (*sp).X << ", " << (*sp).Y << "; ";
+	}
+	if(!new_spaces.empty())
+		std::cout << std::endl;
+*/	
 
 	// new_spaces.sort();
 
@@ -43,8 +64,10 @@ double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 		for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
 			Space ems = *sp;
 
-			if(ems.X - ems.x >= box_w && ems.Y - ems.y >= box_h){
+			if((ems.X - ems.x) >= box_w && (ems.Y - ems.y) >= box_h){
 				Box box(ems.x,ems.y,box_w,box_h);
+
+				//std::cout << "Box: " << box.x << ", " << box.y << " " << box.X << ", " << box.Y << std::endl;
 				
 				bin_capacity[ems.bin_number - 1] -= box_w * box_h;
 				// std::cout << "bin capacity " << bin_capacity[ems.bin_number - 1] << std::endl;
