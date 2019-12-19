@@ -4,7 +4,24 @@ BPDecoder::BPDecoder() {}
 
 BPDecoder::~BPDecoder() {}
 
-std::list < Space > BPDecoder::eliminationProcess(
+void BPDecoder::eliminationProcess(
+	std::list< Space > &emptySpaces
+) const{
+
+	for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
+		for (std::list<Space>::iterator v=emptySpaces.begin(); v != emptySpaces.end(); ++v){
+			if(v == sp) continue;
+
+			if((*v).x >= (*sp).x && (*v).y >= (*sp).y && (*v).X <= (*sp).X && (*v).Y <= (*sp).Y){
+				v = emptySpaces.erase(v);
+				--v;
+			}
+
+		}
+	}
+}
+
+std::list < Space > BPDecoder::differenceProcess(
 	std::list < Space > &emptySpaces, Box box)
 	const{
 
@@ -32,13 +49,14 @@ std::list < Space > BPDecoder::eliminationProcess(
 			new_spaces.push_back(space);
 
 	}
+	
+	eliminationProcess(new_spaces);
 
-/*	for (std::list<Space>::iterator sp=new_spaces.begin(); sp != new_spaces.end(); ++sp){
+	for (std::list<Space>::iterator sp=new_spaces.begin(); sp != new_spaces.end(); ++sp){
 		std::cout << (*sp).x << ", " << (*sp).y << " " << (*sp).X << ", " << (*sp).Y << "; ";
 	}
 	if(!new_spaces.empty())
 		std::cout << std::endl;
-*/	
 
 	// new_spaces.sort();
 
@@ -67,17 +85,21 @@ double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 			if((ems.X - ems.x) >= box_w && (ems.Y - ems.y) >= box_h){
 				Box box(ems.x,ems.y,box_w,box_h);
 
-				//std::cout << "Box: " << box.x << ", " << box.y << " " << box.X << ", " << box.Y << std::endl;
+				std::cout << "Box: " << box.x << ", " << box.y << " " << box.X << ", " << box.Y << std::endl;
 				
 				bin_capacity[ems.bin_number - 1] -= box_w * box_h;
 				// std::cout << "bin capacity " << bin_capacity[ems.bin_number - 1] << std::endl;
 
-				emptySpaces = eliminationProcess(emptySpaces, box);
+				emptySpaces = differenceProcess(emptySpaces, box);
 				break;
 			}
 		}
 		
 	}
+	for (std::list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
 	double least_load = std::numeric_limits<double>::max();
 	for (unsigned i = 0; i < NB; i++){
 		if(bin_capacity[i] < least_load){
