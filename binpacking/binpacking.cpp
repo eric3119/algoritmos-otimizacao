@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 #include <algorithm>
 #include "brkgaAPI/BRKGA.h"
@@ -32,7 +33,7 @@ std::list<unsigned> getPackingOrder(const std::vector<double> &chromosome){
 
 int main()
 {
-    /*const*/ unsigned n = 10;    // size of chromosomes
+    const unsigned n = 10;    // size of chromosomes
     const unsigned p = 100;   // size of population
     const double pe = 0.10;   // fraction of population to be the elite-set
     const double pm = 0.10;   // fraction of population to be replaced by mutants
@@ -43,19 +44,30 @@ int main()
     BPDecoder decoder; // initialize the decoder
 
     unsigned box_w, box_h;
+    
+    string str;
 
-    cin >> decoder.bin_w >> decoder.bin_h >> n;
+    getline(cin, str); // PROBLEM CLASS
+
+    //cin >> n;
+    getline(cin, str);
+    
+    getline(cin, str); //RELATIVE AND ABSOLUTE N. OF INSTANCE
+
+    cin >> decoder.bin_w >> decoder.bin_h;
+    getline(cin, str);
+
 
     for (unsigned i = 0; i < n; ++i){
-        cin >> box_w >> box_h;
+        cin >> box_h >> box_w;
+        getline(cin, str);
+
         decoder.boxes.push_back(std::make_pair(box_w, box_h));
     }
 //2 5 4 0 6 7 8 9 3 1
-    for (unsigned i = 0; i < n; ++i){
+    /*for (unsigned i = 0; i < n; ++i){
         std::cout << decoder.boxes[i].first << " " << decoder.boxes[i].second << std::endl;
-    }
-    
-
+    }*/
     const long unsigned rngSeed = 0; // seed to the random number generator
     MTRand rng(rngSeed);             // initialize the random number generator
 

@@ -1,11 +1,14 @@
-6 6 10
-5 4
-4 3
-2 2
-3 4
-1 3
-4 5
-3 1
-5 2
-4 4
-3 3
+    1        PROBLEM CLASS
+   10        N. OF ITEMS
+    1    1   RELATIVE AND ABSOLUTE N. OF INSTANCE
+    6    6   HBIN,WBIN
+    5    4   H(I),W(I),I=1,...,N
+    4    3
+    2    2
+    3    4
+    1    3
+    4    5
+    3    1
+    5    2
+    4    4
+    3    3
