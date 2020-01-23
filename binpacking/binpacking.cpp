@@ -34,7 +34,7 @@ std::list<unsigned> getPackingOrder(const std::vector<double> &chromosome){
 
 int main()
 {
-    const unsigned n = 10;    // size of chromosomes
+    unsigned n;               // size of chromosomes
     const unsigned p = 100;   // size of population
     const double pe = 0.10;   // fraction of population to be the elite-set
     const double pm = 0.10;   // fraction of population to be replaced by mutants
@@ -50,7 +50,7 @@ int main()
 
     getline(cin, str); // PROBLEM CLASS
 
-    //cin >> n;
+    cin >> n;
     getline(cin, str);
     
     getline(cin, str); //RELATIVE AND ABSOLUTE N. OF INSTANCE
@@ -108,16 +108,16 @@ int main()
     
     std::cout << "Best chromosome ";
 
-    std::list<unsigned> packing_order = getPackingOrder(algorithm.getBestChromosome());
+    std::list<unsigned> packing_sequence = getPackingOrder(algorithm.getBestChromosome());
+    std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
 
-    for (std::list<unsigned>::iterator it=packing_order.begin(); it != packing_order.end(); ++it){
+    for (std::list<unsigned>::iterator it=packing_sequence.begin(); it != packing_sequence.end(); ++it){
         std::cout << *it << " ";
     }
     std::cout << std::endl;
 
-    std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_order);
 
-    draw_bin(packedBoxes);
+    draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
 
     return 0;
 }

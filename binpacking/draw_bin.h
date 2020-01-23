@@ -9,6 +9,6 @@
 
 bool inicializar();
 
-void display();
+void display(std::list < Box > &packedBoxes);
  
-int draw_bin(std::list < Box > &packedBoxes);
+int draw_bin(std::list < Box > &packedBoxes, unsigned bin_x, unsigned bin_y);

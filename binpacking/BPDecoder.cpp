@@ -5,15 +5,15 @@ BPDecoder::BPDecoder() {}
 BPDecoder::~BPDecoder() {}
 
 void BPDecoder::eliminationProcess(
-	std::list< Space > &emptySpaces
+	std::list< Space > &empty_spaces
 ) const{
 
-	for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
-		for (std::list<Space>::iterator v=emptySpaces.begin(); v != emptySpaces.end(); ++v){
+	for (std::list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
+		for (std::list<Space>::iterator v=empty_spaces.begin(); v != empty_spaces.end(); ++v){
 			if(v == sp) continue;
 
 			if((*v).x >= (*sp).x && (*v).y >= (*sp).y && (*v).X <= (*sp).X && (*v).Y <= (*sp).Y){
-				v = emptySpaces.erase(v);
+				v = empty_spaces.erase(v);
 				--v;
 			}
 
@@ -26,14 +26,14 @@ bool compare(const Space &s1, const Space &s2){
 }
 
 std::list < Space > BPDecoder::differenceProcess(
-	std::list < Space > &emptySpaces, Box box)
+	std::list < Space > &empty_spaces, Box box)
 	const{
 
 	std::list<Space> new_spaces;
 
 
 	
-	for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
+	for (std::list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 
 		Space space = Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number);
 		
@@ -68,14 +68,15 @@ std::list < Space > BPDecoder::differenceProcess(
 	return new_spaces;
 }
 
-std::vector<unsigned> BPDecoder::DFTRC(std::list<unsigned> &permutation, std::list < Box > &packedBoxes, unsigned &NB) const{
+std::vector<unsigned> BPDecoder::DFTRC(std::list<unsigned> &permutation, std::list < Box > &packedBoxes, unsigned &number_of_bins) const{
 
-	std::list < Space > emptySpaces;
-	NB = 1;
-
-	emptySpaces.push_back(Space(0, 0, bin_w, bin_h, NB));
-	
+	std::list < Space > empty_spaces;
 	std::vector<unsigned> bin_capacity;
+
+	number_of_bins = 1;
+
+	empty_spaces.push_back(Space(0, 0, bin_w, bin_h, number_of_bins));
+	
 	bin_capacity.push_back(bin_w * bin_h);
 
 	for (std::list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
@@ -84,9 +85,9 @@ std::vector<unsigned> BPDecoder::DFTRC(std::list<unsigned> &permutation, std::li
 				box_h = boxes[*it].second;
 
 		unsigned distance = 0;
-		Space spaceMax;
+		Space maximalSpace;
 		
-		for (std::list<Space>::iterator sp=emptySpaces.begin(); sp != emptySpaces.end(); ++sp){
+		for (std::list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 			Space ems = *sp;
 
 			if((ems.X - ems.x) >= box_w && (ems.Y - ems.y) >= box_h){
@@ -94,21 +95,19 @@ std::vector<unsigned> BPDecoder::DFTRC(std::list<unsigned> &permutation, std::li
 				unsigned d = std::pow(ems.X - box_w, 2) + std::pow(ems.Y - box_h, 2);
 				if (d >= distance){
 					distance = d;
-					spaceMax = (*sp);
+					maximalSpace = (*sp);
 				}
 			}
 		}
-		Box box(spaceMax.x,spaceMax.y,box_w,box_h);
+		Box box(maximalSpace.x,maximalSpace.y,box_w,box_h);
 
 		//std::cout << "Box: " << box.x << ", " << box.y << " " << box.X << ", " << box.Y << std::endl;
 		
-		bin_capacity[spaceMax.bin_number - 1] -= box_w * box_h;
+		bin_capacity[maximalSpace.bin_number - 1] -= box_w * box_h;
 		// std::cout << "bin capacity " << bin_capacity[ems.bin_number - 1] << std::endl;
 
-		emptySpaces = differenceProcess(emptySpaces, box);
+		empty_spaces = differenceProcess(empty_spaces, box);
 		packedBoxes.push_back(box);
-		break;
-		
 	}
 	/*for (std::list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
 		std::cout << *it << " ";
@@ -120,27 +119,27 @@ std::vector<unsigned> BPDecoder::DFTRC(std::list<unsigned> &permutation, std::li
 
 double BPDecoder::fitness(std::list<unsigned> &permutation) const{
 
-	unsigned NB = 1;
+	unsigned number_of_bins = 1;
 
 	std::list < Box > packedBoxes;
 	
-	std::vector<unsigned> bin_capacity = DFTRC(permutation, packedBoxes, NB);
+	std::vector<unsigned> bin_capacity = DFTRC(permutation, packedBoxes, number_of_bins);
 	
 	double least_load = std::numeric_limits<double>::max();
-	for (unsigned i = 0; i < NB; i++){
+	for (unsigned i = 0; i < number_of_bins; i++){
 		if(bin_capacity[i] < least_load){
 			least_load = bin_capacity[i];
 		}
 	}
-	return NB + least_load / (bin_w * bin_h);
+	return number_of_bins + least_load / (bin_w * bin_h);
 }
 
 std::list < Box > BPDecoder::getPackedBoxes(std::list<unsigned> &permutation){
 
-	unsigned NB = 1;
+	unsigned number_of_bins = 1;
 
 	std::list < Box > packedBoxes;
-	DFTRC(permutation, packedBoxes, NB);
+	DFTRC(permutation, packedBoxes, number_of_bins);
 
 	return packedBoxes;
 }
