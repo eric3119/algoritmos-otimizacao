@@ -5,6 +5,7 @@
 #include "brkgaAPI/BRKGA.h"
 #include "brkgaAPI/MTRand.h"
 #include "BPDecoder.h"
+#include "draw_bin.h"
 
 using namespace std;
 
@@ -113,7 +114,10 @@ int main()
         std::cout << *it << " ";
     }
     std::cout << std::endl;
-    
+
+    std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_order);
+
+    draw_bin(packedBoxes);
 
     return 0;
 }

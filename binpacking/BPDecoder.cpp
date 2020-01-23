@@ -68,10 +68,10 @@ std::list < Space > BPDecoder::differenceProcess(
 	return new_spaces;
 }
 
-double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
+std::vector<unsigned> BPDecoder::DFTRC(std::list<unsigned> &permutation, std::list < Box > &packedBoxes, unsigned &NB) const{
 
 	std::list < Space > emptySpaces;
-	unsigned NB = 1;
+	NB = 1;
 
 	emptySpaces.push_back(Space(0, 0, bin_w, bin_h, NB));
 	
@@ -106,6 +106,7 @@ double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 		// std::cout << "bin capacity " << bin_capacity[ems.bin_number - 1] << std::endl;
 
 		emptySpaces = differenceProcess(emptySpaces, box);
+		packedBoxes.push_back(box);
 		break;
 		
 	}
@@ -114,6 +115,17 @@ double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 	}
 	std::cout << std::endl;*/
 	
+	return bin_capacity;
+}
+
+double BPDecoder::fitness(std::list<unsigned> &permutation) const{
+
+	unsigned NB = 1;
+
+	std::list < Box > packedBoxes;
+	
+	std::vector<unsigned> bin_capacity = DFTRC(permutation, packedBoxes, NB);
+	
 	double least_load = std::numeric_limits<double>::max();
 	for (unsigned i = 0; i < NB; i++){
 		if(bin_capacity[i] < least_load){
@@ -121,6 +133,16 @@ double BPDecoder::DFTRC(std::list<unsigned> &permutation) const{
 		}
 	}
 	return NB + least_load / (bin_w * bin_h);
+}
+
+std::list < Box > BPDecoder::getPackedBoxes(std::list<unsigned> &permutation){
+
+	unsigned NB = 1;
+
+	std::list < Box > packedBoxes;
+	DFTRC(permutation, packedBoxes, NB);
+
+	return packedBoxes;
 }
 
 double BPDecoder::decode(const std::vector<double> &chromosome) const
@@ -145,5 +167,5 @@ double BPDecoder::decode(const std::vector<double> &chromosome) const
 	}
 	
 	// return fitness
-	return DFTRC(permutation);
+	return fitness(permutation);
 }
