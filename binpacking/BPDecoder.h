@@ -11,7 +11,7 @@
 
 typedef struct Space{
     unsigned x, y, X, Y;
-    unsigned size;
+    unsigned size = 0;
 	unsigned bin_number;
 
     Space(unsigned x, unsigned y, unsigned X, unsigned Y, unsigned bin_number) 
@@ -25,9 +25,9 @@ typedef struct Space{
 }Space;
 
 typedef struct Box{
-    unsigned x, y, X, Y;
+    unsigned x, y, X, Y, bin_number;
 
-    Box(unsigned x, unsigned y, unsigned w, unsigned h) : x(x), y(y), X(x + w), Y(y + h){}
+    Box(unsigned x, unsigned y, unsigned w, unsigned h, unsigned bin_number) : x(x), y(y), X(x + w), Y(y + h), bin_number(bin_number){}
 }Box;
 
 class BPDecoder

@@ -35,23 +35,25 @@ std::list < Space > BPDecoder::differenceProcess(
 	
 	for (std::list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 
-		Space space = Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number);
-		
-		if(space.size && space.x < space.X && space.y < space.Y)
-			new_spaces.push_back(space);
-		
-		space = Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number);
-		if(space.size && space.x < space.X && space.y < space.Y)
-			new_spaces.push_back(space);
-		
-		space = Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number);
-		if(space.size && space.x < space.X && space.y < space.Y)
-			new_spaces.push_back(space);
-		
-		space = Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number);
-		if(space.size && space.x < space.X && space.y < space.Y)
-			new_spaces.push_back(space);
+		if(box.bin_number == (*sp).bin_number){
 
+			Space space = Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number);
+			
+			if(space.size && space.x < space.X && space.y < space.Y)
+				new_spaces.push_back(space);
+			
+			space = Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number);
+			if(space.size && space.x < space.X && space.y < space.Y)
+				new_spaces.push_back(space);
+			
+			space = Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number);
+			if(space.size && space.x < space.X && space.y < space.Y)
+				new_spaces.push_back(space);
+			
+			space = Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number);
+			if(space.size && space.x < space.X && space.y < space.Y)
+				new_spaces.push_back(space);
+		}
 	}
 	
 	eliminationProcess(new_spaces);
@@ -99,7 +101,15 @@ std::vector<unsigned> BPDecoder::DFTRC(std::list<unsigned> &permutation, std::li
 				}
 			}
 		}
-		Box box(maximalSpace.x,maximalSpace.y,box_w,box_h);
+		
+		if (maximalSpace.size == 0) {
+			++number_of_bins;
+			empty_spaces.push_back(Space(0, 0, bin_w, bin_h, number_of_bins));
+			bin_capacity.push_back(bin_w * bin_h);
+			maximalSpace = empty_spaces.back();
+		}
+
+		Box box(maximalSpace.x,maximalSpace.y,box_w,box_h, maximalSpace.bin_number);
 
 		//std::cout << "Box: " << box.x << ", " << box.y << " " << box.X << ", " << box.Y << std::endl;
 		
