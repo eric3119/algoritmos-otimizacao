@@ -4,21 +4,39 @@ BPDecoder::BPDecoder() {}
 
 BPDecoder::~BPDecoder() {}
 
-void BPDecoder::eliminationProcess(
-	std::list< Space > &empty_spaces
+std::list< Space > BPDecoder::eliminationProcess(
+	std::list< Space > &new_spaces
 ) const{
-
-	for (std::list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
-		for (std::list<Space>::iterator v=empty_spaces.begin(); v != empty_spaces.end(); ++v){
-			if(v == sp) continue;
-
-			if((*v).x >= (*sp).x && (*v).y >= (*sp).y && (*v).X <= (*sp).X && (*v).Y <= (*sp).Y){
-				v = empty_spaces.erase(v);
-				--v;
+	bool next = true;
+	for (std::list<Space>::iterator n_sp=new_spaces.begin(); n_sp != new_spaces.end();){
+		if((*n_sp).size == 0){
+			// self elimination
+			n_sp = new_spaces.erase(n_sp);
+			next = false;
+		}else{
+			// cross checking
+			bool next2 = true;
+			for (std::list<Space>::iterator e_sp=new_spaces.begin(); e_sp != new_spaces.end();){
+				if((*e_sp).bin_number == (*n_sp).bin_number && e_sp != n_sp){
+					if((*e_sp).x >= (*n_sp).x && (*e_sp).y >= (*n_sp).y && (*e_sp).X <= (*n_sp).X && (*e_sp).Y <= (*n_sp).Y){
+						e_sp = new_spaces.erase(e_sp);
+						next2 = false;
+					}
+				}
+				if(next2){
+					++e_sp;
+				}else{
+					next2 = true;
+				}
 			}
-
+		}
+		if(next){
+			++n_sp;
+		}else{
+			next = true;
 		}
 	}
+	return new_spaces;
 }
 
 bool compare(const Space &s1, const Space &s2){
@@ -30,34 +48,26 @@ std::list < Space > BPDecoder::differenceProcess(
 	const{
 
 	std::list<Space> new_spaces;
-
-
 	
 	for (std::list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 
 		if(box.bin_number == (*sp).bin_number){
 
-			Space space = Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number);
+			new_spaces.push_back(Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number));
+						
+			//new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number));
 			
-			if(space.size && space.x < space.X && space.y < space.Y)
-				new_spaces.push_back(space);
+			//new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
 			
-			space = Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number);
-			if(space.size && space.x < space.X && space.y < space.Y)
-				new_spaces.push_back(space);
-			
-			space = Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number);
-			if(space.size && space.x < space.X && space.y < space.Y)
-				new_spaces.push_back(space);
-			
-			space = Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number);
-			if(space.size && space.x < space.X && space.y < space.Y)
-				new_spaces.push_back(space);
+			new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
+		}else{
+			new_spaces.push_back(*sp);
 		}
+		
 	}
 	
-	eliminationProcess(new_spaces);
-	new_spaces.sort(compare);
+	new_spaces = eliminationProcess(new_spaces);
+	//new_spaces.sort(compare);
 
 	/*for (std::list<Space>::iterator sp=new_spaces.begin(); sp != new_spaces.end(); ++sp){
 		std::cout << (*sp).x << ", " << (*sp).y << " " << (*sp).X << ", " << (*sp).Y << "; ";
@@ -141,7 +151,7 @@ double BPDecoder::fitness(std::list<unsigned> &permutation) const{
 			least_load = bin_capacity[i];
 		}
 	}
-	return number_of_bins + least_load / (bin_w * bin_h);
+	return number_of_bins + (least_load / (this->bin_w * this->bin_h));
 }
 
 std::list < Box > BPDecoder::getPackedBoxes(std::list<unsigned> &permutation){

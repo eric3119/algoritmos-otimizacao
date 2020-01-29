@@ -1,7 +1,7 @@
 #include "draw_bin.h"
 
-const int LARGURA_TELA = 800;
-const int ALTURA_TELA = 800;
+const int LARGURA_TELA = 600;
+const int ALTURA_TELA = 600;
 
 int factor_x, factor_y;
 
@@ -53,8 +53,10 @@ int draw_bin(std::list < Box > &packedBoxes, unsigned bin_x, unsigned bin_y){
 
         if((*start).bin_number != (*it).bin_number){
             display(packedBoxes, start, it);
+            al_rest(1.0);
+            al_clear_to_color(al_map_rgb(0, 0, 0));
             al_flip_display();
-            al_rest(2.0);
+            al_rest(0.5);
             start = it;
         }
     }

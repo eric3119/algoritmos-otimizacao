@@ -46,7 +46,7 @@ public:
     std::list < Box > getPackedBoxes(std::list<unsigned> &permutation);
     double fitness(std::list<unsigned> &permutation) const;
     std::list < Space > differenceProcess(std::list < Space > &empty_spaces, Box box) const;
-    void eliminationProcess(std::list < Space > &empty_spaces) const;
+    std::list< Space > eliminationProcess(std::list < Space > &new_spaces) const;
 private:
 };
 
