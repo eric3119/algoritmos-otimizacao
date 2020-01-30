@@ -20,8 +20,13 @@ void display(std::list < Box > &packedBoxes, std::list< Box >::iterator start, s
         R = ((box_size * 3) % 100) + 100;
         G = ((box_size * 5) % 100) + 100;
         B = ((box_size * 7) % 100) + 100;
+        unsigned x1 = (*it).x * factor_x;
+        unsigned x2 = (*it).X * factor_x;
+        unsigned y1 = ALTURA_TELA - ((*it).y * factor_y);
+        unsigned y2 = ALTURA_TELA - ((*it).Y * factor_y);
+        //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << std::endl;
         // Retângulo preenchido: x1, y1, x2, y2, cor
-        al_draw_filled_rectangle((*it).x * factor_x, (*it).y * factor_y, (*it).X * factor_x, (*it).Y * factor_y, al_map_rgb(R, G, B));
+        al_draw_filled_rectangle(x1, y1, x2, y2, al_map_rgb(R, G, B));
         al_flip_display();
         al_rest(1.0);
     }
