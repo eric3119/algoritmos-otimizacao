@@ -1,4 +1,6 @@
 #include "BPDecoder.h"
+#include "draw_bin.h"
+bool draw = false;
 
 BPDecoder::BPDecoder() {}
 
@@ -60,7 +62,7 @@ std::list < Space > BPDecoder::differenceProcess(
 			// adiciona o fundo do novo espaço	
 			new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
 			// adiciona o topo do novo espaço	
-			//new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
+			new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
 		}else{
 			new_spaces.push_back(*sp);
 		}
@@ -68,6 +70,7 @@ std::list < Space > BPDecoder::differenceProcess(
 	}
 	
 	new_spaces = eliminationProcess(new_spaces);
+
 	//new_spaces.sort(compare);
 
 	/*for (std::list<Space>::iterator sp=new_spaces.begin(); sp != new_spaces.end(); ++sp){
@@ -104,6 +107,7 @@ std::vector<unsigned> BPDecoder::DFTRC(std::list<unsigned> &permutation, std::li
 			Space ems = *sp;
 
 			if((ems.X - ems.x) >= box_w && (ems.Y - ems.y) >= box_h){
+				if(draw)std::cout << ems.X << " " << ems.x << " " << box_w << " " << ems.Y << " " << ems.y << " " << box_h << std::endl;
 
 				unsigned d = std::pow(ems.X - box_w, 2) + std::pow(ems.Y - box_h, 2);
 				if (d >= distance){
@@ -158,6 +162,7 @@ double BPDecoder::fitness(std::list<unsigned> &permutation) const{
 std::list < Box > BPDecoder::getPackedBoxes(std::list<unsigned> &permutation){
 
 	unsigned number_of_bins = 1;
+	draw= true;
 
 	std::list < Box > packedBoxes;
 	DFTRC(permutation, packedBoxes, number_of_bins);
