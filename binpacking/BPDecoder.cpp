@@ -53,13 +53,14 @@ std::list < Space > BPDecoder::differenceProcess(
 
 		if(box.bin_number == (*sp).bin_number){
 
+			// adiciona o lado direito do novo espaço
 			new_spaces.push_back(Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number));
-						
-			//new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number));
-			
-			//new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
-			
-			new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
+			// adiciona o lado esquerdo do novo espaço
+			new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number));
+			// adiciona o fundo do novo espaço	
+			new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
+			// adiciona o topo do novo espaço	
+			//new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
 		}else{
 			new_spaces.push_back(*sp);
 		}
