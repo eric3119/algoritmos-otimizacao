@@ -7,8 +7,22 @@
 
 #include "BPDecoder.h"
 
-bool inicializar();
+using namespace std;
 
-void display(std::list < Box > &packedBoxes, std::list< Box >::iterator start, std::list< Box >::iterator end);
+bool inicializar();
+bool start_allegro(unsigned bin_x, unsigned bin_y);
+
+void clear_display();
+
+void draw_box(Box box);
+void draw_boxes(list < Box > &packedBoxes, unsigned bin_number);
+
+void draw_space(Space space);
+void draw_spaces(list < Space > &spaces, unsigned bin_number);
  
-int draw_bin(std::list < Box > &packedBoxes, unsigned bin_x, unsigned bin_y);
+int draw_bin(list < Box > &packedBoxes, unsigned bin_x, unsigned bin_y);
+
+void display_space(list < Space > &spaces, list< Space >::iterator start, list< Space >::iterator end);
+void display(list < Box > &packedBoxes, list< Box >::iterator start, list< Box >::iterator end);
+ 
+int draw_spaces(list < Space > &spaces, unsigned bin_x, unsigned bin_y);

@@ -109,15 +109,18 @@ int main()
     std::cout << "Best chromosome ";
 
     std::list<unsigned> packing_sequence = getPackingOrder(algorithm.getBestChromosome());
-    std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
 
     for (std::list<unsigned>::iterator it=packing_sequence.begin(); it != packing_sequence.end(); ++it){
         std::cout << *it << " ";
     }
     std::cout << std::endl;
 
-
-    draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
+    if (!start_allegro(decoder.bin_w, decoder.bin_h)){
+        std::cout << "ERROR: start allegro\n";
+    }else{
+        std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
+        //draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
+    }
 
     return 0;
 }

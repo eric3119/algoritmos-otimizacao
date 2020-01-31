@@ -9,6 +9,8 @@
 #include <limits>
 #include <math.h>
 
+using namespace std;
+
 typedef struct Space{
     unsigned x, y, X, Y;
     unsigned size = 0;
@@ -35,18 +37,18 @@ class BPDecoder
 public:
     unsigned bin_w, bin_h;
 	
-    std::vector< std::pair<unsigned, unsigned> > boxes;
+    vector< pair<unsigned, unsigned> > boxes;
 
 	BPDecoder();  // Constructor
 	~BPDecoder(); // Destructor
 
 	// Decode a chromosome, returning its fitness as a double-precision floating point:
-	double decode(const std::vector<double> &chromosome) const;
-	std::vector<unsigned> DFTRC(std::list<unsigned> &permutation, std::list < Box > &packedBoxes, unsigned &number_of_bins) const;
-    std::list < Box > getPackedBoxes(std::list<unsigned> &permutation);
-    double fitness(std::list<unsigned> &permutation) const;
-    std::list < Space > differenceProcess(std::list < Space > &empty_spaces, Box box) const;
-    std::list< Space > eliminationProcess(std::list < Space > &new_spaces) const;
+	double decode(const vector<double> &chromosome) const;
+	vector<unsigned> DFTRC(list<unsigned> &permutation, list < Box > &packedBoxes, unsigned &number_of_bins) const;
+    list < Box > getPackedBoxes(list<unsigned> &permutation);
+    double fitness(list<unsigned> &permutation) const;
+    list < Space > differenceProcess(list < Space > &empty_spaces, Box box) const;
+    list< Space > eliminationProcess(list < Space > &new_spaces) const;
 private:
 };
 
