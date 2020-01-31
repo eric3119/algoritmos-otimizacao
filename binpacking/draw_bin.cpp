@@ -20,9 +20,9 @@ void draw_box(Box box){
     unsigned R, G, B, box_size;
     box_size = pow(box.X - box.x, 2) + pow(box.Y - box.y, 2);
         
-    R = ((box_size * 3) % 100) + 100;
-    G = ((box_size * 5) % 100) + 100;
-    B = ((box_size * 7) % 100) + 100;
+    R = ((box_size * 3) % 50) + 100;
+    G = ((box_size * 5) % 50) + 100;
+    B = ((box_size * 7) % 50) + 100;
     unsigned x1 = box.x * factor_x;
     unsigned x2 = box.X * factor_x;
     unsigned y1 = ALTURA_TELA - (box.y * factor_y);
@@ -46,7 +46,6 @@ void draw_boxes(list < Box > &packedBoxes, unsigned bin_number){
 
     // display(packedBoxes, start, packedBoxes.end());
     // al_flip_display();
-    al_rest(1.0);
 }
 
 bool start_allegro(unsigned bin_x, unsigned bin_y){
@@ -106,16 +105,16 @@ void draw_space(Space space){
 
     space_size = pow(space.X - space.x, 2) + pow(space.Y - space.y, 2);
         
-    R = ((space_size * 3) % 100) + 100;
-    G = ((space_size * 5) % 100) + 100;
-    B = ((space_size * 7) % 100) + 100;
+    R = 255;
+    G = 255;
+    B = 255;
     unsigned x1 = space.x * factor_x;
     unsigned x2 = space.X * factor_x;
     unsigned y1 = ALTURA_TELA - (space.y * factor_y);
     unsigned y2 = ALTURA_TELA - (space.Y * factor_y);
     //cout << x1 << " " << y1 << " " << x2 << " " << y2 << endl;
     // Retângulo: x1, y1, x2, y2, cor, borda
-    al_draw_rectangle(x1, y1, x2, y2, al_map_rgb(R, G, B), 5.0);
+    al_draw_rectangle(x1, y1, x2, y2, al_map_rgb(R, G, B), 10.0);
     al_flip_display();
     al_rest(1.0);
 }

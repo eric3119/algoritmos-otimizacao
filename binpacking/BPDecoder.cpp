@@ -45,6 +45,10 @@ bool compare(const Space &s1, const Space &s2){
 	return s1.size > s2.size;
 }
 
+bool box_intersect_space(Space sp, Box box){
+	return sp.x < box.X || sp.y < box.Y || sp.X > box.x || sp.Y > box.y;
+}
+
 list < Space > BPDecoder::differenceProcess(
 	list < Space > &empty_spaces, Box box)
 	const{
@@ -55,16 +59,20 @@ list < Space > BPDecoder::differenceProcess(
 
 		if(box.bin_number == (*sp).bin_number){
 
-			if((*sp).x < box.x)
+			if((*sp).x < box.x && box.x > (*sp).X)
+				// adiciona o lado esquerdo do novo espaço
 				new_spaces.push_back(Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number));
-			// adiciona o lado esquerdo do novo espaço
-			if((*sp).X > box.X)
+			
+			if((*sp).X > box.X && box.X > (*sp).x)
+				// adiciona o lado direito do novo espaço
 				new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number));
-			// adiciona o fundo do novo espaço	
-			if((*sp).y < box.y)
+			
+			if((*sp).y < box.y && box.y < (*sp).Y)
+				// adiciona o fundo do novo espaço	
 				new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
-			// adiciona o topo do novo espaço	
-			if((*sp).Y > box.Y)
+			
+			if((*sp).Y > box.Y && box.Y > (*sp).y)
+				// adiciona o topo do novo espaço	
 				new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
 		}else{
 			new_spaces.push_back(*sp);
