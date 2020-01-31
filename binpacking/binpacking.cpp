@@ -115,9 +115,12 @@ int main()
     }
     std::cout << std::endl;
 
-
-    std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
-    draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
+    if (!start_allegro(decoder.bin_w, decoder.bin_h)){
+        std::cout << "ERROR: start allegro\n";
+    }else{
+        std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
+        //draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
+    }
 
     return 0;
 }
