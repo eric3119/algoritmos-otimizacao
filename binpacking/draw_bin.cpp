@@ -31,7 +31,7 @@ void draw_box(Box box){
     // Retângulo preenchido: x1, y1, x2, y2, cor
     al_draw_filled_rectangle(x1, y1, x2, y2, al_map_rgb(R, G, B));
     al_flip_display();
-    al_rest(2.0);
+    al_rest(1.0);
 }
 
 void draw_boxes(list < Box > &packedBoxes, unsigned bin_number){

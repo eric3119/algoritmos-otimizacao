@@ -46,7 +46,10 @@ bool compare(const Space &s1, const Space &s2){
 }
 
 bool box_intersect_space(Space sp, Box box){
-	return sp.x < box.X || sp.y < box.Y || sp.X > box.x || sp.Y > box.y;
+	return	(box.x < sp.X && box.Y > sp.y )||//&& box.x > sp.x && box.Y < sp.Y) ||
+			(box.X > sp.x && box.Y > sp.y )||//&& box.X < sp.X && box.Y < sp.Y) ||
+			(box.x < sp.X && box.y < sp.Y && box.x > sp.x && box.y > sp.y) ||
+			(box.X > sp.x && box.y < sp.Y && box.X < sp.X && box.y > sp.y);
 }
 
 list < Space > BPDecoder::differenceProcess(
@@ -57,23 +60,24 @@ list < Space > BPDecoder::differenceProcess(
 	
 	for (list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 
-		if(box.bin_number == (*sp).bin_number){
+		if(box.bin_number == (*sp).bin_number && box_intersect_space(*sp, box)){
 
-			if((*sp).x < box.x && box.x > (*sp).X)
+			if((*sp).x < box.x && box.x > (*sp).X){
 				// adiciona o lado esquerdo do novo espaço
 				new_spaces.push_back(Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number));
-			
-			if((*sp).X > box.X && box.X > (*sp).x)
+			}
+			if((*sp).X > box.X && box.X > (*sp).x){
 				// adiciona o lado direito do novo espaço
 				new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number));
-			
-			if((*sp).y < box.y && box.y < (*sp).Y)
+			}
+			if((*sp).y < box.y && box.y < (*sp).Y){
 				// adiciona o fundo do novo espaço	
 				new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
-			
-			if((*sp).Y > box.Y && box.Y > (*sp).y)
+			}
+			if((*sp).Y > box.Y && box.Y > (*sp).y){
 				// adiciona o topo do novo espaço	
 				new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
+			}
 		}else{
 			new_spaces.push_back(*sp);
 		}
@@ -131,7 +135,6 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 
 		empty_spaces = differenceProcess(empty_spaces, box);
 		packedBoxes.push_back(box);
-
 		if(draw){
 			for (unsigned i = 1; i <= number_of_bins; ++i){
 				clear_display();
@@ -140,6 +143,7 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 			}
 		}
 	}
+
 	
 	return bin_capacity;
 }
