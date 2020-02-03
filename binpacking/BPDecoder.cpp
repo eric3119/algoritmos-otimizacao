@@ -11,7 +11,9 @@ list< Space > BPDecoder::eliminationProcess(
 ) const{
 	bool next = true;
 	for (list<Space>::iterator n_sp=new_spaces.begin(); n_sp != new_spaces.end();){
-		if((*n_sp).size == 0){
+		if((*n_sp).size == 0 || 
+			(*n_sp).X - (*n_sp).x < this->box_min_w ||
+			(*n_sp).Y - (*n_sp).y < this->box_min_h){
 			// self elimination
 			n_sp = new_spaces.erase(n_sp);
 			next = false;
@@ -62,19 +64,19 @@ list < Space > BPDecoder::differenceProcess(
 
 		if(box.bin_number == (*sp).bin_number && box_intersect_space(*sp, box)){
 
-			if((*sp).x < box.x){// && box.x > (*sp).X){
+			if((*sp).x < box.x){
 				// adiciona o lado esquerdo do novo espaço
 				new_spaces.push_back(Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number));
 			}
-			if((*sp).X > box.X){// && box.X > (*sp).x){
+			if((*sp).X > box.X){
 				// adiciona o lado direito do novo espaço
 				new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number));
 			}
-			if((*sp).y < box.y){// && box.y < (*sp).Y){
+			if((*sp).y < box.y){
 				// adiciona o fundo do novo espaço	
 				new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
 			}
-			if((*sp).Y > box.Y){// && box.Y > (*sp).y){
+			if((*sp).Y > box.Y){
 				// adiciona o topo do novo espaço	
 				new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
 			}
@@ -105,17 +107,19 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 		unsigned box_w = boxes[*it].first, 
 				box_h = boxes[*it].second;
 
-		unsigned distance = 0;
+		unsigned max_distance = 0;
 		Space maximalSpace;
 		
 		for (list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 			Space ems = *sp;
 
 			if((ems.X - ems.x) >= box_w && (ems.Y - ems.y) >= box_h){
+				unsigned box_X = box_w + ems.x, 
+						box_Y = box_h + ems.y;
 
-				unsigned d = pow(ems.X - box_w, 2) + pow(ems.Y - box_h, 2);
-				if (d >= distance){
-					distance = d;
+				unsigned d2 = pow(this->bin_w - box_X, 2) + pow(this->bin_h - box_Y, 2);
+				if (d2 >= max_distance){
+					max_distance = d2;
 					maximalSpace = (*sp);
 				}
 			}
