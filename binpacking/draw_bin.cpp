@@ -30,8 +30,9 @@ void draw_box(Box box){
     // cout << x1 << " " << y1 << " " << x2 << " " << y2 << endl;
     // Retângulo preenchido: x1, y1, x2, y2, cor
     al_draw_filled_rectangle(x1, y1, x2, y2, al_map_rgb(R, G, B));
+    al_draw_rectangle(x1, y1, x2, y2, al_map_rgb(0,0,0), 2.0);
     al_flip_display();
-    al_rest(2.0);
+    al_rest(0.5);
 }
 
 void draw_boxes(list < Box > &packedBoxes, unsigned bin_number){
@@ -82,7 +83,7 @@ int draw_bin(list < Box > &packedBoxes, unsigned bin_x, unsigned bin_y){
         if((*start).bin_number != (*it).bin_number){
             display(packedBoxes, start, it);
             al_rest(1.0);
-            al_clear_to_color(al_map_rgb(0, 0, 0));
+            al_clear_to_color(al_map_rgb(255, 255, 255));
             al_flip_display();
             al_rest(0.5);
             start = it;
@@ -105,18 +106,18 @@ void draw_space(Space space){
 
     space_size = pow(space.X - space.x, 2) + pow(space.Y - space.y, 2);
         
-    R = 255;
-    G = 255;
-    B = 255;
+    R = 50;
+    G = 50;
+    B = 50;
     unsigned x1 = space.x * factor_x;
     unsigned x2 = space.X * factor_x;
     unsigned y1 = ALTURA_TELA - (space.y * factor_y);
     unsigned y2 = ALTURA_TELA - (space.Y * factor_y);
     //cout << x1 << " " << y1 << " " << x2 << " " << y2 << endl;
     // Retângulo: x1, y1, x2, y2, cor, borda
-    al_draw_rectangle(x1, y1, x2, y2, al_map_rgb(R, G, B), 10.0);
+    al_draw_rectangle(x1, y1, x2, y2, al_map_rgb(R, G, B), 5.0);
     al_flip_display();
-    al_rest(1.0);
+    al_rest(0.5);
 }
 void draw_spaces(list < Space > &spaces, unsigned bin_number){
     spaces.sort(compare_space_number);
@@ -134,18 +135,18 @@ void draw_spaces(list < Space > &spaces, unsigned bin_number){
     al_rest(1.0);
 }
 void clear_display(){
-    al_clear_to_color(al_map_rgb(0, 0, 0));
+    al_clear_to_color(al_map_rgb(255,255,255));
 }
 
 void display_space(list < Space > &spaces, list< Space >::iterator start, list< Space >::iterator end){
-    al_clear_to_color(al_map_rgb(0, 0, 0));
+    al_clear_to_color(al_map_rgb(255,255,255));
     
     for (list< Space >::iterator it=start; it != end; ++it){
         draw_space(*it);
     }
 }
 void display(list < Box > &packedBoxes, list< Box >::iterator start, list< Box >::iterator end){
-    al_clear_to_color(al_map_rgb(0, 0, 0));
+    al_clear_to_color(al_map_rgb(255,255,255));
     
     for (list< Box >::iterator it=start; it != end; ++it){
         draw_box(*it);
@@ -175,7 +176,7 @@ int draw_spaces(list < Space > &spaces, unsigned bin_x, unsigned bin_y){
         if((*start).bin_number != (*it).bin_number){
             display_space(spaces, start, it);
             al_rest(1.0);
-            al_clear_to_color(al_map_rgb(0, 0, 0));
+            al_clear_to_color(al_map_rgb(255,255,255));
             al_flip_display();
             al_rest(0.5);
             start = it;
