@@ -112,7 +112,6 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 			Space ems = *sp;
 
 			if((ems.X - ems.x) >= box_w && (ems.Y - ems.y) >= box_h){
-				if(draw)cout << ems.X << " " << ems.x << " " << box_w << " " << ems.Y << " " << ems.y << " " << box_h << endl;
 
 				unsigned d = pow(ems.X - box_w, 2) + pow(ems.Y - box_h, 2);
 				if (d >= distance){
