@@ -62,19 +62,19 @@ list < Space > BPDecoder::differenceProcess(
 
 		if(box.bin_number == (*sp).bin_number && box_intersect_space(*sp, box)){
 
-			if((*sp).x < box.x && box.x > (*sp).X){
+			if((*sp).x < box.x){// && box.x > (*sp).X){
 				// adiciona o lado esquerdo do novo espaço
 				new_spaces.push_back(Space((*sp).x, (*sp).y, box.x,   (*sp).Y, (*sp).bin_number));
 			}
-			if((*sp).X > box.X && box.X > (*sp).x){
+			if((*sp).X > box.X){// && box.X > (*sp).x){
 				// adiciona o lado direito do novo espaço
 				new_spaces.push_back(Space(box.X,   (*sp).y, (*sp).X, (*sp).Y, (*sp).bin_number));
 			}
-			if((*sp).y < box.y && box.y < (*sp).Y){
+			if((*sp).y < box.y){// && box.y < (*sp).Y){
 				// adiciona o fundo do novo espaço	
 				new_spaces.push_back(Space((*sp).x, (*sp).y, (*sp).X, box.y,   (*sp).bin_number));
 			}
-			if((*sp).Y > box.Y && box.Y > (*sp).y){
+			if((*sp).Y > box.Y){// && box.Y > (*sp).y){
 				// adiciona o topo do novo espaço	
 				new_spaces.push_back(Space((*sp).x, box.Y,   (*sp).X, (*sp).Y, (*sp).bin_number));
 			}
@@ -135,15 +135,16 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 
 		empty_spaces = differenceProcess(empty_spaces, box);
 		packedBoxes.push_back(box);
-		if(draw){
-			for (unsigned i = 1; i <= number_of_bins; ++i){
-				clear_display();
-				draw_boxes(packedBoxes, i);
-				draw_spaces(empty_spaces, i);
-			}
-		}
+		
 	}
 
+	if(draw){
+		for (unsigned i = 1; i <= number_of_bins; ++i){
+			clear_display();
+			draw_boxes(packedBoxes, i);
+			draw_spaces(empty_spaces, i);
+		}
+	}
 	
 	return bin_capacity;
 }
