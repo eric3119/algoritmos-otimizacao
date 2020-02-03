@@ -46,10 +46,10 @@ bool compare(const Space &s1, const Space &s2){
 }
 
 bool box_intersect_space(Space sp, Box box){
-	return	(box.x < sp.X && box.Y > sp.y )||//&& box.x > sp.x && box.Y < sp.Y) ||
-			(box.X > sp.x && box.Y > sp.y )||//&& box.X < sp.X && box.Y < sp.Y) ||
-			(box.x < sp.X && box.y < sp.Y && box.x > sp.x && box.y > sp.y) ||
-			(box.X > sp.x && box.y < sp.Y && box.X < sp.X && box.y > sp.y);
+	if (box.x > sp.X || box.X < sp.x ) return false;
+	if (box.y > sp.Y || box.Y < sp.y ) return false;
+
+	return true;
 }
 
 list < Space > BPDecoder::differenceProcess(
