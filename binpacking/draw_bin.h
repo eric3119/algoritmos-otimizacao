@@ -11,6 +11,7 @@ using namespace std;
 
 bool inicializar();
 bool start_allegro(unsigned bin_x, unsigned bin_y);
+void draw_wait(float time);
 
 void clear_display();
 

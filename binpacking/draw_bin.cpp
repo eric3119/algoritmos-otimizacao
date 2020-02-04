@@ -41,7 +41,6 @@ void draw_boxes(list < Box > &packedBoxes, unsigned bin_number){
 
         if((*it).bin_number == bin_number){
             draw_box(*it);
-            al_flip_display();
         }
     }
 
@@ -126,13 +125,14 @@ void draw_spaces(list < Space > &spaces, unsigned bin_number){
 
         if((*it).bin_number == bin_number){
             draw_space(*it);
-            al_flip_display();
         }
     }
 
     // display(spaces, start, spaces.end());
     // al_flip_display();
-    al_rest(1.0);
+}
+void draw_wait(float time){
+    al_rest(time);
 }
 void clear_display(){
     al_clear_to_color(al_map_rgb(255,255,255));
