@@ -6,6 +6,7 @@ const int ALTURA_TELA = 600;
 int factor_x, factor_y;
 
 ALLEGRO_DISPLAY *janela = NULL;
+ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 
 bool compare_bin_number(const Box &b1, const Box &b2){
 	return b1.bin_number < b2.bin_number;
@@ -59,45 +60,42 @@ bool start_allegro(unsigned bin_x, unsigned bin_y){
     }
 }
 
-int draw_bin(list < Box > &packedBoxes, unsigned bin_x, unsigned bin_y){
-    if (!inicializar()){
-        return -1;
-    }
+void draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned number_of_bins){
 
-    factor_x = LARGURA_TELA / bin_x;
-    factor_y = ALTURA_TELA / bin_y;
+    bool exit = false;
+    
+    unsigned bin_index = 0;
 
-    packedBoxes.sort(compare_bin_number);
-
-    list< Box >::iterator it=packedBoxes.end();
-    unsigned number_of_bins = (*it).bin_number;
-
-    for (list< Box >::iterator it=packedBoxes.begin(); it != packedBoxes.end(); ++it){
-        cout << (*it).x << " " << (*it).y << " " << (*it).X << " " << (*it).Y << " " << (*it).bin_number << " " << endl;
-    }
-
-    list< Box >::iterator start = packedBoxes.begin();
-    for (list< Box >::iterator it=packedBoxes.begin(); it != packedBoxes.end(); ++it){
-
-        if((*start).bin_number != (*it).bin_number){
-            display(packedBoxes, start, it);
-            al_rest(1.0);
-            al_clear_to_color(al_map_rgb(255, 255, 255));
-            al_flip_display();
-            al_rest(0.5);
-            start = it;
+    while (!exit && bin_index <= number_of_bins){
+            
+        while(!al_is_event_queue_empty(event_queue))
+        {
+            ALLEGRO_EVENT evento;
+            al_wait_for_event(event_queue, &evento);
+    
+            if (evento.type == ALLEGRO_EVENT_KEY_DOWN)
+            {
+                switch (evento.keyboard.keycode)
+                {
+                    case ALLEGRO_KEY_SPACE:
+                        ++bin_index;
+                        clear_display();
+                        draw_wait(1.0);
+                        draw_boxes(packed_boxes, bin_index);
+                        draw_spaces(empty_spaces, bin_index);
+                        break;
+                    case ALLEGRO_KEY_ESCAPE:
+                        exit = true;
+                        break;
+                }
+            }
+            else if (evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+            {
+                exit = true;
+            }
         }
     }
-
-    display(packedBoxes, start, packedBoxes.end());
-    al_flip_display();
-    al_rest(2.0);
-
-    while(true){}
- 
     al_destroy_display(janela);
-    
-    return 0;
 }
 
 void draw_space(Space space){
@@ -210,6 +208,22 @@ bool inicializar(){
     }
     
     al_set_window_title(janela, "Bin Packing");
+    
+    if (!al_install_keyboard()){
+        cout << "Falha ao inicializar o keyboard.\n";
+        return false;
+    }
+
+    event_queue = al_create_event_queue();
+    
+    if (!event_queue){
+        cout << "Falha ao criar fila de eventos.\n";
+        al_destroy_display(janela);
+        return false;
+    }
+
+    al_register_event_source(event_queue, al_get_keyboard_event_source());
+    al_register_event_source(event_queue, al_get_display_event_source(janela));
     
     return true;
 }

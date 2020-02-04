@@ -7,7 +7,7 @@ CPP= g++
 #	full error and warning reports
 #	no range checking within BRKGA:
 CFLAGS= -O3 -fopenmp -Wextra -Wall -Weffc++ -ansi -pedantic -Woverloaded-virtual -Wcast-align -Wpointer-arith
-ALLEGROFLAGS= -lallegro -lallegro_primitives -lm
+ALLEGROFLAGS= -lallegro -lallegro_primitives -lallegro_dialog -lm
 # Compiler flags for debugging; uncomment if needed:
 #	range checking enabled in the BRKGA API
 #	OpenMP disabled

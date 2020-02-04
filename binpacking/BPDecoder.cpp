@@ -142,12 +142,8 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 	}
 
 	if(draw){
-		for (unsigned i = 1; i <= number_of_bins; ++i){
-			clear_display();
-			draw_wait(1.0);
-			draw_boxes(packedBoxes, i);
-			draw_spaces(empty_spaces, i);
-		}
+		cout << "Number of bins " << number_of_bins << endl;
+		draw_bin(packedBoxes, empty_spaces, number_of_bins);
 	}
 	
 	return bin_capacity;
