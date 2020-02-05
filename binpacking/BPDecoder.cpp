@@ -104,11 +104,11 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 
 	for (list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
 		
+		vector<Space> max_distance_spaces;
 		unsigned box_w = boxes[*it].first, 
 				box_h = boxes[*it].second;
 
 		unsigned max_distance = 0;
-		Space maximalSpace;
 		
 		for (list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 			Space ems = *sp;
@@ -118,19 +118,36 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 						box_Y = box_h + ems.y;
 
 				unsigned d2 = pow(this->bin_w - box_X, 2) + pow(this->bin_h - box_Y, 2);
-				if (d2 >= max_distance){
+				if(draw){
+					cout << this->bin_w - box_X << " x " << this->bin_h - box_Y  << " ";
+					cout << "distance ^ 2" << d2 << endl;
+				}
+				if (d2 == max_distance){
 					max_distance = d2;
-					maximalSpace = (*sp);
+					max_distance_spaces.push_back(*sp);
+				}else if(d2 > max_distance){
+					max_distance_spaces.clear();
+
+					max_distance = d2;
+					max_distance_spaces.push_back(*sp);
 				}
 			}
 		}
 		
-		if (maximalSpace.size == 0) {
+		if (max_distance_spaces.size() == 0) {
 			++number_of_bins;
 			empty_spaces.push_back(Space(0, 0, bin_w, bin_h, number_of_bins));
 			bin_capacity.push_back(bin_w * bin_h);
-			maximalSpace = empty_spaces.back();
+			max_distance_spaces.push_back(empty_spaces.back());
 		}
+
+		unsigned random_index = rand() % max_distance_spaces.size();
+
+		if(draw){
+			cout << random_index << "/" << max_distance_spaces.size() << endl;
+		}
+
+		Space maximalSpace = max_distance_spaces[random_index];
 
 		Box box(maximalSpace.x,maximalSpace.y,box_w,box_h, maximalSpace.bin_number);
 
@@ -138,7 +155,6 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 
 		empty_spaces = differenceProcess(empty_spaces, box);
 		packedBoxes.push_back(box);
-		
 	}
 
 	if(draw){
@@ -157,12 +173,9 @@ double BPDecoder::fitness(list<unsigned> &permutation) const{
 	
 	vector<unsigned> bin_capacity = DFTRC(permutation, packedBoxes, number_of_bins);
 	
-	double least_load = numeric_limits<double>::max();
-	for (unsigned i = 0; i < number_of_bins; i++){
-		if(bin_capacity[i] < least_load){
-			least_load = bin_capacity[i];
-		}
-	}
+	vector<unsigned>::iterator it = min_element(bin_capacity.begin(), bin_capacity.end());
+	double least_load = *it;
+
 	return number_of_bins + (least_load / (this->bin_w * this->bin_h));
 }
 

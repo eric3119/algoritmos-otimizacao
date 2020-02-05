@@ -95,7 +95,7 @@ void draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned
             }
         }
     }
-    al_destroy_display(janela);
+    //al_destroy_display(janela);
 }
 
 void draw_space(Space space){
