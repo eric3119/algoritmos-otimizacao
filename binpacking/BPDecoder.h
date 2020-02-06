@@ -3,6 +3,7 @@
 
 #include <list>
 #include <vector>
+#include <limits>
 #include <algorithm>
 #include <iostream>
 #include <queue>
@@ -36,7 +37,6 @@ class BPDecoder
 {
 public:
     unsigned bin_w, bin_h;
-    //unsigned box_min_w, box_min_h;
 	
     vector< pair<unsigned, unsigned> > boxes;
 

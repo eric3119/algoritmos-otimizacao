@@ -1,6 +1,7 @@
 #include "BPDecoder.h"
 #include "draw_bin.h"
 bool draw = false;
+unsigned box_min_w, box_min_h;
 
 BPDecoder::BPDecoder() {}
 
@@ -11,10 +12,10 @@ list< Space > BPDecoder::eliminationProcess(
 ) const{
 	bool next = true;
 	for (list<Space>::iterator n_sp=new_spaces.begin(); n_sp != new_spaces.end();){
-		if((*n_sp).size == 0 //|| 
-			// (*n_sp).X - (*n_sp).x < this->box_min_w ||
-			// (*n_sp).Y - (*n_sp).y < this->box_min_h
-			){
+		if((*n_sp).size == 0 
+			|| box_min_w > (*n_sp).X - (*n_sp).x
+			|| box_min_h > (*n_sp).Y - (*n_sp).y){
+
 			// self elimination
 			n_sp = new_spaces.erase(n_sp);
 			next = false;
@@ -103,11 +104,23 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 
 	number_of_bins = 0;
 
+	box_min_w = numeric_limits<unsigned>::max();
+	box_min_h = numeric_limits<unsigned>::max();
+
 	for (list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
 		
 		vector<Space> max_distance_spaces;
 		unsigned box_w = boxes[*it].first, 
 				box_h = boxes[*it].second;
+
+		for (list<unsigned>::iterator it2 = it; it2 != permutation.end(); ++it2){
+			
+			if(box_min_w > boxes[*it2].first)
+				box_min_w = boxes[*it2].first;
+
+			if(box_min_h > boxes[*it2].second)
+				box_min_h = boxes[*it2].second;
+		}
 
 		unsigned max_distance = 0;
 
@@ -116,15 +129,15 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 		for (list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 			Space ems = *sp;
 
-			if((ems.X - ems.x) >= box_w && (ems.Y - ems.y) >= box_h){
+			unsigned space_w = ems.X - ems.x;
+			unsigned space_h = ems.Y - ems.y;
+
+			if(space_w >= box_w && space_h >= box_h){
 				unsigned box_X = box_w + ems.x, 
 						box_Y = box_h + ems.y;
 
 				unsigned d2 = pow(this->bin_w - box_X, 2) + pow(this->bin_h - box_Y, 2);
-				if(draw){
-					cout << this->bin_w - box_X << " x " << this->bin_h - box_Y  << " ";
-					cout << "distance ^ 2" << d2 << endl;
-				}
+
 				if (d2 == max_distance){
 					max_distance = d2;
 					max_distance_spaces.push_back(*sp);
@@ -177,8 +190,11 @@ double BPDecoder::fitness(list<unsigned> &permutation) const{
 	
 	vector<unsigned> bin_capacity = DFTRC(permutation, packedBoxes, number_of_bins);
 	
-	vector<unsigned>::iterator it = min_element(bin_capacity.begin(), bin_capacity.end());
-	double least_load = *it;
+	double least_load = 0;
+	if(number_of_bins > 1){
+		vector<unsigned>::iterator it = min_element(bin_capacity.begin(), bin_capacity.end());
+		least_load = *it;
+	}
 
 	return number_of_bins + (least_load / (this->bin_w * this->bin_h));
 }
