@@ -36,15 +36,15 @@ std::list<unsigned> getPackingOrder(const std::vector<double> &chromosome){
 int main()
 {
     unsigned n;               // size of chromosomes
-    const unsigned p = 100;   // size of population
+    unsigned p;   // size of population
     const double pe = 0.10;   // fraction of population to be the elite-set
-    const double pm = 0.10;   // fraction of population to be replaced by mutants
+    const double pm = 0.15;   // fraction of population to be replaced by mutants
     const double rhoe = 0.70; // probability that offspring inherit an allele from elite parent
     const unsigned K = 3;     // number of independent populations
     const unsigned MAXT = 1;  // number of threads for parallel decoding
 
     for(int i = 0; i< 5; i++){
-        double class_mean = 0;
+        double class_mean = 0;  
         double best_fitness = numeric_limits<double>::max();
         
         for(int i = 0; i< 10; i++){
@@ -59,13 +59,14 @@ int main()
             getline(cin, str); // PROBLEM CLASS
 
             cin >> n;
+            p = 30*n;
             getline(cin, str);
             
             cin >> relative >> absolute;
             getline(cin, str); //RELATIVE AND ABSOLUTE N. OF INSTANCE
 
-            cout << "Class " << class_n << " size " << n << endl;
-            cout << "Instance " << relative << " / " << absolute << endl;
+            cout << "\nClass " << class_n << " size " << n << endl;
+            cout << "Instance " << relative << " / Absolute " << absolute << endl;
 
             cin >> decoder.bin_w >> decoder.bin_h;
             getline(cin, str);
@@ -86,17 +87,18 @@ int main()
             unsigned generation = 0;        // current generation
             const unsigned X_INTVL = 100;   // exchange best individuals at every 100 generations
             const unsigned X_NUMBER = 2;    // exchange top 2 best
-            const unsigned MAX_GENS = 200; // run for 1000 gens
+            const unsigned MAX_GENS = 300; // run for 1000 gens
             std::cout << "Running for " << MAX_GENS << " generations..." << std::endl;
             do
             {
                 algorithm.evolve(); // evolve the population for one generation
 
+                //cout << "It = " << generation << " " 
+                //    << algorithm.getBestFitness() << endl;
                 if ((++generation) % X_INTVL == 0)
                 {
                     algorithm.exchangeElite(X_NUMBER); // exchange top individuals
                 }
-                //cout << algorithm.getBestFitness() << endl; 
             } while (generation < MAX_GENS);
 
             // print the fitness of the top 10 individuals of each population:
@@ -138,7 +140,7 @@ int main()
             // }
         }
         cout << "\nZ " << class_mean / 10.0 << endl;
-        cout << "Best " << best_fitness << endl << endl;
+        cout << "Min fitness " << best_fitness << endl << endl;
     }
     return 0;
 }

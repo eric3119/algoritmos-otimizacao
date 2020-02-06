@@ -101,11 +101,7 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 	list < Space > empty_spaces;
 	vector<unsigned> bin_capacity;
 
-	number_of_bins = 1;
-
-	empty_spaces.push_back(Space(0, 0, bin_w, bin_h, number_of_bins));
-	
-	bin_capacity.push_back(bin_w * bin_h);
+	number_of_bins = 0;
 
 	for (list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
 		
@@ -148,7 +144,7 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 			max_distance_spaces.push_back(empty_spaces.back());
 		}
 
-		unsigned random_index = 0;// rand() % max_distance_spaces.size();
+		unsigned random_index =  rand() % max_distance_spaces.size();
 
 		if(draw){
 			cout << random_index << "/" << max_distance_spaces.size() << endl;
@@ -175,7 +171,7 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 
 double BPDecoder::fitness(list<unsigned> &permutation) const{
 
-	unsigned number_of_bins = 1;
+	unsigned number_of_bins;
 
 	list < Box > packedBoxes;
 	
@@ -189,7 +185,7 @@ double BPDecoder::fitness(list<unsigned> &permutation) const{
 
 list < Box > BPDecoder::getPackedBoxes(list<unsigned> &permutation){
 
-	unsigned number_of_bins = 1;
+	unsigned number_of_bins;
 	draw= true;
 
 	list < Box > packedBoxes;
