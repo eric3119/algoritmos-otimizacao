@@ -11,9 +11,10 @@ list< Space > BPDecoder::eliminationProcess(
 ) const{
 	bool next = true;
 	for (list<Space>::iterator n_sp=new_spaces.begin(); n_sp != new_spaces.end();){
-		if((*n_sp).size == 0 || 
-			(*n_sp).X - (*n_sp).x < this->box_min_w ||
-			(*n_sp).Y - (*n_sp).y < this->box_min_h){
+		if((*n_sp).size == 0 //|| 
+			// (*n_sp).X - (*n_sp).x < this->box_min_w ||
+			// (*n_sp).Y - (*n_sp).y < this->box_min_h
+			){
 			// self elimination
 			n_sp = new_spaces.erase(n_sp);
 			next = false;
@@ -43,8 +44,12 @@ list< Space > BPDecoder::eliminationProcess(
 	return new_spaces;
 }
 
-bool compare(const Space &s1, const Space &s2){
+bool compare_space_size(const Space &s1, const Space &s2){
 	return s1.size > s2.size;
+}
+
+bool sort_by_bin_number(const Space &s1, const Space &s2){
+	return s1.bin_number > s2.bin_number;
 }
 
 bool box_intersect_space(Space sp, Box box){
@@ -109,6 +114,8 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 				box_h = boxes[*it].second;
 
 		unsigned max_distance = 0;
+
+		empty_spaces.sort(sort_by_bin_number);
 		
 		for (list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 			Space ems = *sp;
@@ -141,7 +148,7 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 			max_distance_spaces.push_back(empty_spaces.back());
 		}
 
-		unsigned random_index = rand() % max_distance_spaces.size();
+		unsigned random_index = 0;// rand() % max_distance_spaces.size();
 
 		if(draw){
 			cout << random_index << "/" << max_distance_spaces.size() << endl;
@@ -154,14 +161,15 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 		bin_capacity[maximalSpace.bin_number - 1] -= box_w * box_h;
 
 		empty_spaces = differenceProcess(empty_spaces, box);
+
 		packedBoxes.push_back(box);
+		if(draw){
+			cout << "Number of bins " << number_of_bins << endl;
+			draw_bin(packedBoxes, empty_spaces, number_of_bins);
+		}
+		
 	}
 
-	if(draw){
-		cout << "Number of bins " << number_of_bins << endl;
-		draw_bin(packedBoxes, empty_spaces, number_of_bins);
-	}
-	
 	return bin_capacity;
 }
 

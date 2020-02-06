@@ -36,7 +36,7 @@ class BPDecoder
 {
 public:
     unsigned bin_w, bin_h;
-    unsigned box_min_w, box_min_h;
+    //unsigned box_min_w, box_min_h;
 	
     vector< pair<unsigned, unsigned> > boxes;
 
