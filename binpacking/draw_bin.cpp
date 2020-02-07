@@ -82,7 +82,7 @@ void draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned
                         clear_display();
                         draw_wait(1.0);
                         draw_boxes(packed_boxes, bin_index);
-                        draw_spaces(empty_spaces, bin_index);
+                        //draw_spaces(empty_spaces, bin_index);
                         break;
                     case ALLEGRO_KEY_ESCAPE:
                         exit = true;

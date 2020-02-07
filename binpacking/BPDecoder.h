@@ -45,11 +45,11 @@ public:
 
 	// Decode a chromosome, returning its fitness as a double-precision floating point:
 	double decode(const vector<double> &chromosome) const;
-	vector<unsigned> DFTRC(list<unsigned> &permutation, list < Box > &packedBoxes, unsigned &number_of_bins) const;
+	vector<unsigned> DFTRC(list<unsigned> &permutation, list < Box > &packedBoxes) const;
     list < Box > getPackedBoxes(list<unsigned> &permutation);
     double fitness(list<unsigned> &permutation) const;
-    list < Space > differenceProcess(list < Space > &empty_spaces, Box box) const;
-    list< Space > eliminationProcess(list < Space > &new_spaces) const;
+    void differenceProcess(list < Space > &empty_spaces, Box box) const;
+    void eliminationProcess(list < Space > &new_spaces) const;
 private:
 };
 

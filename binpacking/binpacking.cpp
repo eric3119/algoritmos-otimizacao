@@ -94,7 +94,7 @@ int main()
             unsigned generation = 0;        // current generation
             const unsigned X_INTVL = 100;   // exchange best individuals at every 100 generations
             const unsigned X_NUMBER = 2;    // exchange top 2 best
-            const unsigned MAX_GENS = 30; // run for 1000 gens
+            const unsigned MAX_GENS = 300; // run for 1000 gens
             std::cout << "Running for " << MAX_GENS << " generations..." << std::endl;
             do
             {
@@ -139,12 +139,12 @@ int main()
             }
             std::cout << std::endl;
 
-            if (!start_allegro(decoder.bin_w, decoder.bin_h)){
-                std::cout << "ERROR: start allegro\n";
-            }else{
-                std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
-                //draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
-            }
+            // if (!start_allegro(decoder.bin_w, decoder.bin_h)){
+            //     std::cout << "ERROR: start allegro\n";
+            // }else{
+            //     std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
+            //     //draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
+            // }
         }
         cout << "\nZ " << class_mean / 10.0 << endl;
         cout << "Min fitness " << best_fitness << endl << endl;
