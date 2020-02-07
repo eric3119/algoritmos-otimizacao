@@ -47,6 +47,7 @@ public:
 	double decode(const vector<double> &chromosome) const;
 	vector<unsigned> DFTRC(list<unsigned> &permutation, list < Box > &packedBoxes) const;
     list < Box > getPackedBoxes(list<unsigned> &permutation);
+    void setDraw(bool value);
     double fitness(list<unsigned> &permutation) const;
     void differenceProcess(list < Space > &empty_spaces, Box box) const;
     void eliminationProcess(list < Space > &new_spaces) const;

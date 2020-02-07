@@ -171,7 +171,8 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 
 	if(draw){
 		cout << "Number of bins " << number_of_bins << endl;
-		draw_bin(packedBoxes, empty_spaces, number_of_bins);
+		cout << "Number of empty_spaces " << empty_spaces.size() << endl;
+		//draw_bin(packedBoxes, empty_spaces, number_of_bins);
 	}
 
 	return bin_capacity;
@@ -196,12 +197,14 @@ double BPDecoder::fitness(list<unsigned> &permutation) const{
 
 list < Box > BPDecoder::getPackedBoxes(list<unsigned> &permutation){
 
-	draw= true;
-
 	list < Box > packedBoxes;
 	DFTRC(permutation, packedBoxes);
 
 	return packedBoxes;
+}
+
+void BPDecoder::setDraw(bool value){
+	draw = value;
 }
 
 double BPDecoder::decode(const vector<double> &chromosome) const{

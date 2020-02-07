@@ -142,7 +142,9 @@ int main()
             // if (!start_allegro(decoder.bin_w, decoder.bin_h)){
             //     std::cout << "ERROR: start allegro\n";
             // }else{
-            //     std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
+                decoder.setDraw(true);
+                std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
+                decoder.setDraw(false);
             //     //draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
             // }
         }
