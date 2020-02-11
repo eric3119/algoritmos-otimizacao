@@ -47,7 +47,7 @@ void BPDecoder::eliminationProcess(
 }
 
 bool compare_space_size(const Space &s1, const Space &s2){
-	return s1.size > s2.size;
+	return s1.size < s2.size;
 }
 
 bool sort_by_bin_number(const Space &s1, const Space &s2){
@@ -122,7 +122,7 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 				box_min_h = boxes[*it2].second;
 		}
 
-		unsigned max_distance = 0;
+		double max_distance = 0;
 
 		for (list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
 			Space ems = *sp;
@@ -134,17 +134,17 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 				unsigned box_X = box_w + ems.x, 
 						box_Y = box_h + ems.y;
 
-				unsigned d2 = pow(this->bin_w - box_X, 2) + pow(this->bin_h - box_Y, 2);
+				// double d2 = sqrt(pow(this->bin_w - box_X, 2) + pow(this->bin_h - box_Y, 2));
 
-				if (d2 == max_distance){
-					max_distance = d2;
-					max_distance_spaces.push_back(*sp);
-				}else if(d2 > max_distance){
-					max_distance_spaces.clear();
+				// if (d2 == max_distance){
+				// 	max_distance = d2;
+				// 	max_distance_spaces.push_back(*sp);
+				// }else if(d2 > max_distance){
+				// 	max_distance_spaces.clear();
 
-					max_distance = d2;
+				// 	max_distance = d2;
 					max_distance_spaces.push_back(*sp);
-				}
+				// }
 			}
 		}
 		
@@ -155,7 +155,9 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 			max_distance_spaces.push_back(empty_spaces.back());
 		}
 
-		unsigned random_index =  rand() % max_distance_spaces.size();
+		sort(max_distance_spaces.begin(), max_distance_spaces.end(), compare_space_size);
+
+		unsigned random_index = rand() % max_distance_spaces.size();
 
 		Space maximalSpace = max_distance_spaces[random_index];
 
