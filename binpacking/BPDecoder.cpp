@@ -11,13 +11,12 @@ void BPDecoder::eliminationProcess(
 	list< Space > &new_spaces
 ) const{
 	bool next = true;
-	
+
 	list<Space>::iterator n_sp=new_spaces.begin();
 	while (n_sp != new_spaces.end()){
 		if((*n_sp).size == 0 
 			|| box_min_w > (*n_sp).X - (*n_sp).x
 			|| box_min_h > (*n_sp).Y - (*n_sp).y){
-
 			// self elimination
 			n_sp = new_spaces.erase(n_sp);
 			next = false;
@@ -25,7 +24,7 @@ void BPDecoder::eliminationProcess(
 			// cross checking
 			bool next2 = true;
 			for (list<Space>::iterator e_sp=new_spaces.begin(); e_sp != new_spaces.end();){
-				if((*e_sp).bin_number == (*n_sp).bin_number && e_sp != n_sp){
+				if(e_sp != n_sp){
 					if((*e_sp).x >= (*n_sp).x && (*e_sp).y >= (*n_sp).y && (*e_sp).X <= (*n_sp).X && (*e_sp).Y <= (*n_sp).Y){
 						e_sp = new_spaces.erase(e_sp);
 						next2 = false;
@@ -51,7 +50,7 @@ bool compare_space_size(const Space &s1, const Space &s2){
 }
 
 bool sort_by_bin_number(const Space &s1, const Space &s2){
-	return s1.bin_number > s2.bin_number;
+	return s1.bin_number < s2.bin_number;
 }
 
 bool box_intersect_space(Space sp, Box box){
@@ -68,7 +67,7 @@ void BPDecoder::differenceProcess(list < Space > &empty_spaces, Box box) const{
 	list<Space>::iterator sp=empty_spaces.begin();
 	while (sp != empty_spaces.end()){
 
-		if(box.bin_number == (*sp).bin_number && box_intersect_space(*sp, box)){
+		if(box_intersect_space(*sp, box)){
 
 			if((*sp).x < box.x){
 				// adiciona o lado esquerdo do novo espaço
@@ -97,87 +96,119 @@ void BPDecoder::differenceProcess(list < Space > &empty_spaces, Box box) const{
 	empty_spaces.splice(empty_spaces.end(), new_spaces);
 }
 
-vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &packedBoxes) const{
+vector<Space> getBestEMSv (list<Space> bin_spaces_list, pair<unsigned, unsigned> box_to_pack){
 
-	list < Space > empty_spaces;
-	vector<unsigned> bin_capacity;
+	vector<Space> result;
+	for (auto &es : bin_spaces_list){
+		unsigned space_w = es.X - es.x;
+		unsigned space_h = es.Y - es.y;
 
-	unsigned number_of_bins = 0;
+		// double max_distance = 0;
 
-	box_min_w = numeric_limits<unsigned>::max();
-	box_min_h = numeric_limits<unsigned>::max();
+		if(space_w >= box_to_pack.first && space_h >= box_to_pack.second){
 
-	for (list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
-		
-		vector<Space> max_distance_spaces;
-		unsigned box_w = boxes[*it].first, 
-				box_h = boxes[*it].second;
-
-		for (list<unsigned>::iterator it2 = it; it2 != permutation.end(); ++it2){
-			
-			if(box_min_w > boxes[*it2].first)
-				box_min_w = boxes[*it2].first;
-
-			if(box_min_h > boxes[*it2].second)
-				box_min_h = boxes[*it2].second;
-		}
-
-		double max_distance = 0;
-
-		for (list<Space>::iterator sp=empty_spaces.begin(); sp != empty_spaces.end(); ++sp){
-			Space ems = *sp;
-
-			unsigned space_w = ems.X - ems.x;
-			unsigned space_h = ems.Y - ems.y;
-
-			if(space_w >= box_w && space_h >= box_h){
-				unsigned box_X = box_w + ems.x, 
-						box_Y = box_h + ems.y;
+			//if(result.size() == 0 || result[0].size == es.size){
+				result.push_back(es);
+			// }else if(result[0].size > es.size){
+			// 	result.clear();
+			// 	result.push_back(es);
+				// unsigned box_X = box_w + es.x, 
+				// 		box_Y = box_h + es.y;
 
 				// double d2 = sqrt(pow(this->bin_w - box_X, 2) + pow(this->bin_h - box_Y, 2));
 
 				// if (d2 == max_distance){
 				// 	max_distance = d2;
-				// 	max_distance_spaces.push_back(*sp);
+				// 	bestEMSv.push_backes;
 				// }else if(d2 > max_distance){
-				// 	max_distance_spaces.clear();
+				// 	bestEMSv.clear();
 
 				// 	max_distance = d2;
-					max_distance_spaces.push_back(*sp);
 				// }
+			// }
+		}
+	}
+	return result;
+}
+
+vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &packedBoxes) const{
+	
+	unsigned number_of_bins = 0;
+	vector< list<Space> > empty_spaces_vlS;
+	vector< unsigned > bin_load_vu;
+
+	box_min_w = numeric_limits<unsigned>::max();
+	box_min_h = numeric_limits<unsigned>::max();
+
+	for (auto &gene : permutation){
+		vector< vector<Space> > bestEMSv(number_of_bins);
+		pair<unsigned, unsigned> box_to_pack = this->boxes[gene];
+		
+		// unsigned box_w = this->boxes[gene].first, 
+		// 		box_h = this->boxes[gene].second;
+
+		for (unsigned i = packedBoxes.size(); i < permutation.size(); ++i){
+			
+			if(box_min_w > boxes[i].first)
+				box_min_w = boxes[i].first;
+
+			if(box_min_h > boxes[i].second)
+				box_min_h = boxes[i].second;
+		}
+
+		for (auto &bin_spaces_list : empty_spaces_vlS){
+			
+			unsigned bin_number = (*bin_spaces_list.begin()).bin_number;
+			
+			bestEMSv[bin_number -1] = getBestEMSv(bin_spaces_list, box_to_pack);
+		}
+
+		Space *spaceToPack = NULL;
+
+		vector<pair<unsigned, unsigned>> rank(bin_load_vu.size());
+
+		for (unsigned i = 0; i < bin_load_vu.size(); ++i)
+		{
+			rank[i] = pair<unsigned, unsigned> (bin_load_vu[i], i);
+		}
+		sort(rank.begin(), rank.end(), greater< pair<unsigned, unsigned> >());
+		
+		for(auto &bin_index : rank){
+			unsigned index = bin_index.second;
+			if (bestEMSv[index].size() > 0) {
+				unsigned random_index = rand() % bestEMSv[index].size();
+				if(!spaceToPack || (*spaceToPack).size < bestEMSv[index][0].size){
+					spaceToPack = &bestEMSv[index][random_index];
+					break;
+				}
 			}
 		}
-		
-		if (max_distance_spaces.size() == 0) {
+
+		if(!spaceToPack){
 			++number_of_bins;
-			empty_spaces.push_back(Space(0, 0, bin_w, bin_h, number_of_bins));
-			bin_capacity.push_back(0);
-			max_distance_spaces.push_back(empty_spaces.back());
+			
+			spaceToPack = new Space(0, 0, this->bin_w, this->bin_h, number_of_bins);
+			bin_load_vu.push_back(0);
+
+			list<Space> es_list;
+			es_list.push_back(*spaceToPack);
+			empty_spaces_vlS.push_back(es_list);
 		}
+		Box box((*spaceToPack).x,(*spaceToPack).y, box_to_pack.first, box_to_pack.second, (*spaceToPack).bin_number);
 
-		sort(max_distance_spaces.begin(), max_distance_spaces.end(), compare_space_size);
+		bin_load_vu[(*spaceToPack).bin_number - 1] += box_to_pack.first * box_to_pack.second;
 
-		unsigned random_index = rand() % max_distance_spaces.size();
-
-		Space maximalSpace = max_distance_spaces[random_index];
-
-		Box box(maximalSpace.x,maximalSpace.y,box_w,box_h, maximalSpace.bin_number);
-
-		bin_capacity[maximalSpace.bin_number - 1] += box_w * box_h;
-		
-		differenceProcess(empty_spaces, box);
+		differenceProcess(empty_spaces_vlS[(*spaceToPack).bin_number - 1], box);
 
 		packedBoxes.push_back(box);
-		
 	}
 
 	if(draw){
 		cout << "Number of bins " << number_of_bins << endl;
-		cout << "Number of empty_spaces " << empty_spaces.size() << endl;
-		//draw_bin(packedBoxes, empty_spaces, number_of_bins);
+		//draw_bin(packedBoxes, empty_spaces_vlS, number_of_bins);
 	}
 
-	return bin_capacity;
+	return bin_load_vu;
 }
 
 double BPDecoder::fitness(list<unsigned> &permutation) const{

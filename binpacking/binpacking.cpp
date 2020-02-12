@@ -35,7 +35,7 @@ std::list<unsigned> getPackingOrder(const std::vector<double> &chromosome){
 
 bool sortbysize(const pair<unsigned,unsigned> &a, 
               const pair<unsigned,unsigned> &b) { 
-    return (a.first * a.second < b.first * b.second);
+    return (a.first * a.second > b.first * b.second);
 } 
 
 int main()
