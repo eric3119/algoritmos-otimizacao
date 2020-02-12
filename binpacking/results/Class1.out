@@ -1,0 +1,265 @@
+Class 1 size 20
+Instance 1 / Absolute 1
+Running for 200 generations...
+Best solution found has objective value = 8.18
+Best chromosome 1 9 8 3 16 6 12 5 10 15 0 11 13 4 19 17 2 14 18 7 
+
+Class 1 size 20
+Instance 2 / Absolute 2
+Running for 200 generations...
+Best solution found has objective value = 5.5
+Best chromosome 3 4 11 1 16 6 9 14 2 18 15 10 5 0 7 17 19 8 12 13 
+
+Class 1 size 20
+Instance 3 / Absolute 3
+Running for 200 generations...
+Best solution found has objective value = 9.18
+Best chromosome 5 9 4 0 7 2 1 6 19 10 12 16 3 15 8 13 14 11 17 18 
+
+Class 1 size 20
+Instance 4 / Absolute 4
+Running for 200 generations...
+Best solution found has objective value = 6.14
+Best chromosome 2 0 7 4 6 11 17 16 1 14 9 5 3 12 10 15 8 13 19 18 
+
+Class 1 size 20
+Instance 5 / Absolute 5
+Running for 200 generations...
+Best solution found has objective value = 6.54
+Best chromosome 7 4 6 1 5 19 17 14 0 10 3 2 11 16 8 9 13 12 18 15 
+
+Class 1 size 20
+Instance 6 / Absolute 6
+Running for 200 generations...
+Best solution found has objective value = 9.56
+Best chromosome 17 14 8 15 4 2 18 12 5 1 7 0 9 13 11 19 3 16 10 6 
+
+Class 1 size 20
+Instance 7 / Absolute 7
+Running for 200 generations...
+Best solution found has objective value = 6.5
+Best chromosome 5 2 7 17 9 4 12 0 10 1 18 3 6 19 8 11 14 15 16 13 
+
+Class 1 size 20
+Instance 8 / Absolute 8
+Running for 200 generations...
+Best solution found has objective value = 6.64
+Best chromosome 5 9 4 0 7 2 1 6 19 10 12 16 3 15 8 13 14 11 17 18 
+
+Class 1 size 20
+Instance 9 / Absolute 9
+Running for 200 generations...
+Best solution found has objective value = 8.24
+Best chromosome 5 2 7 17 9 4 12 0 10 1 18 3 6 19 8 11 14 15 16 13 
+
+Class 1 size 20
+Instance 10 / Absolute 10
+Running for 200 generations...
+Best solution found has objective value = 8.48
+Best chromosome 0 4 2 18 15 10 1 6 17 13 3 16 19 9 14 11 5 7 12 8 
+
+Z 7.496
+Min fitness 5.5
+
+
+Class 1 size 40
+Instance 1 / Absolute 11
+Running for 200 generations...
+Best solution found has objective value = 10.12
+Best chromosome 14 9 15 29 12 17 8 3 32 2 1 10 21 0 5 4 13 25 33 6 16 27 7 11 34 18 37 36 30 28 19 20 35 23 22 24 31 38 39 26 
+
+Class 1 size 40
+Instance 2 / Absolute 12
+Running for 200 generations...
+Best solution found has objective value = 12.16
+Best chromosome 9 1 15 19 17 10 39 38 11 22 7 2 0 8 14 35 20 13 26 12 4 6 3 21 5 25 24 18 16 33 27 37 31 28 29 34 23 32 30 36 
+
+Class 1 size 40
+Instance 3 / Absolute 13
+Running for 200 generations...
+Best solution found has objective value = 17.24
+Best chromosome 14 27 15 2 6 34 29 39 33 7 16 12 13 5 8 32 9 36 3 4 25 26 10 18 0 1 37 22 11 17 30 35 20 19 31 21 24 38 23 28 
+
+Class 1 size 40
+Instance 4 / Absolute 14
+Running for 200 generations...
+Best solution found has objective value = 14.56
+Best chromosome 7 3 17 27 5 0 30 9 22 34 28 23 2 8 13 39 11 6 25 12 4 16 31 32 19 20 15 29 37 26 36 21 18 38 14 33 10 35 1 24 
+
+Class 1 size 40
+Instance 5 / Absolute 15
+Running for 200 generations...
+Best solution found has objective value = 15.47
+Best chromosome 5 2 36 13 10 6 20 18 0 19 16 21 37 8 22 38 27 26 14 7 25 28 31 12 3 35 39 17 1 29 9 15 23 11 33 4 34 32 30 24 
+
+Class 1 size 40
+Instance 6 / Absolute 16
+Running for 200 generations...
+Best solution found has objective value = 14.25
+Best chromosome 6 39 26 34 12 30 32 9 13 7 21 38 4 11 19 22 1 37 14 16 15 5 33 10 3 18 17 8 25 28 0 24 36 35 31 23 20 27 2 29 
+
+Class 1 size 40
+Instance 7 / Absolute 17
+Running for 200 generations...
+Best solution found has objective value = 11.76
+Best chromosome 15 7 10 2 9 0 25 16 6 11 30 12 14 35 24 3 5 8 13 20 17 27 4 18 28 19 1 21 23 26 22 38 29 33 36 34 32 31 37 39 
+
+Class 1 size 40
+Instance 8 / Absolute 18
+Running for 200 generations...
+Best solution found has objective value = 19.24
+Best chromosome 19 17 2 7 12 15 28 24 5 21 14 33 0 10 35 1 30 6 4 27 8 25 37 16 26 11 20 3 39 32 13 22 34 18 31 36 38 9 29 23 
+
+Class 1 size 40
+Instance 9 / Absolute 19
+Running for 200 generations...
+Best solution found has objective value = 11.16
+Best chromosome 8 18 14 19 11 13 17 31 1 25 22 9 7 20 32 38 6 2 5 12 3 15 4 0 16 28 33 24 36 23 21 30 26 34 37 10 35 39 27 29 
+
+Class 1 size 40
+Instance 10 / Absolute 20
+Running for 200 generations...
+Best solution found has objective value = 11.64
+Best chromosome 22 21 3 5 1 16 7 26 15 34 9 30 12 37 4 14 17 36 0 13 6 18 35 2 8 23 27 11 20 31 10 19 33 39 38 25 29 24 28 32 
+
+Z 13.76
+Min fitness 10.12
+
+
+Class 1 size 60
+Instance 1 / Absolute 21
+Running for 200 generations...
+Best solution found has objective value = 23.12
+Best chromosome 28 34 19 7 14 6 42 0 48 52 49 46 4 17 54 27 18 8 23 16 22 11 50 55 5 15 2 21 12 9 41 1 30 20 3 26 13 10 25 39 24 43 33 57 36 29 38 56 51 35 32 31 40 44 47 59 37 58 53 45 
+
+Class 1 size 60
+Instance 2 / Absolute 22
+Running for 200 generations...
+Best solution found has objective value = 19.24
+Best chromosome 16 15 17 4 33 40 10 31 2 5 27 43 9 24 22 41 26 12 6 1 18 20 14 13 23 57 19 45 34 11 48 8 21 25 28 53 3 29 38 46 37 44 0 32 36 35 55 56 51 54 52 30 58 47 42 39 49 7 50 59 
+
+Class 1 size 60
+Instance 3 / Absolute 23
+Running for 200 generations...
+Best solution found has objective value = 21.42
+Best chromosome 8 30 18 13 7 59 2 44 19 4 9 31 33 37 46 35 14 21 40 55 32 20 50 36 3 11 17 42 23 51 16 5 39 56 25 24 26 6 28 29 58 49 53 41 34 27 15 0 10 38 47 57 48 54 43 12 45 1 22 52 
+
+Class 1 size 60
+Instance 4 / Absolute 24
+Running for 200 generations...
+Best solution found has objective value = 22.36
+Best chromosome 9 51 43 7 22 32 45 12 3 13 57 21 6 11 30 41 5 15 36 24 20 39 56 28 23 47 2 40 37 29 58 4 16 52 25 42 53 46 54 17 48 38 50 14 55 26 27 33 8 19 10 1 35 34 31 44 18 0 59 49 
+
+Class 1 size 60
+Instance 5 / Absolute 25
+Running for 200 generations...
+Best solution found has objective value = 19.05
+Best chromosome 22 3 4 9 37 5 15 16 8 19 7 31 42 43 51 10 2 14 52 56 44 13 0 6 26 45 30 36 34 38 12 46 40 47 33 28 58 23 50 49 25 20 11 48 39 18 24 54 1 32 35 57 59 53 21 27 29 41 17 55 
+
+Class 1 size 60
+Instance 6 / Absolute 26
+Running for 200 generations...
+Best solution found has objective value = 17.8
+Best chromosome 27 1 38 0 2 3 4 5 14 6 30 12 9 22 7 39 23 15 24 43 17 31 40 35 36 11 18 26 8 55 13 42 10 25 19 21 41 37 58 54 32 57 28 20 16 56 29 49 34 48 33 45 51 44 52 47 59 50 46 53 
+
+Class 1 size 60
+Instance 7 / Absolute 27
+Running for 200 generations...
+Best solution found has objective value = 16.06
+Best chromosome 31 4 2 58 57 18 11 16 15 55 7 6 9 28 10 30 20 13 8 56 14 22 3 1 12 19 5 17 25 46 24 26 33 36 59 32 21 0 23 53 27 29 51 37 54 38 52 43 35 44 48 34 39 41 42 40 45 49 50 47 
+
+Class 1 size 60
+Instance 8 / Absolute 28
+Running for 200 generations...
+Best solution found has objective value = 21.51
+Best chromosome 5 50 39 22 4 7 24 55 9 12 11 8 15 6 35 14 0 37 26 13 47 10 18 42 30 21 51 54 17 53 41 2 25 46 34 16 27 32 52 43 19 59 20 31 58 3 23 29 49 36 1 48 38 56 44 45 28 57 33 40 
+
+Class 1 size 60
+Instance 9 / Absolute 29
+Running for 200 generations...
+Best solution found has objective value = 18.54
+Best chromosome 8 17 2 3 25 5 9 11 53 24 37 6 7 18 12 20 4 32 21 33 34 22 40 23 16 58 39 29 0 15 54 26 13 27 51 59 19 10 38 31 50 28 45 30 1 47 42 48 46 52 41 14 55 35 43 49 56 36 44 57 
+
+Class 1 size 60
+Instance 10 / Absolute 30
+Running for 200 generations...
+Best solution found has objective value = 24.3
+Best chromosome 19 23 6 1 0 29 18 8 11 7 48 45 52 2 13 43 10 16 51 32 58 3 41 14 55 38 33 5 26 54 17 47 27 31 50 20 30 35 9 44 46 22 15 4 24 56 34 49 36 12 25 57 53 21 42 39 59 37 28 40 
+
+Z 20.34
+Min fitness 16.06
+
+
+Class 1 size 80
+Instance 1 / Absolute 31
+Running for 200 generations...
+Best solution found has objective value = 25.1
+Best chromosome 26 5 18 36 4 20 11 14 21 24 76 30 3 17 75 27 7 15 1 13 46 57 55 33 73 34 6 48 8 22 39 2 9 69 47 74 78 16 44 28 41 35 43 29 19 12 37 40 51 38 66 25 0 49 72 45 42 53 56 52 59 68 23 61 58 32 54 79 50 60 77 63 62 67 65 10 31 70 71 64 
+
+Class 1 size 80
+Instance 2 / Absolute 32
+Running for 200 generations...
+Best solution found has objective value = 26.28
+Best chromosome 38 23 5 1 21 7 0 32 10 41 43 22 12 4 58 3 6 64 16 26 30 72 18 17 13 15 2 8 25 24 73 53 63 27 19 36 31 51 28 57 40 59 76 74 60 50 47 34 69 75 14 45 20 55 35 44 61 11 70 9 42 66 78 79 39 65 29 49 52 37 56 68 67 77 46 62 48 54 71 33 
+
+Class 1 size 80
+Instance 3 / Absolute 33
+Running for 200 generations...
+Best solution found has objective value = 27.42
+Best chromosome 23 12 39 51 11 4 15 44 42 26 35 25 65 32 76 68 22 52 75 24 13 14 2 74 0 5 20 34 73 18 56 47 30 45 29 16 59 10 41 21 17 63 37 58 40 64 19 9 72 1 27 79 54 28 3 46 31 49 7 70 78 69 50 38 55 33 62 36 57 8 66 61 53 60 71 48 6 43 77 67 
+
+Class 1 size 80
+Instance 4 / Absolute 34
+Running for 200 generations...
+Best solution found has objective value = 27.42
+Best chromosome 0 5 64 28 6 19 12 13 38 3 11 66 31 43 42 10 25 60 67 79 76 73 75 23 24 17 21 37 33 44 20 34 26 62 40 49 41 70 9 53 50 65 57 39 16 15 36 14 27 58 18 8 59 35 71 29 74 69 32 61 7 30 48 1 78 2 68 47 22 72 63 54 77 46 55 56 4 52 45 51 
+
+Class 1 size 80
+Instance 5 / Absolute 35
+Running for 200 generations...
+Best solution found has objective value = 26.25
+Best chromosome 8 16 23 10 6 26 2 37 60 1 15 30 27 32 79 25 19 44 28 69 4 17 71 14 78 49 11 77 46 33 39 43 67 52 7 5 38 55 13 65 73 24 41 42 50 9 3 35 58 61 59 12 51 68 63 20 70 76 29 45 47 22 57 66 18 0 34 48 75 62 54 21 36 64 56 40 53 72 31 74 
+
+Class 1 size 80
+Instance 6 / Absolute 36
+Running for 200 generations...
+Best solution found has objective value = 28.46
+Best chromosome 57 23 9 49 17 19 53 10 24 6 67 31 11 12 25 48 15 4 36 27 22 7 0 68 33 60 21 18 62 20 70 43 59 52 73 66 55 65 42 35 3 29 71 74 28 39 79 13 64 2 51 56 61 8 37 26 63 16 54 14 30 46 32 5 41 34 75 77 38 78 40 69 50 72 1 44 47 58 45 76 
+
+Class 1 size 80
+Instance 7 / Absolute 37
+Running for 200 generations...
+Best solution found has objective value = 31.36
+Best chromosome 9 19 13 21 45 7 16 75 69 32 26 43 79 57 60 54 50 10 49 22 4 67 29 47 17 77 24 78 70 39 52 38 28 23 44 76 51 6 30 34 65 1 14 11 55 5 72 15 71 3 12 56 35 18 27 61 68 58 66 42 73 31 53 46 33 41 40 36 63 2 20 62 59 25 74 48 64 37 8 0 
+
+Class 1 size 80
+Instance 8 / Absolute 38
+Running for 200 generations...
+Best solution found has objective value = 29.46
+Best chromosome 7 3 19 12 8 17 73 33 22 10 21 5 29 38 15 32 53 20 42 4 6 40 35 14 11 62 70 50 16 28 2 34 23 46 26 13 36 25 18 61 30 74 66 24 45 58 69 27 76 37 64 48 68 75 79 71 31 59 67 43 78 51 60 47 1 77 57 56 63 52 65 39 9 41 54 44 55 72 49 0 
+
+Class 1 size 80
+Instance 9 / Absolute 39
+Running for 200 generations...
+Best solution found has objective value = 30.42
+Best chromosome 16 48 13 27 45 51 11 69 49 3 6 34 70 4 5 20 47 1 23 66 30 32 7 41 17 61 14 33 39 38 9 46 42 22 29 74 44 68 72 36 10 12 67 25 26 40 76 15 37 71 2 73 35 62 0 21 19 65 28 31 75 77 43 53 24 54 78 63 18 8 55 79 50 52 58 59 60 57 56 64 
+
+Class 1 size 80
+Instance 10 / Absolute 40
+Running for 200 generations...
+Best solution found has objective value = 26.33
+Best chromosome 0 6 12 15 13 69 17 20 9 74 14 36 3 30 2 60 23 34 31 21 41 10 42 37 19 32 50 73 8 29 33 11 28 7 49 26 25 39 51 64 70 5 68 22 27 56 78 44 65 43 40 54 71 24 48 63 4 57 16 18 38 77 79 76 72 46 59 53 58 62 66 1 52 47 55 61 67 35 75 45 
+
+Z 27.85
+Min fitness 25.1
+
+
+Class 1 size 100
+Instance 1 / Absolute 41
+Running for 200 generations...
+Best solution found has objective value = 28.55
+Best chromosome 49 37 33 52 26 41 7 61 5 17 12 62 60 29 18 76 15 13 32 4 22 3 25 8 50 9 84 14 28 1 10 57 51 30 65 2 24 16 44 66 20 21 19 90 64 38 68 80 31 6 91 11 27 42 47 48 95 36 43 56 39 40 35 34 98 69 55 72 99 63 97 54 70 58 53 89 86 0 23 46 45 59 77 87 71 82 94 96 67 92 78 85 73 81 83 79 88 93 74 75 
+
+Class 1 size 100
+Instance 2 / Absolute 42
+Running for 200 generations...

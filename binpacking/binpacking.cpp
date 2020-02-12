@@ -92,15 +92,15 @@ int main()
             BRKGA<BPDecoder, MTRand> algorithm(n, p, pe, pm, rhoe, decoder, rng, K, MAXT);
 
             unsigned generation = 0;        // current generation
-            const unsigned X_INTVL = 100;   // exchange best individuals at every 100 generations
+            const unsigned X_INTVL = 50;   // exchange best individuals at every 100 generations
             const unsigned X_NUMBER = 2;    // exchange top 2 best
-            const unsigned MAX_GENS = 300; // run for 1000 gens
+            const unsigned MAX_GENS = 200; // run for 1000 gens
             std::cout << "Running for " << MAX_GENS << " generations..." << std::endl;
             do
             {
                 algorithm.evolve(); // evolve the population for one generation
 
-                //cout << "It = " << generation << " " 
+                // cout << "It = " << generation << " " 
                 //    << algorithm.getBestFitness() << endl;
                 if ((++generation) % X_INTVL == 0)
                 {
@@ -139,14 +139,14 @@ int main()
             }
             std::cout << std::endl;
 
-            if (!start_allegro(decoder.bin_w, decoder.bin_h)){
-                std::cout << "ERROR: start allegro\n";
-            }else{
-                decoder.setDraw(true);
-                std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
-                decoder.setDraw(false);
-            //     //draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
-            }
+            // if (!start_allegro(decoder.bin_w, decoder.bin_h)){
+            //     std::cout << "ERROR: start allegro\n";
+            // }else{
+            //     decoder.setDraw(true);
+            //     std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
+            //     decoder.setDraw(false);
+            // //     //draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
+            // }
         }
         cout << "\nZ " << class_mean / 10.0 << endl;
         cout << "Min fitness " << best_fitness << endl << endl;

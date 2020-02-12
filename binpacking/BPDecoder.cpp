@@ -158,6 +158,8 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 
 		for (auto &bin_spaces_list : empty_spaces_vlS){
 			
+			if(bin_spaces_list.size() == 0)
+				continue;// TODO check error
 			unsigned bin_number = (*bin_spaces_list.begin()).bin_number;
 			
 			bestEMSv[bin_number -1] = getBestEMSv(bin_spaces_list, box_to_pack);
@@ -187,11 +189,12 @@ vector<unsigned> BPDecoder::DFTRC(list<unsigned> &permutation, list < Box > &pac
 		if(!spaceToPack){
 			++number_of_bins;
 			
-			spaceToPack = new Space(0, 0, this->bin_w, this->bin_h, number_of_bins);
+			list<Space> es_list;
+			es_list.push_back(Space(0, 0, this->bin_w, this->bin_h, number_of_bins));
+			
+			spaceToPack = &es_list.back();
 			bin_load_vu.push_back(0);
 
-			list<Space> es_list;
-			es_list.push_back(*spaceToPack);
 			empty_spaces_vlS.push_back(es_list);
 		}
 		Box box((*spaceToPack).x,(*spaceToPack).y, box_to_pack.first, box_to_pack.second, (*spaceToPack).bin_number);
