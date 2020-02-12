@@ -60,42 +60,33 @@ bool start_allegro(unsigned bin_x, unsigned bin_y){
     }
 }
 
-void draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned number_of_bins){
+void draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned bin_number){
 
     bool exit = false;
-    
-    unsigned bin_index = 0;
+    clear_display();
+    draw_wait(1.0);
+    draw_boxes(packed_boxes, bin_number);
+    //draw_spaces(empty_spaces, bin_number);
+    while(!al_is_event_queue_empty(event_queue) || !exit){
+        ALLEGRO_EVENT evento;
+        al_wait_for_event(event_queue, &evento);
 
-    while (!exit && bin_index <= number_of_bins){
-            
-        while(!al_is_event_queue_empty(event_queue))
+        if (evento.type == ALLEGRO_EVENT_KEY_DOWN)
         {
-            ALLEGRO_EVENT evento;
-            al_wait_for_event(event_queue, &evento);
-    
-            if (evento.type == ALLEGRO_EVENT_KEY_DOWN)
+            switch (evento.keyboard.keycode)
             {
-                switch (evento.keyboard.keycode)
-                {
-                    case ALLEGRO_KEY_SPACE:
-                        ++bin_index;
-                        clear_display();
-                        draw_wait(1.0);
-                        draw_boxes(packed_boxes, bin_index);
-                        //draw_spaces(empty_spaces, bin_index);
-                        break;
-                    case ALLEGRO_KEY_ESCAPE:
-                        exit = true;
-                        break;
-                }
-            }
-            else if (evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-            {
-                exit = true;
+                case ALLEGRO_KEY_SPACE:
+                    //break;
+                case ALLEGRO_KEY_ESCAPE:
+                    exit = true;
+                    break;
             }
         }
+        else if (evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+        {
+            exit = true;
+        }
     }
-    //al_destroy_display(janela);
 }
 
 void draw_space(Space space){
@@ -188,6 +179,10 @@ int draw_spaces(list < Space > &spaces, unsigned bin_x, unsigned bin_y){
     al_destroy_display(janela);
     
     return 0;
+}
+
+void finalize_allegro(){
+    al_destroy_display(janela);
 }
  
 bool inicializar(){
