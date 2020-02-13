@@ -70,11 +70,11 @@ int main()
             cin >> relative >> absolute;
             getline(cin, str); //RELATIVE AND ABSOLUTE N. OF INSTANCE
 
-            cout << "\nClass " << class_n << " size " << n << endl;
-            cout << "Instance " << relative << " / Absolute " << absolute << endl;
-
-            cin >> decoder.bin_w >> decoder.bin_h;
+            cin >> decoder.bin_h >> decoder.bin_w;
             getline(cin, str);
+            
+            cout << "\nClass " << class_n << " #Itens " << n << " bin size " << decoder.bin_w << " x " << decoder.bin_h << endl;
+            cout << "Instance " << relative << " / Absolute " << absolute << endl;
 
             for (unsigned i = 0; i < n; ++i){
                 cin >> box_h >> box_w;
@@ -82,7 +82,7 @@ int main()
 
                 decoder.boxes.push_back(std::make_pair(box_w, box_h));
             }
-            sort(decoder.boxes.begin(), decoder.boxes.end(), sortbysize);
+            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbysize);
             
             getline(cin, str);
             const long unsigned rngSeed = 0; // seed to the random number generator
@@ -92,7 +92,7 @@ int main()
             BRKGA<BPDecoder, MTRand> algorithm(n, p, pe, pm, rhoe, decoder, rng, K, MAXT);
 
             unsigned generation = 0;        // current generation
-            const unsigned X_INTVL = 50;   // exchange best individuals at every 100 generations
+            const unsigned X_INTVL = 15;   // exchange best individuals at every 100 generations
             const unsigned X_NUMBER = 2;    // exchange top 2 best
             const unsigned MAX_GENS = 200; // run for 1000 gens
             std::cout << "Running for " << MAX_GENS << " generations..." << std::endl;
