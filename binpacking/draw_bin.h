@@ -25,7 +25,7 @@ void draw_boxes(list < Box > &packedBoxes, unsigned bin_number);
 void draw_space(Space space);
 void draw_spaces(list < Space > &spaces, unsigned bin_number);
  
-void draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned bin_number);
+bool draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned bin_number);
 
 void display_space(list < Space > &spaces, list< Space >::iterator start, list< Space >::iterator end);
 void display(list < Box > &packedBoxes, list< Box >::iterator start, list< Box >::iterator end);

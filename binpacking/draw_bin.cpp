@@ -60,33 +60,41 @@ bool start_allegro(unsigned bin_x, unsigned bin_y){
     }
 }
 
-void draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned bin_number){
+bool draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned bin_number){
 
     bool exit = false;
-    clear_display();
-    draw_wait(1.0);
-    draw_boxes(packed_boxes, bin_number);
-    //draw_spaces(empty_spaces, bin_number);
-    while(!al_is_event_queue_empty(event_queue) || !exit){
-        ALLEGRO_EVENT evento;
-        al_wait_for_event(event_queue, &evento);
+    bool continue_draw = false;
 
-        if (evento.type == ALLEGRO_EVENT_KEY_DOWN)
-        {
-            switch (evento.keyboard.keycode)
+    while(!exit){
+        while(!al_is_event_queue_empty(event_queue)){
+            ALLEGRO_EVENT evento;
+            al_wait_for_event(event_queue, &evento);
+
+            if (evento.type == ALLEGRO_EVENT_KEY_DOWN)
             {
-                case ALLEGRO_KEY_SPACE:
-                    //break;
-                case ALLEGRO_KEY_ESCAPE:
-                    exit = true;
-                    break;
+                switch (evento.keyboard.keycode)
+                {
+                    case ALLEGRO_KEY_SPACE:
+                        clear_display();
+                        draw_wait(1.0);
+                        draw_boxes(packed_boxes, bin_number);
+                        //draw_spaces(empty_spaces, bin_number);
+                        continue_draw = true;
+                        exit = true;
+                        break;
+                    case ALLEGRO_KEY_ESCAPE:
+                        exit = true;
+                        break;
+                }
+            }
+            else if (evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+            {
+                exit = true;
             }
         }
-        else if (evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-        {
-            exit = true;
-        }
     }
+
+    return continue_draw;
 }
 
 void draw_space(Space space){
