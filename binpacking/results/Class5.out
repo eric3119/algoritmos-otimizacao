@@ -1,0 +1,255 @@
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 1 / Absolute 201
+Running for 200 generations...
+Best solution found has objective value = 8.13
+Best chromosome 17 7 19 18 5 2 12 13 1 11 14 8 6 10 9 15 0 16 3 4 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 2 / Absolute 202
+Running for 200 generations...
+Best solution found has objective value = 5.1911
+Best chromosome 19 6 14 10 12 1 18 2 17 13 5 8 4 16 15 11 3 0 7 9 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 3 / Absolute 203
+Running for 200 generations...
+Best solution found has objective value = 7.4524
+Best chromosome 4 13 9 14 8 10 6 17 16 3 0 1 11 15 2 5 18 12 19 7 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 4 / Absolute 204
+Running for 200 generations...
+Best solution found has objective value = 5.2715
+Best chromosome 1 5 2 0 19 16 8 10 18 13 9 6 14 15 17 11 4 7 3 12 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 5 / Absolute 205
+Running for 200 generations...
+Best solution found has objective value = 5.7824
+Best chromosome 12 6 10 15 19 5 7 8 11 0 16 13 1 2 17 9 14 18 3 4 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 6 / Absolute 206
+Running for 200 generations...
+Best solution found has objective value = 9.3286
+Best chromosome 15 1 3 8 7 19 10 5 9 2 16 6 17 4 13 12 0 14 11 18 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 7 / Absolute 207
+Running for 200 generations...
+Best solution found has objective value = 6.168
+Best chromosome 13 12 19 18 0 15 4 17 9 6 7 16 11 2 5 1 8 10 3 14 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 8 / Absolute 208
+Running for 200 generations...
+Best solution found has objective value = 5.5693
+Best chromosome 11 0 10 17 2 19 3 1 14 4 5 12 7 8 15 13 9 6 16 18 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 9 / Absolute 209
+Running for 200 generations...
+Best solution found has objective value = 7.4017
+Best chromosome 6 12 3 5 17 14 4 9 10 2 13 15 8 18 11 1 19 7 16 0 
+
+Class 5 #Itens 20 bin size 100 x 100
+Instance 10 / Absolute 210
+Running for 200 generations...
+Best solution found has objective value = 8.265
+Best chromosome 13 4 14 11 7 10 2 18 16 15 17 12 19 0 6 9 3 1 8 5 
+
+Z 6.856
+Min fitness 5.1911
+
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 1 / Absolute 211
+Running for 200 generations...
+Best solution found has objective value = 8.5264
+Best chromosome 6 17 8 5 23 24 35 14 19 13 22 31 29 4 37 28 9 38 7 12 33 11 27 34 39 3 21 15 18 2 32 36 26 30 20 1 0 25 16 10 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 2 / Absolute 212
+Running for 200 generations...
+Best solution found has objective value = 10.663
+Best chromosome 18 2 5 19 0 15 28 23 7 11 24 35 38 6 30 9 4 8 10 36 16 33 31 32 29 25 1 13 37 27 12 21 17 34 22 14 3 26 39 20 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 3 / Absolute 213
+Running for 200 generations...
+Best solution found has objective value = 15.392
+Best chromosome 11 17 4 36 29 3 28 13 22 1 8 37 34 19 15 7 2 27 16 31 6 24 20 32 10 0 12 9 38 26 18 39 23 30 33 35 25 21 14 5 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 4 / Absolute 214
+Running for 200 generations...
+Best solution found has objective value = 13.1221
+Best chromosome 7 22 21 11 23 8 28 4 26 32 33 0 15 17 13 37 31 14 29 3 9 5 35 24 39 36 19 30 2 18 34 20 1 38 12 16 25 10 6 27 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 5 / Absolute 215
+Running for 200 generations...
+Best solution found has objective value = 14.2254
+Best chromosome 21 34 38 23 4 18 24 13 20 25 0 11 9 1 10 15 37 7 12 2 30 29 36 8 28 26 17 31 35 16 33 3 14 27 32 5 19 39 22 6 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 6 / Absolute 216
+Running for 200 generations...
+Best solution found has objective value = 12.348
+Best chromosome 22 7 21 33 10 34 11 36 0 31 20 35 26 6 2 1 24 16 25 38 23 12 4 15 32 5 39 28 8 14 18 9 29 27 30 17 3 19 13 37 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 7 / Absolute 217
+Running for 200 generations...
+Best solution found has objective value = 10.6205
+Best chromosome 18 32 28 2 25 16 38 26 6 17 39 21 7 10 4 37 1 8 36 29 3 13 15 31 27 30 23 9 35 5 22 0 20 12 19 34 14 33 24 11 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 8 / Absolute 218
+Running for 200 generations...
+Best solution found has objective value = 17.372
+Best chromosome 29 3 27 32 23 33 16 26 11 31 5 13 15 25 35 0 22 4 10 24 36 7 8 14 37 2 9 34 28 39 30 21 12 1 38 17 20 19 18 6 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 9 / Absolute 219
+Running for 200 generations...
+Best solution found has objective value = 10.1909
+Best chromosome 10 14 25 32 38 20 37 39 16 28 23 11 18 4 24 30 27 8 33 7 22 12 35 31 19 26 9 1 6 15 5 13 29 21 3 36 2 34 17 0 
+
+Class 5 #Itens 40 bin size 100 x 100
+Instance 10 / Absolute 220
+Running for 200 generations...
+Best solution found has objective value = 10.5325
+Best chromosome 11 0 36 22 9 28 32 20 31 13 10 21 1 3 15 30 6 38 18 12 35 8 19 27 2 4 16 37 33 24 26 34 14 7 29 5 23 25 39 17 
+
+Z 12.2993
+Min fitness 8.5264
+
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 1 / Absolute 221
+Running for 200 generations...
+Best solution found has objective value = 20.5059
+Best chromosome 22 19 32 48 24 51 36 44 6 13 54 5 35 58 43 59 38 45 49 46 53 4 0 30 7 8 11 10 12 57 2 55 17 1 20 28 42 14 52 47 25 56 31 9 41 33 23 34 26 39 21 3 27 40 37 50 18 15 29 16 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 2 / Absolute 222
+Running for 200 generations...
+Best solution found has objective value = 17.1922
+Best chromosome 32 20 31 45 2 35 43 41 22 7 8 5 3 39 1 18 19 16 33 29 17 13 48 34 11 26 53 37 21 0 46 49 4 54 15 52 24 6 10 30 28 59 50 47 25 9 14 57 51 23 42 58 55 38 12 36 56 44 27 40 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 3 / Absolute 223
+Running for 200 generations...
+Best solution found has objective value = 19.357
+Best chromosome 24 5 31 10 3 57 23 40 6 28 42 48 50 0 34 43 30 46 44 35 58 38 29 55 51 26 25 33 27 21 2 22 14 8 13 59 53 39 54 45 49 47 41 32 1 15 20 16 4 37 12 7 52 56 36 9 17 11 18 19 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 4 / Absolute 224
+Running for 200 generations...
+Best solution found has objective value = 20.348
+Best chromosome 37 32 54 28 40 29 57 15 27 9 56 21 13 12 11 4 35 36 33 7 47 26 45 22 49 42 44 34 20 10 1 17 43 23 19 53 14 0 2 18 59 41 16 25 6 38 30 24 55 3 8 51 31 58 46 52 48 50 5 39 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 5 / Absolute 225
+Running for 200 generations...
+Best solution found has objective value = 15.619
+Best chromosome 19 58 41 21 25 11 38 50 34 3 53 27 28 2 23 45 39 51 5 10 8 30 43 47 0 17 35 22 9 13 29 20 4 54 36 32 6 37 48 44 18 55 14 12 7 57 56 33 40 52 59 42 24 31 1 16 46 26 15 49 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 6 / Absolute 226
+Running for 200 generations...
+Best solution found has objective value = 16.136
+Best chromosome 12 35 25 10 58 53 59 49 24 54 18 37 43 40 27 41 57 33 23 44 50 8 15 7 30 14 46 0 16 4 26 19 17 45 9 32 52 20 22 28 39 21 34 11 5 29 38 56 31 55 3 2 51 42 48 36 1 47 6 13 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 7 / Absolute 227
+Running for 200 generations...
+Best solution found has objective value = 14.5088
+Best chromosome 5 25 8 28 3 34 13 10 41 52 24 57 58 2 9 31 14 30 46 35 37 47 36 12 50 22 18 38 0 1 23 49 51 53 7 29 54 27 39 4 6 17 59 43 45 55 21 26 48 32 15 16 42 20 11 44 40 33 19 56 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 8 / Absolute 228
+Running for 200 generations...
+Best solution found has objective value = 19.286
+Best chromosome 44 54 47 46 32 43 18 58 27 1 41 52 30 19 3 13 16 12 38 28 17 37 25 57 8 35 5 26 15 36 9 23 29 14 31 45 53 4 0 24 33 42 7 20 51 56 59 34 49 22 2 50 21 48 39 40 6 10 11 55 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 9 / Absolute 229
+Running for 200 generations...
+Best solution found has objective value = 16.5676
+Best chromosome 44 38 39 20 33 24 0 31 55 47 51 35 22 12 54 15 36 11 32 34 42 1 41 58 49 57 3 52 48 25 21 26 30 40 43 8 18 56 59 50 45 29 53 46 23 28 17 10 2 14 37 7 4 16 19 6 9 5 27 13 
+
+Class 5 #Itens 60 bin size 100 x 100
+Instance 10 / Absolute 230
+Running for 200 generations...
+Best solution found has objective value = 24.2304
+Best chromosome 39 18 34 52 25 59 10 40 19 46 44 56 9 48 4 49 20 36 22 0 43 42 41 13 38 5 14 7 23 37 33 15 3 17 12 35 57 11 31 26 47 21 1 32 29 8 6 45 24 28 58 30 16 51 2 53 27 50 55 54 
+
+Z 18.3751
+Min fitness 14.5088
+
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 1 / Absolute 231
+Running for 200 generations...
+Best solution found has objective value = 22.431
+Best chromosome 24 30 44 55 4 54 49 33 58 50 20 67 59 79 2 42 15 63 37 40 14 6 48 38 71 19 35 78 31 41 53 25 52 0 18 73 3 1 45 56 26 65 51 29 61 16 74 72 5 28 17 60 27 57 69 75 7 9 22 11 10 66 46 64 21 12 68 23 43 13 77 39 62 8 76 36 47 70 32 34 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 2 / Absolute 232
+Running for 200 generations...
+Best solution found has objective value = 23.3333
+Best chromosome 40 59 35 79 11 70 50 32 0 72 27 73 68 63 26 43 76 28 4 21 17 29 67 13 19 46 61 69 33 75 42 5 41 36 3 9 62 49 34 14 18 2 22 1 71 65 31 74 20 24 53 77 15 12 48 58 45 64 56 52 66 78 47 55 54 60 7 37 30 44 25 6 23 57 39 10 51 8 38 16 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 3 / Absolute 233
+Running for 200 generations...
+Best solution found has objective value = 25.0935
+Best chromosome 35 43 54 23 56 9 76 63 61 69 28 40 51 38 11 71 45 36 57 77 22 1 14 25 2 50 21 72 18 33 15 65 19 53 13 27 59 79 62 32 5 64 52 46 41 3 48 70 44 10 55 42 67 30 66 6 39 60 37 49 73 58 75 8 12 34 29 17 68 4 78 31 16 24 0 26 47 74 20 7 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 4 / Absolute 234
+Running for 200 generations...
+Best solution found has objective value = 25.208
+Best chromosome 11 31 2 69 62 19 60 43 17 74 52 14 24 32 65 51 54 27 42 28 77 35 25 73 70 39 33 8 50 47 38 53 1 45 16 63 12 37 3 22 44 30 20 49 57 21 46 68 5 23 79 58 64 18 9 13 36 29 61 66 26 72 41 7 78 0 59 6 76 71 40 55 15 4 67 75 34 10 48 56 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 5 / Absolute 235
+Running for 200 generations...
+Best solution found has objective value = 23.2135
+Best chromosome 79 59 40 7 71 70 19 22 53 75 20 67 3 28 46 13 8 65 6 37 61 2 77 38 56 76 9 23 69 25 18 64 52 55 11 1 14 47 12 50 30 72 51 43 15 63 21 73 60 54 66 0 31 35 16 68 5 32 27 78 24 44 36 49 74 62 58 48 41 17 29 39 33 26 4 34 57 42 10 45 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 6 / Absolute 236
+Running for 200 generations...
+Best solution found has objective value = 26.2128
+Best chromosome 67 28 26 58 13 46 1 52 9 39 72 66 40 77 38 21 37 19 3 33 7 45 71 10 54 55 27 43 34 63 42 22 23 12 15 57 74 2 48 65 20 8 73 56 5 11 30 76 68 18 17 6 4 64 36 60 47 61 69 79 53 62 78 35 31 29 70 41 24 59 0 32 25 16 49 50 51 75 14 44 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 7 / Absolute 237
+Running for 200 generations...
+Best solution found has objective value = 27.3782
+Best chromosome 35 10 20 18 49 29 23 26 40 76 43 33 62 56 70 74 58 8 57 32 71 48 5 73 78 68 63 75 54 45 0 50 19 31 38 51 6 4 3 17 44 42 39 55 22 15 61 36 47 79 30 64 12 13 7 69 37 65 46 11 2 60 14 67 59 16 28 72 1 34 41 25 9 66 24 53 52 27 21 77 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 8 / Absolute 238
+Running for 200 generations...
+Best solution found has objective value = 26.6006
+Best chromosome 53 69 21 43 13 48 52 6 16 33 22 76 72 2 73 19 30 28 62 44 58 3 37 47 0 38 78 67 8 50 60 74 75 27 9 57 63 55 29 11 26 71 34 42 54 1 18 36 20 64 70 61 41 66 39 15 49 51 56 46 79 35 31 65 14 25 68 45 59 7 4 17 23 12 5 24 40 10 77 32 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 9 / Absolute 239
+Running for 200 generations...
+Best solution found has objective value = 27.3248
+Best chromosome 55 78 68 24 13 27 73 61 45 63 14 8 58 50 41 79 33 21 77 4 48 16 19 23 40 60 18 62 28 35 56 0 10 1 59 64 36 54 12 46 69 52 22 70 42 53 66 9 47 30 43 72 20 38 75 74 26 39 6 25 5 32 51 71 57 2 7 15 44 37 3 49 34 67 29 11 76 65 31 17 
+
+Class 5 #Itens 80 bin size 100 x 100
+Instance 10 / Absolute 240
+Running for 200 generations...
+Best solution found has objective value = 23.3568
+Best chromosome 43 36 60 34 25 52 76 27 40 58 0 69 71 28 8 77 42 1 72 12 37 19 30 7 65 46 24 45 55 3 32 33 51 79 22 14 21 50 48 68 26 54 38 74 29 4 35 56 62 53 6 10 49 61 17 73 59 5 63 41 16 75 78 70 66 67 20 15 11 9 39 44 18 64 31 2 47 57 23 13 
+
+Z 25.0152
+Min fitness 22.431
