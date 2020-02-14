@@ -217,8 +217,8 @@ vector<unsigned> BPDecoder::placement(list<unsigned> &permutation, list < Box > 
 
 	if(draw){
 		cout << "Number of bins " << number_of_bins << endl;
-		for(auto &es : empty_spaces_vlS){
-			if(!draw_bin(packedBoxes, es, (*es.begin()).bin_number))
+		for(int i = 0; i < empty_spaces_vlS.size(); ++i){
+			if(!draw_bin(packedBoxes, empty_spaces_vlS[i], i+1))
 				break;
 		}
 		finalize_allegro();

@@ -65,6 +65,10 @@ bool draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned
     bool exit = false;
     bool continue_draw = false;
 
+    clear_display();
+    draw_boxes(packed_boxes, bin_number);
+    //draw_spaces(empty_spaces, bin_number);
+
     while(!exit){
         while(!al_is_event_queue_empty(event_queue)){
             ALLEGRO_EVENT evento;
@@ -75,10 +79,6 @@ bool draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned
                 switch (evento.keyboard.keycode)
                 {
                     case ALLEGRO_KEY_SPACE:
-                        clear_display();
-                        draw_wait(1.0);
-                        draw_boxes(packed_boxes, bin_number);
-                        //draw_spaces(empty_spaces, bin_number);
                         continue_draw = true;
                         exit = true;
                         break;
