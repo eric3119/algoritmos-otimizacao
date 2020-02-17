@@ -124,16 +124,13 @@ vector<Space> BPDecoder::DFTRC (list<Space> &bin_spaces_list, pair<unsigned, uns
 			// }else if(result[0].size > es.size){
 			// 	result.clear();
 			// 	result.push_back(es);
-				
-
-
 			// }
 		}
 	}
 	return result;
 }
 
-vector<unsigned> BPDecoder::placement(list<unsigned> &permutation, list < Box > &packedBoxes) const{
+vector<unsigned> BPDecoder::placement(list<unsigned> &permutation, vector<unsigned> &empate, list < Box > &packedBoxes) const{
 	
 	unsigned number_of_bins = 0;
 	vector< list<Space> > empty_spaces_vlS;
@@ -145,9 +142,6 @@ vector<unsigned> BPDecoder::placement(list<unsigned> &permutation, list < Box > 
 	for (auto &gene : permutation){
 		vector<Space> bestEMSv;
 		pair<unsigned, unsigned> box_to_pack = this->boxes[gene];
-		
-		// unsigned box_w = this->boxes[gene].first, 
-		// 		box_h = this->boxes[gene].second;
 
 		for (unsigned i = packedBoxes.size(); i < permutation.size(); ++i){
 			
@@ -170,27 +164,6 @@ vector<unsigned> BPDecoder::placement(list<unsigned> &permutation, list < Box > 
 
 		Space *spaceToPack = NULL;
 
-		// sort most loaded bin
-		// vector<pair<unsigned, unsigned>> rank(bin_load_vu.size());
-
-		// for (unsigned i = 0; i < bin_load_vu.size(); ++i)
-		// {
-		// 	rank[i] = pair<unsigned, unsigned> (bin_load_vu[i], i);
-		// }
-		// sort(rank.begin(), rank.end(), greater< pair<unsigned, unsigned> >());
-		/////////
-		
-		// for(auto &bin_index : rank){
-		// 	unsigned index = bin_index.second;
-		// 	if (bestEMSv[index].size() > 0) {
-		// 		unsigned random_index = rand() % bestEMSv[index].size();
-		// 		//if(!spaceToPack || (*spaceToPack).size < bestEMSv[index][0].size){
-		// 			spaceToPack = &bestEMSv[index][random_index];
-		// 			break;
-		// 		//}
-		// 	}
-		// }
-
 		if(bestEMSv.size() == 0){
 			++number_of_bins;
 			
@@ -202,7 +175,7 @@ vector<unsigned> BPDecoder::placement(list<unsigned> &permutation, list < Box > 
 
 			empty_spaces_vlS.push_back(es_list);
 		}else{
-			unsigned random_es = rand() % bestEMSv.size();
+			unsigned random_es = empate[gene] % bestEMSv.size();
 			spaceToPack = &bestEMSv[random_es];
 		}
 
@@ -213,41 +186,39 @@ vector<unsigned> BPDecoder::placement(list<unsigned> &permutation, list < Box > 
 		differenceProcess(empty_spaces_vlS[(*spaceToPack).bin_number - 1], box);
 
 		packedBoxes.push_back(box);
-	}
 
-	if(draw){
-		cout << "Number of bins " << number_of_bins << endl;
-		for(auto &es : empty_spaces_vlS){
-			if(!draw_bin(packedBoxes, es, (*es.begin()).bin_number))
-				break;
-		}
-		finalize_allegro();
 	}
+	// if(draw){
+	// 	cout << "Number of bins " << number_of_bins << endl;
+	// 	for(int i = 0; i < empty_spaces_vlS.size(); ++i){
+	// 		if(!draw_bin(packedBoxes, empty_spaces_vlS[i], i+1))
+	// 			break;
+	// 	}
+	// 	finalize_allegro();
+	// }
 
 	return bin_load_vu;
 }
 
-double BPDecoder::fitness(list<unsigned> &permutation) const{
+double BPDecoder::fitness(list<unsigned> &permutation, vector<unsigned> &empate) const{
 
 	list < Box > packedBoxes;
 	
-	vector<unsigned> bin_capacity = placement(permutation, packedBoxes);
+	vector<unsigned> bin_capacity = placement(permutation, empate, packedBoxes);
 
 	unsigned number_of_bins = bin_capacity.size();
 	
 	double least_load = 0;
-	// if(number_of_bins > 1){
-		vector<unsigned>::iterator it = min_element(bin_capacity.begin(), bin_capacity.end());
-		least_load = *it;
-	// }
-
+	vector<unsigned>::iterator it = min_element(bin_capacity.begin(), bin_capacity.end());
+	least_load = *it;
+	
 	return number_of_bins + (least_load / (this->bin_w * this->bin_h));
 }
 
-list < Box > BPDecoder::getPackedBoxes(list<unsigned> &permutation){
+list < Box > BPDecoder::getPackedBoxes(list<unsigned> &permutation, vector<unsigned> &empate){
 
 	list < Box > packedBoxes;
-	placement(permutation, packedBoxes);
+	placement(permutation, empate, packedBoxes);
 
 	return packedBoxes;
 }
@@ -258,9 +229,9 @@ void BPDecoder::setDraw(bool value){
 
 double BPDecoder::decode(const vector<double> &chromosome) const{
 	typedef pair<double, unsigned> ValueKeyPair;
-	vector<ValueKeyPair> rank(chromosome.size());
+	vector<ValueKeyPair> rank(chromosome.size()/2);
 
-	for (unsigned i = 0; i < chromosome.size(); ++i)
+	for (unsigned i = 0; i < chromosome.size()/2; ++i)
 	{
 		rank[i] = ValueKeyPair(chromosome[i], i);
 	}
@@ -275,7 +246,24 @@ double BPDecoder::decode(const vector<double> &chromosome) const{
 	{
 		permutation.push_back(i->second);
 	}
-	
+
+	vector<unsigned> empate;
+	for (unsigned i = chromosome.size()/2; i < chromosome.size(); ++i){
+		if(chromosome[i] < 1/2)
+			empate.push_back(0);
+		else
+			empate.push_back(1);
+	}
+
+	if(draw){// && start_allegro(this->bin_w, this->bin_h)){
+		std::cout << "Best packing sequence ";
+		for (std::list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
+			std::cout << *it << " ";
+		}
+		std::cout << std::endl;
+	}else{
+	//	std::cout << "ERROR: start allegro\n";
+	}
 	// return fitness
-	return fitness(permutation);
+	return fitness(permutation, empate);
 }
