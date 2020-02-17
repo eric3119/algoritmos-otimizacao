@@ -10,32 +10,17 @@
 
 using namespace std;
 
-std::list<unsigned> getPackingOrder(const std::vector<double> &chromosome){
-    typedef std::pair<double, unsigned> ValueKeyPair;
-	std::vector<ValueKeyPair> rank(chromosome.size());
-
-	for (unsigned i = 0; i < chromosome.size(); ++i)
-	{
-		rank[i] = ValueKeyPair(chromosome[i], i);
-	}
-
-	// Here we sort 'permutation', which will then produce a permutation of [n]
-	// stored in ValueKeyPair::second:
-	std::sort(rank.begin(), rank.end());
-
-	// permutation[i].second is in {0, ..., n - 1}; a permutation can be obtained as follows
-	std::list<unsigned> permutation;
-	for (std::vector<ValueKeyPair>::const_iterator i = rank.begin(); i != rank.end(); ++i)
-	{
-		permutation.push_back(i->second);
-	}
-
-    return permutation;
-}
-
-bool sortbysize(const pair<unsigned,unsigned> &a, 
+bool sortbyarea(const pair<unsigned,unsigned> &a, 
               const pair<unsigned,unsigned> &b) { 
     return (a.first * a.second > b.first * b.second);
+} 
+bool sortbywidth(const pair<unsigned,unsigned> &a, 
+              const pair<unsigned,unsigned> &b) { 
+    return (a.first > b.first);
+} 
+bool sortbyheight(const pair<unsigned,unsigned> &a, 
+              const pair<unsigned,unsigned> &b) { 
+    return (a.second > b.second);
 } 
 
 int main()
@@ -64,7 +49,8 @@ int main()
             getline(cin, str); // PROBLEM CLASS
 
             cin >> n;
-            p = 30*n;
+            n *= 2;
+            p = 20*n;
             getline(cin, str);
             
             cin >> relative >> absolute;
@@ -73,16 +59,18 @@ int main()
             cin >> decoder.bin_h >> decoder.bin_w;
             getline(cin, str);
             
-            cout << "\nClass " << class_n << " #Itens " << n << " bin size " << decoder.bin_w << " x " << decoder.bin_h << endl;
+            cout << "\nClass " << class_n << " #Itens " << n/2 << " bin size " << decoder.bin_w << " x " << decoder.bin_h << endl;
             cout << "Instance " << relative << " / Absolute " << absolute << endl;
 
-            for (unsigned i = 0; i < n; ++i){
+            for (unsigned i = 0; i < n/2; ++i){
                 cin >> box_h >> box_w;
                 getline(cin, str);
 
                 decoder.boxes.push_back(std::make_pair(box_w, box_h));
             }
-            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbysize);
+            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyarea);
+            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbywidth);
+            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyheight);
             
             getline(cin, str);
             const long unsigned rngSeed = 0; // seed to the random number generator
@@ -92,9 +80,9 @@ int main()
             BRKGA<BPDecoder, MTRand> algorithm(n, p, pe, pm, rhoe, decoder, rng, K, MAXT);
 
             unsigned generation = 0;        // current generation
-            const unsigned X_INTVL = 15;   // exchange best individuals at every 100 generations
+            const unsigned X_INTVL = 15;   // exchange best individuals at every 15 generations
             const unsigned X_NUMBER = 2;    // exchange top 2 best
-            const unsigned MAX_GENS = 200; // run for 1000 gens
+            const unsigned MAX_GENS = 200; // run for 200 gens
             std::cout << "Running for " << MAX_GENS << " generations..." << std::endl;
             do
             {
@@ -102,6 +90,7 @@ int main()
 
                 // cout << "It = " << generation << " " 
                 //    << algorithm.getBestFitness() << endl;
+
                 if ((++generation) % X_INTVL == 0)
                 {
                     algorithm.exchangeElite(X_NUMBER); // exchange top individuals
@@ -130,23 +119,9 @@ int main()
                 best_fitness = solution_best_fitness;
             }
             
-            std::cout << "Best chromosome ";
-
-            std::list<unsigned> packing_sequence = getPackingOrder(algorithm.getBestChromosome());
-
-            for (std::list<unsigned>::iterator it=packing_sequence.begin(); it != packing_sequence.end(); ++it){
-                std::cout << *it << " ";
-            }
-            std::cout << std::endl;
-
-            if (!start_allegro(decoder.bin_w, decoder.bin_h)){
-                std::cout << "ERROR: start allegro\n";
-            }else{
-                decoder.setDraw(true);
-                std::list < Box > packedBoxes = decoder.getPackedBoxes(packing_sequence);
-                decoder.setDraw(false);
-            //     //draw_bin(packedBoxes, decoder.bin_w, decoder.bin_h);
-            }
+            decoder.setDraw(true);
+            decoder.decode(algorithm.getBestChromosome());
+            decoder.setDraw(false);
         }
         cout << "\nZ " << class_mean / 10.0 << endl;
         cout << "Min fitness " << best_fitness << endl << endl;
