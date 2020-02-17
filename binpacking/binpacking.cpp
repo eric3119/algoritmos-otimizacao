@@ -34,7 +34,8 @@ int main()
     const unsigned MAXT = 1;  // number of threads for parallel decoding
 
     for(int i = 0; i< 5; i++){
-        double class_mean = 0;  
+        double class_mean = 0;
+        double class_bins_mean = 0;
         double best_fitness = numeric_limits<double>::max();
         
         for(int i = 0; i< 10; i++){
@@ -115,6 +116,8 @@ int main()
                     << solution_best_fitness << std::endl;
 
             class_mean += solution_best_fitness;
+            class_bins_mean += (unsigned) solution_best_fitness;
+
             if(solution_best_fitness < best_fitness){
                 best_fitness = solution_best_fitness;
             }
@@ -123,7 +126,8 @@ int main()
             decoder.decode(algorithm.getBestChromosome());
             decoder.setDraw(false);
         }
-        cout << "\nZ " << class_mean / 10.0 << endl;
+        cout << "\nZ " << class_bins_mean / 10.0 << endl;
+        cout << "Class mean " << class_mean / 10.0 << endl;
         cout << "Min fitness " << best_fitness << endl << endl;
     }
     return 0;
