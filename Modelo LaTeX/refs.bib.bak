@@ -1,0 +1,2718 @@
+% Encoding: UTF-8
+
+@book{Wolsey,
+  title={Integer Programming},
+  author={Wolsey, L.A.},
+  isbn={9780471283669},
+  lccn={98007296},
+  series={Wiley Series in Discrete Mathematics and Optimization},
+  url={http://books.google.com.br/books?id=x7RvQgAACAAJ},
+  year={1998},
+  publisher={Wiley}
+}
+
+@article{Defersha2006,
+title = "A comprehensive mathematical model for the design of cellular manufacturing systems ",
+journal = "International Journal of Production Economics ",
+volume = "103",
+number = "2",
+pages = "767 - 783",
+year = "2006",
+note = "",
+issn = "0925-5273",
+doi = "http://dx.doi.org/10.1016/j.ijpe.2005.10.008",
+url = "http://www.sciencedirect.com/science/article/pii/S0925527306000995",
+author = "Fantahun M. Defersha and Mingyuan Chen",
+keywords = "Cellular manufacturing",
+keywords = "Dynamic cell configuration",
+keywords = "Alternate routings",
+keywords = "Lot splitting",
+keywords = "Workload balancing",
+keywords = "Integer programming ",
+abstract = "The design of cellular manufacturing systems (CMS) involves many structural and operational issues. One of the important design steps is the formation of part families and machine cells. In this paper, a comprehensive mathematical model for the design of \{CMS\} based on tooling requirements of the parts and tooling available on the machines is proposed. The model incorporates dynamic cell configuration, alternative routings, lot splitting, sequence of operations, multiple units of identical machines, machine capacity, workload balancing among cells, operation cost, cost of subcontracting part processing, tool consumption cost, setup cost, cell size limits, and machine adjacency constraints. Numerical examples are presented to demonstrate the model and its potential benefits. "
+}
+
+
+@ARTICLE{Abdullah2006,
+  author = {Ahsan Abdullah and Amir Hussain},
+  title = {A new biclustering technique based on crossing minimization},
+  journal = {Neurocomputing},
+  year = {2006},
+  volume = {69},
+  pages = {1882--1896},
+  number = {16–18},
+  doi = {10.1016/j.neucom.2006.02.018},
+  file = {:BiclusterEditing/Abdullah2006.pdf:PDF},
+  issn = {0925-2312},
+  keywords = {Knowledge discovery},
+  url = {http://www.sciencedirect.com/science/article/pii/S0925231206001615}
+}
+
+
+@article{Bastos2014,
+year={2014},
+issn={1382-6905},
+journal={Journal of Combinatorial Optimization},
+doi={10.1007/s10878-014-9756-7},
+title={Efficient algorithms for cluster editing},
+url={http://dx.doi.org/10.1007/s10878-014-9756-7},
+publisher={Springer US},
+keywords={Combinatorial optimization; Cluster editing; Data reduction; Metaheuristics; Exact methods; Hybrid algorithms},
+author={Bastos, Lucas and Ochi, LuizSatoru and Protti, Fábio and Subramanian, Anand and Martins, IvanCésar and Pinheiro, RianGabrielS.},
+pages={1-25},
+language={English}
+}
+
+@ARTICLE{Boutsinas2013,
+  author =       {Basilis Boutsinas},
+  title =        {Machine-part cell formation using biclustering},
+  journal =      {European Journal of Operational Reseach},
+  year =         {2013},
+  volume =       {230},
+  pages =        {563-572},
+}
+
+
+@ARTICLE{Adil1997,
+  author = {Adil, G. K. and Rajamania, D. and Strong, D.},
+  title = {Assignment Allocation and Simulated Annealing Algorithms for Cell
+	Formation},
+  journal = {IIE Transactions},
+  year = {1997},
+  volume = {29},
+  pages = {53--67},
+  number = {1},
+  doi = {10.1080/07408179708966312},
+  file = {:CellFormation/Adil1997.pdf:PDF}
+}
+
+@ARTICLE{Aiex2003,
+  author = {Aiex, R M and Binato, S and Resende, M G C},
+  title = {Parallel GRASP with path-relinking for job shop scheduling},
+  journal = {Parallel Computing},
+  year = {2003},
+  volume = {29},
+  pages = {393–-430}
+}
+
+@ARTICLE{Alpert1995,
+  author = {Alpert, Charles J. and Kahng, Andrew B.},
+  title = {Recent directions in netlist partitioning: a survey},
+  journal = {Integration, the VLSI Journal},
+  year = {1995},
+  volume = {19},
+  pages = {1--81},
+  month = {aug},
+  doi = {10.1016/0167-9260(95)00008-4},
+  file = {:Partitioning/Alpert1995.pdf:PDF},
+  issn = {0167-9260},
+  issue = {1-2},
+  numpages = {81},
+  publisher = {Elsevier Science Publishers B. V.},
+  url = {http://dl.acm.org/citation.cfm?id=214838.214841}
+}
+
+@MastersThesis{Amit2004,
+  author   = {Noga Amit},
+  title    = {The Bicluster Graph Editing Problem},
+  school   = {Tel Aviv University},
+  year     = {2004},
+  abstract = {In this thesis we study the Bicluster Graph Editing Problem. The goal
+	is to add/remove fewest edges from a bipartite graph so that it becomes
+	a vertex disjoint union of complete bipartite graphs. The problem
+	arises in analysis of gene expression data in molecular biology.
+	We show that the problem is NP-hard and provide a polynomial algorithm
+	that guarantees an approximation factor of 11.},
+  comment  = {* Formulação Matamática do Bicluster Graph Editing Problem; * Algoritmo
+	11-aproximado (relaxação por PL)},
+  file     = {:BiclusterEditing/Amit2004.pdf:PDF},
+}
+
+@BOOK{Applegate2006,
+  title = {The Traveling Salesman Problem: A Computational Study},
+  publisher = {Princeton University Press},
+  year = {2006},
+  author = {Applegate, David L. and Bixby, Robert E. and Chvátal, Vasek and Cook,
+	William J.},
+  abstract = {This book presents the latest findings on one of the most intensely
+	investigated subjects in computational mathematics--the traveling
+	salesman problem. It sounds simple enough: given a set of cities
+	and the cost of travel between each pair of them, the problem challenges
+	you to find the cheapest route by which to visit all the cities and
+	return home to where you began. Though seemingly modest, this exercise
+	has inspired studies by mathematicians, chemists, and physicists.
+	Teachers use it in the classroom. It has practical applications in
+	genetics, telecommunications, and neuroscience. The authors of this
+	book are the same pioneers who for nearly two decades have led the
+	investigation into the traveling salesman problem. They hav derived
+	solutions to almost eighty-six thousand cities, yet a general solution
+	to the problem has yet to be discovered. Here they describe the method
+	and computer code they used to solve a broad range of large-scale
+	problems, and along the way they demonstrate the interplay of applied
+	mathematics with increasingly powerful computing platforms. They
+	also give the fascinating history of the problem--how it developed,
+	and why it continues to intrigue us.}
+}
+
+@ARTICLE{Askin1991,
+  author = {Askin, R. G. and Cresswell, S. H. and Goldberg, J. B. and Vakharia,
+	A. J.},
+  title = {A Hamiltonian path approach to reordering the part-machine matrix
+	for cellular manufacturing},
+  journal = {International Journal of Production Research},
+  year = {1991},
+  volume = {29},
+  pages = {1081-1100},
+  number = {6},
+  abstract = {The formation of machine and part groups is a central issue in the
+	design of cellular manufacturing systems. The part-machine incidence
+	matrix has formed the basis of several techniques for cell formation.
+	In this paper, we propose formulating machine and part ordering as
+	a Hamiltonian Path Problem. Similarity coefficients are used to form
+	a distance measure for machines and parts. The resulting solutions
+	are shown to be better than those obtained from binary clustering
+	on a set of test problems.},
+  doi = {10.1080/00207549108930121},
+  url = {http://www.tandfonline.com/doi/abs/10.1080/00207549108930121}
+}
+
+@BOOK{Askin1993,
+  title = {Modeling and Analysis of Manufacturing Systems},
+  publisher = {John Wiley \& Sons},
+  year = {1993},
+  author = {Askin, R. G. and Standridge, C. R.}
+}
+
+@ARTICLE{Askin1987,
+  author = {Askin, R. G. and Subramanian, S. P.},
+  title = {A cost-based heuristic for group technology configuration},
+  journal = {International Journal of Production Research},
+  year = {1987},
+  volume = {25},
+  pages = {101}
+}
+
+@INBOOK{Askin1990,
+  chapter = {Group technology - cell formation and operation},
+  pages = {317--366},
+  title = {Automated Factory Handbook: Technology and Management},
+  publisher = {{TAB} Books, Inc.},
+  year = {1990},
+  editor = {Cleland, D. I. and Bidanda, B.},
+  author = {Askin, R. J. and Vakharia, A. J.}
+}
+
+@TECHREPORT{Ateme-Nghema1997,
+  author = {Ateme-Nghema, H. and Dao, T.},
+  title = {Optimum design of cellular manufacturing systems using hopfield neural
+	network approach: the first step.},
+  institution = {Department of Mechanical Engineering École de Technologie Supérieure,
+	University of Quebec.},
+  year = {1997}
+}
+
+@Article{Ateme-Nguema2009,
+  author   = {Ateme-Nguema, Barthelemy and Dao, Thien-My},
+  title    = {Quantized Hopfield networks and tabu search for manufacturing cell formation problems},
+  journal  = {International Journal of Production Economics},
+  year     = {2009},
+  volume   = {121},
+  number   = {1},
+  pages    = {88--98},
+  issn     = {0925-5273},
+  abstract = {The use of neural networks in the design of cellular manufacturing
+	system is not new. This paper presents an application of modified
+	Hopfield neural networks in order to solve cell formation problems:
+	the quantized and fluctuated Hopfield neural networks (QFHN). This
+	kind of Hopfield network combined with the ``tabu search{''} approach
+	were primarily used in a hybrid procedure in order to solve the cell
+	formation for big sizes industrial data set. The problem is formulatedas
+	a 0/1 linear and integer programming model in order to minimize the
+	dissimilarities between machines and/or parts. Our hybrid approach
+	allows us to obtain optimal or nearly optimal solutions very frequently
+	and much more quickly than traditional Hopfield networks. It is also
+	illustrated that the fluctuation associated with this quantization
+	may enable the network to escape from local minima, to converge to
+	global minima, and consequently to obtain optimal solutions very
+	frequently and much more quickly than pure quantized Hopfield networks
+	(QHN). The effectiveness of the proposed approach is flexibility
+	it gives us, for example, in time problem-solving for large-scaleand
+	speed of execution when we apply it.},
+  comment  = {*Busca Tabu},
+  doi      = {10.1016/j.ijpe.2008.04.015},
+  file     = {:CellFormation/Ateme-Nguema2009.pdf:PDF},
+  keywords = {Metaheuristic; Quantized networks; Hybrid approach; Manufacturingcells},
+}
+
+@ARTICLE{Ben-Arieh1999,
+  author = {Ben-Arieh, D. and Sreenivasan, R.},
+  title = {Information analysis in a distributed dynamic group technology method},
+  journal = {International Journal of Production Economics},
+  year = {1999},
+  volume = {60-61},
+  pages = {427-432},
+  number = {1}
+}
+
+@INPROCEEDINGS{Bisson2008,
+  author = {Bisson, Gilles and Hussain, Fawad},
+  title = {Chi-Sim: A New Similarity Measure for the Co-clustering Task},
+  booktitle = {Proceedings of the 2008 Seventh International Conference on Machine
+	Learning and Applications},
+  year = {2008},
+  series = {ICMLA '08},
+  pages = {211--217},
+  publisher = {IEEE Computer Society},
+  doi = {10.1109/ICMLA.2008.103},
+  file = {:BiclusterEditing/Bisson2008:PDF},
+  isbn = {978-0-7695-3495-4},
+  keywords = {Co-clustering, co-similarity, text mining},
+  numpages = {7},
+  url = {http://dx.doi.org/10.1109/ICMLA.2008.103}
+}
+
+@ARTICLE{Boctor1996,
+  author = {Boctor, FF},
+  title = {The minimum-cost, machine-part cell formation problem},
+  journal = {International Journal of Production Research},
+  year = {1996},
+  volume = {34},
+  pages = {1045--1063},
+  number = {4},
+  doi = {10.1080/00207549608904949},
+  file = {:CellFormation/Boctor1996.pdf:PDF}
+}
+
+@Article{Boctor1991,
+  author  = {Boctor, FF},
+  title   = {A linear formulation of the machine-part cell formation problem},
+  journal = {International Journal of Production Research},
+  year    = {1991},
+  volume  = {29},
+  number  = {2},
+  pages   = {343--356},
+  comment = {* Formulação Linear; * Simulated Annealing},
+  doi     = {10.1080/00207549108930075},
+  file    = {:CellFormation/Boctor1991.pdf:PDF},
+}
+
+@ARTICLE{Boe1991,
+  author = {Boe, Warren J. and Cheng, Chun Hung},
+  title = {A close neighbour algorithm for designing cellular manufacturing
+	systems},
+  journal = {International Journal of Production Research},
+  year = {1991},
+  volume = {29},
+  pages = {2097--2116},
+  number = {10},
+  abstract = { The first step in creating a cellular manufacturing system is to
+	identify machine groups and form part families. Clustering and data
+	organization (CDR) algorithms (such as the bond energy algorithm)
+	and array sorting (ARS) methods (such as the rank order clustering
+	algorithm) have been proposed to solve the machine and part grouping
+	problem. However, these methods do not always produce a solution
+	matrix that has a block diagonal structure, making visual identification
+	of machine groups and part families extremely difficult. This paper
+	presents a ‘close neighbour algorithm’ to solve this problem. The
+	algorithm overcomes many deficiencies of the CDR and ASM methods.
+	The algorithm is tested against ten existing algorithms in solving
+	test problems from the literature. Test results show that the algorithm
+	is very reliable and efficient.},
+  doi = {10.1080/00207549108948069}
+}
+
+@Article{Burbidge1971,
+  author  = {Burbidge, J. L.},
+  title   = {Production Flow Analysis},
+  journal = {Production Engineer},
+  year    = {1971},
+  volume  = {50},
+  number  = {4/5},
+  pages   = {139--152},
+  comment = {* Primeira técnica para criação de manufatura celular},
+}
+
+@article{Bychkov2014,
+	year={2014},
+	issn={1862-4472},
+	journal={Optimization Letters},
+	volume={8},
+	number={8},
+	doi={10.1007/s11590-014-0728-8},
+	title={Exact model for the cell formation problem},
+	url={http://dx.doi.org/10.1007/s11590-014-0728-8},
+	publisher={Springer Berlin Heidelberg},
+	keywords={Cell formation problem; Exact model; Grouping efficacy; Fractional objective function},
+	author={Bychkov, Ilya and Batsyn, Mikhail and Pardalos, PanosM.},
+	pages={2203-2210},
+	language={English}
+}
+
+@Article{Carrie1973,
+  author  = {Carrie, A. S.},
+  title   = {Numerical taxonomy applied to group technology and plant layout},
+  journal = {International Journal of Production Research},
+  year    = {1973},
+  volume  = {11},
+  number  = {4},
+  pages   = {399-416},
+  comment = {This paper identifies the need for a technique which can assess whether
+	a functional or n group cell system of production is most appropriate
+	in a specific case as well as develop the appropriate system. The
+	paper describes the technique of numerical taxonomy and shows how
+	it may be applied to both group technology and plant layout. A computer
+	programme for production flow analysis is presented. The component-machine
+	matrix method of production flow analysis, as presented by Burbidge,
+	is shown to be of limited value in practical cases and an improved
+	method is proposed. The use of numerical taxonomy in developing functional-type
+	layout is also described.},
+  doi     = {10.1080/00207547308929988},
+  eprint  = {http://www.tandfonline.com/doi/pdf/10.1080/00207547308929988},
+  url     = {http://www.tandfonline.com/doi/abs/10.1080/00207547308929988},
+}
+
+@ARTICLE{Chan1982,
+  author = {H. M. Chan and D. A. Milner},
+  title = {Direct clustering algorithm for group formation in cellular manufacture},
+  journal = {Journal of Manufacturing Systems},
+  year = {1982},
+  volume = {1},
+  pages = {63}
+}
+
+@ARTICLE{Chandrasekharan1989,
+  author = {M. P. Chandrasekharan and R. Rajagopalan},
+  title = {Groupability an analysis of the properties of binary data matrices
+	for group technology},
+  journal = {International Journal of Production Research},
+  year = {1989},
+  volume = {27},
+  pages = {1035}
+}
+
+@Article{Chandrasekharan1987,
+  author  = {Chandrasekharan, M. P. and Rajagopalan, R.},
+  title   = {ZODIAC - an algorithm for concurrent formation of part-families and machine-cells},
+  journal = {International Journal of Production Research},
+  year    = {1987},
+  volume  = {25},
+  number  = {6},
+  pages   = {835--850},
+  comment = {* Heurística ZODIAC},
+  doi     = {10.1080/00207548708919880},
+  file    = {:CellFormation/Chandrasekharan1987.pdf:PDF},
+}
+
+@ARTICLE{Chandrasekharan1986a,
+  author = {Chandrasekharan, M. P. and Rajagopalan, R.},
+  title = {MODROC: An extension of rank order clustering for group technology},
+  journal = {International Journal of Production Reseach},
+  year = {1986},
+  volume = {24},
+  pages = {1221--1233},
+  number = {5},
+  doi = {10.1080/00207548608919798}
+}
+
+@ARTICLE{Chandrasekharan1986b,
+  author = {Chandrasekharan, M. P. and Rajagopalan, R.},
+  title = {An Ideal seed non-hierarchical clustering algorithm for cellular
+	manufacturing},
+  journal = {International Journal of Production Reseach},
+  year = {1986},
+  volume = {24},
+  pages = {451--464},
+  number = {2},
+  doi = {10.1080/00207548608919741},
+  issn = {0020-7543}
+}
+
+@INPROCEEDINGS{Charikar2003,
+  author = {Charikar, Moses and Guruswami, Venkatesan and Wirth, Anthony},
+  title = {Clustering with Qualitative Information},
+  booktitle = {Proceedings of the 44th Annual IEEE Symposium on Foundations of Computer
+	Science},
+  year = {2003},
+  series = {FOCS '03},
+  pages = {524--533},
+  publisher = {IEEE Computer Society},
+  file = {:/home/rian/Dropbox/Babilonia/Artigos/Partiitioning-Clustering/Charikar2003.pdf:PDF},
+  isbn = {0-7695-2040-5},
+  url = {http://dl.acm.org/citation.cfm?id=946243.946306}
+}
+
+@ARTICLE{Chattopadhyay2011,
+  author = {Chattopadhyay, Manojit and Chattopadhyay, Surajit and Dan, Pranab
+	K.},
+  title = {Machine-part cell formation through visual decipherable clustering
+	of self-organizing map},
+  journal = {International Journal of Advanced Manufacturing Technology},
+  year = {2011},
+  volume = {52},
+  pages = {1019--1030},
+  number = {9-12},
+  abstract = {Machine-part cell formation is used in cellular manufacturing in order
+	to process large varieties, improve quality, and lower work-in-process
+	levels, reducing manufacturing lead time and customer response time
+	while retaining flexibility for new products. This paper presents
+	a new and novel approach for obtaining machine cells and part families.
+	In cellular manufacturing, the fundamental problem is the formation
+	of part families and machine cells. The present paper deals with
+	the self-organizing map (SOM) method, an unsupervised learning algorithm
+	in artificial intelligence which has been used as a visually decipherable
+	clustering tool of machine-part cell formation. The objective of
+	the paper is to cluster the binary machine-part matrix through visually
+	decipherable cluster of SOM color coding and labeling via the SOM
+	map nodes in such a way that the part families are processed in that
+	machine cell. The U-matrix, component plane, principal component
+	projection, scatter plot, and histogram of SOM have been reported
+	in the present work for the successful visualization of the machine-part
+	cell formation. Computational result with the proposed algorithm
+	on a set of group technology problems available in the literature
+	is also presented. The proposed SOM approach produced solutions with
+	a grouping efficacy that is at least as good as any results earlier
+	reported in the literature and improved the grouping efficacy for70\%
+	of the problems and was found to be immensely useful to both industry
+	practitioners and researchers.},
+  doi = {10.1007/s00170-010-2802-4},
+  file = {:CellFormation/Chattopadhyay2011.pdf:PDF},
+  issn = {0268-3768},
+  keywords = {Machine-part cell formation; Cellular manufacturing; Self-organizing
+	map; Component plane; U-matrix; PC projection; Histogram; Scatterplot;Visually
+	decipherable cluster}
+}
+
+@ARTICLE{Cheng1998,
+  author = {Cheng, C. H. and Gupta, Y. P. and Lee , W. H. and Wong, K. F.},
+  title = {A TSP-based Heuristic for Forming Machine Groups and Part Families},
+  journal = {International Journal of Production Research},
+  year = {1998},
+  volume = {36},
+  pages = {1325--1337},
+  number = {5},
+  doi = {10.1080/0002075498193345},
+  file = {:CellFormation/Cheng1998.pdf:PDF}
+}
+
+@InProceedings{Cheng2000,
+  author    = {Cheng, Y and Church, G M},
+  title     = {Biclustering of Expression Data},
+  booktitle = {Proceedings of the Eighth International Conference on Intelligent Systems for Molecular Biology},
+  year      = {2000},
+  pages     = {93--103},
+  publisher = {AAAI Press},
+  acmid     = {660833},
+  comment   = {* Primeiro uso do termo Biclusterização. Seu uso foi no contexto da
+	biologia computacional.},
+  file      = {:BiclusterEditing/Cheng200.pdf:PDF},
+  isbn      = {1-57735-115-0},
+  numpages  = {11},
+  url       = {http://dl.acm.org/citation.cfm?id=645635.660833},
+}
+
+@ARTICLE{Choobineh1988,
+  author = {Choobineh, F.},
+  title = {A framework for the design of cellular manufacturing systems},
+  journal = {International Journal of Production Research},
+  year = {1988},
+  volume = {26},
+  pages = {1161-1172},
+  number = {7},
+  abstract = { Abstract A two-stage procedure for the design of a cellular manufacturing
+	system is proposed. The first stage forms the part families. The
+	use of clustering techniques with a new proximity measure is advocated
+	for this stage. The proximity measure uses the manufacturing operations
+	and the operations' sequences. The second stage forms the machine
+	cells. An integer programming model is proposed for this stage. The
+	solution of this model will specify the type and the number of machines
+	in each cell and the assignment of the part families to the cells.
+	The relevance of this approach in the design of flexible manufacturing
+	systems is discussed. },
+  doi = {10.1080/00207548808947932},
+  url = {http://www.tandfonline.com/doi/abs/10.1080/00207548808947932}
+}
+
+@ARTICLE{Chu1989,
+  author = {Chu, C. H.},
+  title = {Cluster analysis in manufacturing cellular formation},
+  journal = {Omega},
+  year = {1989},
+  volume = {17},
+  pages = {289--295},
+  number = {3},
+  abstract = {Cluster analysis, an analytical method used for classifying objects,
+	has been developed over the last century, and the literature on cluster
+	analysis has exploded during the past two decades. This technique
+	has been broadly used in the fields of biology, social science, and
+	psychology, but only very little in manufacturing. In this paper,
+	we provide a state-of-the-art review on the use of cluster analysis
+	in cellular formation--one of the first and most important issues
+	in designing cellular manufacturing systems. The problems, research
+	directions, and related literature are presented for further studies.},
+  url = {http://ideas.repec.org/a/eee/jomega/v17y1989i3p289-295.html}
+}
+
+@Article{Chvatal1973,
+  author   = {V. Chvátal},
+  title    = {Edmonds polytopes and a hierarchy of combinatorial problems},
+  journal  = {Discrete Mathematics},
+  year     = {1973},
+  volume   = {4},
+  number   = {4},
+  pages    = {305--337},
+  issn     = {0012-365X},
+  abstract = {Let S be a set of linear inequalities that determine a bounded polyhedron
+	P. The closure of S is the smallest set of inequalities that contain
+	S and is closed under two operations: (i) taking linear combinations
+	of inequalities, (ii) replacing an inequality Σ ajxj ≤ a0, where
+	a1, a2,…, an are integers, by the inequality Σajxj ≤ a with a ≥ [a0].
+	Obviously, if integers x1, x2,…, xn satisfy all the inequalities
+	in S, then they satisfy also all inequalities in the closure of S.
+	Conversely, let Σcjxj ≤ c0 hold for all choices of integers x1, x2,…,
+	xn that satisfy all the inequalities in S. Then we prove that Σcjxj
+	≤ c0 belongs to the closure of S. To each integer linear programming
+	problem, we assign a nonnegative integer, called its rank. (The rank
+	is the minimum number of iterations of the operation (ii) that are
+	required in order to eliminate the integrality constraint.) We prove
+	that there is no upper bound on the rank of problems arising from
+	the search for largest independent sets in graphs.},
+  comment  = {*Propõe o procedimento de Chvátal-Gomory e prova que toda inequação
+	válida pode ser encontrada aplicando este procedimento um número
+	finito de vezes.},
+  doi      = {10.1016/0012-365X(73)90167-2},
+}
+
+@BOOK{Cormen2001,
+  title = {Introduction to Algorithms},
+  publisher = {The MIT Press},
+  year = {2001},
+  author = {T H Cormem and C E Leiserson and R L Rivest and C Stein}
+}
+
+@Article{Dantzig1954,
+  author   = {G Dantzig and R Fulkerson and S Johnson},
+  title    = {Solution of a large-scale traveling-salesman problem},
+  journal  = {Operations Research},
+  year     = {1954},
+  volume   = {2},
+  pages    = {393--410},
+  abstract = {It is shown that a certain tour of 49 cities, one in each of the 48
+	states and Washington, D C, has the shortest road distance THE TRAVELING-SALESMAN
+	PROBLEM might be described as follows: Find the shortest route (tour)
+	for a salesman starting from a given city, visiting each of a specified
+	group of cities, and then returning to the original point of departure.
+	More generally, given an n by n symmetric matrix D=\{d,j\}, where
+	du represents the 'distance ' from / to J, arrange the points in
+	a cyclic order in such a way that the sum of the du between consecutive
+	points is minimal. Since there are only a finite number of possibilities
+	(at most 3>'2 ( « —1)0 to consider, the problem is to devise a method
+	of picking out the optimal arrangement which is reasonably efficient
+	for fairly large values of n. Although algorithms have been devised
+	for problems of similar nature, e.g., the optimal assignment problem,''*
+	* little is known about the traveling-salesman problem. We do not
+	claim that this note alters the situation very much; what we shall
+	do},
+  comment  = {*Primeiro algorimtmo de plano de corte.
+	
+	*Resolveu um PCV com 49 cidades, mas resolveu reduzindo para 42 cidades.},
+}
+
+@BOOK{Dantzig1963,
+  title = {Linear Programming and Extensions},
+  publisher = {RAND Corporation},
+  year = {1963},
+  author = {G B Dantzig}
+}
+
+@ARTICLE{Dimopoulos2001,
+  author = {Dimopoulos, C. and Mort, N.},
+  title = {A Hierarchical Clustering Methodology Based on Genetic Programming
+	for the Solution of Simple Cell-Formation Problems},
+  journal = {International Journal of Production Research},
+  year = {2001},
+  volume = {39},
+  pages = {1--19},
+  number = {1},
+  doi = {10.1080/00207540150208835},
+  file = {:CellFormation/Dimopoulos2001.pdf:PDF}
+}
+
+@ARTICLE{Dinkelbach1967,
+  author = {Werner Dinkelbach},
+  title = {On Nonlinear Fractional Programming},
+  journal = {Management Science},
+  year = {1967},
+  volume = {13},
+  pages = {492--498},
+  number = {7}
+}
+
+@ARTICLE{Elbenani2012,
+  author = {Bouazza Elbenani and Jacques A. Ferland and Jonathan Bellemare},
+  title = {Genetic algorithm and large neighbourhood search to solve the cell
+	formation problem},
+  journal = {Expert Systems with Applications},
+  year = {2012},
+  volume = {39},
+  pages = {2408--2414},
+  number = {3},
+  abstract = {We first introduce a local search procedure to solve the cell formation
+	problem where each cell includes at least one machine and one part.
+	The procedure applies sequentially an intensification strategy to
+	improve locally a current solution and a diversification strategy
+	destroying more extensively a current solution to recover a new one.
+	To search more extensively the feasible domain, a hybrid method is
+	specified where the local search procedure is used to improve each
+	offspring solution generated with a steady state genetic algorithm.
+	The numerical results using 35 most widely used benchmark problems
+	indicate that the line search procedure can reduce to 1% the average
+	gap to the best-known solutions of the problems using an average
+	solution time of 0.64&#xa0;s. The hybrid method can reach the best-known
+	solution for 31 of the 35 benchmark problems, and improve the best-known
+	solution of three others, but using more computational effort.},
+  doi = {10.1016/j.eswa.2011.08.089},
+  file = {:CellFormation/Elbenani2012.pdf:PDF},
+  issn = {0957-4174},
+  keywords = {Cell formation problem}
+}
+
+@ARTICLE{Fallah-Alipour2008,
+  author = {Fallah-Alipour, Kaveh and Shamsi, Ramin},
+  title = {A Mathematical Model for Cell Formation in CMS Using Sequence Data},
+  journal = {Journal of Industrial and Systems Engineering},
+  year = {2008},
+  volume = {2},
+  pages = {144--153},
+  number = {2},
+  abstract = {Cell formation problem in Cellular Manufacturing System (CMS) design
+	has derived the attention of researchers for more than three decades.However,
+	use of sequence data for cell formation has been the least investigated
+	area. Sequence data provides valuable information about the flow
+	patterns of various jobs in a manufacturing system. This paper presents
+	a new mathematical model to solve a cell formation problem based
+	on sequence data in CMS. The objective is to minimize the total costs
+	of inter and intra-cell movements. This model depends on the attitude
+	of the decision makertowards the minimum utilization level of each
+	cell in such a way that the part-machine grouping can be changed
+	significantly. A number of examples from the literature are solved
+	by the LINGO software package to validate and verify the proposed
+	model. Finally, computational results are reported and analyzed.},
+  file = {:CellFormation/Fallah-Alipour2008.pdf:PDF},
+  keywords = {Cell formation; CMS; Intra/inter-cell movement; Mathematical model;
+	Cell utilization}
+}
+
+@ARTICLE{Faure2007,
+  author = {Nathalie Faure and Philippe Chretienne and Eric Gourdin and Francis
+	Sourd},
+  title = {Biclique completion problems for multicast network design},
+  journal = {Discrete Optimization},
+  year = {2007},
+  volume = {4},
+  pages = {360--377},
+  number = {3-4},
+  abstract = {This paper considers the problem of aggregating several multicastsessions.
+	A multicast session is defined as a subset of clients requiring the
+	same information. Besides, each client can require several multicast
+	sessions. A telecommunication network cannot manage many multicast
+	sessions at the same time. It is hence necessary to group the sessions
+	into a limited number of clusters. The problem then consists in aggregating
+	the sessions into clusters to limit the number of unnecessary information
+	sent to clients. The strong relationship of the problems with biclique
+	problems in bipartite graph is established. We then model the problems
+	using integer quadratic and linear programming formulations. We investigate
+	some properties to strengthen the models. Several algorithms areprovided
+	and compared with a series of numerical experiments.},
+  doi = {10.1016/j.disopt.2007.09.005},
+  file = {:BiclusterEditing/Faure2007.pdf:PDF},
+  issn = {1572-5286},
+  keywords = {biclique partitioning; multicast session aggregation; integer linear
+	programming; column generation}
+}
+
+@ARTICLE{Feo1995,
+  author = {T.A. Feo and M.G.C. Resende},
+  title = {Greedy randomized adaptive search procedures},
+  journal = {Journal of Global Optimization},
+  year = {1995},
+  volume = {6},
+  pages = {109--133}
+}
+
+@ARTICLE{FerreiraRibeiro1993,
+  author = {Ferreira Ribeiro, J. F. and Pradin, B.},
+  title = {A methodology for cellular manufacturing design},
+  journal = {International Journal of Production Research},
+  year = {1993},
+  volume = {31},
+  pages = {235-250},
+  number = {1},
+  abstract = { Abstract A two-phase methodology is presented as an aid to organizing
+	job shop production in a cellular manufacturing system. The first
+	phase (selection/assignment phase) selects the machines to be kept
+	on the shop floor and assigns parts to the machines retained. The
+	second phase (partition/reassignment phase) establishes a partition
+	of the set of parts and corresponding cells of machines and reassigns
+	some of the operations with a view to eliminating some intercell
+	material movements. This phase is repeated until a partition meeting
+	the operator's requirements is obtained. The results obtained with
+	this method on several examples found in the literature are consistently
+	equivalent to or even better than those hitherto proposed, in terms
+	of intercell moves. },
+  doi = {10.1080/00207549308956723},
+  url = {http://www.tandfonline.com/doi/abs/10.1080/00207549308956723}
+}
+
+@TECHREPORT{Filho1998,
+  author = {Filho, G. R. and Lorena, L. A. N.},
+  title = {Projeto de Sistema de Células de Manufatura},
+  institution = {Instituto Nacional de Pesquisas Espaciais - {LAC/INPE}},
+  year = {1998}
+}
+
+@ARTICLE{Flanders1924,
+  author = {Flanders, R. E.},
+  title = {Design, manufature and production control of a standard machine},
+  journal = {Transactions of the American Society of Mechanical Enginneers},
+  year = {1924},
+  volume = {46},
+  pages = {691--738}
+}
+
+@ARTICLE{Foulds2006,
+  author = {Foulds, L. R. and French, A. P. and Wilson, J. M.},
+  title = {The sustainable cell formation problem: manufacturing cell creation
+	with machine modification costs},
+  journal = {Computers \& Operations Research},
+  year = {2006},
+  volume = {33},
+  pages = {1010--1032},
+  number = {4},
+  abstract = {An approach for manufacturing cell formation with machine modification
+	is presented. In cell formation it is often important in practice
+	to be able to reassign parts to additional machine types in order
+	to create better cell configurations. This involves extending the
+	set of parts that certain individual machines can process. Such extensions
+	may be cheaper than simply purchasing additional machines. Thus,
+	there is the possibility of machine modification to reduce inter-cell
+	travel. The cost of such modifications must be balanced by the consequent
+	reduction in inter-cell travel cost. The extended machine cell formation
+	problem to be described involves the specification of which individual
+	machines should be modified to enable them to process additional
+	part types, part-machine assignment, and the grouping of individual
+	machines for cell formation. The objective is to minimize the sum
+	of the machine modification costs and the inter-cell travel. We call
+	this the sustainable cell formation problem (SCFP). As far as the
+	authors are aware, there have not been any solution procedures for
+	this important problem reported in the open literature. It is our
+	purpose to fill this gap by presenting a mixed integer programming
+	model of the SCFP. We also propose and analyze greedy and tabu search
+	heuristics for the design of large-scale systems related to the SCFP.
+	Computational experience with the solution procedures indicates that
+	they are likely to be useful additions to the production engineer's
+	toolkit.},
+  doi = {10.1016/j.cor.2004.09.001},
+  issn = {0305-0548},
+  keywords = {Sustainable manufacturing},
+  url = {http://www.sciencedirect.com/science/article/pii/S0305054804002230}
+}
+
+@Article{Ganesh1994,
+  author  = {Ganesh, M.V. and Srinivasan, G.},
+  title   = {A Heuristic Algorithm for the Cell Formation Problem},
+  journal = {Computers \& Industrial Engineering},
+  year    = {1994},
+  volume  = {26},
+  number  = {1},
+  pages   = {193--201},
+  comment = {* Heurística baseada em p-mediana e que usa matriz distância},
+  doi     = {10.1016/0360-8352(94)90037-X},
+  file    = {:CellFormation/Ganesh1994.pdf:PDF},
+}
+
+@BOOK{Garey1979,
+  title = {Computers and Intractability: A Guide to the Theory of NP-Completeness},
+  publisher = {W. H. Freeman \& Co.},
+  year = {1979},
+  author = {Garey, Michael R. and Johnson, David S.},
+  file = {:../livros/Computers and Intractability.pdf:PDF},
+  isbn = {0716710447}
+}
+
+@ARTICLE{Gilbert1959,
+  author = {Gilbert, E.N.},
+  title = {Random graphs},
+  journal = {Annals of Mathematical Statistics},
+  year = {1959},
+  volume = {30},
+  pages = {1141--1144},
+  doi = {10.1214/aoms/1177706098},
+  keywords = {operations research}
+}
+
+@ARTICLE{Glover1990,
+  author = {Glover, F.},
+  title = {Tabu Search - Part II},
+  journal = {ORSA Journal on Computing},
+  year = {1990},
+  volume = {2},
+  pages = {4-32},
+  number = {1},
+  abstract = {This is the second half of a two part series devoted to the tabu search
+	metastrategy for optimization problems. Part I introduced the fundamental
+	ideas of tabu search as an approach for guiding other heuristics
+	to overcome the limitations of local optimality, both in a deterministic
+	and a probabilistic framework. Part I also reported successful applications
+	from a wide range of settings, in which tabu search frequently made
+	it possible to obtain higher quality solutions than previously obtained
+	with competing strategies, generally with less computational effort.
+	Part II, in this issue, examines refinements and more advanced aspects
+	of tabu search. Following a brief review of notation, Part II introduces
+	new dynamic strategies for managing tabu lists, allowing fuller exploitation
+	of underlying evaluation functions. In turn, the elements of staged
+	search and structured move sets are characterized, which bear on
+	the issue of finiteness. Three ways of applying tabu search to the
+	solution of integer programming problems are then described, providing
+	connections also to certain nonlinear programming applications. Finally,
+	the paper concludes with a brief survey of new applications of tabu
+	search that have occurred since the developments reported in Part
+	I. Together with additional comparisons with other methods on a wide
+	body of problems, these include results of parallel processing implementations
+	and the use of tabu search in settings ranging from telecommunications
+	to neural networks.}
+}
+
+@ARTICLE{Glover1989,
+  author = {Glover, F.},
+  title = {Tabu Search - Part I},
+  journal = {ORSA Journal on Computing},
+  year = {1989},
+  volume = {1},
+  pages = {190-206},
+  number = {3},
+  abstract = {This paper presents the fundamental principles underlying tabu search
+	as a strategy for combinatorial optimization problems. Tabu search
+	has achieved impressive practical successes in applications ranging
+	from scheduling and computer channel balancing to cluster analysis
+	and space planning, and more recently has demonstrated its value
+	in treating classical problems such as the traveling salesman and
+	graph coloring problems. Nevertheless, the approach is still in its
+	infancy, and a good deal remains to be discovered about its most
+	effective forms of implementation and about the range of problems
+	for which it is best suited. This paper undertakes to present the
+	major ideas and findings to date, and to indicate challenges for
+	future research. Part I of this study indicates the basic principles,
+	ranging from the short-term memory process at the core of the search
+	to the intermediate and long term memory processes for intensifying
+	and diversifying the search. Included are illustrative data structures
+	for implementing the tabu conditions (and associated aspiration criteria)
+	that underlie these processes. Part I concludes with a discussion
+	of probabilistic tabu search and a summary of computational experience
+	for a variety of applications. Part II of this study (to appear in
+	a subsequent issue) examines more advanced considerations, applying
+	the basic ideas to special settings and outlining a dynamic move
+	structure to insure finiteness. Part II also describes tabu search
+	methods for solving mixed integer programming problems and gives
+	a brief summary of additional practical experience, including the
+	use of tabu search to guide other types of processes, such as those
+	of neural networks.}
+}
+
+@BOOK{Goldengorin2013,
+  title = {Cell Formation in Industrial Engineering: Theory, Algorithms and Experiments},
+  publisher = {Springer},
+  year = {2013},
+  author = {Boris Goldengorin and Dmitry Krushinsky and Panos M. Pardalos}
+}
+
+@INPROCEEDINGS{Gomory1963,
+  author = {Gomory, R E},
+  title = {An algorithm for integer solutions to linear programs},
+  booktitle = {Recent Advances in Mathematical Programming},
+  year = {1963},
+  editor = {Graves, R L and Wolfe, P},
+  pages = {269--302},
+  publisher = {McGraw-Hill},
+  chapter = {An algorithm for integer solutions to linear programs}
+}
+
+@Article{Gomory1958,
+  author  = {R. E. Gomory},
+  title   = {Outline of an algorithm for integer solutions to linar programs},
+  journal = {Bulletin of the American Mathematical Society},
+  year    = {1958},
+  volume  = {64},
+  pages   = {275--278},
+  comment = {* Um dos primeiros paper sobre plano de corte},
+}
+
+@Article{Goncalves2004,
+  author   = {Gon\c{c}alves, JF and Resende, MGC},
+  title    = {An evolutionary algorithm for manufacturing cell formation},
+  journal  = {Computers \& Industrial Engineering},
+  year     = {2004},
+  volume   = {47},
+  number   = {2-3},
+  pages    = {247--273},
+  issn     = {0360-8352},
+  abstract = {Cellular manufacturing emerged as a production strategy capable of
+	solving the certain problems of complexity and long manufacturing
+	lead times in batch production. The fundamental problem in cellular
+	manufacturing is the formation of product families and machine cells.
+	This paper presents a new approach for obtaining machine cells and
+	product families. The approach combines a local search heuristic
+	with a genetic algorithm. Computational experience with the algorithm
+	on a set of group technology problems available in the literature
+	is also presented. The approach produced solutions with a grouping
+	efficacy that is at least as good as any results previously reported
+	in literature and improved the grouping efficacy for 59\% of the
+	problems.},
+  comment  = {* Principal paper de CFP usando meta-heurística},
+  doi      = {10.1016/j.cie.2004.07.003},
+  file     = {:CellFormation/Goncalves2004.pdf:PDF},
+  keywords = {cellular manufacturing; group technology; genetic algorithms; random keys},
+}
+
+@Article{Grotschel1984,
+  author   = {Grötschel, Martin and Jünger, Michael and Reinelt, Gerhard},
+  title    = {A Cutting Plane Algorithm for the Linear Ordering Problem},
+  journal  = {Operations Research},
+  year     = {1984},
+  volume   = {32},
+  number   = {6},
+  pages    = {1195--1220},
+  abstract = {The linear ordering problem is an NP-hard combinatorial optimization
+	problem with a large number of applications (including triangulation
+	of input-output matrices, archaeological senation, minimizing total
+	weighted completion time in one-machine scheduling, and aggregation
+	of individual preferences). In a former paper, we have investigated
+	the facet structure of the 0/1-polytope associated with the linear
+	ordering problem. Here we report on a new algorithm that is based
+	on these theoretical results. The main part of the algorithm is a
+	cutting plane procedure using facet defining inequalities. This procedure
+	is combined with various heuristics and branch and bound techniques.
+	Our computational results compare favorably with the results of existing
+	codes. In particular, we could triangulate all input-output matrices,
+	of size up to 60 × 60, available to us within acceptable time bounds.},
+  comment  = {*Primeiro artigo Branch and Cut},
+  doi      = {10.1287/opre.32.6.1195},
+}
+
+@InProceedings{Guo2008,
+  author    = {Guo, Jiong and Hüffner, Falk and Komusiewicz, Christian and Zhang, Yong},
+  title     = {Improved Algorithms for Bicluster Editing},
+  booktitle = {5th International Conference on Theory and Applications of Models of Computation},
+  year      = {2008},
+  volume    = {4978},
+  pages     = {445--456},
+  publisher = {Springer Berlin / Heidelberg},
+  abstract  = {The NP-hard Bicluster Editing is to add or remove at most k edgesto
+	make a bipartite graph G = (V,E) a vertex-disjoint union of complete
+	bipartite subgraphs. It has applications in the analysis of gene
+	expression data. We show that by polynomial-time preprocessing, one
+	can shrink a problem instance to one with 4 k vertices, thusproving
+	that the problem has a linear kernel, improving a quadratic kernel
+	result. We further give a search tree algorithm that improves the
+	running time bound from the trivial O (4^k + |E|) to O (3.24^k +
+	|E|). Finally, we give a randomized 4-approximation, improving a
+	known approximation with factor 11.},
+  comment   = {* Algoritmo randômico 4-aproximado},
+  doi       = {10.1007/978-3-540-79228-4_39},
+  file      = {:BiclusterEditing/Guo2008.pdf:PDF},
+  isbn      = {3-540-79227-9, 978-3-540-79227-7},
+  url       = {http://www.springerlink.com/content/g2g2170086186428/},
+}
+
+@ARTICLE{Gupta1979,
+  author = {Gupta, AS and Palit, A},
+  title = {Clique Generation Using Boolean Equations},
+  journal = {Proceedings of The IEEE},
+  year = {1979},
+  volume = {67},
+  pages = {178--180},
+  number = {1},
+  issn = {{0018-9219}}
+}
+
+@TECHREPORT{Harhalakis1990,
+  author = {Harhalakis, G. and Hilger, J. and Proth, J. M.},
+  title = {Manufacturing cell formation in the case of multi-manufacturing processes},
+  institution = {University of Maryland},
+  year = {1990},
+  abstract = {The determination of a good decomposition of a manufacturing system
+	into manufacturing cells, when various manufacturing processes are
+	available for each type of product, is addressed in this paper. We
+	propose a simple twofold algorithm. The first part of the algorithm
+	aims at defining the proportion of each product type to manufacture,
+	using each of the available manufacturing processes. The result is
+	a monomanufacturing process problem, i.e. a problem which consists
+	of finding a good decomposition of a manufacturing system into cells
+	when only one manufacturing process is available for each type of
+	product. The second part of the algorithm uses an approach already
+	presented by the authors to solve the monomanufacturing process problem.
+	We also present a numerical example to illustrate our approach.}
+}
+
+@BOOK{Hartigan1975,
+  title = {Clustering Algorithms},
+  publisher = {John Wiley \& Sons},
+  year = {1975},
+  author = {J A Hartigan}
+}
+
+@ARTICLE{HamedHendizadeh2008,
+  author = {S. Hamed Hendizadeh and Hamidreza Faramarzi and S.Afshin Mansouri
+	and Jatinder N.D. Gupta and Tarek Y ElMekkawy},
+  title = {Meta-heuristics for scheduling a flowline manufacturing cell with
+	sequence dependent family setup times},
+  journal = {International Journal of Production Economics},
+  year = {2008},
+  volume = {111},
+  pages = {593--605},
+  number = {2},
+  note = {Special Section on Sustainable Supply Chain},
+  abstract = {This paper presents various Tabu Search (TS) based meta-heuristics
+	for scheduling the part families and jobs within each family in a
+	flowline manufacturing cell (also called a flowshop) with sequence
+	dependent family setup times to minimize makespan. Concepts of Elitism
+	and the acceptance of worse moves from simulated annealing (SA) are
+	examined in the proposed meta-heuristics to improve intensification
+	and diversification. The effectiveness and efficiency of the proposed
+	TS based meta-heuristics are compared against the best meta-heuristic
+	and heuristic algorithms reported so far for this problem on several
+	test problems. Computational results show that the best proposed
+	TS based meta-heuristic is quite effective in minimizing makespan
+	in a reasonable amount of CPU time.},
+  doi = {10.1016/j.ijpe.2007.02.031},
+  file = {:CellFormation/HamedHendizadeh2008.pdf:PDF},
+  issn = {0925-5273},
+  keywords = {Scheduling},
+  url = {http://www.sciencedirect.com/science/article/pii/S0925527307001016}
+}
+
+@ARTICLE{Heragu1998,
+  author = {Heragu, S},
+  title = {Optimal solution of cellular manufacturing system design: Bendersʼ
+	decomposition approach},
+  journal = {European Journal Of Operational Research},
+  year = {1998},
+  volume = {107},
+  pages = {175--192},
+  number = {1},
+  abstract = {In this paper, a mathematical model for cellular manufacturing system
+	(CMS) design which incorporates three critical aspects - resource
+	utilization, alternate routings, and practical constraints, is presented.
+	The model is shown to be NP-complete. A linear, mixed-integer version
+	of the model which not only has fewer integer variables compared
+	to most other models in the literature, but one that also permits
+	us to solve it optimally using Benders’ decomposition approach ispresented.
+	Some results that allow us to solve the problem efficiently as well
+	as computational results with Benders’ decomposition algorithm and
+	a modified version are presented.},
+  doi = {10.1016/S0377-2217(97)00256-7},
+  file = {:CellFormation/Heragu1998.pdf:PDF},
+  issn = {0377-2217},
+  url = {http://linkinghub.elsevier.com/retrieve/pii/S0377221797002567}
+}
+
+@PHDTHESIS{Hsu1990,
+  author = {Hsu, C. P},
+  title = {Similarity Coefficient Approaches to Machine cmoponent Cell Formation
+	in Cellular Manufacturing: A Comparative Study},
+  school = {University of Wisconsin},
+  year = {1990}
+}
+
+@MANUAL{Cplex,
+  title = {IBM ILOG CPLEX V12.1 User's Manual for CPLEX},
+  author = {IBM},
+  organization = {IBM},
+  year = {2009}
+}
+
+@ARTICLE{James2007,
+  author = {James, Tabitha L. and Brown, Evelyn C. and Keeling, Kellie B.},
+  title = {A hybrid grouping genetic algorithm for the cell formation problem},
+  journal = {Comput. Oper. Res.},
+  year = {2007},
+  volume = {34},
+  pages = {2059--2079},
+  number = {7},
+  abstract = {The machine-part cell formation problem consists of constructing a
+	set of machine cells and their corresponding product families with
+	the objective of minimizing the inter-cell movement of the products
+	while maximizing machine utilization. This paper presents a hybrid
+	grouping genetic algorithm for the cell formation problem that combines
+	a local search with a standard grouping genetic algorithm to form
+	machine-part cells. Computational results using the grouping efficacy
+	measure for a set of cell formation problems from the literature
+	are presented. The hybrid grouping genetic algorithm is shown to
+	outperform the standard grouping genetic algorithm by exceeding the
+	solution quality on all test problems and by reducing the variability
+	among the solutions found. The algorithm developed performs well
+	on all test problems, exceeding or matching the solution quality
+	of the results presented in previous literature for most problems.},
+  doi = {10.1016/j.cor.2005.08.010},
+  file = {:CellFormation/James2007.pdf:PDF},
+  issn = {0305-0548},
+  keywords = {Grouping genetic algorithm; Heuristics; Machine-part cell formation},
+  url = {http://dl.acm.org/citation.cfm?id=1223343.1223417}
+}
+
+@ARTICLE{Joines1996,
+  author = {Jeffrey A. Joines and C. Thomas Culbreth and Russell E. King},
+  title = {Manufacturing Cell Design: An Integer Programming Model Employing
+	Genetic Algorithms},
+  journal = {IIE Transactions},
+  year = {1996},
+  volume = {28},
+  pages = {69--85},
+  abstract = {The design of a cellular manufacturing system requires that a part
+	population, at least minimally described by its use of process technology
+	(part/machine incidence matrix), be partitioned into part families
+	and that the associated plant equipment be partitioned into machine
+	cells. At the highest level, the objective is to form a set of completely
+	autonomous units such that inter-cell movement of parts is minimized.
+	We present an integer program that is solved using a genetic algorithm(GA)
+	to assist in the design of cellular manufacturing systems. The formulation
+	uses a unique representation scheme for individuals (part/machine
+	partitions) that reduces the size of the cell formation problem and
+	increases the scale of problems that can be solved. This approach
+	offers improved design flexibility by allowing a variety of evaluation
+	functions to be employed and by incorporating design constraints
+	during cell formation. The effectiveness of the GA approach is demonstrated
+	on several problems from the literature.},
+  doi = {10.1080/07408179608966253},
+  file = {:CellFormation/Joines1996.pdf:PDF},
+  url = {http://www.tandfonline.com/doi/abs/10.1080/07408179608966253}
+}
+
+@InProceedings{Karp1972,
+  author    = {Karp, R},
+  title     = {Reducibility among combinatorical problems of computer computaions},
+  booktitle = {Proceedings of a Symposium on the Complexity of Computer Computations},
+  year      = {1972},
+  pages     = {88--104},
+  publisher = {Plenum Press},
+  comment   = {* Mostra que PI é NP-difícil},
+}
+
+@ARTICLE{King1980,
+  author = {King, J.R.},
+  title = {Machine-component grouping in production flow analysis: An approach
+	using a rank order clustering algorithm},
+  journal = {International Journal of Production Research},
+  year = {1980},
+  volume = {18},
+  pages = {213--232},
+  number = {2},
+  abstract = {Existing cluster analysis methods are reviewed and a new approach
+	using a rank order clustering algorithm is described which is particularly
+	relevant to the problem of machine-component group formation. A relaxation
+	and regrouping procedure is developed whereby the basic rank order
+	clustering method may be extended to the case where there are bottleneck
+	machines.},
+  source = {Scopus},
+  url = {http://www.scopus.com/inward/record.url?eid=2-s2.0-0018991743&partnerID=40&md5=2a5c6d095ab9cc9bedd352ad7ecba0e5}
+}
+
+@ARTICLE{King1982,
+  author = {King, J. R. and Nakornchai, V.},
+  title = {Machine-component group formation in group technology: review and
+	extension},
+  journal = {International Journal of Production Research},
+  year = {1982},
+  volume = {20},
+  pages = {117--133},
+  number = {2},
+  abstract = { Abstract The paper provides a comprehensive review of the various
+	approaches that have been adopted in an attempt to solve the problem
+	of forming machines into groups and components into associated families
+	in Group Technology, A new and more efficient version of the previously
+	published ROC algorithm, implemented interactively, is described
+	together with a new relaxation procedure for bottleneck machines.
+	},
+  doi = {10.1080/00207548208947754}
+}
+
+@ARTICLE{Kulkarni1995,
+  author = {Kulkarni, U. R. and Kiang, M. Y.},
+  title = {Dynamic grouping of parts in flexible manufacturing systems -- a
+	self-organizing neural networks approach},
+  journal = {European Journal of Operational Research},
+  year = {1995},
+  volume = {84},
+  pages = {192-212},
+  number = {1},
+  month = {July}
+}
+
+@Article{Kumar1990,
+  author  = {Kumar, C. S. and Chandrasekharan, M. P.},
+  title   = {Group efficacy: a quantitative criterion for goodness of block diagonal forms of binary matrices in group technology},
+  journal = {International Journal of Production Research},
+  year    = {1990},
+  volume  = {28},
+  number  = {2},
+  pages   = {233--243},
+  comment = {* Define a eficácia de agrupamento},
+  doi     = {10.1080/00207549008942706},
+}
+
+@ARTICLE{Kumar1986,
+  author = {Kumar, K. R. and Kusiak, A. and Vannelli, A.},
+  title = {Grouping of parts and components in flexible manufacturing systems},
+  journal = {European Journal of Operational Research},
+  year = {1986},
+  volume = {24},
+  pages = {387--397},
+  number = {3},
+  abstract = {In this paper, the problem of grouping of parts and components in
+	flexible manufacturing systems is discussed. The actual grouping
+	is done by modelling the problem as an optimal k-decomposition of
+	weighted networks. Algorithms which are suitable for computer implementation
+	and large problems are developed to find an initial solution and
+	for refining this solution. Bounds on algorithm performance are constructed
+	to give an estimate of the quality of the generated solution. A numerical
+	example illustrates these new techniques.},
+  doi = {10.1016/0377-2217(86)90032-9},
+  issn = {0377-2217},
+  keywords = {Flexible manufacturing systems}
+}
+
+@ARTICLE{Kumar1987,
+  author = {Kumar, K. R. and Vannelli, A.},
+  title = {Strategic subcontracting for efficient disaggregated manufacturing},
+  journal = {International Journal of Production Reseach},
+  year = {1987},
+  volume = {25},
+  pages = {1715--1728},
+  number = {12}
+}
+
+@BOOK{Kusiak1992nov,
+  title = {Intelligent Manufacturing Systems},
+  publisher = {Prentice Hall},
+  year = {1992},
+  author = {Kusiak, A.},
+  month = {nov}
+}
+
+@ARTICLE{Kusiak1992,
+  author = {Kusiak, A. and Cho, M.},
+  title = {Similarity coefficient algorithms for solving the group technology
+	problem},
+  journal = {International Journal of Production Research},
+  year = {1992},
+  volume = {30},
+  pages = {2633-2646},
+  number = {11},
+  abstract = {This paper discusses two formulations of the group technology (GT)
+	problem. The first one involves basic and alternative process plans
+	without bottleneck parts. The second formulation considers basic
+	process plans and bottleneck parts or bottleneck machines. The algorithms
+	developed in the paper are illustrated with numerical examples. Computational
+	results are also provided.},
+  doi = {10.1080/00207549208948181}
+}
+
+@ARTICLE{Kusiak1987,
+  author = {Kusiak, A. and Chow, W.S.},
+  title = {Efficient solving of the group technology problem},
+  journal = {Journal of Manufacturing Systems},
+  year = {1987},
+  volume = {6},
+  pages = {117--124},
+  number = {2},
+  abstract = {In this paper, two formulations of the group technology problem are
+	considered: the standard formulation and the augmented formulation.
+	The standard formulation is based on the 0-1 machine-incidence matrix
+	and does not consider any costs. In the augmented formulation with
+	each partj, cost c_j is associated and the number of machines in
+	each cell is limited to N. This formulation allows the creation of
+	machine cells and part families with a low degree of interaction
+	(or without any interaction, if required) by removing parts with
+	low values of the corresponding costs from the incidence matrix.
+	To solve these formulations, tow very efficient algorithms are presented.
+	The cluster identification algorithm with the computational time
+	complexity 0(2mn) finds optimal machine cells and part families provided
+	that the machine-part incidence matrix has the block diagonal structure
+	embedded. This appears to be the most efficient algorithm developed
+	to date. The cost analysis algorithm is designed to solve the augmented
+	group technology problem. Its computational complexity is 0(2 mn
+	+ nlogn). The two algorithms are illustrated in numerical examples.},
+  issn = {02786125},
+  url = {http://www.scopus.com/inward/record.url?eid=2-s2.0-0023206153&partnerID=40&md5=2d30150406eddb2af2d3970a9af790a0}
+}
+
+@ARTICLE{Land1960,
+  author = {A. H. Land and A. G Doig},
+  title = {An Automatic Method of Solving Discrete Programming Problems},
+  journal = {Econometrica},
+  year = {1960},
+  volume = {28},
+  pages = {497--520},
+  number = {3},
+  abstract = {In the classical linear programming problem the behaviour of continuous,
+	nonnegative variables subject to a system of linear inequalities
+	is investigated. One possible generalization of this problem is to
+	relax the continuity condition the variables. This paper presents
+	a simple numerical algorithm for the solution of programming problems
+	in which some or all of the variables can take only discrete values.
+	The algorithm requires no special techniques beyond these used in
+	ordinary linear programming, and lends itself to automatic computing.
+	Its use is illustrated on two numerical examples.},
+  cluster = {16881498411250612476},
+  comment = {Original branch and bound algorithm.},
+  url = {http://jmvidal.cse.sc.edu/library/land60a.pdf}
+}
+
+@Article{Li2010,
+  author   = {Li, Xiangyong and Baki, M. F. and Aneja, Y. P.},
+  title    = {An ant colony optimization metaheuristic for machine-part cell formation problems},
+  journal  = {Comput. Oper. Res.},
+  year     = {2010},
+  volume   = {37},
+  number   = {12},
+  pages    = {2071--2081},
+  issn     = {0305-0548},
+  abstract = {In this paper we propose an ant colony optimization metaheuristic
+	(ACO-CF) to solve the machine–part cell formation problem. ACO-CF
+	is a MAX-MIN ant system, which is implemented in the hyper-cube framework
+	to automatically scale the objective functions of machine–part cell
+	formation problems. As an intensification strategy, we integrate
+	an iteratively local search into ACO-CF. Based on the assignment
+	of the machines or parts, the local search can optimally reassign
+	parts or machines to cells. We carry out a series of experiments
+	to investigate the performance of ACO-CF on some standard benchmark
+	problems. The comparison study between ACO-CF and other methods proposed
+	in the literature indicates that ACO-CF is one of the best approaches
+	for solving the machine–part cell formation problem.},
+  comment  = {* Teorema: Se min{E + nV} = E* + nV* no qual (A - E*)/(A + V*) = n
+	então max{( A - E)/(A+V)}=n; * Conceito de célula residual},
+  doi      = {10.1016/j.cor.2010.02.007},
+  file     = {:CellFormation/Li2010.pdf:PDF},
+  keywords = {Ant colony optimization, Cell formation problem, Iteratively local search, Metaheuristic},
+}
+
+@ARTICLE{Lin2011,
+  author = {Shih-Wei Lin and Kuo-Ching Ying and Chung-Cheng Lu and Jatinder N.D.
+	Gupta},
+  title = {Applying multi-start simulated annealing to schedule a flowline manufacturing
+	cell with sequence dependent family setup times},
+  journal = {International Journal of Production Economics},
+  year = {2011},
+  volume = {130},
+  pages = {246--254},
+  number = {2},
+  abstract = {Meta-heuristics that attempt to obtain (near) global optimal solutions
+	of NP-hard combinatorial optimization problems generally require
+	diversification to escape from local optimality. One way to achieve
+	diversification is to utilize the multi-start hill climbing strategy.
+	By combining the respective advantages of the multi-start hill climbing
+	strategy and simulated annealing (SA), an effective multi-start simulated
+	annealing (MSA) heuristic is proposed to minimize the makespan for
+	a flowline manufacturing cell scheduling problem with sequence dependent
+	family setup times. The heuristic performance is evaluated by comparing
+	the results achieved by the proposed heuristic with those achieved
+	by the existing meta-heuristics. The computational results show that
+	following multi-start refinement the proposed MSA heuristic is more
+	effective compared to the state-of the-art meta-heuristics on the
+	same benchmark instances.},
+  doi = {10.1016/j.ijpe.2011.01.004},
+  file = {:CellFormation/Lin2011.pdf:PDF},
+  issn = {{0925-5273}},
+  keywords = {Scheduling},
+  url = {http://www.sciencedirect.com/science/article/pii/S0925527311000193}
+}
+
+@ARTICLE{Little1963,
+  author = {Little, John D. C. and Murty, Katta G. and Sweeney, Dura W. and Karel,
+	Caroline},
+  title = {An Algorithm for the Traveling Salesman Problem},
+  journal = {Operations Research},
+  year = {1963},
+  volume = {11},
+  pages = {972--989},
+  number = {6},
+  abstract = {A “branch and bound” algorithm is presented for solving the traveling
+	salesman problem. The set of all tours (feasible solutions) is broken
+	up into increasingly small subsets by a procedure called branching.
+	For each subset a lower bound on the length of the tours therein
+	is calculated. Eventually, a subset is found that contains a single
+	tour whose length is less than or equal to some lower bound for every
+	tour. The motivation of the branching and the calculation of the
+	lower bounds are based on ideas frequently used in solving assignment
+	problems. Computationally, the algorithm extends the size of problem
+	that can reasonably be solved without using methods special to the
+	particular problem.},
+  doi = {10.1287/opre.11.6.972}
+}
+
+@ARTICLE{Liu2010,
+  author = {Liu, ChenGuang and Yin, Yong and Yasuda, Kazuhiko and Lian, Jie},
+  title = {A heuristic algorithm for cell formation problems with consideration
+	of multiple production factors},
+  journal = {The International Journal of Advanced Manufacturing Technology},
+  year = {2010},
+  volume = {46},
+  pages = {1201--1213},
+  number = {9},
+  abstract = {For the design of manufacturing cells, numerous mathematical models
+	and various algorithms have been extensively investigated in the
+	literature. However, most of the proposed models and algorithms have
+	more or fewer drawbacks on the issues with real-life situations.
+	In this paper, we propose a mathematical model that incorporates
+	multiple key real-life production factors simultaneously, namely,production
+	volume, batch size, alternative process routings and perfectcoefficient
+	of each routing, cell size, unit cost of intercell/intracell movements,
+	and path coefficient of material flows. Then, to solve this NP-hard
+	model, we develop a heuristic algorithm with three stages: (1) form
+	the temporary machine group plan according to the alternativeprocess
+	routings of each part, (2) select the appropriate process routing
+	of each part with respect to the over-all material movement cost,
+	and (3) configure the regular manufacturing cells based on the appropriate
+	process routing. A simple numerical example and an industrial case
+	are used to test the computational performance of the proposed algorithm.
+	The test results imply that it is useful for manufacturing cell design
+	in both quality and speed.},
+  doi = {10.1007/s00170-009-2170-0},
+  file = {:CellFormation/Liu2010.pdf:PDF},
+  issn = {0268-3768},
+  keyword = {Computer Science},
+  url = {http://dx.doi.org/10.1007/s00170-009-2170-0}
+}
+
+@Article{Madeira2004,
+  author   = {Madeira, SC and Oliveira, AL},
+  title    = {Biclustering algorithms for biological data analysis: A survey},
+  journal  = {IEEE-ACM Transactions on Computational Biology and Bioinformatics},
+  year     = {2004},
+  volume   = {1},
+  number   = {1},
+  pages    = {24--45},
+  issn     = {1545-5963},
+  abstract = {A large number of clustering approaches have been proposed for the
+	analysis of gene expression data obtained from microarray experiments.However,
+	the results from the application of standard clustering methods to
+	genes are limited. This limitation is imposed by the existenceof
+	a number of experimental conditions where the activity of genes is
+	uncorrelated. A similar limitation exists when clustering of conditions
+	is performed. For this reason, a number of algorithms that perform
+	simultaneous clustering on the row and column dimensions of the data
+	matrix has been proposed. The goal is to find submatrices, that is,
+	subgroups of genes and subgroups of conditions, where the genes exhibit
+	highly correlated activities for every condition. In this paper,
+	we refer to this class of algorithms as biclustering. Biclustering
+	is also referred in the literature as coclustering and direct clustering,
+	among others names, and has also been used in fields such as information
+	retrieval and data mining. In this comprehensive survey, we analyze
+	a large number of existing approaches to biclustering, and classify
+	them in accordance with the type of biclusters they can find, the
+	patterns of biclusters that are discovered, the methods used to perform
+	the search, the approaches used to evaluate the solution, and thetarget
+	applications.},
+  comment  = {* Um dos principais surveys sobre biclusterização, se não o único
+	com mais de 400 citações ISI; * Fala sobre os principais algoritmos
+	de biclusterização, sobre os tipos de avaliação de bilcuster e sobre
+	os tipos de estruturas dos bicluster.},
+  doi      = {10.1109/TCBB.2004.2},
+  file     = {:BiclusterEditing/Madeira2004.pdf:PDF},
+}
+
+@ARTICLE{Mahdavi2012,
+  author = {Mahdavi, Iraj and Paydar, Mohammad Mahdi and Solimanpur, Maghsud},
+  title = {A new mathemathical model for integrating all incidence matrices
+	in multi-dimensional cellular manufacturing system},
+  journal = {Journal of Manufacturing Systems},
+  year = {2012},
+  volume = {31},
+  pages = {214--223},
+  file = {:CellFormation/Mahdavi2012.pdf:PDF},
+  keywords = {Cellular manufacturing; Worker flexibility; Exceptional elements;
+	Voids; Mathematical model}
+}
+
+@ARTICLE{Mahdavi2009,
+  author = {Mahdavi, Iraj and Paydar, Mohammad Mahdi and Solimanpur, Maghsud
+	and Heidarzade, Armaghan},
+  title = {Genetic algorithm approach for solving a cell formation problem in
+	cellular manufacturing},
+  journal = {Expert Syst. Appl.},
+  year = {2009},
+  volume = {36},
+  pages = {6598--6604},
+  number = {3},
+  abstract = {Cellular manufacturing (CM) is an industrial application of grouptechnology
+	concept. One of the problems encountered in the implementation of
+	CM is the cell formation problem (CFP). The CFP attempted here is
+	to group machines and parts in dedicated manufacturing cells so that
+	the number of voids and exceptional elements in cells are minimized.
+	The proposed model, with nonlinear terms and integer variables, cannotbe
+	solved for real sized problems efficiently due to its NP-hardness.
+	To solve the model for real-sized applications, a genetic algorithmis
+	proposed. Numerical examples show that the proposed method is efficient
+	and effective in searching for optimal solutions. The results also
+	indicate that the proposed approach performs well in terms ofgroup
+	efficacy compared to the well-known existing cell formation methods.},
+  doi = {10.1016/j.eswa.2008.07.054},
+  file = {:CellFormation/Mahdavi2009.pdf:PDF},
+  issn = {0957-4174},
+  keywords = {Cell formation; Cellular manufacturing; Genetic algorithm; Group efficacy;
+	Mathematical model},
+  url = {http://dl.acm.org/citation.cfm?id=1497653.1498314}
+}
+
+@ARTICLE{Mak2000,
+  author = {Mak, K. L. and Wong, Y. S. and Wang, X. X.},
+  title = {An adaptive genetic algorithm for manufacturing cell formation.},
+  journal = {The international Journal of Advanced Manufacturing Technology},
+  year = {2000},
+  volume = {16},
+  pages = {491--497}
+}
+
+@ARTICLE{Masnata1997,
+  author = {Masnata, A. and Settineri, L.},
+  title = {An application of fuzzy clustering to cellular manufacturing.},
+  journal = {International Journal of Production Research},
+  year = {1997},
+  volume = {35},
+  pages = {1077–-1094},
+  number = {4}
+}
+
+@ARTICLE{McAuley1972,
+  author = {McAuley, John},
+  title = {Machine grouping for efficient production},
+  journal = {Production Engineer},
+  year = {1972},
+  volume = {51},
+  pages = {53--57},
+  number = {2},
+  abstract = {Not available},
+  doi = {10.1049/tpe:19720006},
+  file = {:CellFormation/McAuley1972.pdf:PDF},
+  issn = {0032-9851}
+}
+
+@ARTICLE{McCormick1972,
+  author = {McCormick, William T. and Schweitzer, Paul J. and White, Thomas W.},
+  title = {Problem Decomposition and Data Reorganization by a Clustering Technique},
+  journal = {Operations Research},
+  year = {1972},
+  volume = {20},
+  pages = {993--1009},
+  number = {5},
+  abstract = {A new cluster-analysis method, the bond energy algorithm, has been
+	developed recently; it operates upon a raw input object-object or
+	object-attribute data array by permuting its rows and columns in
+	order to find informative variable groups and their interrelations.
+	This paper describes the algorithm and illustrates by several examples
+	its use for both problem decomposition and data reorganization.},
+  doi = {10.1287/opre.20.5.993}
+}
+
+@ARTICLE{Miliotis1978,
+  author = {Miliotis, P.},
+  title = {Using cutting planes to solve the symmetric Travelling Salesman problem},
+  journal = {Mathematical Programming},
+  year = {1978},
+  volume = {15},
+  pages = {177--188},
+  abstract = {Two algorithms using cutting planes are developed for solving the
+	Travelling Salesman Problem. In both algorithms the problem is started
+	with a subset of the set of constraints that define the problem (apart
+	from integrality requirements).},
+  affiliation = {London School of Economics London England},
+  doi = {10.1007/BF01609016},
+  issn = {0025-5610},
+  issue = {1},
+  keyword = {Mathematics and Statistics},
+  publisher = {Springer Berlin / Heidelberg}
+}
+
+@ARTICLE{Miltenburg1991,
+  author = {Miltenburg, J. and Zhang, W.},
+  title = {A comparative evaluation of nine well-known algorithms for solving
+	the cell formation problem in group technology},
+  journal = {Journal of Operations Management},
+  year = {1991},
+  volume = {10},
+  pages = {44--72},
+  number = {1}
+}
+
+@BOOK{Mitrofanov1966,
+  title = {The Scientific Principles of Group Technology},
+  publisher = {National Lending Library for Science and Technology},
+  year = {1966},
+  author = {Mitrofanov, S. P.}
+}
+
+@ARTICLE{Mladenovic1997,
+  author = {Mladenovic, N. and Hansen, P.},
+  title = {Variable Neighborhood Search},
+  journal = {Computers and Operations Research},
+  year = {1997},
+  volume = {24},
+  pages = {1097--1100},
+  number = {11}
+}
+
+@ARTICLE{Mosier1985a,
+  author = {Mosier, C. and Taube, L.},
+  title = {The facets of group technology and their impacts on implementation
+	--- A state-of-the-art survey},
+  journal = {Omega},
+  year = {1985},
+  volume = {13},
+  pages = {381--391},
+  number = {5},
+  abstract = {The recent use of the Group Technology concept of grouping parts into
+	'families' has received much notice due to the integration of this
+	technique with the varied technologies of computer integrated manufacturing.
+	This is but one of the facets of Group Technology, which is essentially
+	a set of techniques and operating policies designed to improve the
+	operational efficiency of manufacturing. With the exception of the
+	parts grouping concept, the many facets of Group Technology have
+	been largely neglected. This paper presents a survey of the literature
+	on the concepts of Group Technology, attempts to categorize these
+	topics in a natural manner, and link the processes, technology and
+	experiences together. This paper reviews the problems addressed and
+	the optimal and heuristic solution methodologies suggested in the
+	literature. The conclusion indicate various areas and topics for
+	future research/implementation activities. © 1985.},
+  affiliation = {Clarkson University, NY, United States; University of North Carolina
+	at Greensboro, United States},
+  document_type = {Article},
+  file = {:CellFormation/Mosier1985a.pdf:PDF},
+  source = {Scopus},
+  url = {http://www.scopus.com/inward/record.url?eid=2-s2.0-0000637977&partnerID=40&md5=f78475ace0b902ea849684bdf75a7868}
+}
+
+@ARTICLE{Mosier1985b,
+  author = {Mosier, Charles and Taube, Larry},
+  title = {Weighted similarity measure heuristics for the group technology machine
+	clustering problem},
+  journal = {Omega},
+  year = {1985},
+  volume = {13},
+  pages = {577-579},
+  number = {6},
+  url = {http://EconPapers.repec.org/RePEc:eee:jomega:v:13:y:1985:i:6:p:577-579}
+}
+
+@INPROCEEDINGS{Mukattash2001,
+  author = {Mukattash, A M and Adil, M B and Tahboub, K K},
+  title = {A modified cell formation group measure},
+  booktitle = {International Conference on Computer and Information Engineering},
+  year = {2001}
+}
+
+@ARTICLE{Noktehdan2010,
+  author = {Azadeh Noktehdan and Behrooz Karimi and Ali Husseinzadeh Kashan},
+  title = {A differential evolution algorithm for the manufacturing cell formation
+	problem using group based operators},
+  journal = {Expert Systems with Applications},
+  year = {2010},
+  volume = {37},
+  pages = {4822 - 4829},
+  number = {7},
+  abstract = {Cellular manufacturing (CM) is an important application of group technology
+	(GT), a manufacturing philosophy in which parts are grouped into
+	part families, and machines are allocated into machine cells to take
+	advantage of the similarities among parts in manufacturing. The target
+	is to minimize inter-cellular movements. Inspired by the rational
+	behind the so called grouping genetic algorithm (GGA), this paper
+	proposes a grouping version of differential evolution (GDE) algorithm
+	and its hybridized version with a local search algorithm (HGDE) to
+	solve benchmarked instances of cell formation problem posing as a
+	grouping problem. To evaluate the effectiveness of our approach,
+	we borrow a set of 40 problem instances from literature and compare
+	the performance of GGA and GDE. We also compare the performance of
+	both algorithms when they are tailored with a local search algorithm.
+	Our computations reveal that the proposed algorithm performs well
+	on all test problems, exceeding or matching the best solution quality
+	of the results presented in previous literature.},
+  doi = {10.1016/j.eswa.2009.12.033},
+  file = {:CellFormation/Noktehdan2010.pdf:PDF},
+  issn = {0957-4174},
+  keywords = {Cell formation problem},
+  url = {http://www.sciencedirect.com/science/article/pii/S0957417409010793}
+}
+
+@ARTICLE{Oliveira2009,
+  author = {Oliveira, S. and Ribeiro, J. F. F. and Seok, S. C.},
+  title = {A spectral clustering algorithm for manufacturing cell formation},
+  journal = {Comput. Ind. Eng.},
+  year = {2009},
+  volume = {57},
+  pages = {1008--1014},
+  month = {oct},
+  abstract = {A graph clustering algorithm constructs groups of closely related
+	parts and machines separately. After they are matched for the least
+	intercell moves, a refining process runs on the initial cell formation
+	to decrease the number of intercell moves. A simple modification
+	of this main approach can deal with some practical constraints, such
+	as the popular constraint of bounding the maximum number of machines
+	in a cell. Our approach makes a big improvement in the computational
+	time. More importantly, improvement is seen in the number of intercell
+	moves when the computational results were compared with best known
+	solutions from the literature.},
+  doi = {10.1016/j.cie.2009.04.008},
+  file = {:CellFormation/Oliveira2009.pdf:PDF},
+  issn = {0360-8352},
+  issue = {3},
+  keywords = {Bipartite graph modeling, Manufacturing cell formation, Spectral clustering},
+  numpages = {7},
+  publisher = {Pergamon Press, Inc.},
+  url = {http://dl.acm.org/citation.cfm?id=1609212.1609660}
+}
+
+@ARTICLE{Onwubolu2001,
+  author = {G.C. Onwubolu and M. Mutingi},
+  title = {A genetic algorithm approach to cellular manufacturing systems},
+  journal = {Computers \&amp; Industrial Engineering},
+  year = {2001},
+  volume = {39},
+  pages = {125 -- 144},
+  number = {1--2},
+  abstract = {A genetic algorithm (GA) metaheuristic-based cell formation procedure
+	is presented in this paper. The cell formation problem solved here
+	is to simultaneously group machines and part-families into cells
+	so that intercellular movements are minimized. An option for considering
+	the minimization of cell load variation is included and another,
+	which combines minimization of intercellular movements and cell load-variation,
+	exists. The algorithm solves this problem through improving a cell
+	configuration using the GA metaheuristic. The designer is allowed
+	to specify the number of cells required a priori and impose lower
+	and upper bounds on cell size. This makes the GA scheme flexible
+	for solving the cell formation problems. The solution procedure was
+	found to perform well on tested large-scale problems and published
+	data sets. Moreover, the proposed procedure compares very favorably
+	to a well-known algorithm, and another TSP-based heuristic available
+	in the literature. The results of computational tests presented are
+	very encouraging.},
+  doi = {10.1016/S0360-8352(00)00074-7},
+  file = {:CellFormation/Onwubolu2001.pdf:PDF},
+  issn = {0360-8352},
+  keywords = {Group technology},
+  url = {http://www.sciencedirect.com/science/article/pii/S0360835200000747}
+}
+
+@ARTICLE{Padberg1987,
+  author = {M. Padberg and G. Rinaldi},
+  title = {Optimization of a 532-city symmetric traveling salesman problem by
+	branch and cut},
+  journal = {Operations Research Letters},
+  year = {1987},
+  volume = {6},
+  pages = {1--7},
+  number = {1},
+  abstract = {We report the solution to optimality of a 532-city symmetric traveling
+	salesman problem involving the optimization over 141,246 zero-one
+	variables. The results of an earlier study by Crowder and Padberg
+	[1] are cross-validated. In this note we briefly outline the methodology,
+	algorithms and software system that we developed to obtain these
+	results.},
+  doi = {10.1016/0167-6377(87)90002-2},
+  issn = {0167-6377},
+  keywords = {traveling salesman problem},
+  url = {http://www.sciencedirect.com/science/article/pii/0167637787900022}
+}
+
+@ARTICLE{Pailla2010,
+  author = {Pailla, Andres and Trindade, Athila R. and Parada, Victor and Ochi,
+	Luiz S.},
+  title = {A numerical comparison between simulated annealing and evolutionary
+	approaches to the cell formation problem},
+  journal = {Expert Syst. Appl.},
+  year = {2010},
+  volume = {37},
+  pages = {5476--5483},
+  month = {jul},
+  abstract = {The cell formation problem is a crucial component of a cell production
+	design in a manufacturing system. This problem consists of a set
+	of product parts to be manufactured in a group of machines. The objective
+	is to build manufacturing clusters by associating part families with
+	machine cells, with the aim of minimizing the inter-cellular movements
+	of parts by grouping efficacy measures. We present two approaches
+	to solve the cell formation problem. First, we present an evolutionary
+	algorithm that improves the efficiency of the standard genetic algorithm
+	by considering cooperation with a local search around some of the
+	solutions it visits. Second, we present an approach based on simulated
+	annealing that uses the same representation scheme of a feasible
+	solution. To evaluate the performance of both algorithms, we used
+	a known set of CFP instances. We compared the results of both algorithms
+	with the results of five other algorithms from the literature. In
+	eight out of 36 instances we considered, the evolutionary method
+	outperformed the previous results of other evolutionary algorithms,
+	and in 26 instances it found the same best solutions. On the other
+	hand, simulated annealing not only found the best previously known
+	solutions, but it also found better solutions than existing ones
+	for various problems.},
+  doi = {10.1016/j.eswa.2010.02.064},
+  file = {:CellFormation/Pailla2010.pdf:PDF},
+  issn = {0957-4174},
+  issue = {7},
+  keywords = {Cell formation problem, Clustering, Evolutionary algorithms, Heuristics,
+	Simulated annealing},
+  numpages = {8},
+  publisher = {Pergamon Press, Inc.}
+}
+
+@ARTICLE{Papaioannou2010,
+  author = {Papaioannou, G. and Wilson, J. M.},
+  title = {The evolution of cell formation problem methodologies based on recent
+	studies (1997-2008): Review and direction for future search},
+  journal = {European Journal of Operational Research},
+  year = {2010},
+  volume = {206},
+  pages = {509--521},
+  file = {:CellFormation/Papaioannou2010.pdf:PDF}
+}
+
+@ARTICLE{Paydar2010,
+  author = {Mohammad Mahdi Paydar and Iraj Mahdavi and Iman Sharafuddin and Maghsud
+	Solimanpur},
+  title = {Applying simulated annealing for designing cellular manufacturing
+	systems using MDmTSP},
+  journal = {Computers \& Industrial Engineering},
+  year = {2010},
+  volume = {59},
+  pages = {929 -- 936},
+  number = {4},
+  abstract = {The design of cellular manufacturing systems involves many structural
+	and operational issues. One of the important design steps is the
+	formation of part families and machine cells (cell formation). Despite
+	a large number of papers on cell formation published worldwide, only
+	a handful incorporates operation sequence in layout design (intra-cell
+	move calculations). We propose a solution to solve the part-family
+	and machine-cell formation problem considering the within-cell layout
+	problem, simultaneously. In this paper, the cellular manufacturing
+	system is formulated as a multiple departures single destination
+	multiple travelling salesman problem (MDmTSP) and a solution methodology
+	based on simulated annealing is proposed to solve the formulated
+	model. Numerical examples show that the proposed method is efficient
+	and effective in finding optimal solutions. The results also indicate
+	that the proposed approach performs well compared to some well-known
+	cell formation methods.},
+  doi = {10.1016/j.cie.2010.09.003},
+  file = {:CellFormation/Paydar2010.pdf:PDF},
+  issn = {0360-8352},
+  keywords = {Cellular manufacturing},
+  url = {http://www.sciencedirect.com/science/article/pii/S0360835210002500}
+}
+
+@ARTICLE{Penna2011,
+  author = {Penna, P. H. V. and Subramanian, A. and Ochi, L. S.},
+  title = {An Iterated Local Search heuristic for the Heterogeneous Fleet Vehicle
+	Routing Problem},
+  journal = {Journal of Heuristics},
+  year = {2011},
+  volume = {{online}},
+  pages = {1--32}
+}
+
+@MASTERSTHESIS{Pinheiro2012M,
+  author = {Pinheiro, R. G. S.},
+  title = {Método Exato para Biclusterização por Edição de Arestas e Aplicação
+	em Formação de Células de Manufatura},
+  school = {Universidade Federal Fluminense},
+  year = {2012}
+}
+
+@INPROCEEDINGS{Pinheiro2012,
+  author = {Rian Gabriel Santos Pinheiro and Ivan César Martins and Fábio Protti
+	and Luiz Satoru Ochi and Luidi Gelabert Simonetti},
+  title = {Métodos Exatos e Heurísticos para Biclusterização em Grafos},
+  booktitle = {XVI CLAIO/XLIV SBPO},
+  year = {2012},
+  month = {sep},
+  abstract = {Neste trabalho apresentamos um método Branch and Cut e uma meta-heurística
+	GRASP para o Bicluster Graph Editing Problem (BGEP). O BGEP é um
+	problema de biclusterização semelhante ao Cluster Graph Editing mas
+	é menos explorado pela literatura. Propomos um teorema que servirá
+	como um pré-processamento em que para todo par de vértice, podemos
+	saber à priori se eles estarão em biclusters diferentes. No GRASP
+	propomos uma busca local e um método construtivo baseado em árvore
+	geradora mínima. Com o resultado vimos que tanto o GRASP quanto o
+	método exato são satisfatórios para as instâncias propostas.},
+  days = {24--28},
+  keywords = {MH Metaheuristics // MH Metaheurísticas // MH - Metaheuristicas; OC
+	- Combinatorial Optimization // OC - Optimización Combinatoria //
+	OC - Otimização Combinatória; TAG - Theory and Algorithms in Graphs
+	// TAG - Teoría y algoritmos en grafos // TAG - Teoria e Algoritmos
+	em Grafos},
+  url = {http://XXXXX/101811.pdf}
+}
+
+@Article{Pothen1997,
+  author    = {Pothen, A},
+  title     = {Graph partitioning algorithms with applications to scientific computing},
+  journal   = {ICASE LaRC Interdisciplinary Series in Science and Engineering},
+  year      = {1997},
+  volume    = {4},
+  pages     = {323–368},
+  editor    = {Keyes, D E and Sameh, A H and Venkatakrishnan, VEditors},
+  file      = {:Partiitioning/Pothen1997.pdf:PDF},
+  publisher = {Kluwer Academic Publishers},
+  url       = {http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.34.3131&rep=rep1&type=pdf},
+}
+
+@INPROCEEDINGS{Protti2006,
+  author = {Fábio Protti and Maise {Dantas da Silva} and Jayme L. Szwarcfiter},
+  title = {Applying Modular Decomposition to Parameterized Bicluster Editing},
+  booktitle = {Parameterized and Exact Computation},
+  year = {2006},
+  volume = {4169},
+  series = {Lecture Notes in Computer Science},
+  pages = {1--12},
+  publisher = {Springer Berlin / Heidelberg},
+  abstract = {A graph G is said to be a cluster graph if G is a disjoint union of
+	cliques (complete subgraphs), and a bicluster graph if G is a disjoint
+	union of bicliques (complete bipartite subgraphs). In this work,
+	we study the parameterized version of the NP-hard Bicluster Graph
+	Editing problem, which consists of obtaining a bicluster graph by
+	making the minimum number of modifications in the edge set of an
+	input bipartite graph. When at most k modifications are allowed in
+	the edge set of any input graph ( Bicluster( k ) Graph Editing problem),
+	this problem is FPT, solvable in O(4 k m ) time by applying a search
+	tree algorithm. It is shown an algorithm with O(4 k + n + m ) time,
+	which uses a new strategy based on modular decomposition techniques.
+	Furthermore, the same techniques lead to a new form of obtaining
+	a problem kernel with O( k 2 ) vertices for the Cluster( k ) Graph
+	Editing problem, in O( n + m ) time. This problem consists of obtaining
+	a cluster graph by modifying at most k edges in an input graph. A
+	previous FPT algorithm for this problem was presented by Gramm et
+	al. [11]. In their solution, a problem kernel with O( k 2 ) vertices
+	and O( k 3 ) edges is built in O( n 3 ) time.},
+  affiliation = {Instituto de Matemática and Núcleo de Computação Eletrônica, Universidade
+	Federal do Rio de Janeiro, Caixa Postal 2324, 20001-970 Rio de Janeiro,
+	RJ Brasil},
+  doi = {10.1007/11847250_1},
+  isbn = {978-3-540-39098-5},
+  keyword = {Computer Science},
+  url = {http://dx.doi.org/10.1007/11847250_1}
+}
+
+@ARTICLE{Rajagopalan1975,
+  author = {Rajagopalan, R. and Batra, J. L.},
+  title = {Design of cellular production systems A graph-theoretic approach},
+  journal = {International Journal of Production Research},
+  year = {1975},
+  volume = {13},
+  pages = {567-579},
+  number = {6},
+  abstract = {A method is presented for forming machine cells while implementing
+	group technology. Information derived from the route cards of the
+	components is analysed and the situation is represented in the form
+	of a graph whose vertices correspond to the machines and whose edges
+	represent the relationships created between the machines by the components
+	using them. For finding the cells a graph partitioning approach is
+	suggested and developed. Results obtained from testing the method
+	using actual data are also presented. },
+  doi = {10.1080/00207547508943029},
+  url = {http://www.tandfonline.com/doi/abs/10.1080/00207547508943029}
+}
+
+@ARTICLE{Rao1993,
+  author = {Rao, H.A. and Gu, P.},
+  title = {Design of cellular manufacturing systems: A neural network approach},
+  journal = {International Journal of Systems Automation: Research and Applications},
+  year = {1993},
+  volume = {2},
+  pages = {407--424},
+  number = {4}
+}
+
+@ARTICLE{Ravichandran2001,
+  author = {Ravichandran, K. S. and Rao, K. C. S.},
+  title = {A New Approach to Fuzzy Part-Family Formation in Cellular Manufacturing
+	Systems},
+  journal = {The International Journal of Advanced Manufacturing Technology},
+  year = {2001},
+  volume = {18},
+  pages = {591--597},
+  abstract = {Group technology (GT) is one of the major issues in successful implementation
+	of cellular manufacturing systems. The success of GT implementation
+	depends only on an effective formation of part-families. The effective
+	formation of part-families depends mainly on an effective formation
+	of a similarity coefficient measure. Many similarity coefficients
+	have been produced over the past three decades, but better similarity
+	coefficient measures are required. The decision-making process in
+	a manufacturing system often involves uncertainties and ambiguities.
+	Under such circumstances, fuzzy methodologies have proved to be effective
+	tools for taking fuzziness into consideration. In this paper, we
+	use fuzzy cluster analysis to form part-families and assign parts
+	to existing part-families. We have established a new approach to
+	convert a fuzzy clustering matrix into a zero-one incidence matrix.
+	We have also developed a new similarity coefficient measure and this
+	coefficient measure is used to form a part-family. A mathemat-ical
+	model that uses this similarity coefficient for solving optimally
+	the part-family formation problems in cellular manufacturing is developed.
+	Finally, it is compared with other models by giving an illustration
+	with a numerical example.},
+  issue = {8}
+}
+
+@INBOOK{Resende2005,
+  chapter = {GRASP whit path-relinking: recent advances and applications},
+  pages = {29-63},
+  title = {Metaheuristics: Progress as real problem solvers},
+  publisher = {Springer},
+  year = {2005},
+  author = {Resende, M. and Ribeiro, C.}
+}
+
+@ARTICLE{Rezaeian2011,
+  author = {Rezaeian, J. and Javadian, N. and Tavakkoli-Moghaddam, R. and Jolai,
+	F.},
+  title = {A hybrid approach based on the genetic algorithm and neural network
+	to design an incremental cellular manufacturing system},
+  journal = {Applied Soft Computing},
+  year = {2011},
+  volume = {11},
+  pages = {4195--4202},
+  month = {sep},
+  abstract = {One important issue related to the implementation of cellular manufacturing
+	systems (CMSs) is to decide whether to convert an existing job shop
+	into a CMS comprehensively in a single run, or in stages incremetally
+	by forming cells one after the other, taking the advantage of the
+	experiences of implementation. This paper presents a new nonlinear
+	programming model in a dynamic environment. Furthermore, a novel
+	hybrid approach based on the genetic algorithm and artificial neural
+	network is proposed to solve the presented model. From the computational
+	analyses, the proposed algorithm is found much more efficient than
+	the genetic algorithm and simulated annealing in generating optimal
+	solutions.},
+  doi = {10.1016/j.asoc.2011.03.013},
+  file = {:CellFormation/Rezaeian2011.pdf:PDF},
+  issn = {1568-4946},
+  issue = {6},
+  issue_date = {September, 2011},
+  keywords = {Cellular manufacturing system, Evolutionary algorithms, Genetic algorithm,
+	Incremental cell formation, Neural network},
+  numpages = {8},
+  publisher = {Elsevier Science Publishers B. V.},
+  url = {http://dx.doi.org/10.1016/j.asoc.2011.03.013}
+}
+
+@ARTICLE{Sankaran1990,
+  author = {Sankaran, S. and Rodin, E. Y.},
+  title = {Multiple objective decision making approach to cell formation: A
+	goal programming model},
+  journal = {Mathematical and Computer Modelling},
+  year = {1990},
+  volume = {13},
+  pages = {71 - 81},
+  number = {9},
+  abstract = {Cell formation is an important issue in group technology-oriented
+	research. More often than not, research in the area has concentrated
+	on a single criterion for the formation of cells. Usually, the criterion
+	has been the minimization of material handling cost or some similar
+	surrogate measure for groups formed according to one similarity attribute.
+	However, there can be other competing criteria used in cell formation.
+	This paper attempts to develop a model for cell formation with the
+	multiple criteria in mind.},
+  doi = {10.1016/0895-7177(90)90079-3},
+  issn = {0895-7177},
+  url = {http://www.sciencedirect.com/science/article/pii/0895717790900793}
+}
+
+@ARTICLE{Sarker2001,
+  author = {Sarker, Bhaba and Khan, Muslema},
+  title = {A comparison of existing grouping efficiency measures and a new weighted
+	grouping efficiency measure},
+  journal = {IIE Transactions},
+  year = {2001},
+  volume = {33},
+  pages = {11-27},
+  abstract = {Grouping efficiency is an evaluative measure of the machine-part groups
+	in cellular manufacturing systems. This paper presents briefly both
+	a critical review and a comparative study of different measures of
+	grouping efficiency. Special emphasis is given to the evaluation
+	of the goodness of clustering solutions in the block-diagonalization
+	of the machine-part incidence matrix. The measures are reported both
+	descriptively and quantitatively. In order to provide information
+	on the measures, results are collected and compiled from discretely
+	reported sources. An attempt is made to categorize and generalize
+	these measures in order to use them for goodness of clustering solution.
+	In order to overcome a number of drawbacks in the previously known
+	measures, a new weighted measure is presented and its performance
+	is demonstrated through several perspectives of evaluation of efficiency
+	measures.},
+  doi = {10.1023/A:1007633622787},
+  file = {:CellFormation/Sarker2001.pdf:PDF},
+  issn = {0740-817X},
+  issue = {1},
+  keyword = {Biomedical and Life Sciences},
+  url = {http://dx.doi.org/10.1023/A:1007633622787}
+}
+
+@ARTICLE{Seifoddini1989,
+  author = {Seifoddini, H.K.},
+  title = {Single linkage versus average linkage clustering in machine cells
+	formation applications},
+  journal = {Computers and Industrial Engineering},
+  year = {1989},
+  volume = {16},
+  pages = {419--426},
+  number = {3},
+  abstract = {Machine cells formation is the process of identifying families of
+	similar parts (part-families) and forming the associated machine
+	cells such that one or more part-families can be processed within
+	a single cell. Among approaches to the machine cells formation problem
+	the similarity coefficient method (SCM) has the capability of incorporating
+	manufacturing data such as production volume, sequence of operations,
+	and processing times into the machine cells formation process. Single
+	Linkage Clustering (SLINK) and Average Linkage Clustering (ALC) are
+	two widely used clustering techniques based on SCM. While SLINK is
+	simple and has minimal computational requirement, it may generate
+	machine cells in which a large number of machines are far apart in
+	terms of similarity. ALC, on the other hand, overcomes this problem
+	but requires more computations. This paper discusses the application
+	of these two techniques to the machine cells formation problem. ©
+	1989.},
+  issn = {03608352},
+  url = {http://www.scopus.com/inward/record.url?eid=2-s2.0-0024933938&partnerID=40&md5=a204341da0fd3658ed3660452e920d2f}
+}
+
+@ARTICLE{Seifoddini1986,
+  author = {Seifoddini, Hamid and Wolfe, Philip M.},
+  title = {Application of the Similarity Coefficient Method in Group Technology},
+  journal = {IIE Transactions},
+  year = {1986},
+  volume = {18},
+  pages = {271--277},
+  number = {3},
+  abstract = { Abstract The Similarity Coefficient Method (SCM) is one of the methods
+	used to form the machine cells in group technology applications.
+	Compared to the other methods, SCM incorporates more flexibility
+	into the machine-component grouping process and more easily lends
+	itself to the computer application. The new model improves the existing
+	models based on SCM by dealing with the duplication of bottleneck
+	machines and by employing special data storage and analysis techniques
+	which greatly simplify the machine-component grouping process. The
+	duplication process in the new model is based on the number of inter-cellular
+	moves. Duplication starts with the machine generating the largest
+	number of inter-cellular moves and continues until no machine generates
+	more inter-cellular moves than specified by a threshold value. By
+	changing the threshold value, alternative solutions can be examined.
+	the new model employs the bit-level data storage technique to reduce
+	the storage and computational requirements of the machine-component
+	grouping process. },
+  doi = {10.1080/07408178608974704}
+}
+
+@ARTICLE{Selim1998,
+  author = {Hassan M. Selim and Ronald G. Askin and Asoo J. Vakharia},
+  title = {Cell formation in group technology: Review, evaluation and directions
+	for future research},
+  journal = {Computers \&amp; Industrial Engineering},
+  year = {1998},
+  volume = {34},
+  pages = {3 -- 20},
+  number = {1},
+  note = {Cellular manufacturing systems:Design, Analysis and Implementation},
+  abstract = {This paper discusses and reviews a fundamental issue in cellular manufacturing—cell
+	formation. This problem is of strategic and operational importance
+	in that it affects the fundamental structure and the overall layout
+	of a cellular manufacturing system. We first provide a comprehensive
+	mathematical formulation of the cell formation problem and then propose
+	a methodology-based classification of prior research. This classification
+	is used in reviewing the most recent literature on the cell formation
+	problem. Based on a comparison and critical evaluation, we highlight
+	the shortcomings of current approaches and also outline directions
+	for future research.},
+  doi = {10.1016/S0360-8352(97)00147-2},
+  file = {:CellFormation/Selim1998.pdf:PDF},
+  issn = {0360-8352},
+  url = {http://www.sciencedirect.com/science/article/pii/S0360835297001472}
+}
+
+@INBOOK{Shafer1998,
+  chapter = {Part-machine labour grouping: The problem and solution methods},
+  pages = {131--152},
+  title = {Group Technology and Cellular Manufacturing: A State of the Art Synthesis
+	of Research and Practice},
+  publisher = {Kluwer Academic Publishers},
+  year = {1998},
+  editor = {Suresh, N. C. and Kay, J. M.},
+  author = {Shafer, S. M.}
+}
+
+@ARTICLE{Shankar2002,
+  author = {Shankar, R. and Vrat, P. and Soleymanpour, M.},
+  title = {A transiently chaotic neural network approach to the design of cellular
+	manufacturing},
+  journal = {International Journal of Production Research},
+  year = {2002},
+  volume = {40},
+  pages = {2225--2244},
+  number = {10}
+}
+
+@ARTICLE{Shtub1989,
+  author = {Shtub, A.},
+  title = {Modelling group technology cell formation as a generalized assignment
+	problem},
+  journal = {International Journal of Production Research},
+  year = {1989},
+  volume = {27},
+  pages = {775--782},
+  number = {5},
+  doi = {10.1080/00207548908942586},
+  file = {:CellFormation/Shtub1989.pdf:PDF}
+}
+
+@ARTICLE{Singh1993,
+  author = {N. Singh},
+  title = {Design of cellular manufacturing systems: An invited review},
+  journal = {European Journal of Operational Research},
+  year = {1993},
+  volume = {69},
+  pages = {284 - 291},
+  number = {3},
+  note = {Cellular Manufacturing Systems},
+  abstract = {In this paper we provide a concise review of the literature on cell
+	formation aspects of design of cellular manufacturing systems. The
+	usefulness and limitations of existing approaches are identified.
+	Future research directions are explored considering manufacturing
+	requirements.},
+  doi = {10.1016/0377-2217(93)90016-G},
+  file = {:CellFormation/Singh1993.pdf:PDF},
+  issn = {0377-2217},
+  keywords = {Group technology},
+  url = {http://www.sciencedirect.com/science/article/pii/037722179390016G}
+}
+
+@article{SousaFilho2012,
+title = {Hybrid Metaheuristic for Bicluster Editing Problem},
+journal = {Electronic Notes in Discrete Mathematics},
+volume = {39},
+number = {0},
+pages = {35 -- 42},
+year = {2012},
+issn = {1571-0653},
+doi = {10.1016/j.endm.2012.10.006},
+author = {Gilberto F. {Sousa Filho} and Lucidio dos Anjos F. Cabral and Luiz Satoru Ochi and F\'abio Protti},
+keywords = {bicluster editing problem},
+keywords = {VNS},
+keywords = {GRASP},
+abstract = {The NP-hard Bicluster Editing Problem consists of adding and/or removing at most k edges to make a bipartite graph G = ( V , E ) a vertex-disjoint union of complete bipartite subgraphs. It has applications in the analysis of gene expression data. We propose the metaheuristics GRASP and VNS, and their hybridization, for the Bicluster Editing Problem, as well as a heuristic construction based on intersection neighborhood set.}
+}
+
+
+@ARTICLE{Spiliopoulos1998,
+  author = {K. Spiliopoulos and S. Sofianopoulou},
+  title = {An optimal tree search method for the manufacturing systems cell
+	formation problem},
+  journal = {European Journal of Operational Research},
+  year = {1998},
+  volume = {105},
+  pages = {537--551},
+  number = {3},
+  abstract = {A solution methodology producting exact solutions to the manufacturing
+	systems cell formation problem is presented. A distance matrix representing
+	the closeness between pairs of machines with regard to the parts
+	they process is taken into account. The proposed approach is an optimal
+	tree search method which empoys two different bounds; a classical
+	bound for the Quadratic Assignment Problem and a recently proposed
+	one for the Quadratic Transportation Problem, as well as a new heuristic
+	for the cell formation problem. A special tree search was designed
+	in order to reduce the size of the tree, minimize the computational
+	effort required in time consuming calculations and exploit symmetries
+	of the problem. Computational results indicate that the proposed
+	algorithm is very efficient in generating optimal solutions at low
+	computational cost.},
+  doi = {10.1016/S0377-2217(97)00078-7},
+  file = {:CellFormation/Spiliopoulos1998.pdf:PDF},
+  issn = {0377-2217},
+  url = {http://www.sciencedirect.com/science/article/pii/S0377221797000787}
+}
+
+@ARTICLE{Srinivasan1994,
+  author = {Srinivasan, G.},
+  title = {A Clustering-Algorithm for Machine Cell-Formation in Group Technology
+	Using Minimum Spanning-Trees},
+  journal = {International Journal of Production Research},
+  year = {1994},
+  volume = {32},
+  pages = {2149--2158},
+  number = {9},
+  doi = {10.1080/00207549408957064},
+  file = {:CellFormation/Srinivasan1994.pdf:PDF}
+}
+
+@ARTICLE{Srinivasan1991,
+  author = {Srinivasan, G. and Narendran, T. T.},
+  title = {GRAFICS - a nonhierarchical clustering-algorithm for group technology},
+  journal = {International Journal of Production Research},
+  year = {1991},
+  volume = {29},
+  pages = {463--478},
+  number = {3},
+  doi = {10.1080/00207549108930083},
+  file = {:CellFormation/Srinivasan1991.pdf:PDF}
+}
+
+@ARTICLE{Srinivasan1990,
+  author = {Srinivasan, G. and Narendran, T. T. and Mahadevan, B.},
+  title = {Assignment model for the part-families problem in group technology},
+  journal = {International Journal of Production Research},
+  year = {1990},
+  volume = {28},
+  pages = {145--152},
+  number = {1},
+  abstract = {The problem of grouping of parts has been addressed in the past using
+	clustering methods and integer programming. This paper presents an
+	assignment model to solve the grouping problem. A similarity coefficient
+	matrix is used as the input to the assignment problem. Closed loops
+	in the form of subtours are identified after solving the problem
+	and are used as the basis for grouping. The method has been applied
+	to a number of examples. Compared with the earlier mathematical programming
+	model, viz., the p-median model, the assignment method emerges as
+	a distinctly superior technique both in terms of quality of solution
+	and computational time.},
+  url = {http://www.scopus.com/inward/record.url?eid=2-s2.0-0025211424&partnerID=40&md5=32667a8cb77596eef1fae71837be7b9b}
+}
+
+@ARTICLE{Stanfel1985,
+  author = {Larry E. Stanfel},
+  title = {Machine clustering for economic production},
+  journal = {Engineering Costs and Production Economics},
+  year = {1985},
+  volume = {9},
+  pages = {73--81},
+  number = {1–3},
+  doi = {10.1016/0167-188X(85)90012-6},
+  issn = {0167-188X},
+  url = {http://www.sciencedirect.com/science/article/pii/0167188X85900126}
+}
+
+@BOOK{Talbi2009,
+  title = {Metaheuristics: From Design to Implementation},
+  publisher = {John Wiley \& Sons},
+  year = {2009},
+  editor = {Hoboken, N. J.},
+  author = {Talbi, E.}
+}
+
+@INPROCEEDINGS{Tanay2005,
+  author = {Amos Tanay and Roded Sharan and Ron Shamir},
+  title = {Biclustering Algorithms: A Survey},
+  booktitle = {Handbook of Computational Molecular Biology},
+  year = {2005},
+  abstract = {Analysis of large scale geonomics data, notably gene expression, has
+	initially focused on clustering methods. Recently, biclustering techniques
+	were proposed for revealing submatrices showing unique patterns.
+	We review some of the algorithmic approaches to biclustering and
+	discuss their properties.},
+  file = {:BiclusterEditing/Tanay2004.pdf:PDF},
+  url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.133.9434}
+}
+
+@BOOK{Tompkins1996,
+  title = {Facilities plaining},
+  publisher = {John Wiley \& Sons},
+  year = {1996},
+  author = {Tompkins, J. A.}
+}
+
+@MASTERSTHESIS{Trindade2004,
+  author = {Áthila Rocha Trindade},
+  title = {Metaheurísticas aplicadas ao Problema de Formação de Células de Manufatura},
+  school = {Universidade Federal Fluminense},
+  year = {2004},
+  file = {:CellFormation/Trindade2004.pdf:PDF}
+}
+
+@ARTICLE{Ünler2009,
+  author = {Alper Ünler and Zülal Güngör},
+  title = {Applying K-harmonic means clustering to the part-machine classification
+	problem},
+  journal = {Expert Systems with Applications},
+  year = {2009},
+  volume = {36},
+  pages = {1179--1194},
+  number = {2, Part 1},
+  abstract = {Cellular manufacturing system (CMS) is an application of group technology
+	(GT) to the production environment. There are many advantages of
+	CMS over traditional manufacturing systems like reduction in setup-time,
+	throughput time, etc. The grouping of machine cells and their associated
+	part families so as to minimize the cost of material handling is
+	a major step in CMS and it is called as cell formation (CF) problem.
+	Cell formation is important to the effective performance of manufacturing.
+	In this paper, an attempt has been made to effectively apply the
+	K-harmonic means clustering technique to form machine cells and part
+	families simultaneously, which we call K-harmonic means cell formation
+	(KHM-CF). A set of 20 test problems with various sizes drawn from
+	the literature are used to test the performance of the proposed algorithm.
+	Then, the results are compared with the optimal solution, and the
+	efficacy of the proposed algorithms is discussed. The comparative
+	study shows that the proposed KHM-CF algorithm improves the grouping
+	efficacy for 70\% of the test problems, and gives the same results
+	for 30\% of the test problems.},
+  doi = {10.1016/j.eswa.2007.11.048},
+  file = {:CellFormation/Ünler2009.pdf:PDF},
+  issn = {0957-4174},
+  keywords = {Cellular manufacturing system},
+  url = {http://www.sciencedirect.com/science/article/pii/S095741740700560X}
+}
+
+@ARTICLE{Vannelli1986,
+  author = {Vannelli, A. and Kumar, K. R.},
+  title = {A method for finding minimal bottle-neck cells for grouping part-machine
+	families},
+  journal = {International Journal of Production Research},
+  year = {1986},
+  volume = {24},
+  pages = {387-400},
+  number = {2},
+  abstract = {The selection of parts and machines poses an important problem in
+	the design and planning phases of cellular manufacturing and flexible
+	manufacturing systems. In most real-life situations, this grouping
+	invariably leads to 'bottleneck' parts and machines. This paper discusses
+	a method of identifying the minimal number of bottle-neck cells (machines
+	or parts) which, when dealt with through either duplication of machines
+	or subcontracting of parts, will result in perfect part-machine groupings
+	with no overlap. The polynomially bounded algorithms used in the
+	analysis are oriented towards finding minimal cut-nodes in either
+	partition of the bipartite part-machine graph.},
+  doi = {10.1080/00207548608919736},
+  url = {http://www.tandfonline.com/doi/abs/10.1080/00207548608919736}
+}
+
+@ARTICLE{Venugopal1992,
+  author = {Venugopal, V. and Narendran, T. T.},
+  title = {A genetic algorithm approach to the machine-component grouping problem
+	with multiple objectives},
+  journal = {Computers and Industrial Engineering},
+  year = {1992},
+  volume = {22},
+  pages = {469--480}
+}
+
+@ARTICLE{Waghodekar1984,
+  author = {Waghodekar, P. H. and Sahu, S.},
+  title = {Machine-component cell formation in group technology: MACE},
+  journal = {International Journal of Production Research},
+  year = {1984},
+  volume = {22},
+  pages = {937--948},
+  number = {6},
+  abstract = { SUMMARY This paper discusses the problem of machine-component cell
+	formation in group technology. Many approaches reported in this area,
+	after Burbidge's pioneering work in production flow analysis, make
+	use of the similarity coefficient of the additive type. This paper
+	presents a heuristic approach based on the similarity coefficient
+	of the product type. The proposed method has also been tested by
+	using the similarity coefficient of additive type. For a large number
+	of problems tested, the method yields a minimum number of exceptional
+	elements. The method is computationally straightforward and is explained
+	through a flowchart. },
+  doi = {10.1080/00207548408942513}
+}
+
+@ARTICLE{Wang1999,
+  author = {Jun Wang},
+  title = {A linear assignment clustering algorithm based on the least similar
+	cluster representatives},
+  journal = {Systems, Man and Cybernetics, Part A: Systems and Humans, IEEE Transactions
+	on},
+  year = {1999},
+  volume = {29},
+  pages = {100--104},
+  number = {1},
+  month = {jan},
+  abstract = {This correspondence presents a linear assignment algorithm for solving
+	the clustering problem. By using the most dissimilar data as cluster
+	representatives, a linear assignment algorithm is developed based
+	on the linear assignment model for clustering multivariate data.
+	The computational results evaluated using multiple performance criteria
+	show that the clustering algorithm is very effective and efficient,
+	especially for clustering a large number of data with many attributes
+	},
+  doi = {10.1109/3468.736364},
+  file = {:CellFormation/Wang1999.pdf:PDF},
+  issn = {1083-4427},
+  keywords = {cluster representatives; group technology; least similar data; linear
+	assignment clustering; linear assignment model; multivariate data
+	analysis; data analysis; pattern recognition; production control}
+}
+
+@BOOK{Wolsey1998,
+  title = {Integer Programming},
+  publisher = {Wiley-Interscience, Series in Discrete Mathematics Optimization},
+  year = {1998},
+  author = {Wolsey, L. A.}
+}
+
+@ARTICLE{Wu2008,
+  author = {Wu, T. H. and Chang, C. C. and Chung, S. H.},
+  title = {A simulated annealing algorithm for manufacturing cell formation
+	problems},
+  journal = {Expert Systems with Applications},
+  year = {2008},
+  volume = {34},
+  pages = {1609--1617},
+  number = {3},
+  doi = {10.1016/j.eswa.2007.01.012},
+  file = {:CellFormation/Wu2008.pdf:PDF},
+  issn = {0957-4174},
+  keywords = {Simulated annealing}
+}
+
+@ARTICLE{Wu2009,
+  author = {Wu, T. H. and Chang, C. C. and Yeh J. Y.},
+  title = {A hybrid heuristic algorithm adopting both Boltzmann function and
+	mutation operator for manufacturing cell formation problems},
+  journal = {International Journal of Production Economics},
+  year = {2009},
+  volume = {120},
+  pages = {669--688},
+  number = {2},
+  abstract = {This study proposes a hybrid heuristic algorithm employing both the
+	Boltzmann function from simulated annealing and the mutation operator
+	from the genetic algorithm to explore the unvisited solution region
+	and expedite the solution searching process for the cell formation
+	problem, so that grouping efficacy is maximized. Test problems drawn
+	from the literature are used to test the performance of the proposed
+	heuristic algorithm. The comparative study shows that the proposed
+	algorithm improves the best results found in the literature for 36%
+	of the test problems in the case when singletons solutions are allowed.},
+  doi = {10.1016/j.ijpe.2009.04.015},
+  file = {:CellFormation/Wu2009.pdf:PDF},
+  issn = {0925-5273},
+  keywords = {Cell formation problem}
+}
+
+@ARTICLE{Wu2010,
+  author = {Wu, T. H. and Chung, S. H. and Chang, C. C.},
+  title = {A water flow-like algorithm for manufacturing cell formation problems},
+  journal = {European Journal of Operational Research},
+  year = {2010},
+  volume = {205},
+  pages = {346--360},
+  number = {2},
+  abstract = {Available research on the manufacturing cell formation problem shows
+	that most solution approaches are either single- or multiple-solution-agent-based,
+	with a fixed size of solution agents. Frequent problems encountered
+	during the process of solving the cell formation problem include
+	solutions being easily trapped in local optima and bad solution efficiency.
+	Yang and Wang [Yang, F.-C., Wang, Y.-P., 2007. Water flow-like algorithm
+	for object grouping problems. Journal of the Chinese Institute of
+	Industrial Engineers, 24 (6), 475–488] proposed the water flow-like
+	algorithm (WFA) to overcome the shortcomings of single- and multiple-solution
+	-agent-based algorithms. WFA has the features of multiple and dynamic
+	numbers of solution agents, and its mimicking of the natural behavior
+	of water flowing from higher to lower levels coincides exactly with
+	the process of searching for optimal solutions. This paper therefore
+	adopts the WFA logic and designs a heuristic algorithm for solving
+	the cell formation problem. Computational results obtained from running
+	a set of 37 test instances from the literature and newly created
+	have shown that the proposed algorithm has performed better than
+	other benchmarking approaches both in solution effectiveness and
+	efficiency, especially in large-sized problems. The superiority of
+	the proposed WFACF over other approaches from the literature should
+	be attributed to the collaboration of the WFA logic, the proposed
+	prior estimation of the cell size, and the insertion-move. The WFA
+	is a novel heuristic approach that deserves more attention. More
+	attempts on adopting the WFA logic to solve many other combinatorial
+	optimization problems are highly recommended.},
+  doi = {10.1016/j.ejor.2010.01.020},
+  file = {:CellFormation/Wu2010.pdf:PDF},
+  issn = {0377-2217},
+  keywords = {Manufacturing}
+}
+
+@ARTICLE{Wu2004,
+  author = {Wu, T. H. and Low, C. and Wu, W. T.},
+  title = {A tabu search approach to the cell formation problem},
+  journal = {The International Journal of Advanced Manufacturing Technology},
+  year = {2004},
+  volume = {23},
+  pages = {916--924},
+  abstract = {The cell formation problem determines the decomposition of the manufacturing
+	cells of a production system in which machines are assigned to these
+	cells to process one or more part families so that each cell is operated
+	independently and the intercellular flows are minimised or the number
+	of parts flow processed within cells is maximised. In this paper,
+	a tabu search heuristicâTSCFâthat consists of dynamic tabu tenure
+	with a long-term memory mechanism is presented to solve the cell
+	formation problem. Test problems adopted from the literature and
+	generated randomly are used to evaluate the performance of the proposed
+	algorithm. In addition, two methods for quickly generating the initial
+	solutions are proposed, namely the group-and-assign (GAA) method,
+	and the random approach. Computational results indicate that the
+	GAA method, accompanied by the TSCF algorithm can produce optimal
+	solutions in less than or equal to 0.005 s for all small- and medium-sized
+	problems. The proposed algorithm should thus be useful to both practitioners
+	and researchers.},
+  issue = {11}
+}
+
+@ARTICLE{Xambre2003,
+  author = {Xambre, A. R. and Vilarindo, P. M.},
+  title = {A simulated annealing approach for manufacturing cell formation with
+	multiple identical machines},
+  journal = {European Journal Of Operational Research},
+  year = {2003},
+  volume = {151},
+  pages = {434--446},
+  number = {2}
+}
+
+@ARTICLE{Yin2006,
+  author = {Yin, Y. and Yasuda, K.},
+  title = {Similarity coefficient methods applied to the cell formation problem:
+	A taxonomy and review},
+  journal = {International Journal of Production Economics},
+  year = {2006},
+  volume = {101},
+  pages = {329--352},
+  number = {2}
+}
+
+@article{You2009,
+	title = {Dinkelbach's algorithm as an efficient method to solve a class of {MINLP} models for large-scale cyclic scheduling problems},
+	journal = {Computers \& Chemical Engineering },
+	volume = {33},
+	number = {11},
+	pages = {1879--1889},
+	year = {2009},
+	note = {},
+	issn = {0098-1354},
+	doi = {10.1016/j.compchemeng.2009.05.014},
+	url = {http://www.sciencedirect.com/science/article/pii/S0098135409001367},
+	author={You, F.  and Castro, P. M. and Grossmann, I. E.}
+}
+
+@Article{resende2013,
+  author  = {Gonçalves, J. F. and Resende, M. G.},
+  title   = {A biased random key genetic algorithm for 2d and 3d bin packing problems},
+  journal = {International Journal of Production Economics},
+  year    = {2013},
+}
+
+@Article{kangwang2012,
+  author  = {Kang, K., Moon, I., e Wang, H.},
+  title   = {A hybrid genetic algorithm with a new packing strategy for the three-dimensional bin packing problem},
+  journal = {Applied Mathematics and Computation},
+  year    = {2012},
+}
+
+@Article{chan1997,
+  author  = {Lai, K. and Chan, J.},
+  title   = {Developing a simulated annealing algorithm for the cutting stock problem},
+  journal = {Computers and Industrial Engineering},
+  year    = {1997},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+@Comment{jabref-meta: pdfDirectory:
+~/Dropbox/Babilonia/Artigos;
+}

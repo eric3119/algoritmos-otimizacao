@@ -1,0 +1,32 @@
+\begin{thebibliography}{xx}
+
+\harvarditem[Berkey \& Wang]{Berkey \& Wang}{1987}{wang1987} \textbf{
+Berkey, J.~O. \& Wang, P.~Y. } (1987), `Two-dimensional finite bin-packing
+  algorithms', {\em Journal of the operational research society}.
+
+\harvarditem[Gonçalves \& Resende]{Gonçalves \& Resende}{2013}{resende2013}
+  \textbf{
+Gonçalves, J.~F. \& Resende, M.~G. } (2013), `A biased random key genetic
+  algorithm for 2d and 3d bin packing problems', {\em International Journal of
+  Production Economics}.
+
+\harvarditem[Lai \& Chan]{Lai \& Chan}{1997}{chan1997} \textbf{
+Lai, K. \& Chan, J. } (1997), `Developing a simulated annealing algorithm for
+  the cutting stock problem', {\em Computers and Industrial Engineering}.
+
+\harvarditem[Lodi et al.]{Lodi, Martello \& Monaci}{2002}{martello2002}
+  \textbf{
+Lodi, A., Martello, S. \& Monaci, M. } (2002), `Two-dimensional packing
+  problems: A survey', {\em European journal of operational research}.
+
+\harvarditem[Martello \& Vigo]{Martello \& Vigo}{1998}{martello1998} \textbf{
+Martello, S. \& Vigo, D. } (1998), `Exact solution of the two-dimensional
+  finite bin packing problem', {\em Management science}.
+
+\harvarditem[Zudio et al.]{Zudio, Costa, Masquio, Coelho \&
+  Pinto}{2018}{zudio2018} \textbf{
+Zudio, A., Costa, D., Masquio, B., Coelho, I. \& Pinto, P. } (2018), `Brkga/vnd
+  hybrid algorithm for the classic three-dimensional bin packing problem', {\em
+  Electronic Notes in Discrete Mathematics}.
+
+\end{thebibliography}

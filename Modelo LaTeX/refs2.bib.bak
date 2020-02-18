@@ -1,0 +1,52 @@
+% Encoding: UTF-8
+
+@Article{resende2013,
+  author  = {Gonçalves, J. F. and Resende, M. G.},
+  title   = {A biased random key genetic algorithm for 2d and 3d bin packing problems},
+  journal = {International Journal of Production Economics},
+  year    = {2013},
+}
+
+@Article{kangwang2012,
+  author  = {Kang, K. and Moon, I. and Wang, H.},
+  title   = {A hybrid genetic algorithm with a new packing strategy for the three-dimensional bin packing problem},
+  journal = {Applied Mathematics and Computation},
+  year    = {2012},
+}
+
+@Article{chan1997,
+  author  = {Lai, K. and Chan, J.},
+  title   = {Developing a simulated annealing algorithm for the cutting stock problem},
+  journal = {Computers and Industrial Engineering},
+  year    = {1997},
+}
+
+@Article{martello2002,
+  author  = {Lodi, A. and Martello, S. and Monaci, M},
+  title   = {Two-dimensional packing problems: A survey},
+  journal = {European journal of operational research},
+  year    = {2002},
+}
+
+@Article{martello1998,
+  author  = {Martello, S. and Vigo, D.},
+  title   = {Exact solution of the two-dimensional finite bin packing problem},
+  journal = {Management science},
+  year    = {1998},
+}
+
+@Article{zudio2018,
+  author  = {Zudio, A. and Costa, D. and Masquio, B. and Coelho, I., and Pinto, P.},
+  title   = {Brkga/vnd hybrid algorithm for the classic three-dimensional bin packing problem},
+  journal = {Electronic Notes in Discrete Mathematics},
+  year    = {2018},
+}
+
+@Article{wang1987,
+  author  = {Berkey, J. O. and Wang, P. Y.},
+  title   = {Two-dimensional finite bin-packing algorithms},
+  journal = {Journal of the operational research society},
+  year    = {1987},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
