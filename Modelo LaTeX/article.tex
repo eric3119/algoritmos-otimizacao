@@ -73,7 +73,7 @@
 % Este exemplo foi publicado no SBPO 2015.
 \section{Introdução}
 
-O \textit{problema de empacotamento clássico bidimensional} (2BP) consiste em empacotar ortogonalmente um conjunto de $n$ itens em forma de retângulos caracterizados por sua altura $h_{i}$ e largura $w_{i}$, $i \in \{1, 2, 3, ... , n\}$, no menor número possível de caixas homogêneas de altura $H \geq hi$ e largura $W \geq wi$. A quantidade de caixas é ilimitada e os itens não podem ser alocados com sobreposição.
+O \textit{problema de empacotamento clássico bidimensional} (2BP) consiste em empacotar ortogonalmente um conjunto de $n$ itens em forma de retângulos caracterizados por sua altura $h_{i}$ e largura $w_{i}$, $i \in \{1, 2, 3, ... , n\}$, no menor número possível de caixas homogêneas de altura $H \geq h_{i}$ e largura $W \geq w_{i}$. A quantidade de caixas é ilimitada e os itens não podem ser alocados com sobreposição.
 
 \begin{figure}[hbt]
 \centering
@@ -91,7 +91,7 @@ O algoritmo genético de chaves aleatórias viciadas (BRKGA) foi introduzido por
 A ideia principal é evoluir uma população codificada em cromossomos. Cada indivíduo é representado por uma sequência de chaves aleatórias ou random-keys, na forma de vetores de números reais no intervalo [0, 1].
 O componente chamado decodificador deve ser implementado para cada problema. Este componente deve receber um vetor de random-keys para fornecer uma representação do indivíduo que pode ser avaliada. Para o 2BP, o decodificador é composto de dois componentes: um método de ordenação e um algoritmo guloso para realizar o empacotamento dos itens:
 
-O método de ordenação deve receber um vetor com n random-keys, um para cada item da instância, para fornecer uma permutação de itens. As chaves devem ser ordenadas de modo que o item ai é empacotado antes do item aj se e somente se $k_{i} < k_{j}, {i}, {j} \in \{1, ..., {n}\}$, onde $k_{i}$ e $k_{j}$ são as respectivas random-keys associadas.
+O método de ordenação deve receber um vetor com n random-keys, um para cada item da instância, para fornecer uma permutação de itens. As chaves devem ser ordenadas de modo que o item $a_{i}$ é empacotado antes do item $a_{j}$ se e somente se $k_{i} < k_{j}, {i}, {j} \in \{1, ..., {n}\}$, onde $k_{i}$ e $k_{j}$ são as respectivas random-keys associadas.
 O algoritmo guloso constrói uma solução iterativamente, recebendo uma permutação de inteiros que representa a sequência em que os itens serão empacotados sequencialmente.
 
 Após o processo de ordenação, a permutação associada ao cromossomo do indivíduo é passada como parâmetro de entrada para o algoritmo guloso, denominado Distance to the Front-Top-Right Corner (DFTRC) \citep{resende2013}. Sabendo que uma caixa aberta da solução corrente é uma que contém itens empacotados, para cada iteração {k} do DFTRC, o algoritmo busca por espaços que possam conter o item  $a_{k}, {k} \in \{1, ..., {n}\}$ a ser empacotado. Se nenhuma caixa aberta até o momento pode conter o item, então uma nova caixa é introduzida na solução com $a_{k}$ empacotado. No passo de empacotamento, áreas maximais são utilizadas para modelar o espaço vazio de cada caixa aberta. 
@@ -141,58 +141,33 @@ A base de testes utilizada neste trabalho é composta por 500 instâncias do 2BP
 
 \subsection{Ferramentas}\label{sec::ferramentas}
 
-O BRKGA proposto foi implementado utilizando a linguagem de programação C++11, e foi compilado com o GCC do GNU Compiler Collection. O ambiente computacional utilizado em todos os testes neste trabalho consiste de um desktop munido da seguinte configuração: processador AMD FX-6300 @3.5 GHz, 8 GB de memória RAM e sistema operacional Ubuntu 18.04. A Tabela 1 relaciona os parâmetros calibráveis do BRKGA com os respectivos valores.
+O BRKGA proposto foi implementado utilizando a linguagem de programação C++11, e foi compilado com o GCC do GNU Compiler Collection. O ambiente computacional utilizado em todos os testes neste trabalho consiste de um desktop munido da seguinte configuração: processador AMD FX-6300 @3.5 GHz, 8 GB de memória RAM e sistema operacional Ubuntu 18.04. A Tabela~\ref{tab:params} relaciona os parâmetros calibráveis do BRKGA com os respectivos valores.
+
+\begin{table}[htb]
+	\caption{Parâmetros do BRKGA}
+	\label{tab:params}
+	\centering
+	\footnotesize
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		Instância	&Exato    &\citep{chan1997}    & GRASP	& GRASP+SP	\\ \hline
+		i1	        &17       &17	  & 17		&17		\\ \hline
+		i2	        &20       &20	  & 20		&20		\\ \hline
+		i3	        &36       &36	  & 36		&36		\\ \hline
+		i4	        &34       &34	  & 34		&34		\\ \hline
+	\end{tabular}
+\end{table}
 
 
 \subsection{Resultado}
 
 TABELA de RESULTADOS DA EXECUÇÃO
 
-A Tabela~\ref{tab:grasp} apresenta a instância, seguida do número de edições encontradas pelo algoritmo exato \citet{martello2002}, a solução encontrada na literatura \citep{chan1997}, juntamente com a solução do GRASP proposto e do GRASP+SP.
+A tabela apresenta a instância, seguida do número de edições encontradas pelo algoritmo exato \citet{martello2002}, a solução encontrada na literatura \citep{chan1997}, juntamente com a solução do GRASP proposto e do GRASP+SP.
 Observa-se que o algoritmo GRASP encontra o valor ótimo em todas as instâncias com exceção da \texttt{i11}.
 Já o GRASP+SP, encontrou a solução ótima em todas as instâncias.
 
-\begin{table}[htb]
-\caption{Resultados do GRASP e GRASP+SP}
-\label{tab:grasp}
-\centering
-\footnotesize
-\begin{tabular}{|l|c|c|c|c|}
-\hline
-Instância	&Exato    &\citep{chan1997}    & GRASP	& GRASP+SP	\\ \hline
-i1	        &17       &17	  & 17		&17		\\ \hline
-i2	        &20       &20	  & 20		&20		\\ \hline
-i3	        &36       &36	  & 36		&36		\\ \hline
-i4	        &34       &34	  & 34		&34		\\ \hline
-i5	        &35       &36	  & 35		&35		\\ \hline
-i6	        &30       &30	  & 30		&30		\\ \hline
-i7	        &50       &51	  & 50		&50		\\ \hline
-i8	        &28       &28	  & 28		&28		\\ \hline
-i9	        &34       &34	  & 34		&34		\\ \hline
-i10	        &52       &53	  & 52		&52		\\ \hline
-i11	        &53       &54	  & 54		&\textbf{53}	\\ \hline
-i12	        &61       &62	  & 61		&61		\\ \hline
-i13	        &54       &54	  & 54		&54		\\ \hline
-i14	        &63       &64	  & 63		&63		\\ \hline
-i15	        &61       &61	  & 61		&61		\\ \hline
-i16         	& 26	  & 28	  & 26		& 26		\\ \hline
-i17         	& 40	  & 40	  & 40		& 40		\\ \hline
-i18         	& 34	  & 35	  & 34		& 34		\\ \hline
-i19         	& 49	  & 49	  & 49		& 49		\\ \hline
-i20         	& 51	  & 52	  & 51		& 51		\\ \hline
-i21         	& 88	  & 88	  & 88		& 88		\\ \hline
-i22         	& 74	  & 74	  & 74		& 74		\\ \hline
-i23         	& 24	  & 24	  & 24		& 24		\\ \hline
-i24         	& 24	  & 24	  & 24		& 24		\\ \hline
-i25         	& 94	  & 94	  & 94		& 94		\\ \hline
-i26         	& 23	  & 23	  & 23		& 23		\\ \hline
-i27         	& 111	  & 111	  & 111		& 111		\\ \hline
-i28         	& 62	  & 63	  & 62		& 62		\\ \hline
-i29         	& 56	  & 56	  & 56		& 56		\\ \hline
-i30         	& 97	  & 97	  & 97		& 97		\\ \hline
-\end{tabular}
-\end{table}
- 
+
 A Tabela~\ref{tab:tempo} apresenta a instância, junto com o tempo de execução do algoritmo de \citet{martello2002}, o tempo de execução do GRASP proposto e o tempo de execução do GRASP+SP.
 Note que, o tempo de GRASP proposto foi muito inferior ao tempo de execução da literatura.
 Observa-se ainda que os tempos do GRASP e do GRASP+SP foram próximos.
