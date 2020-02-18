@@ -36,7 +36,7 @@
 }
 
 @Article{zudio2018,
-  author  = {Zudio, A. and Costa, D. and Masquio, B. and Coelho, I., and Pinto, P.},
+  author  = {Zudio, A. and Costa, D. and Masquio, B. and Coelho, I. and Pinto, P.},
   title   = {Brkga/vnd hybrid algorithm for the classic three-dimensional bin packing problem},
   journal = {Electronic Notes in Discrete Mathematics},
   year    = {2018},
@@ -47,6 +47,13 @@
   title   = {Two-dimensional finite bin-packing algorithms},
   journal = {Journal of the operational research society},
   year    = {1987},
+}
+
+@Article{resende2011,
+  author  = {Gonçalves, J. F. and Resende, M. G.},
+  title   = {Biased random-key genetic algorithms for combinatorial optimization},
+  journal = {Journal of Heuristics},
+  year    = {2011},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

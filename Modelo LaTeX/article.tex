@@ -77,197 +77,61 @@ O \textit{problema de empacotamento clássico bidimensional} (2BP) consiste em e
 
 \begin{figure}[hbt]
 \centering
-\subfloat[Instância.]{\includegraphics[width=0.3\textwidth]{figs/ex_fig1.eps}}\hspace{0.1\textwidth}
-\subfloat[Solução.]{\includegraphics[width=0.33\textwidth]{figs/ex_fig2.eps}}
-\caption{Exemplo do BGEP.} \label{fig:ex}
+\includegraphics[width=0.3\textwidth]{figs/ex_instance_1.png}\hspace{0.1\textwidth}
+\includegraphics[width=0.33\textwidth]{figs/ex_instance_2.png}
+\caption{Exemplo do 2BP.} \label{fig:ex}
 \end{figure}
  
-A Figura~\ref{fig:ex} mostra um exemplo de um grafo que com uma adição, aresta $(3,6)$
+Exemplo de instância do 2BP na Figura~\ref{fig:ex}
 
 \subsection{Aplicações}
-empty
+Várias aplicações industriais têm interesse particular no 2BP. Dentre elas, podemos citar aplicações de carregamento de objetos sensíveis em caminhões e aviões, armazenamento de mercadorias, empacotamento de encomendas, reconfiguração dinâmica de hardware e carregamento de paletes. Por exemplo, quando um editor precisa preencher as páginas de um jornal, ele tem que considerar como rearranjar e posicionar os retângulos de textos e propagandas, ou seja, empacotamento de itens em que uma de suas faces deve permanecer obrigatoriamente para cima. Apesar de ser uma simplificação do mundo real, as heurísticas que encontram boas soluções para os problemas de empacotamento na versão clássica são aplicadas com sucesso em versões com restrições adicionais que modelam situações reais [Parreño et al., 2010b; Kang et al., 2012; Li et al., 2014; Saraiva et al., 2015; Boyar et al., 2016; Moura e Bortfeldt, 2017]. Além disso, o problema aparece como subparte de outros problemas mais complexos como os de agendamento, corte e particionamento.
 \section{Algoritmo BRKGA}\label{sec:corte}
-O algoritmo genético de chaves aleatórias viciadas (BRKGA) foi introduzido por \citet{resende2013} para problemas de otimização combinatória. Esta meta-heurística é uma variante do algoritmo genético de chaves aleatórias (RKGA) [Bean, 1994]. A ideia principal é evoluir uma população codificada. Os indivíduos são representados por cromossomos, denominado chaves aleatórias ou random-keys, na forma de vetores de números reais no intervalo [0, 1]. A implementação desse processo requer um componente chamado decodificador. Este componente deve receber um vetor de random-keys para fornecer uma representação do indivíduo que pode ser avaliada. O decodificador é o único componente que depende das características do problema. Assim, duas implementações da meta-heurística para diferentes problemas só necessitam de decodificadores diferentes. Para o 2BP, o decodificador é composto de dois componentes: um método de ordenação e um algoritmo guloso para realizar o empacotamento dos itens. Tal algoritmo guloso constrói uma solução iterativamente, recebendo uma permutação de inteiros que representa a sequência em que os itens serão empacotados sequencialmente. O método de ordenação deve receber um vetor com n random-keys, um para cada item da instância, para fornecer uma permutação de itens. As chaves devem ser ordenadas de modo que o item ai é empacotado antes do item aj se e somente se $k_{i} < k_{j}, {i}, {j} \in \{1, ..., {n}\}$, onde $k_{i}$ e $k_{j}$ são as respectivas random-keys associadas.
+O algoritmo genético de chaves aleatórias viciadas (BRKGA) foi introduzido por \citet{resende2011} para problemas de otimização combinatória. Esta meta-heurística é uma variante do algoritmo genético de chaves aleatórias (RKGA) [Bean, 1994]. 
+A ideia principal é evoluir uma população codificada em cromossomos. Cada indivíduo é representado por uma sequência de chaves aleatórias ou random-keys, na forma de vetores de números reais no intervalo [0, 1].
+O componente chamado decodificador deve ser implementado para cada problema. Este componente deve receber um vetor de random-keys para fornecer uma representação do indivíduo que pode ser avaliada. Para o 2BP, o decodificador é composto de dois componentes: um método de ordenação e um algoritmo guloso para realizar o empacotamento dos itens:
 
-Após o processo de ordenação, a permutação associada ao cromossomo do indivíduo é passada como parâmetro de entrada para o algoritmo guloso, denominado Distance to the Front-Top-Right Corner (DFTRC). Sabendo que uma caixa aberta da solução corrente é uma que contém itens empacotados, para cada iteração k do DFTRC, procuramos em cada caixa aberta por áreas que podem conter o respectivo item $a_{k}, {k} \in \{1, ..., {n}\}$. Se nenhuma caixa aberta até o momento pode conter o item, então uma nova caixa é introduzida na solução com $a_{k}$ empacotado. No passo de empacotamento, áreas maximais são utilizadas para modelar o espaço vazio de cada caixa aberta. Uma área maximal é a maior área retangular possível dentro da caixa aberta que não há itens. Todas as áreas maximais que podem conter o item da iteração corrente são candidatas para a escolha da localização do empacotamento. O DFTRC seleciona a área maximal que maximiza a distância entre o canto superior direito frontal do item para o respectivo canto superior direito frontal da caixa.
+O método de ordenação deve receber um vetor com n random-keys, um para cada item da instância, para fornecer uma permutação de itens. As chaves devem ser ordenadas de modo que o item ai é empacotado antes do item aj se e somente se $k_{i} < k_{j}, {i}, {j} \in \{1, ..., {n}\}$, onde $k_{i}$ e $k_{j}$ são as respectivas random-keys associadas.
+O algoritmo guloso constrói uma solução iterativamente, recebendo uma permutação de inteiros que representa a sequência em que os itens serão empacotados sequencialmente.
+
+Após o processo de ordenação, a permutação associada ao cromossomo do indivíduo é passada como parâmetro de entrada para o algoritmo guloso, denominado Distance to the Front-Top-Right Corner (DFTRC) \citep{resende2013}. Sabendo que uma caixa aberta da solução corrente é uma que contém itens empacotados, para cada iteração {k} do DFTRC, o algoritmo busca por espaços que possam conter o item  $a_{k}, {k} \in \{1, ..., {n}\}$ a ser empacotado. Se nenhuma caixa aberta até o momento pode conter o item, então uma nova caixa é introduzida na solução com $a_{k}$ empacotado. No passo de empacotamento, áreas maximais são utilizadas para modelar o espaço vazio de cada caixa aberta. 
+
+Uma área maximal é a maior área retangular possível dentro da caixa aberta que não há itens. Todas as áreas maximais que podem conter o item da iteração corrente são candidatas para a escolha da localização do empacotamento. O DFTRC seleciona a área maximal que maximiza a distância entre o canto superior direito frontal do item para o respectivo canto superior direito frontal da caixa.
 
 Caso haja empate entre as áreas maximais, um segundo vetor de random keys é utilizado para selecionar entre as duas melhores áreas maximais.
 
 
-O Algoritmo~\ref{alg:geral} apresenta a visão geral da heurística.
-
-\begin{figure}[hbtp]\centering
-\begin{tikzpicture} [scale=1.3, auto=left,every node/.style={circle,fill=gray!10}]
-\node (u2) at (0,0){\scriptsize 1};
-\node (u3) at (0,-0.5){\scriptsize 2};
-\node (u5) at (0,-1){\scriptsize 3};
-
-\node (u1) at (0,-1.5){\scriptsize 4};
-\node (u4) at (0,-2){\scriptsize 5};
-
-\node (v1) at (2,0.5){\scriptsize 6};
-\node (v3) at (2,0){\scriptsize 7};
-\node (v7) at (2,-0.5){\scriptsize 8};
-
-\node (v2) at (2,-1){\scriptsize 9};
-\node (v6) at (2,-1.5){\tiny 10};
-\node (v5) at (2,-2){\tiny 11};
-\node (v4) at (2,-2.5){\tiny 12};
-
-\foreach \from/\to in {u1/v2,u1/v4,u1/v5,u1/v6,u2/v1,u2/v3,u3/v1,u3/v3,u3/v6,u3/v7,u4/v2,u4/v4,u4/v6,u5/v1,u5/v5,u5/v7}
-\draw (\from) -- (\to);
-
-\node[draw=none,fill=none] (label1) at (1,-3) {\small grafo de entrada $G$};
-
-% \pause
-
-\node (c1) at (5.5,0){\scriptsize 1};
-\node (c2) at (4.5,-0.75){\scriptsize 2};
-\node (c3) at (6.5,-0.75){\scriptsize 3};
-\node (c4) at (4.75,-1.75){\scriptsize 4};
-\node (c5) at (6.25,-1.75){\scriptsize 5};
-
-\draw (c1) -- (c2) node[fill=none,midway,above,sloped] {\footnotesize 2};
-\draw (c1) -- (c3) node[fill=none,midway,above,sloped] {\footnotesize 3};
-\draw (c1) -- (c4) node[fill=none,midway,left] {\scriptsize ~~~6};
-\draw (c1) -- (c5) node[fill=none,midway,right] {\scriptsize 5~~~};
-\draw (c2) -- (c3) node[fill=none,midway,above] {\scriptsize 3};
-\draw (c2) -- (c4) node[fill=none,midway,left] {\footnotesize 6};
-\draw (c2) -- (c5) node[fill=none,midway,left] {\scriptsize 6};
-\draw (c3) -- (c4) node[fill=none,midway,right] {\scriptsize 5};
-\draw (c3) -- (c5) node[fill=none,midway,right] {\footnotesize 6};
-\draw (c4) -- (c5) node[fill=none,midway,below] {\footnotesize 1};
-
-\node[draw=none,fill=none] (seta1) at (3.25,-1) {$\Rightarrow$};
-\node[draw=none,fill=none] (label2) at (5.5,-3) {\small clique $C$};
-
-% \pause
-
-\node (t1) at (10,0){\scriptsize 1};
-\node (t2) at (9,-0.75){\scriptsize 2};
-\node (t3) at (11,-0.75){\scriptsize 3};
-\node (t4) at (9.25,-1.75){\scriptsize 4};
-\node (t5) at (10.75,-1.75){\scriptsize 5};
-
-\draw (t1) -- (t2) node[fill=none,midway,above,sloped] {\footnotesize 2};
-\draw (t2) -- (t3) node[fill=none,midway,above] {\footnotesize 3};
-\draw (t3) -- (t4) node[fill=none,midway,above,sloped] {\footnotesize 5};
-\draw (t4) -- (t5) node[fill=none,midway,below] {\footnotesize 1};
-
-\node[draw=none,fill=none] (set2) at (7.75,-1) {$\Rightarrow$};
-\node[draw=none,fill=none] (label3) at (10,-3) {\small árvore geradora $T$};
-
-\end{tikzpicture}
-\caption{Execução do Algoritmo Construtivo}
-\label{fig:construtivo}
-\end{figure}
-
-\subsection{Método Construtivo} \label{sec::construtivo}
-
-Dado como entrada a árvore geradora mínima $T$, as soluções iniciais de cada iteração do GRASP são construídas com base em remoções aleatórias das arestas desta árvore.
-Na floresta geradora resultante, cada árvore definirá um agrupamento $U_i$ para compor a biclique.
-
-Com base nisso, para cada vértice em $V$, verifica-se em qual agrupamento $U_i$ deverá fazer parte, de maneira a conter o menor número de edições.
-Isto é feito associando o vértice em questão a cada uma dos conjuntos de $U_i$ e verificando o quanto de remoções e adições de arestas são necessárias para que esse vértice se ligue com todos os vértices do conjunto associado.
-
-O agrupamento $U_i$ em que seja necessário o menor número de edições será o ideal e portanto escolhido.
-Em seguida, combinamos $U$ e $V$ para formarmos a biclusterização $\{U,V\}$ ligando as arestas no grafo $G$.
-No algoritmo~\ref{alg:const} apresentamos o método construtivo.
+O Algoritmo~\ref{alg:const} apresenta a visão geral do procedimento de empacotamento.
 
 \begin{algorithm}[hbtp]
-\caption{Método Construtivo}
+\caption{Placement}
 \label{alg:const}
 \begin{algorithmic}[1]
 \footnotesize
-\Procedure{Construtivo}{$T,k$}
- \While{$E(T) \neq \emptyset$}
-  \State{$\mu \gets \{\infty,\cdots,\infty\}_{1 \times |E(T)|}$}
-  \ForAll{$i \in E(T)$}
-   \State{$T_i \gets T - \{i\}$}
-   \State{construa $U_i$ a partir de $T_i$} \Comment{um biclique para cada componente conexa de $T_i$}
-   \State{construa $V_i$ ideal a partir de $U_i$} \Comment{$V_i$ que tem menor número de erros dado $U_i$}
-   \State{$C_i \gets$ \textsc{BiCluster}($U_i,V_i$)} \Comment{combina os agrupamentos $U_i$ e $V_i$ para gerar a biclique $C_i$}
-   \State{$\mu_{i} \gets$ \textsc{NumEdicoes}($C_i$)}
-  \EndFor
-  \State{escolha $\tilde{C}$ aleatoriamente entre os $k$ melhores $C_i$} \Comment{baseado nos valores em $\mu$}
-  \State{atualiza $T$ com base no $\tilde{C}$ escolhido}
-  \If{$\tilde{\mu} < \mu^{\ast} $}
-   \State{$C^{\ast} \gets \tilde{C}$}
-  \EndIf
- \EndWhile
- \State{\Return{$C^{\ast}$}}
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
-\subsection{Busca Local} \label{sec::buscalocal}
-Após o método construtivo, inicia-se o método de Busca Local baseado no VND \citep{martello2002}.
-Tendo como entrada um solução inicial, a Busca Local tenta melhorar a solução através da exploração do espaço de solução.
-Dado um conjunto de estruturas de vizinhança, o método de Busca Local explora o espaço de solução trocando sistematicamente as estruturas de vizinhança.
-O método aceita somente soluções que melhorem a solução corrente.
-Nestes casos, o método volta à primeira estrutura de vizinhança e inicia uma nova busca.
-Usamos aqui uma variante do VND que consiste em usar uma ordenação aleatória dessas estruturas, como mostrado no Algoritmo~\ref{alg:rvnd}.
-
-O método proposto utiliza três estruturas de vizinhança: ``Reagrupe''; ``Mude de Biclique'' e ``Troca de Vértice''.
-A complexidade computacional da busca em cada uma dessas vizinhanças é de $O(n^2)$.
-Elas são presentadas a seguir.
-
-\begin{description}
- \item [Reagrupe:]
-Dado os conjuntos de grupos de vértices, formados pela intersecção de cada uma das partes, $U$ por exemplo, com cada biclique $B$ da solução atual.
-A Busca Local Reagrupe aloca os vértices da outra parte, no caso $V$, ao grupo de vértice de forma a minimizar o número de edições.
- 
- \item [Muda de Biclique:]
-Esta Busca Local move um vértice de uma biclique para outra.
- 
- \item[Troca de Vértice:]
-Esta Busca Local troca dois vértices (de mesma parte) de uma biclique para a outra. Ao contrário da ``Mude de Biclique'' não possibilita a eliminação de bicliques previamente existentes.
-\end{description}
-
-
-\begin{algorithm}[htbp]
-\caption{VND com ordem aleatórias}
-\label{alg:rvnd}
-\footnotesize
-\begin{algorithmic}[1]
-\Procedure{VND}{$A$}
- \State{inicialize $V$ randomicamente}
- \State{$k \gets 1$}
- \State{$\mu^{\ast} \gets \mu(A)$}
- \Repeat 
-  \State{$A' \gets V^{k}(A)$} 
-  \If{$\mu(A') > \mu^{\ast}$} 
-   \State{$A^{\ast} \gets A'$}
-   \State{$k \gets 1$}
-  \Else
-   \State{$k \gets k + 1$}
-  \EndIf
- \Until{$k = k_{max}$}
- \State{\Return{$A^{\ast}$}}
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
-\begin{algorithm}[htbp]
-\caption{Visão Geral da Heurística GRASP}
-\label{alg:geral}
-\begin{algorithmic}[1]
-\footnotesize
-\Procedure{MST+BL}{$G,k$}
- \State{$it \gets 0$}
- \State{$\mu^{\ast} \gets \infty$}
- \State{transforme o grafo $G$ numa clique $C$ com pesos $d_{ij}$}
- \State{calcule a árvore geradora de custo mínimo $T$ de $C$}
- \Repeat 
-  \State{$C_{it} \gets$ \textsc{Construtivo}($T,k$)} \Comment{$k = 1$, guloso; $k = m$, aleatório; $1 < k < m$, $k$-melhores}
-  \State{$C'_{it} \gets$ \textsc{BuscaLocal}($C_{it}$)} 
-  \State{$\mu_{it} \gets$ \textsc{NumEdicoes}($C'_{it}$)} \Comment{número de edições (remoção ou adição de arestas)}
-  \If{$\mu_{it} < \mu^{\ast}$} 
-   \State{$C^{\ast} \gets C'_{it}$}
-  \EndIf
-  \State{$it \gets it + 1$}
- \Until{$it = 100$}% + (k - 1) \cdot m$}
- \State{\Return{$C^{\ast}$}}
+\Procedure{Placement}{$BPS,TB$}
+	\State{Inicialize $B$ com as caixas abertas}\Comment{comentario}
+	\State{Inicialize $NB$ com o número de caixas abertas}
+	\For{$i \in \{1, ..., {n}\}$}
+		\State{$BoxToPack \gets BPS\{i\}$}
+		\State {$SelectedBin \gets 0$}
+		\For{$k \in \{1, ..., {NB}\}$}
+			\State{$BestEMSList \gets$ \textsc{DFTRC}($k, BoxToPack$)}
+			\If{$BestEMSList > 0 $}
+				\State {$SelectedBin \gets k$}
+				\State \textbf{break}
+			\EndIf
+		\EndFor
+		\If{$BestEMSList \neq \emptyset$}
+			\State{$EMSselected \gets$ \textsc{EMSSelector}($TB_i, BestEMSList$)}
+		\Else
+			\State{$NewBin \gets NB + 1 $}
+			\State{$B \gets B \cup {NewBin} $}
+			\State{$NB \gets NB + 1 $}
+			\State{$EMSSelected \gets NewBin_0 $}
+		\EndIf
+		\State{Calcula a posição do item na caixa a partir de $EMSSelected$}
+		\State{\textsc{DifferenceProcess}($SelectedBin, BoxToPack$)}
+	\EndFor
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
