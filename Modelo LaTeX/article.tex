@@ -1,5 +1,7 @@
 \documentclass[article]{rian_article}
 
+\usepackage{xcolor}
+\usepackage{longtable}
 %%
 % Atenção: Compilar com pdflatex !!!
 %%
@@ -26,8 +28,8 @@
 	Este trabalho apresenta um algoritmo genético de chaves aleatórias viciadas (BRKGA) para o \textit{problema de empacotamento bidimensional} (2BP), considerando os itens alocados com orientação fixa, baseando-se em chaves aleatórias como critério de desempate entre os espaços vazios ao inserir um novo item. O problema tem várias aplicações industriais, como corte, repartição e agendamento, relacionando-se a outros problemas complexos.
 }
 
-\Keywords{BRKGA, Bin Packing, 2BP, Meta-heurísticas}
-\Plainkeywords{BRKGA, Bin Packing, 2BP, Meta-heurísticas} %% sem formatação
+\Keywords{BRKGA, Two-dimensional Bin Packing, 2BP, Meta-heurísticas}
+\Plainkeywords{BRKGA, Two-dimensional Bin Packing, 2BP, Meta-heurísticas} %% sem formatação
 
 
 %% Informações do Trabalho
@@ -79,27 +81,47 @@ O \textit{problema de empacotamento clássico bidimensional} (2BP) consiste em e
 \centering
 \includegraphics[width=0.3\textwidth]{figs/ex_instance_1.png}\hspace{0.1\textwidth}
 \includegraphics[width=0.33\textwidth]{figs/ex_instance_2.png}
-\caption{Exemplo do 2BP.} \label{fig:ex}
+\caption{Exemplo de instância do 2BP.} \label{fig:ex}
 \end{figure}
- 
-Exemplo de instância do 2BP na Figura~\ref{fig:ex}
 
 \subsection{Aplicações}
-Várias aplicações industriais têm interesse particular no 2BP. Dentre elas, podemos citar aplicações de carregamento de objetos sensíveis em caminhões e aviões, armazenamento de mercadorias, empacotamento de encomendas, reconfiguração dinâmica de hardware e carregamento de paletes. Por exemplo, quando um editor precisa preencher as páginas de um jornal, ele tem que considerar como rearranjar e posicionar os retângulos de textos e propagandas, ou seja, empacotamento de itens em que uma de suas faces deve permanecer obrigatoriamente para cima. Apesar de ser uma simplificação do mundo real, as heurísticas que encontram boas soluções para os problemas de empacotamento na versão clássica são aplicadas com sucesso em versões com restrições adicionais que modelam situações reais [Parreño et al., 2010b; Kang et al., 2012; Li et al., 2014; Saraiva et al., 2015; Boyar et al., 2016; Moura e Bortfeldt, 2017]. Além disso, o problema aparece como subparte de outros problemas mais complexos como os de agendamento, corte e particionamento.
+Várias aplicações industriais têm interesse particular no 2BP. Dentre elas, podemos citar aplicações de carregamento de objetos sensíveis em caminhões e aviões, armazenamento de mercadorias, empacotamento de encomendas, reconfiguração dinâmica de hardware e carregamento de paletes. Por exemplo, quando um editor precisa preencher as páginas de um jornal, ele tem que considerar como rearranjar e posicionar os retângulos de textos e propagandas, ou seja, empacotamento de itens em que uma de suas faces deve permanecer obrigatoriamente para cima. Além disso, o problema aparece como subparte de outros problemas mais complexos como os de agendamento, corte e particionamento.\citep{zudio2019}
 \section{Algoritmo BRKGA}\label{sec:corte}
-O algoritmo genético de chaves aleatórias viciadas (BRKGA) foi introduzido por \citet{resende2011} para problemas de otimização combinatória. Esta meta-heurística é uma variante do algoritmo genético de chaves aleatórias (RKGA) [Bean, 1994]. 
+O algoritmo genético de chaves aleatórias viciadas (BRKGA) foi introduzido por \citet{resende2011} para problemas de otimização combinatória. Esta meta-heurística é uma variante do algoritmo genético de chaves aleatórias (RKGA) \citep{bean1994}. 
 A ideia principal é evoluir uma população codificada em cromossomos. Cada indivíduo é representado por uma sequência de chaves aleatórias ou random-keys, na forma de vetores de números reais no intervalo [0, 1].
 O componente chamado decodificador deve ser implementado para cada problema. Este componente deve receber um vetor de random-keys para fornecer uma representação do indivíduo que pode ser avaliada. Para o 2BP, o decodificador é composto de dois componentes: um método de ordenação e um algoritmo guloso para realizar o empacotamento dos itens:
 
 O método de ordenação deve receber um vetor com n random-keys, um para cada item da instância, para fornecer uma permutação de itens. As chaves devem ser ordenadas de modo que o item $a_{i}$ é empacotado antes do item $a_{j}$ se e somente se $k_{i} < k_{j}, {i}, {j} \in \{1, ..., {n}\}$, onde $k_{i}$ e $k_{j}$ são as respectivas random-keys associadas.
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figs/random_keys.png}
+	\caption{Exemplo de BPS \citep{resende2013}.} \label{fig:rand_keys}
+\end{figure}
+
 O algoritmo guloso constrói uma solução iterativamente, recebendo uma permutação de inteiros que representa a sequência em que os itens serão empacotados sequencialmente.
 
-Após o processo de ordenação, a permutação associada ao cromossomo do indivíduo é passada como parâmetro de entrada para o algoritmo guloso, denominado Distance to the Front-Top-Right Corner (DFTRC) \citep{resende2013}. Sabendo que uma caixa aberta da solução corrente é uma que contém itens empacotados, para cada iteração {k} do DFTRC, o algoritmo busca por espaços que possam conter o item  $a_{k}, {k} \in \{1, ..., {n}\}$ a ser empacotado. Se nenhuma caixa aberta até o momento pode conter o item, então uma nova caixa é introduzida na solução com $a_{k}$ empacotado. No passo de empacotamento, áreas maximais são utilizadas para modelar o espaço vazio de cada caixa aberta. 
+Após o processo de ordenação, a permutação associada ao cromossomo do indivíduo é passada como parâmetro de entrada para o algoritmo guloso, denominado Distance to the Front-Top-Right Corner (DFTRC) \citep{resende2013}. Sabendo que uma caixa aberta da solução corrente é uma que contém itens empacotados, para cada iteração {k} do DFTRC, o algoritmo busca por espaços que possam conter o item  $a_{k}, {k} \in \{1, ..., {n}\}$ a ser empacotado. Se nenhuma caixa aberta até o momento pode conter o item, então uma nova caixa é introduzida na solução com $a_{k}$ empacotado. No passo de empacotamento, áreas maximais são utilizadas para modelar o espaço vazio de cada caixa aberta.
+
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figs/dftrc.png}
+	\caption{Escolha da posição para inserir o item 2.} \label{fig:dftrc}
+\end{figure}
 
 Uma área maximal é a maior área retangular possível dentro da caixa aberta que não há itens. Todas as áreas maximais que podem conter o item da iteração corrente são candidatas para a escolha da localização do empacotamento. O DFTRC seleciona a área maximal que maximiza a distância entre o canto superior direito frontal do item para o respectivo canto superior direito frontal da caixa.
 
 Caso haja empate entre as áreas maximais, um segundo vetor de random keys é utilizado para selecionar entre as duas melhores áreas maximais.
 
+\begin{center}
+$TB_{i} = \begin{cases}\texttt{Área 1, se random-key}_{n + i} \leq 1/2\\
+				\texttt{Área 2, se random-key}_{n + i} > 1/2\end{cases}$
+\end{center}
+\begin{figure}[hbt]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figs/tie_breaker.png}
+	\caption{Exemplo de empate entre espaços maximais.} \label{fig:empate}
+\end{figure}
 
 O Algoritmo~\ref{alg:const} apresenta a visão geral do procedimento de empacotamento.
 
@@ -109,32 +131,43 @@ O Algoritmo~\ref{alg:const} apresenta a visão geral do procedimento de empacota
 \begin{algorithmic}[1]
 \footnotesize
 \Procedure{Placement}{$BPS,TB$}
-	\State{Inicialize $B$ com as caixas abertas}\Comment{comentario}
+	\State{Inicialize $B$ com as caixas abertas}
 	\State{Inicialize $NB$ com o número de caixas abertas}
 	\For{$i \in \{1, ..., {n}\}$}
 		\State{$BoxToPack \gets BPS\{i\}$}
-		\State {$SelectedBin \gets 0$}
+		\State {$SelectedBin \gets 0$}\Comment{Nenhuma caixa escolhida}
 		\For{$k \in \{1, ..., {NB}\}$}
-			\State{$BestEMSList \gets$ \textsc{DFTRC}($k, BoxToPack$)}
-			\If{$BestEMSList > 0 $}
+			\State{$BestEMSList \gets$ \textsc{DFTRC}($k, BoxToPack$)}\Comment{O DFTRC retorna os espaços para o empacotamento}
+			\If{$BestEMSList > 0 $}\Comment{Encerra o loop ao encontrar uma solução}
 				\State {$SelectedBin \gets k$}
 				\State \textbf{break}
 			\EndIf
 		\EndFor
 		\If{$BestEMSList \neq \emptyset$}
-			\State{$EMSselected \gets$ \textsc{EMSSelector}($TB_i, BestEMSList$)}
+			\State{$EMSselected \gets$ \textsc{EMSSelector}($TB_i, BestEMSList$)}\Comment{Aplica o critério de escolha para o desempate}
 		\Else
-			\State{$NewBin \gets NB + 1 $}
+			\State{$NewBin \gets NB + 1 $}\Comment{Abre uma nova caixa e insere o item}
 			\State{$B \gets B \cup {NewBin} $}
 			\State{$NB \gets NB + 1 $}
 			\State{$EMSSelected \gets NewBin_0 $}
 		\EndIf
 		\State{Calcula a posição do item na caixa a partir de $EMSSelected$}
-		\State{\textsc{DifferenceProcess}($SelectedBin, BoxToPack$)}
+		\State{\textsc{DifferenceProcess}($SelectedBin, BoxToPack$)}\Comment{Realiza o procedimento DP de \citet{chan1997}}
 	\EndFor
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
+
+\subsection{Função Objetivo}
+A função objetivo do problema de empacotamento é o próprio número de caixas abertas. Porém, diversas soluções utilizam a mesma quantidade de caixas, portanto, a quantidade de caixas utilizadas pode não avaliar bem o potencial de melhora de uma solução.
+Para resolver este problema, \citet{resende2013} propôs uma função
+objetivo alternativa (aNB), que diferencia as soluções com a mesma quantidade de caixas. A função aNB utiliza a carga de espaço ocupado pela caixa que estiver com menor carga. Assim, o potencial de melhora de uma solução é dado através de uma fração no intervalo $]0, 1[$. Dadas duas soluções que compartilham o mesmo número de caixas, a que apresenta a caixa com
+menor carga será a que tem mais potencial para melhora.
+
+\begin{center}
+$aNB = NB + \dfrac{LeastLoad}{BinCap}$
+\end{center}
+
 
 \section{Experimentos Computacionais}
 A base de testes utilizada neste trabalho é composta por 500 instâncias do 2BP detalhadas em \citet{martello1998}. As instâncias são organizadas em 10 classes com 10 instâncias para cada quantidade de itens ${n} \in \{20, 40, 60, 80, 100\}$. Esta base se trata de uma extensão das instâncias propostas em \citet{wang1987}.
@@ -148,84 +181,84 @@ O BRKGA proposto foi implementado utilizando a linguagem de programação C++11,
 	\label{tab:params}
 	\centering
 	\footnotesize
-	\begin{tabular}{|l|c|c|c|c|}
+	\begin{tabular}{|c|c|}
 		\hline
-		Instância	&Exato    &\citep{chan1997}    & GRASP	& GRASP+SP	\\ \hline
-		i1	        &17       &17	  & 17		&17		\\ \hline
-		i2	        &20       &20	  & 20		&20		\\ \hline
-		i3	        &36       &36	  & 36		&36		\\ \hline
-		i4	        &34       &34	  & 34		&34		\\ \hline
+		Componente               &Configuração \\ \hline
+		Critério de parada       &200 gerações	 \\ \hline
+		Tamanho da população     &$P_{max} = 30 \times {n}$	 \\ \hline
+		Fração TOP               &$\epsilon = 0,1$	 \\ \hline
+		Fração BOT               &$\omega = 0,15$	 \\ \hline
+		Taxa de elitismo         &$\rho = 0,7$	 \\ \hline
 	\end{tabular}
 \end{table}
 
 
 \subsection{Resultado}
+\begin{longtable}{|l|c|c|c|c|}
+	\caption{Resultados}
+	\label{tab:result} \\
+	\hline
+	\multicolumn{1}{|c|}{\textbf{Class}} & \multicolumn{1}{c|}{\textbf{Bin size}} & \multicolumn{1}{c|}{\textbf{n}} & \multicolumn{1}{c|}{\textbf{aNB \citep{resende2013}}} &  \multicolumn{1}{c|}{\textbf{aNB com desempate}}\\ \hline 
+	\endfirsthead
+	1 & 10 x 10 & 20 & 7.10 & 7.10 \\ \hline
+	&  & 40 & 13.40 & 13.40 \\ \hline
+	&  & 60 & 20.00 & 20.00 \\ \hline
+	&  & 80 & 27.50 & 27.50 \\ \hline
+	&  & 100 & 31.70 & 31.70 \\ \hline
+	2 & 30 x 30 & 20 & 1.00 & 1.00 \\ \hline
+	&  & 40 & 1.90 & 1.90 \\ \hline
+	&  & 60 & 2.50 & 2.50 \\ \hline
+	&  & 80 & 3.10 & 3.10 \\ \hline
+	&  & 100 & 3.90 & 3.90 \\ \hline
+	3 & 40 x 40 & 20 & 5.10 & 5.10 \\ \hline
+	&  & 40 & 9.40 & 9.40 \\ \hline
+	&  & 60 & 13.90 & 13.90 \\ \hline
+	&  & 80 & 18.90 & 18.90 \\ \hline
+	&  & 100 & 22.30 & 22.30 \\ \hline
+	4 & 100 x 100 & 20 & 1.00 & 1.00 \\ \hline
+	&  & 40 & 1.90 & 1.90 \\ \hline
+	&  & 60 & 2.50 & \textbf{2.40} \\ \hline
+	&  & 80 & 3.10 & \textbf{3.20} \\ \hline
+	&  & 100 & 3.70 & \textbf{3.80} \\ \hline
+	5 & 100 x 100 & 20 & 6.50 & 6.50 \\ \hline
+	&  & 40 & 11.90 & 11.90 \\ \hline
+	&  & 60 & 18.00 & 18.00 \\ \hline
+	&  & 80 & 24.70 & 24.70 \\ \hline
+	&  & 100 & 28.10 & 28.10 \\ \hline
+	6 & 300 x 300 & 20 & 1.00 & 1.00 \\ \hline
+	&  & 40 & 1.60 & 1.70 \\ \hline
+	&  & 60 & 2.10 & 2.10 \\ \hline
+	&  & 80 & 3.00 & 3.00 \\ \hline
+	&  & 100 & 3.30 & 3.40 \\ \hline
+	7 & 100 x 100 & 20 & 5.50 & 5.50 \\ \hline
+	&  & 40 & 11.10 & 11.10 \\ \hline
+	&  & 60 & 15.80 & 15.80 \\ \hline
+	&  & 80 & 23.20 & 23.20 \\ \hline
+	&  & 100 & 27.10 & 27.10 \\ \hline
+	8 & 100 x 100 & 20 & 5.80 & 5.80 \\ \hline
+	&  & 40 & 11.30 & 11.30 \\ \hline
+	&  & 60 & 16.10 & 16.10 \\ \hline
+	&  & 80 & 22.40 & 22.40 \\ \hline
+	&  & 100 & 27.80 & 27.80 \\ \hline
+	9 & 100 x 100 & 20 & 14.30 & 14.30 \\ \hline
+	&  & 40 & 27.80 & 27.80 \\ \hline
+	&  & 60 & 43.70 & 43.70 \\ \hline
+	&  & 80 & 57.70 & 57.70 \\ \hline
+	&  & 100 & 69.50 & 69.50 \\ \hline
+	10 & 100 x 100 & 20 & 4.20 & 4.20 \\ \hline
+	&  & 40 & 7.40 & 7.40 \\ \hline
+	&  & 60 & 10.00 & 10.00 \\ \hline
+	&  & 80 & 12.80 & 12.80 \\ \hline
+	&  & 100 & 15.80 & 15.80 \\ \hline
+\end{longtable}
 
-TABELA de RESULTADOS DA EXECUÇÃO
-
-A tabela apresenta a instância, seguida do número de edições encontradas pelo algoritmo exato \citet{martello2002}, a solução encontrada na literatura \citep{chan1997}, juntamente com a solução do GRASP proposto e do GRASP+SP.
-Observa-se que o algoritmo GRASP encontra o valor ótimo em todas as instâncias com exceção da \texttt{i11}.
-Já o GRASP+SP, encontrou a solução ótima em todas as instâncias.
-
-
-A Tabela~\ref{tab:tempo} apresenta a instância, junto com o tempo de execução do algoritmo de \citet{martello2002}, o tempo de execução do GRASP proposto e o tempo de execução do GRASP+SP.
-Note que, o tempo de GRASP proposto foi muito inferior ao tempo de execução da literatura.
-Observa-se ainda que os tempos do GRASP e do GRASP+SP foram próximos.
-Além disso, algoritmo de foi executado em uma máquina Intel Core i7-2600 com 3.40GHz, enquanto que o deste artigo foi executado em uma máquina Intel Core i7-4500U com 1.80GHz.
-
-
-No que diz respeito ao pré-processamento da Seção~\ref{sec:corte}, ele se mostrou eficaz em instâncias esparsas, porém sem muita efetividade para as instâncias densas.
-
- \begin{table}[hbtp]
-\caption{Tempos do GRASP e GRASP+SP}
-\label{tab:tempo}
-\centering
-\footnotesize
-\begin{tabular}{|l|c|c|c|}
-\hline
-Instância	  & \citep{zudio2018}	&GRASP    & GRASP+SP	   \\ \hline
-i1	  & 7,23	&0,26	  & 0,30	  \\ \hline 
-i2	  & 7,00	&0,21	  & 0,24	  \\ \hline 
-i3	  & 10,09	&0,39	  & 0,45	  \\ \hline 
-i4	  & 9,97	&0,35  	  & 0,41	  \\ \hline 
-i5	  & 12,90	&0,41     & 0,46	  \\ \hline 
-i6	  & 13,89	&0,48     & 0,49	  \\ \hline 
-i7	  & 7,88	&0,49     & 0,52	  \\ \hline 
-i8	  & 13,13	&0,39     & 0,42	  \\ \hline 
-i9	  & 12,53	&0,47     & 0,50	  \\ \hline 
-i10	  & 20,31	&0,98     & 1,09	  \\ \hline 
-i11	  & 23,41	&1,35     & 1,17	  \\ \hline 
-i12	  & 24,50	&1,40     & 1,26	  \\ \hline 
-i13	  & 47,19	&2,66	  & 2,39	  \\ \hline 
-i14	  & 48,24	&2,82	  & 2,78	  \\ \hline 
-i15	  & 65,95	&3,27	  & 3,25	  \\ \hline
-i16  	& 3,40		& 0,09	   & 0,10	  \\ \hline
-i17  	& 4,02		& 0,05	   &  0,05	  \\ \hline
-i18  	& 5,26		& 0,12	   &  0,14	  \\ \hline
-i19  	& 5,28		& 0,06	   &  0,08	  \\ \hline
-i20  	& 7,05		& 0,36	   &  0,39	  \\ \hline
-i21  	& 31,80		& 0,15	   &  0,14	  \\ \hline
-i22  	& 24,27		& 0,17	   &  0,14	  \\ \hline
-i23  	& 26,45		& 1,71	   &  1,48	  \\ \hline
-i24  	& 25,56		& 3,28	   &  3,24	  \\ \hline
-i25  	& 26,48		& 0,16	   &  0,19	  \\ \hline
-i26  	& 43,42		& 2,95	   &  3,05	  \\ \hline
-i27  	& 51,80		& 0,20	   &  0,22        \\ \hline
-i28  	& 77,30		& 15,52	   &  16,09	  \\ \hline
-i29  	& 71,91		& 13,73	   &  13,65	  \\ \hline
-i30  	& 77,21		& 0,34	   &  0,37	  \\ \hline
-\end{tabular}
-\end{table}
-
+A Tabela \ref{tab:result} apresenta a média de caixas obtidas para as instâncisa de cada Classe ${i}$ da solução encontrada na literatura \citep{resende2013}, juntamente com a solução do BRKGA proposto.
+Observa-se que o algoritmo BRKGA com desempate encontra o valor equivalente em todas as instâncias com exceção das médias de {n} = 60, 80 e 100 da classe 4, onde o resultado somente foi melhor no caso {n} = 60.
 
 \section{Conclusão}
-Este trabalho aplicou a heurística BRKGA para o problema clássico de empacotamento bidimensional, sem considerar a rotação dos itens. O algoritmo é baseado na meta-heurística BRKGA, e utiliza um algoritmo guloso para empacotar os itens. Através de um conjunto de 500 instâncias, as quais compõem a base de teste padrão para vários trabalhos encontrados na literatura, o BRKGA foi comparado com outras abordagens encontradas na literatura. Os experimentos mostraram que o BRKGA proposto aliado com o critério de desempate obtém resultados equivalentes ou melhores aos reportados na literatura.
+Este trabalho aplicou a heurística BRKGA para o problema clássico de empacotamento bidimensional, sem considerar a rotação dos itens. O algoritmo é baseado na meta-heurística BRKGA, e utiliza um algoritmo guloso para empacotar os itens. Através de um conjunto de 500 instâncias, as quais compõem a base de teste padrão para vários trabalhos encontrados na literatura, o BRKGA com desempate foi comparado com o BRKGA \citet{resende2013}. Os experimentos mostraram que o BRKGA proposto aliado com o critério de desempate obtém vários resultados equivalentes ou melhores aos reportados.
 
-PROPROSTAS
-Para trabalhos futuros serão propostas novas melhorias que acelerem o método, como por exemplo novo módulos exatos.
-Pretende-se estender o pré-processamento proposto para os coasos em que a biclique não é completa.
-Além disso, um estudo mais aprofundado com relação à elaboração de instâncias mais difíceis.
-Com relação a meta-heurística, pode-se pensar em novos métodos construtivos e novas buscas locais.
+Para trabalhos futuros com relação a meta-heurística, pode-se pensar em novos métodos que permitam encontrar soluções mais próximas do limite inferior, e a melhora no resultado das instâncias que foram afetadas.
 
 
 \bibliography{refs2}

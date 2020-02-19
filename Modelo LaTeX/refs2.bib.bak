@@ -56,4 +56,11 @@
   year    = {2011},
 }
 
+@Article{bean1994,
+  author  = {Bean, J. C.},
+  title   = {Genetic algorithms and random keys for sequencing and optimization},
+  journal = {ORSA Journal on computing},
+  year    = {1994},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
