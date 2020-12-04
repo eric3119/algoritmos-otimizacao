@@ -1,0 +1,39 @@
+Welcome to the BRKGA API sample driver.
+Finding a (heuristic) minimizer for  (phi,theta)
+Running for 50 generations...
+Fitness of the top 10 individuals of each population:
+Population #0:
+	0) -30.8266
+	1) -30.8266
+	2) -30.8266
+	3) -30.8266
+	4) -30.8266
+	5) -30.8266
+	6) -30.8266
+	7) -30.8266
+	8) -30.8266
+	9) -30.8266
+Population #1:
+	0) -27.9204
+	1) -27.9204
+	2) -27.9204
+	3) -27.9204
+	4) -27.8409
+	5) -27.8409
+	6) -27.8409
+	7) -27.8409
+	8) -27.8409
+	9) -27.8409
+Population #2:
+	0) -30.9406
+	1) -30.9406
+	2) -30.9406
+	3) -30.9406
+	4) -30.9406
+	5) -30.9406
+	6) -30.9406
+	7) -30.9406
+	8) -30.9406
+	9) -30.9406
+Best solution found has objective value = 30.9406
+Best solution chromosome = [231, 180, 356, 61, 180, 155, ]

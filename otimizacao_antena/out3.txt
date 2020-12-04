@@ -1,0 +1,61 @@
+Welcome to the BRKGA API sample driver.
+Finding a (heuristic) minimizer for  (phi,theta)
+Running for 500 generations...
+Fitness of the top 10 individuals of each population:
+Population #0:
+	0) -31.0128
+	1) -31.0128
+	2) -31.0128
+	3) -31.0128
+	4) -31.0128
+	5) -31.0128
+	6) -31.0128
+	7) -31.0128
+	8) -31.0128
+	9) -31.0128
+Population #1:
+	0) -31.0128
+	1) -31.0128
+	2) -31.0128
+	3) -31.0128
+	4) -31.0128
+	5) -31.0128
+	6) -31.0128
+	7) -31.0128
+	8) -31.0128
+	9) -31.0128
+Population #2:
+	0) -31.0128
+	1) -31.0128
+	2) -31.0128
+	3) -31.0128
+	4) -31.0128
+	5) -31.0128
+	6) -31.0128
+	7) -31.0128
+	8) -31.0128
+	9) -31.0128
+Population #3:
+	0) -31.0128
+	1) -31.0128
+	2) -31.0128
+	3) -31.0128
+	4) -31.0128
+	5) -31.0128
+	6) -31.0128
+	7) -31.0128
+	8) -31.0128
+	9) -31.0128
+Best solution found has objective value = 31.0128
+Best solution chromosome = [10, 180, 359, 60, 180, 205, ]
+const unsigned n = 6;		// size of chromosomes
+const unsigned p = 110;		// size of population
+const double pe = 0.15;		// fraction of population to be the elite-set
+const double pm = 0.15;		// fraction of population to be replaced by mutants
+const double rhoe = 0.70;	// probability that offspring inherit an allele from elite parent
+const unsigned K = 4;		// number of independent populations
+const unsigned MAXT = 1;	// number of threads for parallel decoding
+
+const unsigned X_INTVL = 100;	// exchange best individuals at every 100 generations
+const unsigned X_NUMBER = 2;	// exchange top 2 best
+const unsigned MAX_GENS = 500;	// run for 500 gens
