@@ -170,32 +170,32 @@ vector<unsigned> BPDecoder::placement(list<unsigned> &permutation, vector<unsign
 			list<Space> es_list;
 			es_list.push_back(Space(0, 0, this->bin_w, this->bin_h, number_of_bins));
 			
-			spaceToPack = &es_list.back();
 			bin_load_vu.push_back(0);
 
 			empty_spaces_vlS.push_back(es_list);
+			spaceToPack = &empty_spaces_vlS[empty_spaces_vlS.size()-1].back();
 		}else{
 			unsigned random_es = empate[gene] % bestEMSv.size();
 			spaceToPack = &bestEMSv[random_es];
 		}
 
-		Box box((*spaceToPack).x,(*spaceToPack).y, box_to_pack.first, box_to_pack.second, (*spaceToPack).bin_number);
+		Box box(spaceToPack->x,spaceToPack->y, box_to_pack.first, box_to_pack.second, spaceToPack->bin_number);
 
-		bin_load_vu[(*spaceToPack).bin_number - 1] += box_to_pack.first * box_to_pack.second;
+		bin_load_vu[spaceToPack->bin_number - 1] += box_to_pack.first * box_to_pack.second;
 
-		differenceProcess(empty_spaces_vlS[(*spaceToPack).bin_number - 1], box);
+		differenceProcess(empty_spaces_vlS[spaceToPack->bin_number - 1], box);
 
 		packedBoxes.push_back(box);
 
 	}
-	// if(draw){
-	// 	cout << "Number of bins " << number_of_bins << endl;
-	// 	for(int i = 0; i < empty_spaces_vlS.size(); ++i){
-	// 		if(!draw_bin(packedBoxes, empty_spaces_vlS[i], i+1))
-	// 			break;
-	// 	}
-	// 	finalize_allegro();
-	// }
+	if(draw){
+		cout << "Number of bins " << number_of_bins << endl;
+		for(int i = 0; i < empty_spaces_vlS.size(); ++i){
+	 		if(!draw_bin(packedBoxes, empty_spaces_vlS[i], i+1))
+	 			break;
+		}
+		finalize_allegro();
+	}
 
 	return bin_load_vu;
 }
@@ -255,7 +255,7 @@ double BPDecoder::decode(const vector<double> &chromosome) const{
 			empate.push_back(1);
 	}
 
-	if(draw){// && start_allegro(this->bin_w, this->bin_h)){
+	if(draw && start_allegro(this->bin_w, this->bin_h)){
 		std::cout << "Best packing sequence ";
 		for (std::list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
 			std::cout << *it << " ";

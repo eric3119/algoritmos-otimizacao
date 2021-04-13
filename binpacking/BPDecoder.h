@@ -12,6 +12,16 @@
 
 using namespace std;
 
+typedef struct ProblemInstance {
+    unsigned problem_class = 0;
+    unsigned n_items = 0;
+    unsigned relative = 0;
+    unsigned absolute = 0;
+    unsigned hbin = 0;
+    unsigned wbin = 0;
+    vector< pair<unsigned, unsigned> > boxes;
+}ProblemInstance;
+
 typedef struct Space{
     unsigned x, y, X, Y;
     unsigned size = 0;

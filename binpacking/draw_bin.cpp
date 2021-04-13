@@ -15,8 +15,6 @@ bool compare_space_number(const Space &s1, const Space &s2){
 	return s1.bin_number < s2.bin_number;
 }
 
-bool inicializar();
-
 void draw_box(Box box){
     unsigned R, G, B, box_size;
     box_size = pow(box.X - box.x, 2) + pow(box.Y - box.y, 2);
