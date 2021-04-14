@@ -50,21 +50,30 @@ vector<int> extractIntegerWords(string str)
     return found;
 }
 
-int main()
-{
+int main(int argc, char **argv) {
     unsigned n;               // size of chromosomes
     unsigned p;               // size of population
     const double pe = 0.10;   // fraction of population to be the elite-set
     const double pm = 0.15;   // fraction of population to be replaced by mutants
     const double rhoe = 0.70; // probability that offspring inherit an allele from elite parent
     const unsigned K = 3;     // number of independent populations
-    const unsigned MAXT = 1;  // number of threads for parallel decoding
+    const unsigned MAXT = 2;  // number of threads for parallel decoding
 
     list<ProblemInstance> problemInstances;
     
     string line;
     //ifstream myfile("Class_01.2bp");
-    ifstream myfile("teste.in");
+    ifstream myfile;
+    bool draw_best = false;
+    if (argc > 1) {
+        myfile.open(argv[1]);
+        if (argc > 2 && strcmp(argv[2], "--draw")==0) {
+            draw_best = true;
+        }
+    } else {
+        draw_best = true;
+        myfile.open("teste.in");
+    }
     if (myfile.is_open()) {
         while (getline(myfile, line)) {
 
@@ -100,21 +109,21 @@ int main()
     }
     
     double class_mean = 0;
-    double class_bins_mean = 0;
+    double num_bins = 0;
     double best_fitness = numeric_limits<double>::max();
         
-    for(auto &prob : problemInstances){
+    for(auto &problem : problemInstances){
         BPDecoder decoder; // initialize the decoder
-        n = prob.n_items * 2;
-        p = 20*n;
+        n = problem.n_items * 2;
+        p = 30*n;
 
-        decoder.bin_h = prob.hbin;
-        decoder.bin_w = prob.wbin;
+        decoder.bin_h = problem.hbin;
+        decoder.bin_w = problem.wbin;
             
-        cout << "\nClass " << prob.problem_class << " #Itens " << n/2 << " bin size " << decoder.bin_w << " x " << decoder.bin_h << endl;
-        cout << "Instance " << prob.relative << " / Absolute " << prob.absolute << endl;
+        cout << "\nClass " << problem.problem_class << " #Itens " << n/2 << " bin size " << decoder.bin_w << " x " << decoder.bin_h << endl;
+        cout << "Instance " << problem.relative << " / Absolute " << problem.absolute << endl;
 
-        decoder.boxes = prob.boxes;
+        decoder.boxes = problem.boxes;
         // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyarea);
         // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbywidth);
         // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyheight);
@@ -159,21 +168,32 @@ int main()
         double solution_best_fitness = algorithm.getBestFitness();
         std::cout << "Best solution found has objective value = "
                 << solution_best_fitness << std::endl;
+        cout << "Best packing sequence ";
+        
+        list<unsigned> perm = decoder.make_permutation(algorithm.getBestChromosome());
+        vector<unsigned> emp = decoder.make_empate(algorithm.getBestChromosome());
+        vector<unsigned> bin_capacity = decoder.placement(perm, emp, list<Box>());
+        for (auto& i : perm) {
+            cout << i << " ";
+        }
+        cout << endl;
 
         class_mean += solution_best_fitness;
-        class_bins_mean += (unsigned) solution_best_fitness;
+        num_bins += bin_capacity.size();
 
         if(solution_best_fitness < best_fitness){
             best_fitness = solution_best_fitness;
         }
-            
-        decoder.setDraw(true);
-        decoder.decode(algorithm.getBestChromosome());
-        decoder.setDraw(false);
+
+        if (draw_best) {
+            decoder.setDraw(draw_best);
+            decoder.decode(algorithm.getBestChromosome());
+            decoder.setDraw(false);
+        }
     }
-    cout << "\nZ " << class_bins_mean / 10.0 << endl;
-    cout << "Class mean " << class_mean / 10.0 << endl;
-    cout << "Min fitness " << best_fitness << endl << endl;
+    cout << "\n" << "# Bins (mean) = " << num_bins / problemInstances.size() << endl;
+    cout << "Class (mean) = " << class_mean / problemInstances.size() << endl;
+    cout << "Min fitness = " << best_fitness << endl << endl;
 
     return 0;
 }

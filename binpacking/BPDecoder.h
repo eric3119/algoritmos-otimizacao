@@ -46,7 +46,7 @@ typedef struct Box{
 class BPDecoder
 {
 public:
-    unsigned bin_w, bin_h;
+    double bin_w, bin_h;
 	
     vector< pair<unsigned, unsigned> > boxes;
 
@@ -59,6 +59,8 @@ public:
     list < Box > getPackedBoxes(list<unsigned> &permutation, vector<unsigned> &empate);
     vector<Space> DFTRC(list<Space> &bin_spaces_list, pair<unsigned, unsigned> box_to_pack) const;
     void setDraw(bool value);
+    list<unsigned> make_permutation(const vector<double>& chromosome) const;
+    vector<unsigned> make_empate(const vector<double>& chromosome) const;
     double fitness(list<unsigned> &permutation, vector<unsigned> &empate) const;
     void differenceProcess(list < Space > &empty_spaces, Box box) const;
     void eliminationProcess(list < Space > &new_spaces) const;

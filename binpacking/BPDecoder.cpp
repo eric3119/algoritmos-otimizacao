@@ -206,7 +206,7 @@ double BPDecoder::fitness(list<unsigned> &permutation, vector<unsigned> &empate)
 	
 	vector<unsigned> bin_capacity = placement(permutation, empate, packedBoxes);
 
-	unsigned number_of_bins = bin_capacity.size();
+	double number_of_bins = bin_capacity.size();
 	
 	double least_load = 0;
 	vector<unsigned>::iterator it = min_element(bin_capacity.begin(), bin_capacity.end());
@@ -227,11 +227,11 @@ void BPDecoder::setDraw(bool value){
 	draw = value;
 }
 
-double BPDecoder::decode(const vector<double> &chromosome) const{
+list<unsigned> BPDecoder::make_permutation(const vector<double>& chromosome) const {
 	typedef pair<double, unsigned> ValueKeyPair;
-	vector<ValueKeyPair> rank(chromosome.size()/2);
+	vector<ValueKeyPair> rank(chromosome.size() / 2);
 
-	for (unsigned i = 0; i < chromosome.size()/2; ++i)
+	for (unsigned i = 0; i < chromosome.size() / 2; ++i)
 	{
 		rank[i] = ValueKeyPair(chromosome[i], i);
 	}
@@ -247,23 +247,31 @@ double BPDecoder::decode(const vector<double> &chromosome) const{
 		permutation.push_back(i->second);
 	}
 
+	return permutation;
+}
+
+vector<unsigned> BPDecoder::make_empate(const vector<double>& chromosome) const {
 	vector<unsigned> empate;
-	for (unsigned i = chromosome.size()/2; i < chromosome.size(); ++i){
-		if(chromosome[i] < 1/2)
+	for (unsigned i = chromosome.size() / 2; i < chromosome.size(); ++i) {
+		if (chromosome[i] < 1 / 2)
 			empate.push_back(0);
 		else
 			empate.push_back(1);
 	}
 
-	if(draw && start_allegro(this->bin_w, this->bin_h)){
-		std::cout << "Best packing sequence ";
-		for (std::list<unsigned>::iterator it=permutation.begin(); it != permutation.end(); ++it){
-			std::cout << *it << " ";
+	return empate;
+}
+
+double BPDecoder::decode(const vector<double> &chromosome) const{
+	
+	list<unsigned> permutation = make_permutation(chromosome);
+	vector<unsigned> empate = make_empate(chromosome);
+	
+	if(draw){
+		if (!start_allegro(this->bin_w, this->bin_h)) {
+			std::cout << "ERROR: start allegro\n";
 		}
-		std::cout << std::endl;
-	}else{
-	//	std::cout << "ERROR: start allegro\n";
 	}
-	// return fitness
+	
 	return fitness(permutation, empate);
 }
