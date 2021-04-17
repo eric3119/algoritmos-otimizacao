@@ -120,7 +120,7 @@ int main(int argc, char **argv) {
         decoder.bin_h = problem.hbin;
         decoder.bin_w = problem.wbin;
             
-        cout << "\nClass " << problem.problem_class << " #Itens " << n/2 << " bin size " << decoder.bin_w << " x " << decoder.bin_h << endl;
+        cout << "\nClass " << problem.problem_class << "\n# Itens " << n/2 << "\nbin size " << decoder.bin_w << " x " << decoder.bin_h << endl;
         cout << "Instance " << problem.relative << " / Absolute " << problem.absolute << endl;
 
         decoder.boxes = problem.boxes;
