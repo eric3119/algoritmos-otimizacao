@@ -62,7 +62,6 @@ int main(int argc, char **argv) {
     list<ProblemInstance> problemInstances;
     
     string line;
-    //ifstream myfile("Class_01.2bp");
     ifstream myfile;
     bool draw_best = false;
     if (argc > 1) {
@@ -172,7 +171,7 @@ int main(int argc, char **argv) {
         
         list<unsigned> perm = decoder.make_permutation(algorithm.getBestChromosome());
         vector<unsigned> emp = decoder.make_empate(algorithm.getBestChromosome());
-        vector<unsigned> bin_capacity = decoder.placement(perm, emp, list<Box>());
+        vector<unsigned> bin_capacity = decoder.placement(perm, emp);
         for (auto& i : perm) {
             cout << i << " ";
         }
