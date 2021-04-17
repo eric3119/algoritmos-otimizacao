@@ -55,7 +55,7 @@ public:
 
 	// Decode a chromosome, returning its fitness as a double-precision floating point:
 	double decode(const vector<double> &chromosome) const;
-	vector<unsigned> placement(list<unsigned> &permutation, vector<unsigned> &empate,  list < Box > &packedBoxes) const;
+	vector<unsigned> placement(list<unsigned> &permutation, vector<unsigned> &empate) const;
     list < Box > getPackedBoxes(list<unsigned> &permutation, vector<unsigned> &empate);
     vector<Space> DFTRC(list<Space> &bin_spaces_list, pair<unsigned, unsigned> box_to_pack) const;
     void setDraw(bool value);
