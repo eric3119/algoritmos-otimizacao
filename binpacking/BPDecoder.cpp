@@ -19,10 +19,10 @@ void BPDecoder::eliminationProcess(
 			// self elimination
 			it = new_spaces.erase(it);
 		} else {
-			auto cross = new_spaces.begin();
+			auto cross = it;
+			++cross;
 			while (cross != new_spaces.end()){
-				if(it != cross && 
-					cross->x >= it->x && 
+				if(cross->x >= it->x && 
 					cross->y >= it->y && 
 					cross->X <= it->X && 
 					cross->Y <= it->Y){
@@ -162,13 +162,13 @@ vector<unsigned> BPDecoder::placement(list<unsigned> &BPS, vector<unsigned> &emp
 		differenceProcess(Bins[spaceToPack->bin_number - 1], box);
 
 		packedBoxes.push_back(box);
-
 	}
-	if(draw){
+
+	if (draw) {
 		cout << "Number of bins " << NB << endl;
-		for(int i = 0; i < Bins.size(); ++i){
-	 		if(!draw_bin(packedBoxes, Bins[i], i+1))
-	 			break;
+		for (int i = 0; i < Bins.size(); ++i) {
+			if (!draw_bin(packedBoxes, Bins[i], i + 1))
+				break;
 		}
 		finalize_allegro();
 	}
@@ -189,7 +189,7 @@ double BPDecoder::fitness(list<unsigned> &permutation, vector<unsigned> &empate)
 	return number_of_bins + (least_load / (this->bin_w * this->bin_h));
 }
 
-void BPDecoder::setDraw(bool value){
+void BPDecoder::setDraw(bool value) {
 	draw = value;
 }
 
@@ -232,8 +232,8 @@ double BPDecoder::decode(const vector<double> &chromosome) const{
 	
 	list<unsigned> permutation = make_permutation(chromosome);
 	vector<unsigned> empate = make_empate(chromosome);
-	
-	if(draw){
+
+	if (draw) {
 		if (!start_allegro(this->bin_w, this->bin_h)) {
 			std::cout << "ERROR: start allegro\n";
 		}
