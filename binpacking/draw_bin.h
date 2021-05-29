@@ -15,19 +15,11 @@ using namespace std;
 bool inicializar();
 void finalize_allegro();
 bool start_allegro(unsigned bin_x, unsigned bin_y);
-void draw_wait(float time);
 
 void clear_display();
 
-void draw_box(Box box);
+void draw_box(Box box, unsigned offset_x, unsigned offset_y);
 void draw_boxes(list < Box > &packedBoxes, unsigned bin_number);
-
-void draw_space(Space space);
-void draw_spaces(list < Space > &spaces, unsigned bin_number);
  
+bool draw_solution(list < Box >& packed_boxes, vector< list<Space> >& Bins);
 bool draw_bin(list < Box > &packed_boxes, list < Space > &empty_spaces, unsigned bin_number);
-
-void display_space(list < Space > &spaces, list< Space >::iterator start, list< Space >::iterator end);
-void display(list < Box > &packedBoxes, list< Box >::iterator start, list< Box >::iterator end);
- 
-int draw_spaces(list < Space > &spaces, unsigned bin_x, unsigned bin_y);

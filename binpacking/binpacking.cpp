@@ -67,7 +67,7 @@ int main(int argc, char **argv) {
     const double pm = 0.15;   // fraction of population to be replaced by mutants
     const double rhoe = 0.70; // probability that offspring inherit an allele from elite parent
     const unsigned K = 3;     // number of independent populations
-    const unsigned MAXT = 2;  // number of threads for parallel decoding
+    const unsigned MAXT = 3;  // number of threads for parallel decoding
 
     list<ProblemInstance> problemInstances;
     
@@ -167,7 +167,7 @@ int main(int argc, char **argv) {
             cout << "Instance " << problem.relative << " / Absolute " << problem.absolute << endl;
 
 
-            sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyarea);
+            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyarea);
             // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbywidth);
             // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyheight);
 
@@ -180,7 +180,7 @@ int main(int argc, char **argv) {
             unsigned generation = 0;        // current generation
             const unsigned X_INTVL = 15;   // exchange best individuals at every 15 generations
             const unsigned X_NUMBER = 2;    // exchange top 2 best
-            const unsigned MAX_GENS = 200; // run for 200 gens
+            const unsigned MAX_GENS = 1; // run for 200 gens
             cout << "Running for " << MAX_GENS << " generations..." << endl;
             do
             {

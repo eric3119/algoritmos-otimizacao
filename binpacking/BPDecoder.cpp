@@ -164,14 +164,7 @@ vector<unsigned> BPDecoder::placement(list<unsigned> &BPS, vector<unsigned> &emp
 		packedBoxes.push_back(box);
 	}
 
-	if (draw) {
-		cout << "Number of bins " << NB << endl;
-		for (int i = 0; i < Bins.size(); ++i) {
-			if (!draw_bin(packedBoxes, Bins[i], i + 1))
-				break;
-		}
-		finalize_allegro();
-	}
+	if (draw) draw_solution(packedBoxes, Bins);
 
 	return BinLoad;
 }
