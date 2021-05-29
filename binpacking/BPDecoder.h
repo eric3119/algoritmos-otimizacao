@@ -3,6 +3,7 @@
 
 #include <list>
 #include <vector>
+#include <map>
 #include <limits>
 #include <algorithm>
 #include <iostream>
@@ -49,6 +50,8 @@ public:
     double bin_w, bin_h;
 	
     vector< pair<unsigned, unsigned> > boxes;
+
+    map<std::string, double> m;
 
 	BPDecoder();  // Constructor
 	~BPDecoder(); // Destructor
