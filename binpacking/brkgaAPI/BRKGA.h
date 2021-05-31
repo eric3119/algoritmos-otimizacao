@@ -144,6 +144,8 @@ public:
 	unsigned getP() const;
 	unsigned getPe() const;
 	unsigned getPm() const;
+	void setPe(double val);
+	void setPm(double val);
 	unsigned getPo() const;
 	double getRhoe() const;
 	unsigned getK() const;
@@ -154,8 +156,8 @@ private:
 	// Hyperparameters:
 	const unsigned n;	// number of genes in the chromosome
 	const unsigned p;	// number of elements in the population
-	const unsigned pe;	// number of elite items in the population
-	const unsigned pm;	// number of mutants introduced at each generation into the population
+	unsigned pe;	// number of elite items in the population
+	unsigned pm;	// number of mutants introduced at each generation into the population
 	const double rhoe;	// probability that an offspring inherits the allele of its elite parent
 
 	// Templates:
@@ -365,6 +367,12 @@ unsigned BRKGA<Decoder, RNG>::getPe() const { return pe; }
 
 template< class Decoder, class RNG >
 unsigned BRKGA<Decoder, RNG>::getPm() const { return pm; }
+
+template<class Decoder, class RNG>
+inline void BRKGA<Decoder, RNG>::setPe(double val) { pe = unsigned(val * p); }
+
+template<class Decoder, class RNG>
+inline void BRKGA<Decoder, RNG>::setPm(double val) { pm = unsigned(val * p); }
 
 template< class Decoder, class RNG >
 unsigned BRKGA<Decoder, RNG>::getPo() const { return p - pe - pm; }

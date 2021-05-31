@@ -44,6 +44,9 @@
     <ClInclude Include="brkgaapi\Population.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MetaGA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

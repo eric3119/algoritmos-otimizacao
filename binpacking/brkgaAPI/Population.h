@@ -55,6 +55,9 @@ class Population {
 	template< class Decoder, class RNG >
 	friend class BRKGA;
 
+	template< class BRKGA, class RNG >
+	friend class MetaGA;
+
 public:
 	unsigned getN() const;	// Size of each chromosome
 	unsigned getP() const;	// Size of population

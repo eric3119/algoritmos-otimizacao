@@ -51,8 +51,6 @@ public:
 	
     vector< pair<unsigned, unsigned> > boxes;
 
-    map<std::string, double> m;
-
 	BPDecoder();  // Constructor
 	~BPDecoder(); // Destructor
 

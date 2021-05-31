@@ -1,270 +1,423 @@
-
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 1 / Absolute 451
 Running for 200 generations...
 Best solution found has objective value = 6.7395
 Best packing sequence 5 15 6 13 17 2 8 3 18 9 7 10 4 16 0 19 1 14 12 11 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 2 / Absolute 452
 Running for 200 generations...
 Best solution found has objective value = 3.4808
-Best packing sequence 2 11 5 15 0 8 19 10 1 18 4 14 12 7 16 9 13 3 17 6 
+Best packing sequence 11 18 16 6 2 17 5 15 4 12 0 1 19 13 7 10 9 3 8 14 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 3 / Absolute 453
 Running for 200 generations...
 Best solution found has objective value = 4.793
-Best packing sequence 7 6 2 15 14 12 18 17 3 10 4 1 8 19 13 9 16 0 11 5 
+Best packing sequence 13 18 7 3 6 4 5 0 19 16 12 14 1 9 2 10 17 8 15 11 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 4 / Absolute 454
 Running for 200 generations...
 Best solution found has objective value = 5.1645
 Best packing sequence 19 17 2 7 12 15 5 14 0 10 1 6 4 8 16 11 3 13 18 9 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 5 / Absolute 455
 Running for 200 generations...
 Best solution found has objective value = 4.5677
-Best packing sequence 7 4 1 2 19 15 10 6 13 0 18 8 17 11 16 9 5 12 14 3 
+Best packing sequence 12 15 18 6 7 14 5 2 19 17 1 13 0 8 11 4 16 10 9 3 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 6 / Absolute 456
 Running for 200 generations...
-Best solution found has objective value = 4.237
-Best packing sequence 7 2 3 18 12 1 8 17 9 10 0 4 11 19 6 13 14 5 16 15 
+Best solution found has objective value = 4.2421
+Best packing sequence 8 13 7 11 15 3 19 2 9 12 18 4 16 10 17 14 5 0 6 1 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 7 / Absolute 457
 Running for 200 generations...
 Best solution found has objective value = 5.3384
-Best packing sequence 4 17 12 6 7 16 10 18 0 2 14 8 5 9 15 11 1 13 19 3 
+Best packing sequence 17 14 10 8 5 16 13 12 1 2 0 11 18 7 6 3 9 15 19 4 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 8 / Absolute 458
 Running for 200 generations...
 Best solution found has objective value = 3.2133
-Best packing sequence 8 19 14 2 11 9 1 12 6 7 10 15 5 3 4 17 0 16 18 13 
+Best packing sequence 11 8 14 6 12 16 2 5 17 19 9 3 15 7 4 13 18 10 0 1 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 9 / Absolute 459
 Running for 200 generations...
 Best solution found has objective value = 5.7752
-Best packing sequence 2 3 1 18 19 6 12 9 17 7 16 5 10 13 14 11 0 4 8 15 
+Best packing sequence 9 2 4 17 16 12 5 7 19 18 3 15 11 0 13 14 8 1 10 6 
 
-Class 10 #Itens 20 bin size 100 x 100
+Class 10
+# Itens 20
+bin size 100 x 100
 Instance 10 / Absolute 460
 Running for 200 generations...
-Best solution found has objective value = 3.0881
-Best packing sequence 0 15 19 7 2 16 10 8 6 13 14 18 4 11 17 9 5 1 12 3 
+Best solution found has objective value = 3.1104
+Best packing sequence 16 0 12 8 7 15 10 2 17 18 6 13 9 3 11 1 14 4 5 19 
 
-Z 4.2
-Class mean 4.63975
-Min fitness 3.0881
+# Bins (mean) = 4.2
+Class (mean) = 4.64249
+Best fitness = 3.1104
 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 1 / Absolute 461
 Running for 200 generations...
-Best solution found has objective value = 8.5263
-Best packing sequence 11 5 20 29 6 27 0 30 18 31 22 21 28 25 2 17 24 39 26 19 37 32 23 8 12 34 16 4 15 3 38 14 10 35 1 9 7 33 13 36 
+Best solution found has objective value = 8.6464
+Best packing sequence 26 17 12 30 21 38 39 11 31 24 2 6 8 25 9 28 37 14 27 18 29 5 10 20 32 13 34 33 1 23 15 16 0 36 19 35 3 4 22 7 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 2 / Absolute 462
 Running for 200 generations...
-Best solution found has objective value = 8.1467
-Best packing sequence 39 34 28 29 6 23 1 7 25 31 14 38 5 2 4 22 27 16 33 36 21 12 32 18 11 8 13 3 26 37 15 24 0 10 20 17 35 30 9 19 
+Best solution found has objective value = 8.2303
+Best packing sequence 25 34 5 2 23 7 19 37 38 16 14 28 6 9 24 15 22 29 36 8 4 21 10 30 35 1 27 32 33 0 3 26 20 12 11 18 39 17 31 13 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 3 / Absolute 463
 Running for 200 generations...
-Best solution found has objective value = 9.6261
-Best packing sequence 11 30 36 3 35 1 38 19 4 27 21 39 16 25 34 28 18 7 10 0 22 33 14 6 8 2 37 12 24 9 5 31 32 23 17 15 26 13 29 20 
+Best solution found has objective value = 9.6688
+Best packing sequence 3 19 35 0 4 36 29 1 11 20 28 25 5 12 24 22 38 30 14 26 7 33 39 8 23 13 34 18 10 17 27 21 37 16 9 32 15 2 31 6 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 4 / Absolute 464
 Running for 200 generations...
-Best solution found has objective value = 6.6964
-Best packing sequence 11 32 14 34 7 13 36 3 23 29 30 35 33 25 18 0 37 24 2 4 38 22 9 19 6 21 17 26 28 39 10 31 27 5 15 12 16 8 20 1 
+Best solution found has objective value = 6.7601
+Best packing sequence 32 21 13 34 9 7 19 25 29 28 4 2 23 33 38 0 14 27 18 17 3 36 35 26 15 6 24 16 11 30 1 39 22 37 12 31 8 5 10 20 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 5 / Absolute 465
 Running for 200 generations...
-Best solution found has objective value = 6.3293
-Best packing sequence 30 15 39 38 19 7 31 0 14 22 26 25 2 8 36 12 11 24 13 6 9 4 23 21 20 27 32 34 17 18 28 37 10 29 1 3 33 16 5 35 
+Best solution found has objective value = 6.3891
+Best packing sequence 38 30 24 26 22 25 34 7 17 39 15 21 12 28 11 29 37 13 19 33 4 2 20 8 31 0 27 18 23 36 5 10 35 1 16 9 32 6 3 14 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 6 / Absolute 466
 Running for 200 generations...
-Best solution found has objective value = 6.1821
-Best packing sequence 28 8 13 37 7 27 21 39 35 22 14 15 9 33 12 31 25 34 26 32 3 6 18 16 10 1 0 23 5 20 24 38 30 29 2 19 11 17 4 36 
+Best solution found has objective value = 6.2424
+Best packing sequence 28 7 8 31 16 2 37 1 20 29 23 32 10 33 24 13 34 22 39 36 9 15 4 17 14 6 27 26 18 3 19 11 0 5 12 38 35 21 25 30 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 7 / Absolute 467
 Running for 200 generations...
-Best solution found has objective value = 7.516
-Best packing sequence 29 18 10 8 16 27 14 23 0 26 15 19 34 9 35 13 5 11 2 25 28 33 38 17 31 1 37 21 4 30 22 12 32 36 6 3 39 24 7 20 
+Best solution found has objective value = 7.5317
+Best packing sequence 2 5 39 38 6 27 23 9 18 24 12 25 35 26 33 0 13 7 20 21 14 32 29 36 22 1 8 16 11 34 19 3 4 31 10 15 37 30 17 28 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 8 / Absolute 468
 Running for 200 generations...
-Best solution found has objective value = 7.4894
-Best packing sequence 7 36 8 9 22 25 29 14 4 15 0 34 20 39 3 1 10 16 6 11 21 17 28 37 26 27 31 2 5 38 35 13 32 30 33 12 18 23 19 24 
+Best solution found has objective value = 7.5264
+Best packing sequence 7 8 20 1 9 34 22 21 29 10 3 4 39 17 30 26 0 28 2 16 36 15 14 6 27 13 5 12 37 38 33 24 31 25 23 18 35 11 32 19 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 9 / Absolute 469
 Running for 200 generations...
-Best solution found has objective value = 8.351
-Best packing sequence 18 10 5 23 2 9 34 36 38 13 37 16 19 26 33 24 1 35 7 4 0 11 12 32 3 20 22 28 27 30 21 25 17 29 6 39 15 31 14 8 
+Best solution found has objective value = 8.3777
+Best packing sequence 31 26 23 2 25 19 29 10 13 17 8 16 33 6 1 27 36 21 4 18 15 5 38 28 34 12 14 11 24 35 37 32 9 0 7 22 20 3 30 39 
 
-Class 10 #Itens 40 bin size 100 x 100
+Class 10
+# Itens 40
+bin size 100 x 100
 Instance 10 / Absolute 470
 Running for 200 generations...
 Best solution found has objective value = 9.2
-Best packing sequence 3 8 38 18 28 2 19 34 36 15 1 20 35 24 30 31 21 23 17 11 22 10 7 37 14 26 5 4 29 32 13 0 27 6 39 25 12 9 16 33 
+Best packing sequence 2 31 9 7 18 28 3 24 22 16 5 39 30 36 1 23 15 34 10 32 19 38 6 11 12 37 26 17 27 25 0 29 14 13 21 35 20 33 4 8 
 
-Z 7.4
-Class mean 7.80633
-Min fitness 6.1821
+# Bins (mean) = 7.4
+Class (mean) = 7.85729
+Best fitness = 6.2424
 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 1 / Absolute 471
 Running for 200 generations...
-Best solution found has objective value = 11.8633
-Best packing sequence 23 6 26 14 19 58 59 35 18 7 57 13 39 2 17 50 25 15 3 20 52 28 51 27 55 12 16 22 54 46 4 21 0 5 42 38 30 45 53 36 47 49 31 34 43 29 24 1 9 44 10 41 37 8 40 56 11 33 32 48 
+Best solution found has objective value = 12.0532
+Best packing sequence 21 25 46 19 52 57 0 59 2 22 7 32 13 11 3 28 55 49 14 16 39 12 26 45 18 54 23 38 27 58 43 35 4 36 30 50 1 5 34 47 44 6 40 37 9 15 10 17 29 42 31 20 33 51 41 48 53 8 24 56 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 2 / Absolute 472
 Running for 200 generations...
-Best solution found has objective value = 12.6688
-Best packing sequence 23 56 27 35 6 11 42 52 13 53 21 55 36 3 5 31 45 47 34 22 20 49 50 44 48 37 41 0 4 38 16 7 29 46 43 19 26 40 58 57 1 54 59 28 2 33 12 32 39 24 18 30 25 8 17 51 15 14 9 10 
+Best solution found has objective value = 13.0496
+Best packing sequence 30 11 25 49 35 20 7 42 29 9 2 28 36 8 43 24 59 27 46 3 12 57 23 52 55 56 10 53 34 19 6 47 31 39 44 21 41 5 58 33 38 4 48 54 14 17 15 37 40 22 1 13 0 18 32 51 45 26 50 16 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 3 / Absolute 473
 Running for 200 generations...
-Best solution found has objective value = 11.812
-Best packing sequence 12 53 18 23 26 32 6 48 46 58 16 30 2 55 17 29 25 19 40 24 28 34 36 11 49 20 1 27 39 50 47 3 52 44 10 21 31 35 59 5 45 37 7 54 13 14 56 15 43 51 22 42 9 38 4 41 57 33 8 0 
+Best solution found has objective value = 12.1175
+Best packing sequence 1 59 12 46 58 52 10 30 2 48 7 11 26 40 53 25 18 17 24 29 5 27 47 19 3 28 4 16 0 56 13 32 34 43 8 23 35 14 50 21 54 31 20 49 51 22 55 39 45 41 9 6 57 37 44 15 36 33 38 42 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 4 / Absolute 474
 Running for 200 generations...
-Best solution found has objective value = 8.1215
-Best packing sequence 8 28 37 54 15 49 6 50 25 48 0 47 36 20 41 31 10 7 44 32 34 33 14 13 16 52 27 11 59 18 53 23 43 24 9 26 3 38 22 17 56 4 19 39 51 21 58 42 1 40 2 55 46 12 57 35 30 5 45 29 
+Best solution found has objective value = 8.2361
+Best packing sequence 15 8 37 50 28 43 31 48 14 27 54 49 46 47 57 52 3 18 56 22 11 7 13 10 29 12 2 4 9 35 34 20 36 55 45 40 32 24 33 41 23 6 1 42 51 39 16 26 0 53 38 59 21 30 5 58 17 25 44 19 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 5 / Absolute 475
 Running for 200 generations...
-Best solution found has objective value = 8.4163
-Best packing sequence 54 5 24 53 7 15 35 27 32 33 57 18 59 3 25 6 51 0 46 2 19 20 9 21 44 4 40 43 14 34 47 37 26 12 55 23 50 13 48 39 31 38 22 36 56 52 16 17 42 1 11 10 28 41 8 30 29 49 58 45 
+Best solution found has objective value = 8.4855
+Best packing sequence 24 5 54 21 44 33 25 27 51 55 46 29 59 9 19 11 42 2 8 57 40 4 43 31 12 7 35 17 15 34 38 28 36 18 39 26 1 22 10 14 0 47 3 49 16 32 53 6 20 48 50 58 13 41 37 56 45 30 52 23 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 6 / Absolute 476
 Running for 200 generations...
-Best solution found has objective value = 13.4219
-Best packing sequence 57 49 2 48 26 52 1 44 33 51 20 58 23 5 3 13 7 47 11 50 45 38 18 39 10 22 37 56 21 42 16 35 0 8 54 55 32 53 24 6 34 9 59 28 43 15 31 12 17 4 36 25 40 30 29 19 27 14 46 41 
+Best solution found has objective value = 13.4461
+Best packing sequence 40 18 57 51 41 5 10 7 52 6 34 44 11 38 53 49 9 26 59 14 8 58 32 20 33 48 12 0 16 3 21 56 35 36 55 22 54 17 46 24 31 2 13 23 39 19 37 42 15 50 43 25 1 45 30 4 47 28 27 29 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 7 / Absolute 477
 Running for 200 generations...
-Best solution found has objective value = 10.3109
-Best packing sequence 18 26 3 29 59 9 45 57 15 38 16 34 4 33 6 42 36 54 28 25 14 55 37 11 51 43 41 10 17 49 2 24 30 40 7 5 46 23 27 39 58 53 47 21 32 44 20 1 0 50 35 8 31 56 13 22 12 48 52 19 
+Best solution found has objective value = 10.4523
+Best packing sequence 9 52 44 18 3 19 36 58 33 53 29 51 54 59 14 41 10 6 57 28 26 47 2 30 4 48 20 45 34 55 31 21 15 1 37 12 39 11 27 50 16 0 40 17 49 8 56 13 35 43 5 42 23 46 38 7 24 32 22 25 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 8 / Absolute 478
 Running for 200 generations...
-Best solution found has objective value = 10.5311
-Best packing sequence 22 16 7 56 43 14 59 17 50 18 36 20 49 32 2 57 26 21 51 38 30 55 29 15 39 24 34 9 12 41 23 19 25 58 28 44 5 54 27 45 10 33 37 6 42 13 46 1 0 31 53 40 3 4 48 8 47 11 52 35 
+Best solution found has objective value = 10.6639
+Best packing sequence 22 17 12 8 15 18 16 32 46 55 34 10 30 6 3 20 52 38 59 1 39 27 56 21 43 33 24 53 5 9 48 50 51 23 29 19 26 45 57 58 36 37 40 54 35 14 28 42 2 44 25 7 31 11 47 13 41 49 4 0 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 9 / Absolute 479
 Running for 200 generations...
-Best solution found has objective value = 9.1825
-Best packing sequence 11 10 57 31 43 44 13 39 3 45 14 20 7 48 53 9 21 34 51 4 30 25 27 38 46 0 52 19 23 5 55 22 18 35 8 29 33 37 58 32 6 59 16 15 50 36 42 49 2 12 1 28 54 47 24 26 41 40 56 17 
+Best solution found has objective value = 9.3349
+Best packing sequence 7 34 9 44 10 33 21 31 20 14 12 27 52 48 43 4 39 46 22 15 57 37 0 59 11 56 2 3 41 1 8 28 38 24 26 25 42 18 29 58 32 51 36 53 49 50 19 45 55 40 13 30 17 5 35 16 23 47 54 6 
 
-Class 10 #Itens 60 bin size 100 x 100
+Class 10
+# Itens 60
+bin size 100 x 100
 Instance 10 / Absolute 480
 Running for 200 generations...
-Best solution found has objective value = 8.5654
-Best packing sequence 39 11 54 51 25 29 13 4 2 1 9 41 50 48 59 31 53 43 0 33 12 7 44 56 14 3 19 16 5 30 45 36 34 22 40 42 10 26 35 15 47 18 17 38 23 21 58 46 6 28 24 49 32 8 37 27 20 55 57 52 
+Best solution found has objective value = 8.6909
+Best packing sequence 1 25 0 45 39 9 14 12 34 46 50 7 54 44 31 13 56 27 3 33 49 2 11 51 4 6 16 59 43 15 17 53 19 23 10 41 47 40 42 48 18 5 55 26 29 58 52 35 32 20 37 21 30 22 38 36 57 8 28 24 
 
-Z 10
-Class mean 10.4894
-Min fitness 8.1215
+# Bins (mean) = 10.3
+Class (mean) = 10.653
+Best fitness = 8.2361
 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 1 / Absolute 481
 Running for 200 generations...
-Best solution found has objective value = 13.2281
-Best packing sequence 12 65 79 38 6 69 2 22 45 28 7 39 1 43 46 73 5 10 40 29 51 30 58 54 33 17 34 25 44 48 18 75 21 36 23 64 50 67 61 71 47 26 14 52 68 63 11 70 55 13 27 16 57 4 49 41 66 59 8 77 60 56 72 78 24 62 74 53 37 20 9 19 32 76 42 31 15 0 3 35 
+Best solution found has objective value = 13.4092
+Best packing sequence 6 69 68 72 38 16 70 45 12 27 34 41 63 59 7 43 60 58 76 22 15 5 24 46 18 9 28 44 71 54 14 74 25 10 73 29 66 75 0 33 23 17 4 39 53 2 62 67 65 57 47 31 55 50 36 79 20 1 26 61 56 13 37 19 3 11 48 32 40 64 78 8 30 51 35 49 52 77 21 42 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 2 / Absolute 482
 Running for 200 generations...
-Best solution found has objective value = 11.1161
-Best packing sequence 23 61 58 43 50 14 29 32 79 59 63 65 62 40 36 52 38 46 33 17 3 13 7 78 35 56 9 48 8 25 16 41 11 1 66 70 76 73 42 20 21 18 2 39 47 71 4 22 24 19 34 64 26 60 49 55 0 6 28 5 53 15 10 37 67 30 75 45 27 44 31 74 54 51 68 69 72 77 12 57 
+Best solution found has objective value = 11.2737
+Best packing sequence 23 75 32 61 62 14 1 21 2 69 63 58 60 73 52 40 29 9 33 25 70 79 46 5 18 57 19 11 3 41 7 36 17 22 56 38 59 39 50 35 4 43 78 13 24 53 44 15 64 76 27 37 77 51 31 8 72 26 42 65 66 10 0 54 68 71 30 45 55 47 12 67 34 28 74 20 16 6 49 48 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 3 / Absolute 483
 Running for 200 generations...
-Best solution found has objective value = 11.3639
-Best packing sequence 37 31 47 72 6 0 34 23 70 28 8 1 9 62 73 44 54 60 53 63 48 26 74 27 77 68 7 13 21 50 71 10 15 36 65 52 22 32 78 66 3 43 75 33 45 64 14 41 49 38 39 2 4 18 5 16 24 55 61 29 11 42 56 30 20 51 46 40 25 76 69 58 67 12 17 19 59 35 57 79 
+Best solution found has objective value = 11.5894
+Best packing sequence 72 37 8 27 76 53 3 62 28 2 31 42 43 0 7 13 79 49 74 15 56 64 63 61 66 36 41 48 6 9 68 1 60 54 57 34 69 29 35 67 65 52 24 70 11 78 71 51 23 73 32 59 33 19 55 77 38 75 5 46 58 21 20 50 22 39 17 4 25 44 18 16 47 12 26 10 14 45 40 30 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 4 / Absolute 484
 Running for 200 generations...
-Best solution found has objective value = 14.4679
-Best packing sequence 7 79 1 16 70 48 77 72 39 30 17 57 53 31 73 38 74 78 69 49 56 8 36 40 0 68 28 60 43 50 34 21 3 20 46 51 15 55 44 62 10 52 12 22 58 63 47 66 29 6 9 45 11 26 18 64 5 32 27 54 41 13 35 71 67 14 2 19 24 4 37 33 75 76 25 65 59 23 42 61 
+Best solution found has objective value = 14.7282
+Best packing sequence 1 53 7 5 75 15 61 66 20 9 51 60 30 38 39 48 36 22 0 23 12 55 45 56 72 16 73 17 34 46 70 63 52 65 67 58 40 13 78 4 43 49 33 14 57 76 77 50 79 25 8 41 28 69 35 47 27 24 11 59 3 21 42 64 19 44 6 54 26 71 68 29 74 37 32 18 2 10 31 62 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 5 / Absolute 485
 Running for 200 generations...
-Best solution found has objective value = 14.3751
-Best packing sequence 71 39 42 7 30 63 3 6 18 53 64 55 26 33 52 70 13 49 51 76 57 16 36 14 56 50 9 27 60 2 19 41 38 15 37 66 48 45 34 67 46 65 78 21 24 17 40 4 1 72 47 35 31 54 69 20 62 73 23 44 5 0 12 68 79 28 32 61 11 25 43 29 75 8 59 77 58 74 10 22 
+Best solution found has objective value = 14.637
+Best packing sequence 39 7 25 3 66 9 42 21 71 52 63 48 47 6 15 28 14 56 40 51 65 36 43 55 68 2 23 78 22 8 77 38 76 18 33 16 69 74 50 73 49 70 31 4 75 5 53 19 27 67 30 45 41 13 62 64 44 46 35 54 26 10 17 34 24 61 37 60 72 12 58 79 1 0 20 11 59 29 32 57 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 6 / Absolute 486
 Running for 200 generations...
-Best solution found has objective value = 13.7716
-Best packing sequence 22 56 71 51 17 60 16 31 44 50 3 59 53 43 57 55 77 79 32 58 37 12 65 20 54 2 49 46 15 1 66 73 62 78 21 38 24 40 14 74 42 70 34 9 67 7 25 23 26 48 5 75 8 6 33 30 76 29 13 72 18 68 10 47 19 52 0 61 45 69 28 27 41 36 4 64 63 11 35 39 
+Best solution found has objective value = 14.1035
+Best packing sequence 28 22 44 10 66 34 42 17 76 56 50 55 32 70 7 60 8 71 48 31 24 58 18 15 46 16 20 51 33 5 3 57 11 35 21 12 65 77 25 2 43 69 37 59 29 4 27 64 40 47 72 6 13 75 74 68 41 78 39 62 53 79 23 52 73 26 67 19 1 54 45 36 9 38 30 61 14 63 0 49 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 7 / Absolute 487
 Running for 200 generations...
-Best solution found has objective value = 14.8552
-Best packing sequence 14 59 2 75 78 7 15 40 44 74 1 72 51 31 34 16 5 71 62 68 52 3 30 56 37 58 23 41 65 53 54 19 33 42 8 13 49 11 4 25 10 27 76 38 9 12 66 47 18 39 6 21 48 55 61 28 60 0 32 26 29 67 50 77 17 24 79 73 46 69 43 64 70 35 36 45 20 63 22 57 
+Best solution found has objective value = 15.048
+Best packing sequence 59 5 78 75 54 14 60 72 58 19 55 44 42 70 23 30 68 67 2 1 51 71 57 7 34 33 62 37 48 52 74 27 38 47 66 76 43 65 56 61 73 39 31 10 18 8 32 35 77 4 49 41 79 20 24 64 36 11 17 53 9 15 25 45 3 6 63 21 50 22 28 69 40 0 29 13 16 26 12 46 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 8 / Absolute 488
 Running for 200 generations...
-Best solution found has objective value = 10.6365
-Best packing sequence 23 0 72 6 71 18 22 40 1 30 41 28 29 48 58 79 66 25 68 78 67 50 51 36 8 2 73 13 60 65 76 14 62 55 47 43 34 37 5 63 38 53 7 77 49 46 64 26 17 21 54 33 69 52 31 16 3 42 4 75 35 70 61 24 20 57 10 15 44 59 56 11 45 32 74 27 12 19 39 9 
+Best solution found has objective value = 10.867
+Best packing sequence 40 7 5 8 63 62 4 75 57 79 67 53 23 30 19 0 66 71 15 36 76 68 31 27 50 58 69 47 41 29 24 39 9 73 37 78 25 34 45 17 65 60 2 28 3 43 1 10 6 26 77 72 16 13 49 46 33 38 35 12 22 55 20 44 18 11 74 21 56 48 14 59 64 42 61 52 32 54 51 70 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 9 / Absolute 489
 Running for 200 generations...
-Best solution found has objective value = 13.074
-Best packing sequence 45 32 68 72 79 44 78 14 2 38 22 67 54 25 64 10 51 43 15 36 24 65 77 56 35 42 71 62 74 49 55 37 3 46 29 66 21 13 39 28 61 63 70 17 23 12 34 41 40 5 33 59 20 1 69 6 27 53 50 26 0 16 47 31 48 8 76 30 4 57 9 58 11 52 7 18 73 60 19 75 
+Best solution found has objective value = 13.2161
+Best packing sequence 67 64 79 5 72 25 36 55 38 34 56 2 41 16 15 17 4 58 26 12 9 63 35 54 45 49 76 65 48 13 70 32 29 46 47 68 71 77 7 11 51 44 66 53 8 23 18 10 30 61 24 21 43 74 27 78 62 6 42 14 69 3 22 60 40 0 19 37 73 52 28 50 20 31 59 1 75 33 57 39 
 
-Class 10 #Itens 80 bin size 100 x 100
+Class 10
+# Itens 80
+bin size 100 x 100
 Instance 10 / Absolute 490
 Running for 200 generations...
-Best solution found has objective value = 15.139
-Best packing sequence 9 13 43 52 76 34 42 8 66 14 7 11 20 33 38 17 74 32 40 29 10 45 4 44 19 1 64 55 48 60 79 47 31 41 36 0 73 65 21 61 53 54 70 16 69 35 3 49 57 51 22 75 37 46 28 59 56 6 23 5 26 63 25 18 39 62 2 58 71 15 77 24 12 78 72 50 27 68 67 30 
+Best solution found has objective value = 15.3105
+Best packing sequence 55 43 4 66 32 61 1 49 20 40 34 13 19 28 31 45 74 52 18 64 16 38 41 76 51 63 26 5 35 44 7 21 65 79 71 39 8 23 73 58 47 53 6 42 9 33 11 30 15 36 56 78 37 60 17 25 68 10 0 70 57 48 54 12 69 77 50 14 29 3 27 75 62 24 72 67 2 46 22 59 
 
-Z 12.8
-Class mean 13.2027
-Min fitness 10.6365
+# Bins (mean) = 13
+Class (mean) = 13.4183
+Best fitness = 10.867
 
 
-Class 10 #Itens 100 bin size 100 x 100
+Class 10
+# Itens 100
+bin size 100 x 100
 Instance 1 / Absolute 491
 Running for 200 generations...
-Best solution found has objective value = 15.014
-Best packing sequence 6 7 62 87 37 91 95 50 34 71 73 79 52 93 55 57 15 59 25 0 18 31 30 77 48 38 66 70 41 42 75 80 26 78 76 65 83 67 97 35 23 27 36 3 24 99 82 53 69 44 98 8 86 13 89 92 85 39 22 90 96 14 54 56 1 10 20 72 45 2 12 64 4 58 49 21 32 28 60 46 88 19 33 47 17 63 43 11 81 16 9 84 61 94 68 40 74 29 51 5 
+Best solution found has objective value = 15.3185
+Best packing sequence 48 52 18 70 30 45 40 26 51 25 99 76 90 3 81 6 7 13 54 38 53 44 31 36 50 93 86 82 80 27 5 97 19 77 98 66 37 23 62 75 69 83 20 95 49 73 46 91 8 24 17 4 71 92 35 34 16 61 15 57 58 63 0 85 78 39 88 11 42 59 14 33 55 72 65 22 84 12 29 96 10 32 1 28 21 60 2 68 9 41 79 43 87 47 67 89 74 56 94 64 
 
-Class 10 #Itens 100 bin size 100 x 100
+Class 10
+# Itens 100
+bin size 100 x 100
 Instance 2 / Absolute 492
 Running for 200 generations...
+Best solution found has objective value = 16.3859
+Best packing sequence 16 30 44 73 15 26 91 8 70 59 38 76 93 54 83 85 22 66 65 90 69 80 84 49 52 42 72 82 6 56 71 29 63 37 39 46 98 78 86 7 28 88 77 11 21 40 14 61 97 18 31 27 25 55 50 19 0 23 9 89 99 2 35 33 92 51 41 58 60 48 45 87 12 5 75 34 64 95 81 13 96 67 32 57 10 20 79 47 24 4 74 62 1 68 3 53 36 17 94 43 
+
+Class 10
+# Itens 100
+bin size 100 x 100
+Instance 3 / Absolute 493
+Running for 200 generations...
+Best solution found has objective value = 16.6165
+Best packing sequence 80 15 99 83 54 5 69 97 27 44 24 59 63 81 73 90 33 76 61 25 17 3 6 8 53 0 42 77 75 37 60 12 19 94 20 66 52 71 31 79 9 43 35 2 7 51 57 10 64 14 88 87 78 29 47 18 93 82 58 34 4 22 36 23 74 65 26 72 67 48 41 85 70 86 55 11 92 28 98 89 16 45 1 39 91 13 96 21 95 40 50 56 38 62 84 49 30 46 32 68 
+
+Class 10
+# Itens 100
+bin size 100 x 100
+Instance 4 / Absolute 494
+Running for 200 generations...
+Best solution found has objective value = 18.2296
+Best packing sequence 16 7 89 87 84 35 3 39 34 5 71 42 67 51 4 44 56 14 28 78 65 98 76 73 30 18 49 13 24 85 6 43 21 57 20 60 40 97 50 52 58 81 66 33 36 86 48 82 92 55 15 2 75 93 91 99 64 72 9 11 47 83 32 80 95 37 38 77 53 61 63 79 45 62 70 29 68 74 17 88 22 25 41 94 54 0 1 19 23 31 69 8 10 96 27 12 26 46 90 59 
+
+Class 10
+# Itens 100
+bin size 100 x 100
+Instance 5 / Absolute 495
+Running for 200 generations...
+Best solution found has objective value = 18.6095
+Best packing sequence 87 16 76 92 23 45 6 4 40 90 50 7 34 57 67 5 29 84 19 32 3 14 64 53 22 82 58 18 0 17 66 26 56 55 24 47 89 54 59 36 99 31 46 51 94 79 41 8 65 43 10 9 93 74 35 30 12 71 78 20 33 27 69 95 63 97 25 52 60 80 39 48 42 1 91 77 88 81 68 44 86 13 38 37 15 70 62 73 83 72 75 11 85 28 21 98 2 96 49 61 
+
+Class 10
+# Itens 100
+bin size 100 x 100
+Instance 6 / Absolute 496
+Running for 200 generations...
+Best solution found has objective value = 13.7805
+Best packing sequence 39 81 48 45 98 72 91 25 29 61 82 3 4 97 1 11 79 12 33 32 63 55 10 21 13 74 88 44 54 80 86 22 67 42 14 59 24 85 31 57 43 52 87 20 36 18 23 64 17 19 77 2 78 96 99 94 90 7 40 53 26 41 73 16 60 47 56 35 92 84 69 30 93 65 15 0 38 8 70 50 51 75 68 9 27 58 71 37 95 5 66 89 34 83 6 28 46 76 49 62 
+
+Class 10
+# Itens 100
+bin size 100 x 100
+Instance 7 / Absolute 497
+Running for 200 generations...
+Best solution found has objective value = 14.4846
+Best packing sequence 19 81 22 26 34 80 21 90 58 67 53 76 65 30 12 49 74 24 93 84 91 85 35 99 31 78 33 36 17 5 94 18 54 40 39 70 61 42 1 75 63 10 79 62 14 0 88 27 2 43 28 68 50 15 6 72 45 8 29 77 55 89 41 86 59 57 46 7 83 23 98 73 66 47 48 44 11 56 37 32 4 60 20 95 69 9 92 97 82 96 51 87 52 64 3 13 16 38 25 71 
+
+Class 10
+# Itens 100
+bin size 100 x 100
+Instance 8 / Absolute 498
+Running for 200 generations...
+Best solution found has objective value = 18.8829
+Best packing sequence 75 13 84 19 88 38 64 83 0 20 70 49 79 44 52 14 8 47 7 62 89 35 43 11 32 10 45 42 1 33 66 37 16 99 82 91 41 60 27 46 54 81 40 4 76 55 92 5 96 9 31 85 68 28 21 51 61 95 73 3 18 86 78 57 2 94 17 36 26 69 34 53 58 87 50 24 29 59 23 71 6 56 98 74 72 65 15 25 97 22 63 80 77 67 39 30 12 93 90 48 
+
+Class 10
+# Itens 100
+bin size 100 x 100
+Instance 9 / Absolute 499
+Running for 200 generations...
+Best solution found has objective value = 17.0792
+Best packing sequence 75 34 90 99 16 18 83 42 40 20 86 8 54 77 13 49 64 10 37 52 84 0 45 58 96 70 41 92 35 3 95 63 1 21 69 80 15 61 4 5 94 9 53 79 93 46 56 82 14 81 55 28 66 11 60 88 23 59 27 89 65 48 29 26 2 7 97 50 74 98 76 62 87 44 39 19 12 57 24 43 32 85 36 78 31 25 30 91 22 73 71 6 47 68 38 17 67 51 72 33 
+
+Class 10
+# Itens 100
+bin size 100 x 100
+Instance 10 / Absolute 500
+Running for 200 generations...
+Best solution found has objective value = 16.1761
+Best packing sequence 53 84 41 77 78 40 19 63 36 92 73 85 74 60 99 11 89 14 10 82 15 66 42 31 32 65 58 1 6 76 7 87 28 22 86 79 46 45 20 3 0 97 49 12 27 55 5 90 98 9 51 62 61 21 8 59 50 23 29 91 24 34 47 70 83 95 54 17 94 13 26 96 44 71 30 69 75 57 33 37 64 72 18 4 81 56 67 2 35 25 38 43 93 88 80 52 39 48 68 16 
+
+# Bins (mean) = 16.1
+Class (mean) = 16.5563
+Best fitness = 13.7805

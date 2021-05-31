@@ -186,6 +186,7 @@ void BPDecoder::setDraw(bool value) {
 	draw = value;
 }
 
+
 list<unsigned> BPDecoder::make_permutation(const vector<double>& chromosome) const {
 	typedef pair<double, unsigned> ValueKeyPair;
 	vector<ValueKeyPair> rank(chromosome.size() / 2);
@@ -226,22 +227,8 @@ double BPDecoder::decode(const vector<double> &chromosome) const{
 	list<unsigned> permutation = make_permutation(chromosome);
 	vector<unsigned> empate = make_empate(chromosome);
 
-    string key = "";
-    for(auto &i: permutation){
-    	key += to_string(i);
-    }
-    for(auto &i: empate){
-    	key += to_string(i);
-    }
-
-    if (m.contains(key)) return m[key];
-
-	if (draw) {
-		if (!start_allegro(this->bin_w, this->bin_h)) {
-			std::cout << "ERROR: start allegro\n";
-		}
+	if (draw && !start_allegro(this->bin_w, this->bin_h)) {
+		std::cout << "ERROR: start allegro\n";
 	}
-    m[key] = fitness(permutation, empate);
-	
-	return m[key];
+	return fitness(permutation, empate);
 }
