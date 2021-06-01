@@ -79,6 +79,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
     <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <Linkage-jsoncpp>
+    </Linkage-jsoncpp>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -97,7 +99,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
@@ -118,6 +120,9 @@
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="binpacking.cpp" />
@@ -134,6 +139,7 @@
     <ClInclude Include="MetaGA.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="config.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
@@ -141,6 +147,7 @@
     <Import Project="packages\AllegroDeps.1.12.0\build\native\AllegroDeps.targets" Condition="Exists('packages\AllegroDeps.1.12.0\build\native\AllegroDeps.targets')" />
     <Import Project="packages\Allegro.5.2.7\build\native\Allegro.targets" Condition="Exists('packages\Allegro.5.2.7\build\native\Allegro.targets')" />
     <Import Project="packages\matplotlib-cpp.1.1.0.92\build\native\matplotlib-cpp.targets" Condition="Exists('packages\matplotlib-cpp.1.1.0.92\build\native\matplotlib-cpp.targets')" />
+    <Import Project="packages\jsoncpp-vc140-static-32_64.1.8.0\build\native\jsoncpp-vc140-static-32_64.targets" Condition="Exists('packages\jsoncpp-vc140-static-32_64.1.8.0\build\native\jsoncpp-vc140-static-32_64.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -149,5 +156,6 @@
     <Error Condition="!Exists('packages\AllegroDeps.1.12.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\AllegroDeps.1.12.0\build\native\AllegroDeps.targets'))" />
     <Error Condition="!Exists('packages\Allegro.5.2.7\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Allegro.5.2.7\build\native\Allegro.targets'))" />
     <Error Condition="!Exists('packages\matplotlib-cpp.1.1.0.92\build\native\matplotlib-cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\matplotlib-cpp.1.1.0.92\build\native\matplotlib-cpp.targets'))" />
+    <Error Condition="!Exists('packages\jsoncpp-vc140-static-32_64.1.8.0\build\native\jsoncpp-vc140-static-32_64.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\jsoncpp-vc140-static-32_64.1.8.0\build\native\jsoncpp-vc140-static-32_64.targets'))" />
   </Target>
 </Project>

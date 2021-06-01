@@ -6,6 +6,7 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <json/json.h>
 #include "MetaGA.h"
 #include "brkgaAPI/BRKGA.h"
 #include "brkgaAPI/MTRand.h"
@@ -120,13 +121,38 @@ list<ProblemInstance> loadProblemInstances(const char *path) {
 }
 
 int main_ag(int argc, char** argv) {
-    unsigned n;               // size of chromosomes
-    unsigned p;               // size of population
-    const double pe = 0.15;   // fraction of population to be the elite-set
-    const double pm = 0.25;   // fraction of population to be replaced by mutants
-    const double rhoe = 0.70; // probability that offspring inherit an allele from elite parent
-    const unsigned K = 4;     // number of independent populations
-    const unsigned MAXT = 4;  // number of threads for parallel decoding
+    unsigned n;     // size of chromosomes
+    unsigned p;     // size of population
+    double pe;      // fraction of population to be the elite-set
+    double pm;      // fraction of population to be replaced by mutants
+    double rhoe;    // probability that offspring inherit an allele from elite parent
+    unsigned K;     // number of independent populations
+    unsigned MAXT;  // number of threads for parallel decoding
+
+    unsigned MAX_GENS;
+    
+    ifstream config("config.json", std::ifstream::binary);
+
+    if (config.is_open()) {
+        Json::Reader reader;
+        Json::Value root;
+        reader.parse(config, root);
+
+        pe = root["pe"].asDouble();
+        pm = root["pm"].asDouble();
+        rhoe = root[""].asDouble();
+        K = root["K"].asUInt();
+        MAXT = root["MAXT"].asUInt();
+        MAX_GENS = root["MAX_GENS"].asUInt();
+    }
+    else {
+        pe = 0.15;
+        pm = 0.25;
+        rhoe = 0.70;
+        K = 4;
+        MAXT = 4;
+        MAX_GENS = 200;
+    }
 
     list<ProblemInstance> problemInstances;
 
@@ -212,7 +238,7 @@ int main_ag(int argc, char** argv) {
             unsigned generation = 0;        // current generation
             const unsigned X_INTVL = 15;   // exchange best individuals at every 15 generations
             const unsigned X_NUMBER = 5;    // exchange top X_NUMBER best
-            const unsigned MAX_GENS = 250; // run for MAX_GENS
+            //const unsigned MAX_GENS = 250; // run for MAX_GENS
 
             vector<double> x(MAX_GENS), y(MAX_GENS);
             cout << "Running for " << MAX_GENS << " generations..." << endl;
@@ -293,11 +319,34 @@ int main_ag(int argc, char** argv) {
 int meta_ag(int argc, char** argv) {
     unsigned n;               // size of chromosomes
     unsigned p;               // size of population
-    const double pe = 0.15;   // fraction of population to be the elite-set
-    const double pm = 0.25;   // fraction of population to be replaced by mutants
-    const double rhoe = 0.70; // probability that offspring inherit an allele from elite parent
-    const unsigned K = 4;     // number of independent populations
-    const unsigned MAXT = 4;  // number of threads for parallel decoding
+    double pe;   // fraction of population to be the elite-set
+    double pm;   // fraction of population to be replaced by mutants
+    double rhoe; // probability that offspring inherit an allele from elite parent
+    unsigned K;     // number of independent populations
+    unsigned MAXT;  // number of threads for parallel decoding
+    unsigned MAX_GENS;  // run for MAX_GENS
+
+    ifstream config("config.json", std::ifstream::binary);
+    if (config.is_open()) {
+        Json::Reader reader;
+        Json::Value root;
+        reader.parse(config, root);
+
+        pe = root["pe"].asDouble();
+        pm = root["pm"].asDouble();
+        rhoe = root[""].asDouble();
+        K = root["K"].asUInt();
+        MAXT = root["MAXT"].asUInt();
+        MAX_GENS = root["MAX_GENS"].asUInt();
+    }
+    else {
+        pe = 0.15;
+        pm = 0.25;
+        rhoe = 0.70;
+        K = 4;
+        MAXT = 4;
+        MAX_GENS = 200;
+    }
     list<ProblemInstance> problemInstances;
     if (argc > 1)
         problemInstances = loadProblemInstances(argv[1]);
@@ -307,12 +356,15 @@ int meta_ag(int argc, char** argv) {
     for (auto& problem : problemInstances) {
 
         n = problem.n_items * 2;
-        p = n;
+        p = 5 * n;
 
         BPDecoder decoder; // initialize the decoder
         decoder.bin_h = problem.hbin;
         decoder.bin_w = problem.wbin;
         decoder.boxes = problem.boxes;
+
+        cout << "Class " << problem.problem_class << "\n# Itens " << problem.n_items << "\nbin size " << problem.wbin << " x " << problem.hbin << endl;
+        cout << "Instance " << problem.relative << " / Absolute " << problem.absolute << endl;
 
         const long unsigned rngSeed = 1; // seed to the random number generator
         MTRand rng(rngSeed);             // initialize the random number generator
@@ -323,7 +375,6 @@ int meta_ag(int argc, char** argv) {
         MetaGA<BRKGA<BPDecoder, MTRand>, MTRand> algorithm(brkga, rng);
 
         unsigned generation = 0;        // current generation
-        const unsigned MAX_GENS = 200;  // run for MAX_GENS
         
         vector<double> x(MAX_GENS), y(MAX_GENS);
         cout << "Running for " << MAX_GENS << " generations..." << endl;
@@ -342,8 +393,23 @@ int meta_ag(int argc, char** argv) {
 
             ++generation;
         } while (generation < MAX_GENS);
+
+        cout << "Best solution found has objective value = "
+            << brkga.getBestFitness() << endl;
+
+        list<unsigned> perm = decoder.make_permutation(brkga.getBestChromosome());
+        vector<unsigned> emp = decoder.make_empate(brkga.getBestChromosome());
+        vector<unsigned> bin_capacity = decoder.placement(perm, emp);
+
+        cout << "Best packing sequence ";
+        for (auto& i : perm) {
+            cout << i << " ";
+        }
+        cout << endl;
         
         plot_chart(x, y, MAX_GENS);
+
+        drawBest(brkga.getBestChromosome(), problem);
     }
 
     return 0;

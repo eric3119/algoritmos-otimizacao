@@ -189,13 +189,13 @@ inline void MetaGA< BRKGA, RNG >::evolution(Population& curr, Population& next) 
 		refBRKGA.setPm(crm[PM]);
 
 		if (refBRKGA.getPe() == 0) {
-			refBRKGA.setPe(0.1);
+			refBRKGA.setPe(0.15);
 		}
 		if (refBRKGA.getPm() == 0) {
-			refBRKGA.setPm(0.1);
+			refBRKGA.setPm(0.25);
 		}
 
-		refBRKGA.evolve(2);
+		refBRKGA.evolve(5);
 		
 		next.setFitness(i, refBRKGA.getBestFitness());
 	}
