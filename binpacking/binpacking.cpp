@@ -330,6 +330,14 @@ int meta_ag(int argc, char** argv) {
     unsigned MAX_GENS;  // run for MAX_GENS
     unsigned P_FACTOR;
 
+    bool draw_best = false;
+
+    for (int i = 2; i < argc; ++i) {
+        if (strcmp(argv[i], "--draw") == 0) {
+            draw_best = true;
+        }
+    }
+
     ifstream config("config.json", std::ifstream::binary);
     if (config.is_open()) {
         Json::Reader reader;
@@ -412,10 +420,16 @@ int meta_ag(int argc, char** argv) {
             cout << i << " ";
         }
         cout << endl;
+
+        cout << "Possible best parameters (pm, pe): ";
+        for (auto& i : algorithm.getBestChromosome()) {
+            cout << i << " ";
+        }
+        cout << endl;
         
         plot_chart(x, y, MAX_GENS);
-
-        drawBest(brkga.getBestChromosome(), problem);
+        if (draw_best)
+            drawBest(brkga.getBestChromosome(), problem);
     }
 
     return 0;
