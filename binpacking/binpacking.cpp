@@ -130,6 +130,7 @@ int main_ag(int argc, char** argv) {
     unsigned MAXT;  // number of threads for parallel decoding
 
     unsigned MAX_GENS;
+    unsigned P_FACTOR;
     
     ifstream config("config.json", std::ifstream::binary);
 
@@ -144,6 +145,7 @@ int main_ag(int argc, char** argv) {
         K = root["K"].asUInt();
         MAXT = root["MAXT"].asUInt();
         MAX_GENS = root["MAX_GENS"].asUInt();
+        P_FACTOR = root["P_FACTOR"].asUInt();
     }
     else {
         pe = 0.15;
@@ -152,6 +154,7 @@ int main_ag(int argc, char** argv) {
         K = 4;
         MAXT = 4;
         MAX_GENS = 200;
+        P_FACTOR = 5;
     }
 
     list<ProblemInstance> problemInstances;
@@ -215,7 +218,7 @@ int main_ag(int argc, char** argv) {
     else {
         for (auto& problem : problemInstances) {
             n = problem.n_items * 2;
-            p = n;
+            p = P_FACTOR * n;
 
             BPDecoder decoder; // initialize the decoder
             decoder.bin_h = problem.hbin;
@@ -325,6 +328,7 @@ int meta_ag(int argc, char** argv) {
     unsigned K;     // number of independent populations
     unsigned MAXT;  // number of threads for parallel decoding
     unsigned MAX_GENS;  // run for MAX_GENS
+    unsigned P_FACTOR;
 
     ifstream config("config.json", std::ifstream::binary);
     if (config.is_open()) {
@@ -338,6 +342,7 @@ int meta_ag(int argc, char** argv) {
         K = root["K"].asUInt();
         MAXT = root["MAXT"].asUInt();
         MAX_GENS = root["MAX_GENS"].asUInt();
+        P_FACTOR = root["P_FACTOR"].asUInt();
     }
     else {
         pe = 0.15;
@@ -346,6 +351,7 @@ int meta_ag(int argc, char** argv) {
         K = 4;
         MAXT = 4;
         MAX_GENS = 200;
+        P_FACTOR = 5;
     }
     list<ProblemInstance> problemInstances;
     if (argc > 1)
@@ -356,7 +362,7 @@ int meta_ag(int argc, char** argv) {
     for (auto& problem : problemInstances) {
 
         n = problem.n_items * 2;
-        p = 5 * n;
+        p = P_FACTOR * n;
 
         BPDecoder decoder; // initialize the decoder
         decoder.bin_h = problem.hbin;

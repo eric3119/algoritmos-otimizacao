@@ -4,5 +4,6 @@
   "rhoe": 0.70,
   "K": 4,
   "MAXT": 4,
-  "MAX_GENS": 100
+  "MAX_GENS": 100,
+  "P_FACTOR": 5
 }
