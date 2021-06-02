@@ -55,8 +55,6 @@ bool start_allegro(unsigned bin_x, unsigned bin_y){
 }
 
 bool draw_solution(list < Box >& packed_boxes, vector< list<Space> >& Bins) {
-    cout << "Number of bins " << Bins.size() << endl;
-
     bool ret = true;
     for (int i = 0; i < Bins.size(); ++i) {
         ret = draw_bin(packed_boxes, Bins[i], i + 1);

@@ -136,6 +136,7 @@
     <ClInclude Include="brkgaapi\MTRand.h" />
     <ClInclude Include="brkgaapi\Population.h" />
     <ClInclude Include="draw_bin.h" />
+    <ClInclude Include="helper.h" />
     <ClInclude Include="MetaGA.h" />
   </ItemGroup>
   <ItemGroup>

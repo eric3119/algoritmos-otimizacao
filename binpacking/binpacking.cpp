@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <limits>
 #include <json/json.h>
+#include "helper.h"
 #include "MetaGA.h"
 #include "brkgaAPI/BRKGA.h"
 #include "brkgaAPI/MTRand.h"
@@ -31,14 +32,19 @@ bool sortbyheight(const pair<unsigned,unsigned> &a,
     return (a.second > b.second);
 } 
 
-void plot_chart(const vector<double>& x, const vector<double>& y, int generations) {
-    plt::plot(x, y);
-    plt::xlim(0, generations);
-    // Add graph title
-    plt::title("2D Bin Packing");
-    // Enable legend.
-    plt::legend();
-    plt::show();
+void plot_results(const vector<double>& x, const vector<double>& y, int generations, SETTINGS &sett) {
+    if (sett.save_path || sett.chart) {
+        plt::plot(x, y);
+        plt::xlim(0, generations);
+        // Add graph title
+        plt::title("2D Bin Packing");
+        // Enable legend.
+        plt::legend();
+        if(sett.save_path)
+            plt::save(sett.save_path);
+        if(sett.chart)
+            plt::show();
+    }
 }
 
 vector<int> extractIntegerWords(string str)
@@ -120,188 +126,120 @@ list<ProblemInstance> loadProblemInstances(const char *path) {
     return problemInstances;
 }
 
-int main_ag(int argc, char** argv) {
-    unsigned n;     // size of chromosomes
-    unsigned p;     // size of population
-    double pe;      // fraction of population to be the elite-set
-    double pm;      // fraction of population to be replaced by mutants
-    double rhoe;    // probability that offspring inherit an allele from elite parent
-    unsigned K;     // number of independent populations
-    unsigned MAXT;  // number of threads for parallel decoding
+SOLUTION run_ag(ProblemInstance &problem, AG_CONFIG &ag, SETTINGS &sett) {
+    SOLUTION sol;
+    unsigned n = problem.n_items * 2;
+    unsigned p = ag.P_FACTOR * n;
 
-    unsigned MAX_GENS;
-    unsigned P_FACTOR;
+    BPDecoder decoder; // initialize the decoder
+    decoder.bin_h = problem.hbin;
+    decoder.bin_w = problem.wbin;
+    decoder.boxes = problem.boxes;
+
+    cout << "Class " << problem.problem_class << "\n# Itens " << problem.n_items << "\nbin size " << problem.wbin << " x " << problem.hbin << endl;
+    cout << "Instance " << problem.relative << " / Absolute " << problem.absolute << endl;
+
+    // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyarea);
+    // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbywidth);
+    // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyheight);
+
+    const long unsigned rngSeed = 1;    // seed to the random number generator
+    MTRand rng(rngSeed);                // initialize the random number generator
+    // initialize the BRKGA-based heuristic
+    BRKGA<BPDecoder, MTRand> algorithm(n, p, ag.pe, ag.pm, ag.rhoe, decoder, rng, ag.K, ag.MAXT);
+
+    unsigned generation = 0;        // current generation
+    const unsigned X_INTVL = 15;    // exchange best individuals at every 15 generations
+    const unsigned X_NUMBER = 5;    // exchange top X_NUMBER best
+
+    vector<double> x(ag.MAX_GENS), y(ag.MAX_GENS);
+    cout << "Running for " << ag.MAX_GENS << " generations..." << endl;
+    do {
+        algorithm.evolve(); // evolve the population for one generation
+
+        if (!sett.disable_counter) {
+            cout << "\r" << generation << "/" << ag.MAX_GENS << "\t"
+                << algorithm.getBestFitness() << "                 ";
+        }
+
+        //Chart data
+        x.at(generation) = generation;
+        y.at(generation) = algorithm.getBestFitness();
+
+        if ((++generation) % X_INTVL == 0)
+        {
+            algorithm.exchangeElite(X_NUMBER); // exchange top individuals
+        }
+    } while (generation < ag.MAX_GENS);
+
+    if (!sett.disable_counter) cout << "\r";
+
+    double solution_best_fitness = algorithm.getBestFitness();
+    cout << "Best solution found has objective value = "
+        << solution_best_fitness << endl;
+
+    if (sett.best_cromo) {
+        cout << "Best Chromosome ";
+        for (auto& i : algorithm.getBestChromosome()) {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+
+    list<unsigned> perm = decoder.make_permutation(algorithm.getBestChromosome());
+    vector<unsigned> emp = decoder.make_empate(algorithm.getBestChromosome());
+    vector<unsigned> bin_capacity = decoder.placement(perm, emp);
+
+    cout << "Best packing sequence ";
+    for (auto& i : perm) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "Number of bins " << bin_capacity.size() << endl << endl;
+
+    sol.best_fitness = solution_best_fitness;
+    sol.num_bins = bin_capacity.size();
     
-    ifstream config("config.json", std::ifstream::binary);
-
-    if (config.is_open()) {
-        Json::Reader reader;
-        Json::Value root;
-        reader.parse(config, root);
-
-        pe = root["pe"].asDouble();
-        pm = root["pm"].asDouble();
-        rhoe = root[""].asDouble();
-        K = root["K"].asUInt();
-        MAXT = root["MAXT"].asUInt();
-        MAX_GENS = root["MAX_GENS"].asUInt();
-        P_FACTOR = root["P_FACTOR"].asUInt();
+    if (sett.draw_best) {
+        drawBest(algorithm.getBestChromosome(), problem);
     }
-    else {
-        pe = 0.15;
-        pm = 0.25;
-        rhoe = 0.70;
-        K = 4;
-        MAXT = 4;
-        MAX_GENS = 200;
-        P_FACTOR = 5;
-    }
+
+    plot_results(x, y, ag.MAX_GENS, sett);
+
+    return sol;
+}
+
+int main_ag(AG_CONFIG& ag, SETTINGS& sett) {
 
     list<ProblemInstance> problemInstances;
 
-    string line;
-    ifstream myfile;
-    bool draw_best = false;
-    bool finish_relative = false;
-    bool best_cromo = false;
-    bool disable_counter = false;
+    problemInstances = loadProblemInstances(sett.path);
 
-    unsigned gotoabsolute = 0;
-
-    if (argc > 1) {
-        problemInstances = loadProblemInstances(argv[1]);
-        if (argc > 2) {
-            for (int i = 2; i < argc; ++i) {
-                if (strcmp(argv[i], "--draw") == 0) {
-                    draw_best = true;
-                }
-                if (strcmp(argv[i], "--lastrel") == 0) {
-                    finish_relative = true;
-                }
-                if (strcmp(argv[i], "--bestcromo") == 0) {
-                    best_cromo = true;
-                }
-                if (strcmp(argv[i], "--inst") == 0) {
-                    gotoabsolute = atoi(argv[i + 1]);
-                    ++i;
-                }
-                if (strcmp(argv[i], "--out") == 0) {
-                    disable_counter = true;
-                }
-            }
-        }
-    }
-    else {
-        draw_best = true;
-        problemInstances = loadProblemInstances("teste.in");
-    }
-    
-
-    double class_mean = 0;
-    double num_bins = 0;
-    double best_fitness = numeric_limits<double>::max();
-
-    if (gotoabsolute) {
-        vector<double> cromo;
-        double c;
-        while (cin >> c)
-            cromo.push_back(c);
+    if (sett.gotoabsolute) {
+        //vector<double> cromo;
+        //double c;
+        //while (cin >> c)
+        //    cromo.push_back(c);
+        //drawBest(cromo, problem);
 
         for (auto& problem : problemInstances) {
-            if (problem.absolute == gotoabsolute) {
-                drawBest(cromo, problem);
-                break;
+            if (problem.absolute == sett.gotoabsolute) {
+                run_ag(problem, ag, sett);
+                return 0;
             }
         }
 
-    }
-    else {
+    } else {
+        double class_mean = 0;
+        double num_bins = 0;
+        double best_fitness = numeric_limits<double>::max();
+
         for (auto& problem : problemInstances) {
-            n = problem.n_items * 2;
-            p = P_FACTOR * n;
+            SOLUTION sol = run_ag(problem, ag, sett);
+            class_mean += sol.best_fitness;
+            num_bins += sol.num_bins;
 
-            BPDecoder decoder; // initialize the decoder
-            decoder.bin_h = problem.hbin;
-            decoder.bin_w = problem.wbin;
-            decoder.boxes = problem.boxes;
-
-            cout << "Class " << problem.problem_class << "\n# Itens " << problem.n_items << "\nbin size " << problem.wbin << " x " << problem.hbin << endl;
-            cout << "Instance " << problem.relative << " / Absolute " << problem.absolute << endl;
-
-
-            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyarea);
-            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbywidth);
-            // sort(decoder.boxes.begin(), decoder.boxes.end(), sortbyheight);
-
-            const long unsigned rngSeed = 1; // seed to the random number generator
-            MTRand rng(rngSeed);             // initialize the random number generator
-            // initialize the BRKGA-based heuristic
-            BRKGA<BPDecoder, MTRand> algorithm(n, p, pe, pm, rhoe, decoder, rng, K, MAXT);
-
-            unsigned generation = 0;        // current generation
-            const unsigned X_INTVL = 15;   // exchange best individuals at every 15 generations
-            const unsigned X_NUMBER = 5;    // exchange top X_NUMBER best
-            //const unsigned MAX_GENS = 250; // run for MAX_GENS
-
-            vector<double> x(MAX_GENS), y(MAX_GENS);
-            cout << "Running for " << MAX_GENS << " generations..." << endl;
-            do
-            {
-                algorithm.evolve(); // evolve the population for one generation
-                
-                if (!disable_counter) {
-                    cout << "\r" << generation << "/" << MAX_GENS << "\t" 
-                        << algorithm.getBestFitness();
-                }
-                
-                //Chart data
-                x.at(generation) = generation;
-                y.at(generation) = algorithm.getBestFitness();
-
-                if ((++generation) % X_INTVL == 0)
-                {
-                    algorithm.exchangeElite(X_NUMBER); // exchange top individuals
-                }
-                //cout << "\r" << generation << "/" << MAX_GENS << "        ";
-            } while (generation < MAX_GENS);
-            
-            if (!disable_counter) cout << "\r";
-            double solution_best_fitness = algorithm.getBestFitness();
-            cout << "Best solution found has objective value = "
-                << solution_best_fitness << endl;
-
-            if (best_cromo) {
-                cout << "Best Chromosome ";
-                for (auto& i : algorithm.getBestChromosome()) {
-                    cout << i << " ";
-                }
-                cout << endl;
-            }
-
-            list<unsigned> perm = decoder.make_permutation(algorithm.getBestChromosome());
-            vector<unsigned> emp = decoder.make_empate(algorithm.getBestChromosome());
-            vector<unsigned> bin_capacity = decoder.placement(perm, emp);
-
-            cout << "Best packing sequence ";
-            for (auto& i : perm) {
-                cout << i << " ";
-            }
-            cout << endl;
-
-            class_mean += solution_best_fitness;
-            num_bins += bin_capacity.size();
-
-            best_fitness = min(best_fitness, solution_best_fitness);
-
-            if (draw_best) {
-                drawBest(algorithm.getBestChromosome(), problem);
-            }
-
-            if (finish_relative) {
-                cout << "\n" << "# Bins = " << num_bins << endl;
-                cout << "Best fitness = " << best_fitness << endl << endl;
-            }
-
+            best_fitness = min(best_fitness, sol.best_fitness);
             if (problem.relative == 10) {
                 cout << "\n" << "# Bins (mean) = " << num_bins / 10 << endl;
                 cout << "Class (mean) = " << class_mean / 10 << endl;
@@ -311,66 +249,21 @@ int main_ag(int argc, char** argv) {
                 num_bins = 0;
                 best_fitness = numeric_limits<double>::max();
             }
-
-            plot_chart(x, y, MAX_GENS);
         }
     }
 
     return 0;
 }
 
-int meta_ag(int argc, char** argv) {
-    unsigned n;               // size of chromosomes
-    unsigned p;               // size of population
-    double pe;   // fraction of population to be the elite-set
-    double pm;   // fraction of population to be replaced by mutants
-    double rhoe; // probability that offspring inherit an allele from elite parent
-    unsigned K;     // number of independent populations
-    unsigned MAXT;  // number of threads for parallel decoding
-    unsigned MAX_GENS;  // run for MAX_GENS
-    unsigned P_FACTOR;
-
-    bool draw_best = false;
-
-    for (int i = 2; i < argc; ++i) {
-        if (strcmp(argv[i], "--draw") == 0) {
-            draw_best = true;
-        }
-    }
-
-    ifstream config("config.json", std::ifstream::binary);
-    if (config.is_open()) {
-        Json::Reader reader;
-        Json::Value root;
-        reader.parse(config, root);
-
-        pe = root["pe"].asDouble();
-        pm = root["pm"].asDouble();
-        rhoe = root[""].asDouble();
-        K = root["K"].asUInt();
-        MAXT = root["MAXT"].asUInt();
-        MAX_GENS = root["MAX_GENS"].asUInt();
-        P_FACTOR = root["P_FACTOR"].asUInt();
-    }
-    else {
-        pe = 0.15;
-        pm = 0.25;
-        rhoe = 0.70;
-        K = 4;
-        MAXT = 4;
-        MAX_GENS = 200;
-        P_FACTOR = 5;
-    }
+int meta_ag(AG_CONFIG &ag, SETTINGS &sett) {
+   
     list<ProblemInstance> problemInstances;
-    if (argc > 1)
-        problemInstances = loadProblemInstances(argv[1]);
-    else
-        problemInstances = loadProblemInstances("teste.in");
+    problemInstances = loadProblemInstances(sett.path);
 
     for (auto& problem : problemInstances) {
 
-        n = problem.n_items * 2;
-        p = P_FACTOR * n;
+        unsigned n = problem.n_items * 2;
+        unsigned p = ag.P_FACTOR * n;
 
         BPDecoder decoder; // initialize the decoder
         decoder.bin_h = problem.hbin;
@@ -383,20 +276,20 @@ int meta_ag(int argc, char** argv) {
         const long unsigned rngSeed = 1; // seed to the random number generator
         MTRand rng(rngSeed);             // initialize the random number generator
 
-        BRKGA<BPDecoder, MTRand> brkga(n, p, pe, pm, rhoe, decoder, rng, K, MAXT);
+        BRKGA<BPDecoder, MTRand> brkga(n, p, ag.pe, ag.pm, ag.rhoe, decoder, rng, ag.K, ag.MAXT);
 
         // initialize the BRKGA-based heuristic
         MetaGA<BRKGA<BPDecoder, MTRand>, MTRand> algorithm(brkga, rng);
 
         unsigned generation = 0;        // current generation
         
-        vector<double> x(MAX_GENS), y(MAX_GENS);
-        cout << "Running for " << MAX_GENS << " generations..." << endl;
+        vector<double> x(ag.MAX_GENS), y(ag.MAX_GENS);
+        cout << "Running for " << ag.MAX_GENS << " generations..." << endl;
         do
         {
             algorithm.evolve(); // evolve the population for one generation
 
-            cout << "\r" << generation+1 << "/" << MAX_GENS 
+            cout << "\r" << generation+1 << "/" << ag.MAX_GENS 
                 << "\t" << algorithm.getBestFitness() 
                 << " pm: " << brkga.getPm() 
                 << " pe: " << brkga.getPe() << "            ";
@@ -406,7 +299,7 @@ int meta_ag(int argc, char** argv) {
             y.at(generation) = algorithm.getBestFitness();
 
             ++generation;
-        } while (generation < MAX_GENS);
+        } while (generation < ag.MAX_GENS);
 
         cout << "Best solution found has objective value = "
             << brkga.getBestFitness() << endl;
@@ -427,8 +320,8 @@ int meta_ag(int argc, char** argv) {
         }
         cout << endl;
         
-        plot_chart(x, y, MAX_GENS);
-        if (draw_best)
+        plot_results(x, y, ag.MAX_GENS, sett);
+        if (sett.draw_best)
             drawBest(brkga.getBestChromosome(), problem);
     }
 
@@ -436,11 +329,65 @@ int meta_ag(int argc, char** argv) {
 }
 
 int main(int argc, char **argv) {
-    for (int i = 2; i < argc; ++i) {
-        if (strcmp(argv[i], "--auto") == 0) {
-            return meta_ag(argc, argv);
+
+    AG_CONFIG agconfig; // Genetic algorithm parameters
+    SETTINGS settings = {false, false, false, 0, "teste.in", NULL, false}; // Fill flags from argv
+
+    bool flag_auto_ga = false;
+
+    if (argc > 1) {
+        for (int i = 1; i < argc; ++i) {
+            if (strcmp(argv[i], "--auto") == 0) {
+                flag_auto_ga = true;
+            } else if (strcmp(argv[i], "--draw") == 0) {
+                settings.draw_best = true;
+            } else if (strcmp(argv[i], "--chart") == 0) {
+                settings.chart = true;
+            } else if (strcmp(argv[i], "--bestcromo") == 0) {
+                settings.best_cromo = true;
+            } else if (strcmp(argv[i], "--inst") == 0) {
+                ++i;
+                if (i >= argc) { cout << "Missing instance number\n"; return -1; }
+                settings.gotoabsolute = atoi(argv[i]);
+            } else if (strcmp(argv[i], "--save-chart") == 0) {
+                ++i;
+                if (i >= argc) { cout << "Missing chart path\n"; return -1; }
+                settings.save_path = argv[i];
+            } else if (strcmp(argv[i], "--out") == 0) {
+                settings.disable_counter = true;
+            } else {
+                settings.path = argv[i];
+                cout << "load instances from: " << settings.path << endl;
+            }
         }
     }
 
-    return main_ag(argc, argv);
+    ifstream config("config.json", std::ifstream::binary);
+    if (config.is_open()) {
+        Json::Reader reader;
+        Json::Value root;
+        reader.parse(config, root);
+
+        agconfig.pe = root["pe"].asDouble();
+        agconfig.pm = root["pm"].asDouble();
+        agconfig.rhoe = root["rhoe"].asDouble();
+        agconfig.K = root["K"].asUInt();
+        agconfig.MAXT = root["MAXT"].asUInt();
+        agconfig.MAX_GENS = root["MAX_GENS"].asUInt();
+        agconfig.P_FACTOR = root["P_FACTOR"].asUInt();
+    } else {
+        agconfig.pe = 0.15;
+        agconfig.pm = 0.25;
+        agconfig.rhoe = 0.70;
+        agconfig.K = 4;
+        agconfig.MAXT = 4;
+        agconfig.MAX_GENS = 200;
+        agconfig.P_FACTOR = 5;
+    }
+
+    if (flag_auto_ga) {
+        return meta_ag(agconfig, settings);
+    } else {
+        return main_ag(agconfig, settings);
+    }
 }
