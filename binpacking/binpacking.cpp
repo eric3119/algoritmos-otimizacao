@@ -142,7 +142,7 @@ list<ProblemInstance> loadProblemInstances(const char *path) {
 }
 
 SOLUTION run_ag(ProblemInstance &problem, AG_CONFIG &ag, SETTINGS &sett, 
-                vector<double> &x, vector<double>& y, const long unsigned rngSeed = 1) {
+        vector<double> &x, vector<double>& y, const long unsigned rngSeed = 1) {
     SOLUTION sol;
     unsigned n = problem.n_items * 2;
     unsigned p = ag.P_FACTOR * n;
@@ -177,8 +177,8 @@ SOLUTION run_ag(ProblemInstance &problem, AG_CONFIG &ag, SETTINGS &sett,
         }
 
         //Chart data
-        x.at(generation) = generation;
-        y.at(generation) = algorithm.getBestFitness();
+        x.push_back(generation);
+        y.push_back(algorithm.getBestFitness());
 
         if ((++generation) % X_INTVL == 0)
         {
@@ -222,7 +222,7 @@ SOLUTION run_ag(ProblemInstance &problem, AG_CONFIG &ag, SETTINGS &sett,
 }
 
 SOLUTION meta_ag(ProblemInstance& problem, AG_CONFIG& ag, SETTINGS& sett,
-    vector<double>& x, vector<double>& y, const long unsigned rngSeed = 1) {
+        vector<double>& x, vector<double>& y, const long unsigned rngSeed = 1) {
     SOLUTION sol;
    
     unsigned n = problem.n_items * 2;
@@ -244,25 +244,26 @@ SOLUTION meta_ag(ProblemInstance& problem, AG_CONFIG& ag, SETTINGS& sett,
     MetaGA<BRKGA<BPDecoder, MTRand>, MTRand> algorithm(brkga, rng);
 
     unsigned generation = 0;        // current generation
-        
+    cout.precision(3);
     cout << "Running for " << ag.MAX_GENS << " generations..." << endl;
     do
     {
-        algorithm.evolve(); // evolve the population for one generation
-
         cout << "\r" << generation+1 << "/" << ag.MAX_GENS 
             << "\t" << algorithm.getBestFitness() 
-            << " pm: " << brkga.getPm() 
-            << " pe: " << brkga.getPe() << "            ";
+            << " pm: " << double(brkga.getPm()) / double(brkga.getP())
+            << " pe: " << double(brkga.getPe()) / double(brkga.getP()) << "            ";
+        algorithm.evolve(); // evolve MetaGA algorithm
 
         //Chart data
-        x.at(generation) = generation;
-        y.at(generation) = algorithm.getBestFitness();
+        for (auto& i : algorithm.fitness_history) {
+            x.push_back(generation);
+            y.push_back(i);
 
-        ++generation;
+            ++generation;
+        }
     } while (generation < ag.MAX_GENS);
 
-    cout << "Best solution found has objective value = "
+    cout << "\nBest solution found has objective value = "
         << brkga.getBestFitness() << endl;
 
     list<unsigned> perm = decoder.make_permutation(brkga.getBestChromosome());
@@ -275,11 +276,24 @@ SOLUTION meta_ag(ProblemInstance& problem, AG_CONFIG& ag, SETTINGS& sett,
     }
     cout << endl;
 
-    cout << "Possible best parameters (pm, pe): ";
+    cout << "\nPossible best parameters (pm, pe): ";
     for (auto& i : algorithm.getBestChromosome()) {
         cout << i << " ";
     }
     cout << endl;
+
+    // print the fitness of the top 10 individuals of each population:
+    std::cout << "Fitness of the top 10 individuals of each population:" << std::endl;
+    std::cout << "(pe, pm)" << std::endl;
+    const unsigned bound = std::min(p, unsigned(10));	// makes sure we have 10 individuals
+    for (unsigned j = 0; j < bound; ++j) {
+        std::cout << algorithm.getPopulation().getFitness(j) << " ("
+            << algorithm.getPopulation().getChromosome(j).at(0) << ", "
+            << algorithm.getPopulation().getChromosome(j).at(1) << ")" << std::endl;
+    }
+
+    ag.pe = algorithm.getBestChromosome().at(PE);
+    ag.pm = algorithm.getBestChromosome().at(PM);
 
     sol.best_fitness = brkga.getBestFitness();
     sol.num_bins = bin_capacity.size();
@@ -371,7 +385,7 @@ int main(int argc, char **argv) {
         list<pair<vector<double>, vector<double>>> data;
         for (unsigned i = 0; i < settings.n_times; ++i) {
             SOLUTION sol;
-            vector<double> x(agconfig.MAX_GENS), y(agconfig.MAX_GENS); // Plot Data
+            vector<double> x, y; // Plot Data
             if (flag_auto_ga) {
                 sol = meta_ag(problem, agconfig, settings, x, y, i);
             }
@@ -381,7 +395,7 @@ int main(int argc, char **argv) {
             data.push_back({ x, y });
         }
 
-        plot_results(data, agconfig.MAX_GENS, settings, agconfig);
+        plot_results(data, data.begin()->first.size(), settings, agconfig);
 
         return 0;
     }
@@ -393,7 +407,7 @@ int main(int argc, char **argv) {
         for (auto& problem : problemInstances) {
 
             list<pair<vector<double>, vector<double>>> data;
-            vector<double> x(agconfig.MAX_GENS), y(agconfig.MAX_GENS); // Plot Data
+            vector<double> x, y; // Plot Data
 
             SOLUTION sol;
             if (flag_auto_ga) {
@@ -403,7 +417,7 @@ int main(int argc, char **argv) {
                 sol = run_ag(problem, agconfig, settings, x, y);
             }
             data.push_back({ x, y });
-            plot_results(data, agconfig.MAX_GENS, settings, agconfig);
+            plot_results(data, data.begin()->first.size(), settings, agconfig);
 
             class_mean += sol.best_fitness;
             num_bins += sol.num_bins;

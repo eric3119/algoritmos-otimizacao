@@ -39,6 +39,8 @@ public:
 	 */
 	const std::vector< double >& getBestChromosome() const;
 
+	std::vector<double> fitness_history;
+
 	/**
 	 * Returns the best fitness found so far among all populations
 	 */
@@ -59,11 +61,11 @@ public:
 private:
 	// I don't see any reason to pimpl the internal methods and data, so here they are:
 	// Hyperparameters:
-	const unsigned n;	// number of genes in the chromosome
-	const unsigned p;	// number of elements in the population
-	const unsigned pe;	// number of elite items in the population
-	const unsigned pm;	// number of mutants introduced at each generation into the population
-	const double rhoe;	// probability that an offspring inherits the allele of its elite parent
+	const unsigned n = 2;	// genes in the chromosome = 2 -> pair(pe, pm)
+	const unsigned p = 10;	// number of elements in the population = 10
+	const unsigned pe = 2;	// number of elite items in the population
+	const unsigned pm = 2;	// number of mutants introduced at each generation into the population
+	const double rhoe = 0.7;	// probability that an offspring inherits the allele of its elite parent
 
 	// Templates:
 	RNG& refRNG;			// reference to the random number generator
@@ -75,13 +77,12 @@ private:
 	// Local operations:
 	void initialize();		// initialize current population with random keys
 	void evolution(Population& curr, Population& next);
-	bool isRepeated(const std::vector< double >& chrA, const std::vector< double >& chrB) const;
+	//bool isRepeated(const std::vector< double >& chrA, const std::vector< double >& chrB) const;
 };
 
 template<class BRKGA, class RNG>
 inline MetaGA<BRKGA, RNG>::MetaGA(BRKGA& brkga, RNG& rng) : 
-	refRNG(rng), refBRKGA(brkga), n(2), 
-	p(30), pe(unsigned(30 * 0.15)), pm(unsigned(30 * 0.25)), rhoe(0.7) {
+	refRNG(rng), refBRKGA(brkga) {
 
 	// Allocate:
 	current = new Population(n, p);
@@ -182,6 +183,7 @@ inline void MetaGA< BRKGA, RNG >::evolution(Population& curr, Population& next) 
 #ifdef _OPENMP
 #pragma omp parallel for num_threads(MAX_THREADS)
 #endif
+	fitness_history.clear();
 	for (int i = int(pe); i < int(p); ++i) {
 		vector<double> crm = next.population[i];
 
@@ -195,7 +197,10 @@ inline void MetaGA< BRKGA, RNG >::evolution(Population& curr, Population& next) 
 			refBRKGA.setPm(0.25);
 		}
 
-		refBRKGA.evolve(5);
+		for (int j = 0; j < 5; ++j) {
+			refBRKGA.evolve();
+			fitness_history.push_back(refBRKGA.getBestFitness());
+		}
 		
 		next.setFitness(i, refBRKGA.getBestFitness());
 	}
