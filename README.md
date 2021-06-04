@@ -1,5 +1,10 @@
 # Otimizações com Algoritmo Genético (Framework BRKGA - C++)
 
+## UFAL - COMP397 - Computação Evolucionária
+* Aplicação do BRKGA no problema de empacotamento 2D
+* Meta BRKGA: busca de hiperparâmetros
+* [Gráficos](binpacking/charts/charts.md)
+
 ## UFAL - COMP265 - Pesquisa Operacional
 
 * Aplicação do BRKGA no problema de empacotamento 2D
