@@ -129,7 +129,7 @@ void MetaGA< BRKGA, RNG >::evolve(unsigned generations) {
 template< class BRKGA, class RNG >
 inline void MetaGA< BRKGA, RNG >::initialize() {
 	for (unsigned j = 0; j < p; ++j) {
-		for (unsigned k = 0; k < n; ++k) { (*current)(j, k) = 0.5; }
+		for (unsigned k = 0; k < n; ++k) { (*current)(j, k) = 0.49; }
 	}
 
 	for (int j = 0; j < int(p); ++j) {
@@ -175,7 +175,7 @@ inline void MetaGA< BRKGA, RNG >::evolution(Population& curr, Population& next) 
 
 	// We'll introduce 'pm' mutants:
 	while (i < p) {
-		for (j = 0; j < n; ++j) { next(i, j) = refRNG.rand(); }
+		for (j = 0; j < n; ++j) { next(i, j) = std::fmod(refRNG.rand(), 0.49); }
 		++i;
 	}
 
