@@ -1,5 +1,7 @@
 # Meta AG (Automático)
-![drawing](t1__pm0.020653_pe0.307364_pfactor4.png) 
+(pe, pm) ~= (0,25 ; 0,22) | .
+:-------------------------:|:-------------------------:
+![drawing](t1__pm0.020653_pe0.307364_pfactor4.png) | ![drawing](t2__pm0.008862_pe0.345798_pfactor4.png) 
 
 # BRKGA tradicional (Manual)
 ## (0,10 ; 0,15)
