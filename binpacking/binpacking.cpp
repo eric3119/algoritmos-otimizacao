@@ -277,7 +277,7 @@ SOLUTION meta_ag(ProblemInstance& problem, AG_CONFIG& ag, SETTINGS& sett,
     }
     cout << endl;
 
-    cout << "\nPossible best parameters (pm, pe): ";
+    cout << "\nPossible best parameters (pe, pm): ";
     for (auto& i : algorithm.getBestChromosome()) {
         cout << i << " ";
     }
