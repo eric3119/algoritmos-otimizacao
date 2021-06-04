@@ -66,6 +66,9 @@ public:
 	// (this is done by BRKGA, so rest assured: everything will work just fine with BRKGA).
 	// Returns the best fitness in this population:
 	double getBestFitness() const;
+
+	// Returns the mean fitness in this population:
+	double getMeanFitness() const;
 	
 	// Returns the fitness of chromosome i \in {0, ..., getP() - 1}
 	double getFitness(unsigned i) const;

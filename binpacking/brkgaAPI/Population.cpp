@@ -65,6 +65,15 @@ double Population::getBestFitness() const {
 	return getFitness(0);
 }
 
+double Population::getMeanFitness() const
+{
+	double mean = 0.0;
+	for (auto& i : fitness) {
+		mean += i.first;
+	}
+	return mean / (double) fitness.size();
+}
+
 double Population::getFitness(unsigned i) const {
 	#ifdef RANGECHECK
 		if(i >= getP()) { throw std::range_error("Invalid individual identifier."); }

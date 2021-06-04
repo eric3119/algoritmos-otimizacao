@@ -33,7 +33,7 @@ bool sortbyheight(const pair<unsigned,unsigned> &a,
 } 
 
 void plot_results(const list<pair<vector<double>, vector<double>>> &data, 
-        int x_max, SETTINGS &sett, AG_CONFIG &ag) {
+        int x_max, SETTINGS &sett, AG_CONFIG &ag, ProblemInstance &prob) {
     if (sett.save_path || sett.chart) {
         for (auto& i : data) {
             plt::plot(i.first, i.second);
@@ -41,7 +41,8 @@ void plot_results(const list<pair<vector<double>, vector<double>>> &data,
         plt::xlim(0, x_max);
         // Add graph title
         plt::title("2D Bin Packing\npm: " + std::to_string(ag.pm) +
-            " pe: " + std::to_string(ag.pe) + " pfactor " + std::to_string(ag.P_FACTOR));
+            " pe: " + std::to_string(ag.pe) + " pfactor " + std::to_string(ag.P_FACTOR) + 
+            "no. itens: " + std::to_string(prob.n_items));
         // Enable legend.
         //plt::legend();
         if (sett.save_path) {
@@ -395,7 +396,7 @@ int main(int argc, char **argv) {
             data.push_back({ x, y });
         }
 
-        plot_results(data, data.begin()->first.size(), settings, agconfig);
+        plot_results(data, data.begin()->first.size(), settings, agconfig, problem);
 
         return 0;
     }
@@ -417,7 +418,7 @@ int main(int argc, char **argv) {
                 sol = run_ag(problem, agconfig, settings, x, y);
             }
             data.push_back({ x, y });
-            plot_results(data, data.begin()->first.size(), settings, agconfig);
+            plot_results(data, data.begin()->first.size(), settings, agconfig, problem);
 
             class_mean += sol.best_fitness;
             num_bins += sol.num_bins;

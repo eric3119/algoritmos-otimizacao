@@ -139,6 +139,11 @@ public:
 	 */
 	double getBestFitness() const;
 
+	/**
+	 * Returns the mean fitness of all populations
+	 */
+	double getMeanFitness() const;
+
 	// Return copies to the internal parameters:
 	unsigned getN() const;
 	unsigned getP() const;
@@ -354,6 +359,16 @@ inline void BRKGA< Decoder, RNG >::evolution(Population& curr, Population& next)
 
 	// Now we must sort 'current' by fitness, since things might have changed:
 	next.sortFitness();
+}
+
+template<class Decoder, class RNG>
+inline double BRKGA<Decoder, RNG>::getMeanFitness() const {
+	double mean = 0;
+	for (unsigned i = 1; i < K; ++i) {
+		mean += current[i]->getMeanFitness();
+	}
+
+	return mean / (double) K;
 }
 
 template< class Decoder, class RNG >

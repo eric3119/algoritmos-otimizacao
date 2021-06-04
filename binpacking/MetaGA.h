@@ -187,6 +187,7 @@ inline void MetaGA< BRKGA, RNG >::evolution(Population& curr, Population& next) 
 	for (int i = int(pe); i < int(p); ++i) {
 		vector<double> crm = next.population[i];
 
+		// Update hyperparameters
 		refBRKGA.setPe(crm[PE]);
 		refBRKGA.setPm(crm[PM]);
 
@@ -199,10 +200,10 @@ inline void MetaGA< BRKGA, RNG >::evolution(Population& curr, Population& next) 
 
 		for (int j = 0; j < 5; ++j) {
 			refBRKGA.evolve();
-			fitness_history.push_back(refBRKGA.getBestFitness());
+			fitness_history.push_back(refBRKGA.getMeanFitness());
 		}
 		
-		next.setFitness(i, refBRKGA.getBestFitness());
+		next.setFitness(i, refBRKGA.getMeanFitness());
 	}
 
 	// Now we must sort 'current' by fitness, since things might have changed:
