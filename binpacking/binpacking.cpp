@@ -308,7 +308,7 @@ SOLUTION meta_ag(ProblemInstance& problem, AG_CONFIG& ag, SETTINGS& sett,
 int main(int argc, char **argv) {
 
     AG_CONFIG agconfig; // Genetic algorithm parameters
-    SETTINGS settings = {false, false, false, 0, "teste.in", NULL, false, 0}; // Fill flags from argv
+    SETTINGS settings = {false, false, false, 0, "teste.in", NULL, false, 0, 1}; // Fill flags from argv
 
     bool flag_auto_ga = false;
 
@@ -321,6 +321,9 @@ int main(int argc, char **argv) {
             } else if (strcmp(argv[i], "--repeat") == 0) {
                 if ((++i) >= argc) { cout << "Missing number of repetitions\n"; return -1; }
                 settings.n_times = atoi(argv[i]);
+            } else if (strcmp(argv[i], "--seed") == 0) {
+                if ((++i) >= argc) { cout << "Missing random seed (unsigned)\n"; return -1; }
+                settings.seed = atoi(argv[i]);
             } else if (strcmp(argv[i], "--chart") == 0) {
                 settings.chart = true;
             } else if (strcmp(argv[i], "--bestcromo") == 0) {
@@ -388,10 +391,10 @@ int main(int argc, char **argv) {
             SOLUTION sol;
             vector<double> x, y; // Plot Data
             if (flag_auto_ga) {
-                sol = meta_ag(problem, agconfig, settings, x, y, i);
+                sol = meta_ag(problem, agconfig, settings, x, y, i + settings.seed);
             }
             else {
-                sol = run_ag(problem, agconfig, settings, x, y, i);
+                sol = run_ag(problem, agconfig, settings, x, y, i + settings.seed);
             }
             data.push_back({ x, y });
         }

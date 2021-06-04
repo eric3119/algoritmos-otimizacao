@@ -20,6 +20,7 @@ typedef struct SETTINGS {
 	const char* save_path;
 	bool chart;
 	unsigned n_times;
+	unsigned seed;
 } SETTINGS;
 
 typedef struct SOLUTION {
