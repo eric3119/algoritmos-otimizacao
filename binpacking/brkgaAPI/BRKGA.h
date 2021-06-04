@@ -364,7 +364,7 @@ inline void BRKGA< Decoder, RNG >::evolution(Population& curr, Population& next)
 template<class Decoder, class RNG>
 inline double BRKGA<Decoder, RNG>::getMeanFitness() const {
 	double mean = 0;
-	for (unsigned i = 1; i < K; ++i) {
+	for (unsigned i = 0; i < K; ++i) {
 		mean += current[i]->getMeanFitness();
 	}
 
