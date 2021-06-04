@@ -1,0 +1,46 @@
+load instances from: ..\..\gerador\martello_vigo\MV_2bp\Class_10.2bp
+Class 10
+# Itens 80
+bin size 100 x 100
+Instance 7 / Absolute 487
+Running for 300 generations...
+Best solution found has objective value = 14.8742
+Best packing sequence 71 67 34 54 59 44 15 75 5 23 78 76 38 11 74 51 12 18 1 56 8 32 58 29 66 68 47 7 62 61 14 64 45 4 40 43 31 49 30 13 79 52 33 72 16 19 27 63 2 57 39 37 21 26 73 42 55 41 70 10 9 48 25 60 17 3 65 24 46 50 35 53 69 6 28 36 0 22 77 20 
+Number of bins 14
+
+Class 10
+# Itens 80
+bin size 100 x 100
+Instance 7 / Absolute 487
+Running for 300 generations...
+Best solution found has objective value = 15.0924
+Best packing sequence 1 59 14 71 76 78 62 69 44 68 63 75 9 26 38 15 67 30 7 12 52 5 18 47 22 24 2 21 53 55 58 17 41 74 45 54 29 37 51 28 13 40 34 49 36 23 27 64 20 72 8 79 48 57 10 19 16 43 66 4 25 31 42 61 65 33 39 50 6 56 3 11 77 70 32 35 46 60 0 73 
+Number of bins 15
+
+Class 10
+# Itens 80
+bin size 100 x 100
+Instance 7 / Absolute 487
+Running for 300 generations...
+Best solution found has objective value = 15.044
+Best packing sequence 14 19 34 71 55 18 39 12 44 61 30 1 51 78 57 68 4 15 76 74 62 5 23 37 66 33 58 59 79 75 52 7 31 2 70 53 45 27 3 67 41 25 63 0 29 54 38 10 35 11 8 72 17 56 32 49 65 60 9 21 36 26 28 64 42 13 20 24 69 47 40 77 48 16 6 50 43 22 46 73 
+Number of bins 15
+
+Class 10
+# Itens 80
+bin size 100 x 100
+Instance 7 / Absolute 487
+Running for 300 generations...
+Best solution found has objective value = 14.8742
+Best packing sequence 67 59 44 43 63 15 5 78 12 37 34 71 51 76 3 19 74 4 22 56 1 32 58 0 23 52 30 68 47 31 53 70 14 61 65 33 62 45 79 2 27 55 24 49 75 8 41 13 69 10 57 38 77 54 21 17 29 73 66 36 25 60 7 35 64 18 26 42 46 50 6 28 48 40 72 11 39 20 16 9 
+Number of bins 14
+
+Class 10
+# Itens 80
+bin size 100 x 100
+Instance 7 / Absolute 487
+Running for 300 generations...
+Best solution found has objective value = 14.9127
+Best packing sequence 59 44 14 60 71 19 47 27 78 36 76 63 39 15 2 41 11 77 5 25 0 54 12 51 67 18 1 30 9 69 72 3 34 68 37 66 4 74 61 62 21 53 50 33 56 73 38 24 57 31 26 42 17 55 75 58 40 52 45 49 29 10 79 46 6 8 22 48 7 20 64 70 32 23 65 43 35 13 16 28 
+Number of bins 14
+
